@@ -14778,6 +14778,75 @@ $$R(h)-R^{*}=\left(R(h)-\inf _{h \in \mathcal{H}} R(h)\right)+\left(\inf _{h \in
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="3.-Rademacher-Complexity-and-VC-Dimension">3. Rademacher Complexity and VC-Dimension<a class="anchor-link" href="#3.-Rademacher-Complexity-and-VC-Dimension">&#182;</a></h3><p>Let $\mathcal{G}=\{g:(x, y) \mapsto L(h(x), y): h \in \mathcal{H}\}$ be the family of loss functions associated to $\mathcal{H}$.</p>
+<blockquote><p>( Empirical Rademacher complexity ) Let $S = (z_1,...,z_m)$ be a fixed sample of size $m$ with elements in $\mathcal{Z} = \mathcal{X} \times \mathcal{Y}$.
+$$\widehat{\mathfrak{R}}_{S}(\mathcal{G})=\underset{\boldsymbol{\sigma}}{\mathbb{E}}\left[\sup _{g \in \mathcal{G}} \frac{\boldsymbol{\sigma} \cdot \mathbf{g}_{S}}{m}\right],$$
+where $\sigma = (\sigma_1, . . . , \sigma_m)^{T}$, with $\sigma$'s independent uniform random variables taking
+values in {−1,+1}.</p>
+</blockquote>
+<p>The empirical Rademacher complexity measures on average how well the function class $\mathcal{G}$ correlates with random noise $\sigma$ on $S$. Furthermore, the general Rademacher complexity is defined as $\mathfrak{R}_{m}(\mathcal{G})=\underset{S \sim \mathcal{D}^{m}}{\mathbb{E}}\left[\widehat{\Re}_{S}(\mathcal{G})\right]$.</p>
+<p>The Rademacher complexity can be bounded in terms of the growth function.</p>
+<blockquote><p>( Growth Function ) The growth function  $\Pi_{\mathcal{H}}: \mathbb{N} \rightarrow \mathbb{N}$  for a hypothesis set  $\mathcal{H}$  is defined by:</p>
+$$\forall m \in \mathbb{N}, \Pi_{\mathcal{H}}(m)=\max _{\left\{x_{1}, \ldots, x_{m}\right\} \subseteq X}\left|\left\{\left(h\left(x_{1}\right), \ldots, h\left(x_{m}\right)\right): h \in \mathcal{H}\right\}\right|.$$
+</blockquote>
+<p>In other words, $\Pi_{\mathcal{H}}$ counts the maximal number of distinct ways of classifying $m$ points with the hypothesis set $\mathcal{H}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Employing the following lemma:</p>
+<blockquote><p>( Maximal Inequality ) Let  $X_{1} \ldots X_{n}$  be real-valued random variables such that for all  $j \in[n], X_{j}=\sum_{i=1}^{m} Y_{i j}$  where, for each fixed  $j \in[n]$, $Y_{i j}$  are independent zero mean random variables taking values in  $\left[-r_{i},+r_{i}\right]$, for some  $r_{i}&gt;0$. Then, the following inequality holds:</p>
+$$\mathbb{E}\left[\max _{j \in[n]} X_{j}\right] \leq r \sqrt{2 \log n},$$<p>with $r=\sqrt{\sum_{i=1}^{m} r_{i}^{2}}.$</p>
+</blockquote>
+<p>And we have</p>
+<blockquote><p>( <strong>Massart's Lemma</strong> ) Let  $\mathcal{A} \subseteq \mathbb{R}^{m}$  be a finite set, with  $r=\max _{\mathbf{x} \in \mathcal{A}}\|\mathbf{x}\|_{2}$, then the following holds:</p>
+$$\underset{\boldsymbol{\sigma}}{\mathbb{E}}\left[\frac{1}{m} \sup _{\mathbf{x} \in \mathcal{A}} \sum_{i=1}^{m} \sigma_{i} x_{i}\right] \leq \frac{r \sqrt{2 \log |\mathcal{A}|}}{m},$$<p>where  $\sigma_{i}$'s  are independent uniform random variables taking values in  $\{-1,+1\}$  and $ x_{1}, \ldots, x_{m}$  are the components of vector  $\mathbf{x}$.</p>
+</blockquote>
+<p>With the famous <strong>Massart's lemma</strong>, we can bound the Rademacher complexity with the growth function in an obvious way.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Finally, we define the VC-dimension:</p>
+<blockquote><p>( <strong>VC-dimension</strong> ) $\operatorname{VCdim}(\mathcal{H})=\max \left\{m: \Pi_{\mathcal{H}}(m)=2^{m}\right\}$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
 <li>Mohri, M., Rostamizadeh, A., &amp; Talwalkar, A. (2018). Foundations of Machine Learning. The MIT Press. </li>
 </ol>
