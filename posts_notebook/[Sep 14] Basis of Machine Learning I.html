@@ -14597,6 +14597,7 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 <h3 id="Content">Content<a class="anchor-link" href="#Content">&#182;</a></h3><ol>
 <li><a href="#Basic-Definitions">Basic Definitions</a></li>
 <li><a href="#More-General-Definitions">More General Definitions</a></li>
+<li><a href="#Rademacher-Complexity-and-VC-Dimension">Rademacher Complexity and VC-Dimension</a></li>
 </ol>
 
 </div>
@@ -14790,7 +14791,7 @@ $$R(h)-R^{*}=\left(R(h)-\inf _{h \in \mathcal{H}} R(h)\right)+\left(\inf _{h \in
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.-Rademacher-Complexity-and-VC-Dimension">3. Rademacher Complexity and VC-Dimension<a class="anchor-link" href="#3.-Rademacher-Complexity-and-VC-Dimension">&#182;</a></h3><p>Let $\mathcal{G}=\{g:(x, y) \mapsto L(h(x), y): h \in \mathcal{H}\}$ be the family of loss functions associated to $\mathcal{H}$.</p>
+<h3 id="3.-Rademacher-Complexity-and-VC-Dimension-">3. Rademacher Complexity and VC-Dimension <a id="Rademacher-Complexity-and-VC-Dimension" /><a class="anchor-link" href="#3.-Rademacher-Complexity-and-VC-Dimension-">&#182;</a></h3><p>Let $\mathcal{G}=\{g:(x, y) \mapsto L(h(x), y): h \in \mathcal{H}\}$ be the family of loss functions associated to $\mathcal{H}$.</p>
 <blockquote><p>( Empirical Rademacher complexity ) Let $S = (z_1,...,z_m)$ be a fixed sample of size $m$ with elements in $\mathcal{Z} = \mathcal{X} \times \mathcal{Y}$.
 $$\widehat{\mathfrak{R}}_{S}(\mathcal{G})=\underset{\boldsymbol{\sigma}}{\mathbb{E}}\left[\sup _{g \in \mathcal{G}} \frac{\boldsymbol{\sigma} \cdot \mathbf{g}_{S}}{m}\right],$$
 where $\sigma = (\sigma_1, . . . , \sigma_m)^{T}$, with $\sigma$'s independent uniform random variables taking
