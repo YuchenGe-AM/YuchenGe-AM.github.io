@@ -14594,6 +14594,21 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Content">Content<a class="anchor-link" href="#Content">&#182;</a></h3><ol>
+<li><a href="#Basic-Definitions">Basic Definitions</a></li>
+<li><a href="#More-General-Definitions">More General Definitions</a></li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
 
 </div>
@@ -14606,7 +14621,7 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Basis-Definitions">Basis Definitions<a class="anchor-link" href="#Basis-Definitions">&#182;</a></h3><p>Some definitions is needed to understand the whole framework. $\mathcal{X}$ is the set of all possible examples (instances)， and $\mathcal{Y}$ is the set of all possible labels (target values). For simplicity, $\mathcal{Y}=\{ 0,1 \}$.</p>
+<h3 id="1.-Basic-Definitions-">1. Basic Definitions <a id="Basic-Definitions" /><a class="anchor-link" href="#1.-Basic-Definitions-">&#182;</a></h3><p>Some definitions is needed to understand the whole framework. $\mathcal{X}$ is the set of all possible examples (instances)， and $\mathcal{Y}$ is the set of all possible labels (target values). For simplicity, $\mathcal{Y}=\{ 0,1 \}$.</p>
 <blockquote><p><strong>Def 1.</strong>  A <strong>concept</strong> is a mapping $c: \mathcal{X} \rightarrow \mathcal{Y}$.</p>
 </blockquote>
 <p>A concept class is a set of concepts we may wish to learn, which is denoted by $\mathcal{C}$. All concepts that we consider form a hypothesis set, which is denoted by $\mathcal{H}$.</p>
@@ -14628,7 +14643,7 @@ $$R(h)=\underset{x \sim \mathcal{D}}{\mathbb{P}}[h(x) \neq c(x)]=\underset{x \si
 </blockquote>
 <p>Also, we may have the emprical error</p>
 $$\widehat{R}_{S}(h)=\frac{1}{m} \sum_{i=1}^{m} 1_{h\left(x_{i}\right) \neq c\left(x_{i}\right)}.$$<p>We will see in the following a number of guarantees relating these two quantities with high probability, under some general assumptions.</p>
-<blockquote><p><strong>Remark:</strong> this might remind you of the definition of a sourcr code $C$ in information theory, which is a mapping from $\mathcal{X}$, the range of a random variable $X$, to $D^{∗}$, the set of finite-length strings of symbols from a $D$-ary alphabet.</p>
+<blockquote><p><strong>Remark:</strong> this reminds me of the definition of a sourcr code $C$ in information theory, which is a mapping from $\mathcal{X}$, the range of a random variable $X$, to $D^{∗}$, the set of finite-length strings of symbols from a $D$-ary alphabet.</p>
 </blockquote>
 
 </div>
@@ -14653,11 +14668,63 @@ $$\widehat{R}_{S}(h)=\frac{1}{m} \sum_{i=1}^{m} 1_{h\left(x_{i}\right) \neq c\le
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The following introduces the Probably Approximately Correct (PAC) learning framework.</p>
-<blockquote><p><strong>Def 3.</strong> (PAC-learning)  $\mathcal{C}$  is PAC-learnable if there exists an algorithm  $\mathcal{A}$  and a polynomial function poly  $(\cdot, \cdot, \cdot, \cdot)$  such that for any  $\epsilon&gt;0$  and  $\delta&gt;0$, the following holds for any sample size  $m \geq \operatorname{poly}(1 / \epsilon, 1 / \delta, n , size  (c))$ and distribution $\mathcal{D}$ and the goal $c$:</p>
+<p>The following introduces the Probably Approximately Correct (PAC) learning framework, where the concept $h_S$ is selected based on the algorithm $\mathcal{A}$ and the sample $S$.</p>
+<blockquote><p><strong>Def 3.</strong> (PAC-learning)  $\mathcal{C}$  is PAC-learnable if there exists an algorithm  $\mathcal{A}$  and a polynomial function poly  $(\cdot, \cdot, \cdot, \cdot)$  such that for any  $\epsilon&gt;0$  and  $\delta&gt;0$, the following holds for any distribution $\mathcal{D}$, the goal $c\in \mathcal{C}$, and the sample size  $m \geq \operatorname{poly}(1 / \epsilon, 1 / \delta, n , size  (c))$:</p>
 $$\underset{S \sim \mathcal{D}^{m}}{\mathbb{P}}\left[R\left(h_{S}\right) \leq \epsilon\right] \geq 1-\delta.$$
 </blockquote>
 <p>When $\# \mathcal{H}&lt;\infty$, we know that</p>
+<blockquote><p><strong>Thm 1.</strong> ( $\# \mathcal{H}&lt;\infty$, consistent )  When the algorithm  $\mathcal{A}$ is s.t. for any goal $c\in\mathcal{H}$, $\widehat{R}_{S}\left(h_{S}\right)=0$. Then  for any $\epsilon, \delta&gt;0$, the inequality</p>
+$$\underset{S \sim \mathcal{D}^{m}}{\mathbb{P}}\left[R\left(h_{S}\right) \leq \epsilon\right] \geq 1-\delta$$<p>holds if
+$$ m \geq \frac{1}{\epsilon}\left(\log \#\mathcal{H}+\log \frac{1}{\delta}\right).$$</p>
+</blockquote>
+<p><strong>Proof.</strong> Define $\mathcal{H}_{\epsilon}=\{h \in \mathcal{H}: R(h)&gt;\epsilon\}$. Then $
+\mathbb{P}[\widehat{R}_{S}(h)=0] \leq(1-\epsilon)^{m}$ for $h\in\mathcal{H}_{\epsilon}$, since $R(h)=\underset{x \sim \mathcal{D}}{\mathbb{P}}[h(x) \neq c(x)]&gt;\epsilon$. Thus, by the union bound, the following holds:</p>
+$$\begin{aligned}
+\mathbb{P}\left[\exists h \in \mathcal{H}_{\epsilon}: \widehat{R}_{S}(h)=0\right] &amp; =\mathbb{P}\left[\widehat{R}_{S}\left(h_{1}\right)=0 \vee \cdots \vee \widehat{R}_{S}\left(h_{\#\mathcal{H}_{\epsilon}}\right)=0\right]\\
+&amp; \leq \sum_{h \in \mathcal{H}_{\epsilon}} \mathbb{P}\left[\widehat{R}_{S}(h)=0\right] \\
+&amp; \leq \sum_{h \in \mathcal{H}_{\epsilon}}(1-\epsilon)^{m} \leq|\mathcal{H}|(1-\epsilon)^{m} \leq|\mathcal{H}| e^{-m \epsilon} .
+\end{aligned}$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Equivalently, in the language of generalization bound, with probability at least $1-\delta$, $R(h_{S}) \leq \frac{1}{m}(\log \#\mathcal{H}+\log \frac{1}{\delta})$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<blockquote><p><strong>Lemma 1.</strong> (Hoeffding's inequality) Let  $X_{1}, \ldots, X_{m}$  be independent random variables with  $X_{i}\in \left[a_{i}, b_{i}\right]$  for all  $i \in[m]$. Then, for any  $\epsilon&gt;0$,</p>
+$$\begin{aligned}
+&amp; \mathbb{P}\left[S_{m}-\mathbb{E}\left[S_{m}\right] \geq \epsilon\right] \leq e^{-2 \epsilon^{2} / \sum_{i=1}^{m}\left(b_{i}-a_{i}\right)^{2}}, \\
+&amp; \mathbb{P}\left[S_{m}-\mathbb{E}\left[S_{m}\right] \leq-\epsilon\right] \leq e^{-2 \epsilon^{2} / \sum_{i=1}^{m}\left(b_{i}-a_{i}\right)^{2}}. \end{aligned} $$
+</blockquote>
+<p>Through <strong>lemma 1</strong>, we can derive</p>
+<blockquote><p><strong>Thm 1.</strong> ( $\# \mathcal{H}&lt;\infty$, inconsistent )  For any $h\in \mathcal{H}$, with probability at least $1-\delta$,</p>
+$$ R(h) \leq \widehat{R}_{S}(h)+\sqrt{\frac{\log |\mathcal{H}|+\log \frac{2}{\delta}}{2 m}}.$$
+</blockquote>
+<p>Before proof, this can be viewed as an instance of the so-called <strong>Occam’s Razor principle</strong>: All other things being equal, a simpler (smaller) hypothesis set is better.</p>
+<p><strong>Proof.</strong> Seeing that 
+$$\begin{aligned}
+&amp; \mathbb{P}\left[\exists h \in \mathcal{H}\left|\widehat{R}_{S}(h)-R(h)\right|&gt;\epsilon\right] \\
+= \text{ } &amp; \mathbb{P}\left[\left(\left|\widehat{R}_{S}\left(h_{1}\right) R\left(h_{1}\right)\right|&gt;\epsilon\right) \vee \ldots \vee\left(\left|\widehat{R}_{S}\left(h_{|\mathcal{H}|}\right)-R\left(h_{|\mathcal{H}|}\right)\right|&gt;\epsilon\right)\right] \\
+\leq \text{ } &amp; \sum_{h \in \mathcal{H}} \mathbb{P}\left[\left|\widehat{R}_{S}(h)-R(h)\right|&gt;\epsilon\right] \\
+\leq \text{ } &amp; 2|\mathcal{H}| \exp \left(-2 m \epsilon^{2}\right) .
+\end{aligned}$$</p>
+<p>where the last inequality applies <strong>lemma 1</strong>.</p>
 
 </div>
 </div>
@@ -14681,58 +14748,41 @@ $$\underset{S \sim \mathcal{D}^{m}}{\mathbb{P}}\left[R\left(h_{S}\right) \leq \e
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="General-Definitions">General Definitions<a class="anchor-link" href="#General-Definitions">&#182;</a></h3>
+<h3 id="2.-More-General-Definitions-">2. More General Definitions <a id="More-General-Definitions" /><a class="anchor-link" href="#2.-More-General-Definitions-">&#182;</a></h3>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In the most general scenario of supervised learning, we consider a distribution $\mathcal{D}$ over $\mathcal{X} \times \mathcal{Y}$, i.e. the stochastic scenario. Then, we define</p>
+<blockquote>$$R(h)=\underset{(x, y) \sim \mathcal{D}}{\mathbb{P}}[h(x) \neq y]=\underset{(x, y) \sim \mathcal{D}}{\mathbb{E}}\left[1_{h(x) \neq y}\right]$$
+</blockquote>
+<p>and the Bayesian error</p>
+<blockquote>$$R^{\star}=\inf _{h \text { measurable }} R(h).$$
+</blockquote>
 
-     </div>
 </div>
 </div>
 </div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
+<li>Mohri, M., Rostamizadeh, A., &amp; Talwalkar, A. (2018). Foundations of Machine Learning. The MIT Press. </li>
+</ol>
 
-     </div>
 </div>
 </div>
 </div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 
