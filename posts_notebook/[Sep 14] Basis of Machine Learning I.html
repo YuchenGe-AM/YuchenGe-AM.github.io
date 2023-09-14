@@ -14815,8 +14815,8 @@ $$\forall m \in \mathbb{N}, \Pi_{\mathcal{H}}(m)=\max _{\left\{x_{1}, \ldots, x_
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Employing the following lemma:</p>
-<blockquote><p>( Maximal Inequality ) Let  $X_{1} \ldots X_{n}$  be real-valued random variables such that for all  $j \in[n], X_{j}=\sum_{i=1}^{m} Y_{i j}$  where, for each fixed  $j \in[n]$, $Y_{i j}$  are independent zero mean random variables taking values in  $\left[-r_{i},+r_{i}\right]$, for some  $r_{i}&gt;0$. Then, the following inequality holds:</p>
-$$\mathbb{E}\left[\max _{j \in[n]} X_{j}\right] \leq r \sqrt{2 \log n},$$<p>with $r=\sqrt{\sum_{i=1}^{m} r_{i}^{2}}.$</p>
+<blockquote><p>( Maximal Inequality ) Let  $X_{1} \ldots X_{n}$  be real-valued random variables such that for all  $j \in[n], X_{j}=\sum_{i=1}^{m} Y_{i j}$  where, for each fixed  $j \in[n]$, $Y_{i j}$  are independent zero mean random variables taking values in  $\left[-r_{ij},+r_{ij}\right]$, for some  $r_{ij} \geq 0$. Then, the following inequality holds:</p>
+$$\mathbb{E}\left[\max _{j \in[n]} X_{j}\right] \leq r \sqrt{2 \log n},$$<p>with $r= \max_{j} \sqrt{\sum_{i=1}^{m} r_{ij}^{2}}.$</p>
 </blockquote>
 <p>And we have</p>
 <blockquote><p>( <strong>Massart's Lemma</strong> ) Let  $\mathcal{A} \subseteq \mathbb{R}^{m}$  be a finite set, with  $r=\max _{\mathbf{x} \in \mathcal{A}}\|\mathbf{x}\|_{2}$, then the following holds:</p>
