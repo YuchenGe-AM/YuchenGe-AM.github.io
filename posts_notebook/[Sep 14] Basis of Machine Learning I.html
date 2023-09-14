@@ -14714,15 +14714,15 @@ $$\begin{aligned}
 </blockquote>
 <p>Through <strong>lemma 1</strong>, we can derive</p>
 <blockquote><p><strong>Thm 1.</strong> ( $\# \mathcal{H}&lt;\infty$, inconsistent )  For any $h\in \mathcal{H}$, with probability at least $1-\delta$,</p>
-$$ R(h) \leq \widehat{R}_{S}(h)+\sqrt{\frac{\log |\mathcal{H}|+\log \frac{2}{\delta}}{2 m}}.$$
+$$ R(h) \leq \widehat{R}_{S}(h)+\sqrt{\frac{\log \# \mathcal{H}+\log \frac{2}{\delta}}{2 m}}.$$
 </blockquote>
 <p>Before proof, this can be viewed as an instance of the so-called <strong>Occam’s Razor principle</strong>: All other things being equal, a simpler (smaller) hypothesis set is better.</p>
 <p><strong>Proof.</strong> Seeing that 
 $$\begin{aligned}
-&amp; \mathbb{P}\left[\exists h \in \mathcal{H}\left|\widehat{R}_{S}(h)-R(h)\right|&gt;\epsilon\right] \\
-= \text{ } &amp; \mathbb{P}\left[\left(\left|\widehat{R}_{S}\left(h_{1}\right) R\left(h_{1}\right)\right|&gt;\epsilon\right) \vee \ldots \vee\left(\left|\widehat{R}_{S}\left(h_{|\mathcal{H}|}\right)-R\left(h_{|\mathcal{H}|}\right)\right|&gt;\epsilon\right)\right] \\
+&amp; \mathbb{P}\left[\exists h \in \mathcal{H}: \left|\widehat{R}_{S}(h)-R(h)\right|&gt;\epsilon\right] \\
+= \text{ } &amp; \mathbb{P}\left[\left(\left|\widehat{R}_{S}\left(h_{1}\right) R\left(h_{1}\right)\right|&gt;\epsilon\right) \vee \ldots \vee\left(\left|\widehat{R}_{S}\left(h_{\#\mathcal{H}}\right)-R\left(h_{\#\mathcal{H}}\right)\right|&gt;\epsilon\right)\right] \\
 \leq \text{ } &amp; \sum_{h \in \mathcal{H}} \mathbb{P}\left[\left|\widehat{R}_{S}(h)-R(h)\right|&gt;\epsilon\right] \\
-\leq \text{ } &amp; 2|\mathcal{H}| \exp \left(-2 m \epsilon^{2}\right) .
+\leq \text{ } &amp; 2 \#\mathcal{H} \cdot \exp \left(-2 m \epsilon^{2}\right) .
 \end{aligned}$$</p>
 <p>where the last inequality applies <strong>lemma 1</strong>.</p>
 
@@ -14765,6 +14765,8 @@ $$\begin{aligned}
 <p>and the Bayesian error</p>
 <blockquote>$$R^{\star}=\inf _{h \text { measurable }} R(h).$$
 </blockquote>
+<p>Immediately, we can write</p>
+$$R(h)-R^{*}=\left(R(h)-\inf _{h \in \mathcal{H}} R(h)\right)+\left(\inf _{h \in \mathcal{H}} R(h)-R^{*}\right),$$<p>where the first term is called the <strong>estimation error</strong>, the second term the <strong>approximation error</strong>. Model selection consists of choosing $\mathcal{H}$ with a favorable trade-off between the approximation and estimation errors.</p>
 
 </div>
 </div>
