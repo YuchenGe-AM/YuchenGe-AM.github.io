@@ -14644,7 +14644,7 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-Some-Special-Chains">2. Some Special Chains<a class="anchor-link" href="#2.-Some-Special-Chains">&#182;</a></h3>
+<h3 id="2.-Some-Special-Finite-state-Markov-Chains">2. Some Special Finite-state Markov Chains<a class="anchor-link" href="#2.-Some-Special-Finite-state-Markov-Chains">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14660,6 +14660,8 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 <p>It's clear that</p>
 <blockquote><p><strong>Thm 4.</strong> For an ergodic $M$  state Markov chain,  $[P^m]_{ij}&gt;0$  for all  $i$, $j$, and all  $m \geq (𝑀−1)^2+1$.</p>
 </blockquote>
+<p><strong>Hint.</strong> Use Bézout's identity.</p>
+<p>Then it's known that if $[P]&gt;0$, we have $\lim _{n \rightarrow \infty}\left[P^{n}\right]=e \pi$ where $e=(1,1, \ldots, 1)^{\top}$.</p>
 
 </div>
 </div>
@@ -14671,50 +14673,18 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Also, we consider a finite-state Markov chain of the matrix form</p>
+<p>Furthermore, we consider the <strong>unichain</strong>, a finite-state Markov chain that contains a single recurrent class plus, perhaps, some transient states, which is of the matrix form</p>
 $$[P]=\left[\begin{array}{c|c}
 {\left[P_{\mathcal{T}}\right]} &amp; {\left[P_{\mathcal{T} \mathcal{R}}\right]} \\
 \hline[0] &amp; {\left[P_{\mathcal{R}}\right]}
 \end{array}\right]$$<p>with $t$ transient states, the set of which is denoted by $\mathcal{T}$.</p>
-<blockquote><p><strong>Thm 5.</strong> Let  $[P]$  be a unichain with a set  $\mathcal{T}$  of $t$  transient states. Then</p>
+<blockquote><p><strong>Thm 5.</strong> Let  $[P]$  be a <strong>unichain</strong> with a set  $\mathcal{T}$  of $t$  transient states. Then</p>
 $$\max _{\ell \in \mathcal{T}} \sum_{j \in \mathcal{T}} P_{\ell j}^{n} \leq \gamma^{\lfloor n / t\rfloor},$$<p>where $\gamma=\max _{i \in \mathcal{T}} \sum_{j \in \mathcal{T}} P_{i j}^{t}&lt;1$.</p>
 </blockquote>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14722,27 +14692,25 @@ $$\max _{\ell \in \mathcal{T}} \sum_{j \in \mathcal{T}} P_{\ell j}^{n} \leq \gam
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h2><p>1.</p>
+<hr>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
+<li>Gallager, Robert G. Discrete Stochastic Processes. Kluwer Acad. Publ., 1999. </li>
+</ol>
 
-     </div>
 </div>
 </div>
 </div>
-
 </div>
 </body>
 
