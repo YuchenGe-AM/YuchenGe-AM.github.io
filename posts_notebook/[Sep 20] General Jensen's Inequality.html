@@ -14627,8 +14627,8 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 <p>$ f\left(\int g(x) p(x) \mathrm{d} x\right) \leq \int f(g(x)) p(x) \mathrm{d} x $ for any convex $f(x)$.</p>
 </blockquote>
 <p><strong>Proof.</strong> Let $t=\int g(x) p(x) \mathrm{d} x$. First, we provide a technical lemma</p>
-<p><strong>Lemma.</strong> For any convex $\varphi$, we have $$\frac{\varphi(t)-\varphi(s)}{t-s} \leq \frac{\varphi(u)-\varphi(t)}{u-t}$$ whenever  $s&lt;t&lt;u$.</p>
-<p>Then, $f(x) \geq f(t) + k(x-t)$ where $k=\sup\{ \frac{\varphi(t)-\varphi(s)}{t-s}: s&lt;t\}$ and $x\in\mathbb{R}$, which follows by substituting $x$ with $g(x)$ that, $$ f(g(x)) \geq f(t) + k(g(x)-t).$$ Integrating both sides, then
+<p><strong>Lemma.</strong> For any convex $\varphi$, we have $$\frac{\varphi(b)-\varphi(a)}{b-a} \leq \frac{\varphi(c)-\varphi(b)}{c-b}$$ whenever  $a&lt;b&lt;c$.</p>
+<p>Then for fixed $t$, $f(x) \geq f(t) + k(x-t)$ where $k=\sup\{ \frac{f(t)-f(s)}{t-s}: s&lt;t\}$ and $x\in\mathbb{R}$, which follows by substituting $x$ with $g(x)$ that, $$ f(g(x)) \geq f(t) + k(g(x)-t).$$ Integrating both sides, then
 $$ \int f(g(x))p(x) \mathrm{d} x \geq \int f(t)p(x) \mathrm{d} x + \int k(g(x)-t)p(x) \mathrm{d} x = f(t) = f(\int g(x) p(x) \mathrm{d} x).$$</p>
 
 </div>
