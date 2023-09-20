@@ -14724,7 +14724,7 @@ $$
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>In <a href="#Basic-Convex-Optimization">Basic Convex Optimization</a>, we will have recalled some basic facts about convex optimization. Write the Lagrangian function</p>
-$$\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha})=\frac{1}{2}\|\mathbf{w}\|^{2}-\sum_{i=1}^{m} \alpha_{i}\left[y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right)-1\right]$$<p>It's welcome to check the conditions stated in <strong>KKT condition</strong> are all satisfied. Therefore, we write the KKT conditions as follows:</p>
+$$\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha})=\frac{1}{2}\|\mathbf{w}\|^{2}-\sum_{i=1}^{m} \alpha_{i}\left[y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right)-1\right]$$<p>It's welcome to check the conditions stated in <a href="#KKT-conditions">KKT conditions</a> are all satisfied. Therefore, if the primal optimization problem has a solution, the corresponding $(\mathbf{w}, b)$ will simultaneously satisfy the KKT conditions. Hereafter, we write the KKT conditions as follows:</p>
 $$\begin{aligned}
 \nabla_{\mathbf{w}} \mathcal{L}=\mathbf{w}-\sum_{i=1}^{m} \alpha_{i} y_{i} \mathbf{x}_{i}=0 \quad \Longrightarrow  &amp; \quad \mathbf{w}=\sum_{i=1}^{m} \alpha_{i} y_{i} \mathbf{x}_{i} \\
 \nabla_{b} \mathcal{L}=-\sum_{i=1}^{m} \alpha_{i} y_{i}=0 \quad \Longrightarrow &amp; \quad  \sum_{i=1}^{m} \alpha_{i} y_{i}=0 \\
@@ -14807,7 +14807,7 @@ $$\mathbf{x} \text{ is a solution} \implies \exists  \boldsymbol{\alpha} \geq 0:
 <p>Here, the <strong>Slater’s condition</strong> means that $\exists \overline{\mathbf{x}} \in \operatorname{int}(X): g(\overline{\mathbf{x}})&lt;0$, while the <strong>(weak) Slater’s condition</strong> means that</p>
 $$\exists \overline{\mathbf{x}} \in \operatorname{int}(X): \forall i \in[m],\left(g_{i}(\overline{\mathbf{x}})&lt;0\right) \vee\left(g_{i}(\overline{\mathbf{x}})=0 \wedge g_{i} \text { affine}\right).$$<p>Finally, combing the above conclusions, we get to:</p>
 <blockquote>
-<p>( <strong>KKT condition</strong> )</p>
+<p>( <strong>KKT conditions</strong> )  <a id='KKT-conditions'></a></p>
 <p>Assume that $f, g_{i}: \mathcal{X} \rightarrow \mathbb{R}$ are convex and differentiable and that the constraints are qualified, then $\bar{x}$ is a solution of the primal constrained program iff there exists  $\overline{\boldsymbol{\alpha}} \geq 0$ such that,</p>
 $$ \nabla_{\mathbf{x}} \mathcal{L}(\overline{\mathbf{x}}, \overline{\boldsymbol{\alpha}})=0 \wedge  g\left(\mathbf{x}^{*}\right) \leq 0 \wedge \boldsymbol{\alpha}^{*} \cdot g\left(\mathbf{x}^{*}\right)=0.$$</blockquote>
 <p><strong>Proof.</strong> The forward direction is from <strong>necessary II</strong> and <strong>sufficient</strong>. For the opposite, simply observing that</p>
