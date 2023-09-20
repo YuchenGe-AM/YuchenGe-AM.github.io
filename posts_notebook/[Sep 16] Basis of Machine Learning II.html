@@ -14725,8 +14725,13 @@ $$\rho=\max _{\substack{\mathbf{w}, b:\\ y_{i}\left(\mathbf{w} \cdot \mathbf{x}_
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In <a href="#Basic-Convex-Optimization">Basic Convex Optimization</a>, we have recalled some basic facts about convex optimization.</p>
-
+<p>In <a href="#Basic-Convex-Optimization">Basic Convex Optimization</a>, we will have recalled some basic facts about convex optimization. Write the Lagrangian function</p>
+$$\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha})=\frac{1}{2}\|\mathbf{w}\|^{2}-\sum_{i=1}^{m} \alpha_{i}\left[y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right)-1\right]$$<p>It's welcome to check the conditions stated in <strong>KKT condition</strong> are all satisfied. Therefore, we write the KKT conditions as follows:</p>
+$$\begin{aligned}
+\nabla_{\mathbf{w}} \mathcal{L}=\mathbf{w}-\sum_{i=1}^{m} \alpha_{i} y_{i} \mathbf{x}_{i}=0 \quad \Longrightarrow  &amp; \quad \mathbf{w}=\sum_{i=1}^{m} \alpha_{i} y_{i} \mathbf{x}_{i} \\
+\nabla_{b} \mathcal{L}=-\sum_{i=1}^{m} \alpha_{i} y_{i}=0 \quad \Longrightarrow &amp; \quad  \sum_{i=1}^{m} \alpha_{i} y_{i}=0 \\
+ &amp; \quad \alpha_{i}=0 \vee y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right)=1 .
+\end{aligned}$$
 </div>
 </div>
 </div>
@@ -14737,6 +14742,21 @@ $$\rho=\max _{\substack{\mathbf{w}, b:\\ y_{i}\left(\mathbf{w} \cdot \mathbf{x}_
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The weight vector  $\mathbf{w}$  at the solution of the SVM problem is a linear combination of the training set vectors  $\mathbf{x}_{1}, \ldots, \mathbf{x}_{m}$. A vector  $\mathbf{x}_{i}$  appears in that expansion iff  $\alpha_{i} \neq 0$. Such vectors are called <strong>support vectors</strong>. By the <strong>complementarity conditions</strong>, if  $\alpha_{i} \neq 0$, then $y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right)=1$. Thus, support vectors lie on the marginal hyperplanes  $\mathbf{w} \cdot \mathbf{x}_{i}+b= \pm 1$, which justifies the name of the algorithm.</p>
+<p>The Lagrangian function ( dual optimization problem ) <strong>via the KKT conditions</strong> can be simplified to</p>
+$$
+\begin{aligned}
+\max _{\boldsymbol{\alpha}} \quad &amp; \sum_{i=1}^{m} \alpha_{i}-\frac{1}{2} \sum_{i, j=1}^{m} \alpha_{i} \alpha_{j} y_{i} y_{j}\left(\mathbf{x}_{i} \cdot \mathbf{x}_{j}\right) \\
+\text { subject to: } \quad &amp; \alpha_{i} \geq 0 \wedge \sum_{i=1}^{m} \alpha_{i} y_{i}=0, \forall i \in[m] .
+\end{aligned}
+$$<p>The dual optimization problem reveals an important property of SVMs: <strong>the hypothesis solution depends only on inner products between vectors and not directly on the vectors themselves.</strong> Therefore, the general framework of the <strong>kernel mathod</strong> applies.</p>
+<p>In the non-separable case, for any hyperplane  $\mathbf{w} \cdot \mathbf{x}+b=0$, there exists  $\mathbf{x}_{i} \in S$  such that</p>
+$$y_{i}\left[\mathbf{w} \cdot \mathbf{x}_{i}+b\right] \ngeq 1.$$<p>Therefore, it's natural to introduce slack variables: for each  $i \in[m]$, there exist  $\xi_{i} \geq 0$  such that</p>
+$$y_{i}\left[\mathbf{w} \cdot \mathbf{x}_{i}+b\right] \geq 1-\xi_{i}.$$<p>This leads to the following general optimization problem defining SVMs in the non-separable case where the parameter  $C \geq 0$  determines the trade-off between margin-maximization and the minimization of the slack penalty  $\sum_{i=1}^{m} \xi_{i}^{p}$:</p>
+$$\begin{aligned}
+\min _{\mathbf{w}, b, \boldsymbol{\xi}} \quad &amp; \frac{1}{2}\|\mathbf{w}\|^{2}+C \sum_{i=1}^{m} \xi_{i}^{p} \\
+\text { subject to } \quad &amp; y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right) \geq 1-\xi_{i} \wedge \xi_{i} \geq 0, i \in[m]
+\end{aligned}$$<p>We may derive similar formulas and conclusions as in the separable case, and thus we omit it here.</p>
 
 </div>
 </div>
@@ -14759,16 +14779,50 @@ $$\rho=\max _{\substack{\mathbf{w}, b:\\ y_{i}\left(\mathbf{w} \cdot \mathbf{x}_
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>A <strong>general constrained optimization problem</strong> has the form:</p>
+<p>A <strong>general (primal) constrained optimization problem</strong> has the form:</p>
 <blockquote>
 <p>$$\begin{aligned}</p>
 </blockquote>
 <p>\min <em>{\mathbf{x} \in X} &amp; \quad f(\mathbf{x}) \
 \text { subject to:} &amp; \quad g</em>{i}(\mathbf{x}) \leq 0, \forall i \in{1, \ldots, m} .
 \end{aligned}$$</p>
-<p>Then the <strong>Lagrangian (Lagrange function)</strong> associated to the general constrained optimization problem has the form
-$$\forall \mathbf{x} \in X, \forall \boldsymbol{\alpha} \geq 0, \quad \mathcal{L}(\mathbf{x}, \boldsymbol{\alpha})=f(\mathbf{x})+\sum_{i=1}^{m} \alpha_{i} g_{i}(\mathbf{x})$$</p>
-<p>We remark that</p>
+<p>Recall that for any convex optimization problem ( i.e. it has convex $f, g_i$'s ), any local minimum is also a global minimum and a strictly convex objective function has at most one global minimum. We will denote by $p^∗$ the optimal value of the objective if it exists. Then</p>
+<blockquote>
+<p>the <strong>Lagrange function</strong> associated to the general constrained optimization problem has the form</p>
+$$\forall \mathbf{x} \in X, \forall \boldsymbol{\alpha} \geq 0, \quad \mathcal{L}(\mathbf{x}, \boldsymbol{\alpha})=f(\mathbf{x})+\sum_{i=1}^{m} \alpha_{i} g_{i}(\mathbf{x}).$$<p>with the corresponding <strong>Lagrange dual function</strong> being $F(\boldsymbol{\alpha})=\inf _{\mathbf{x} \in X} \mathcal{L}(\mathbf{x}, \boldsymbol{\alpha})$, $\boldsymbol{\alpha} \geq 0$.</p>
+<p>And the <strong>dual optimization problem</strong> is 
+$$\begin{aligned}</p>
+</blockquote>
+<p>\max _{\boldsymbol{\alpha}} &amp; \quad F(\boldsymbol{\alpha}) \
+\text { subject to: } &amp; \quad \boldsymbol{\alpha} \geq 0 .
+\end{aligned}$$</p>
+<p>Let $d^∗$ denote an optimal value. Since $F(\boldsymbol{\alpha}) \leq f(\mathbf{x})+\sum_{i=1}^{m} \alpha_{i} g_{i}(\mathbf{x}) \leq f(\mathbf{x})$, $\forall \alpha, x$, $d^{*} \leq p^{*}$ and The difference $p^{*}-d^{*}$ is known as the <strong>duality gap</strong>.</p>
+<p>Hereafter, we give without proof some technical lemmas:</p>
+<blockquote>
+<p>( <strong>sufficient</strong> )  $ \quad \forall \mathbf{x} \in \mathbb{R}^{N}, \forall \boldsymbol{\alpha} \geq 0, \quad \mathcal{L}\left(\mathbf{x}^{*}, \boldsymbol{\alpha}\right) \leq \mathcal{L}\left(\mathbf{x}^{*}, \boldsymbol{\alpha}^{*}\right) \leq \mathcal{L}\left(\mathbf{x}, \boldsymbol{\alpha}^{*}\right) \implies $ $\mathbf{x}^{*}$ is a solution of the primal problem.</p>
+</blockquote>
+<p><strong>Proof.</strong> The first inequality implies that 
+$$\begin{aligned}
+\forall \boldsymbol{\alpha} \geq 0, \mathcal{L}\left(\mathbf{x}^{*}, \boldsymbol{\alpha}\right) \leq \mathcal{L}\left(\mathbf{x}^{*}, \boldsymbol{\alpha}^{*}\right) &amp; \Rightarrow \forall \boldsymbol{\alpha} \geq 0, \boldsymbol{\alpha} \cdot g\left(\mathbf{x}^{*}\right) \leq \boldsymbol{\alpha}^{*} \cdot g\left(\mathbf{x}^{*}\right) \\
+&amp; \Rightarrow g\left(\mathbf{x}^{*}\right) \leq 0 \wedge \boldsymbol{\alpha}^{*} \cdot g\left(\mathbf{x}^{*}\right)=0 \quad \quad \quad \quad \quad \quad \quad \quad \text{(1)}
+\end{aligned}$$</p>
+<p>whereas the second implies that $\forall \mathbf{x}, \mathcal{L}\left(\mathbf{x}^{*}, \boldsymbol{\alpha}^{*}\right) \leq \mathcal{L}\left(\mathbf{x}, \boldsymbol{\alpha}^{*}\right) \Rightarrow \forall \mathbf{x}, f\left(\mathbf{x}^{*}\right) \leq f(\mathbf{x})+\boldsymbol{\alpha}^{*} \cdot g(\mathbf{x})$. Thus, combining the two inequalities above, we achieve the conclusion.</p>
+<p>Here $\left(\mathbf{x}^{*}, \boldsymbol{\alpha}^{*}\right)$ is known as a <strong>saddle point</strong> of the associated Lagrangian. Also, we have some necessay conditions as follows:</p>
+<blockquote>
+<p>( <strong>necessary I</strong> ) Assume that  $f$  and  $g_{i}$'s, are convex and that <strong>Slater's condition</strong> holds. Then,</p>
+$$\mathbf{x} \text{ is a solution} \implies \exists  \boldsymbol{\alpha} \geq 0: (\mathbf{x}, \boldsymbol{\alpha})   \text{ is a saddle point of the Lagrangian.}$$<p>( <strong>necessary II</strong> ) Assume that  $f$  and  $g_{i}$'s, are convex differentiable and that the weak Slater's condition holds. Then,</p>
+$$\mathbf{x} \text{ is a solution} \implies \exists  \boldsymbol{\alpha} \geq 0: (\mathbf{x}, \boldsymbol{\alpha})   \text{ is a saddle point of the Lagrangian.}$$</blockquote>
+<p>Here, the <strong>Slater’s condition</strong> means that $\exists \overline{\mathbf{x}} \in \operatorname{int}(X): g(\overline{\mathbf{x}})&lt;0$, while the <strong>(weak) Slater’s condition</strong> means that</p>
+$$\exists \overline{\mathbf{x}} \in \operatorname{int}(X): \forall i \in[m],\left(g_{i}(\overline{\mathbf{x}})&lt;0\right) \vee\left(g_{i}(\overline{\mathbf{x}})=0 \wedge g_{i} \text { affine}\right).$$<p>Finally, combing the above conclusions, we get to:</p>
+<blockquote>
+<p>( <strong>KKT condition</strong> )</p>
+<p>Assume that $f, g_{i}: \mathcal{X} \rightarrow \mathbb{R}$ are convex and differentiable and that the constraints are qualified, then $\bar{x}$ is a solution of the primal constrained program iff there exists  $\overline{\boldsymbol{\alpha}} \geq 0$ such that,</p>
+$$ \nabla_{\mathbf{x}} \mathcal{L}(\overline{\mathbf{x}}, \overline{\boldsymbol{\alpha}})=0 \wedge  g\left(\mathbf{x}^{*}\right) \leq 0 \wedge \boldsymbol{\alpha}^{*} \cdot g\left(\mathbf{x}^{*}\right)=0.$$</blockquote>
+<p><strong>Proof.</strong> The forward direction is from <strong>necessary II</strong> and <strong>sufficient</strong>. For the opposite, simply observing that</p>
+$$\begin{aligned}
+f(\mathbf{x})-f(\overline{\mathbf{x}}) &amp; \geq \nabla_{\mathbf{x}} f(\overline{\mathbf{x}}) \cdot(\mathbf{x}-\overline{\mathbf{x}})  =-\sum_{i=1}^{m} \overline{\boldsymbol{\alpha}}_{i} \nabla_{\mathbf{x}} g_{i}(\overline{\mathbf{x}}) \cdot(\mathbf{x}-\overline{\mathbf{x}}) \\
+&amp; \geq-\sum_{i=1}^{m} \overline{\boldsymbol{\alpha}}_{i}\left[g_{i}(\mathbf{x})-g_{i}(\overline{\mathbf{x}})\right] = -\sum_{i=1}^{m} \overline{\boldsymbol{\alpha}}_{i} g_{i}(\mathbf{x}) \geq 0.
+\end{aligned}$$<p>Here the constraints are qualified if, for example, the <strong>(weak) Slater’s condition</strong> holds. Also we remark that the last two conditions are simply (1).</p>
 
 </div>
 </div>
@@ -14782,7 +14836,7 @@ $$\forall \mathbf{x} \in X, \forall \boldsymbol{\alpha} \geq 0, \quad \mathcal{L
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr />
 <h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
-<li>Gallager, Robert G. Discrete Stochastic Processes. Kluwer Acad. Publ., 1999.</li>
+<li>Mohri, M., Rostamizadeh, A., &amp; Talwalkar, A. (2018). Foundations of Machine Learning. The MIT Press.</li>
 </ol>
 
 </div>
