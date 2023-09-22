@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>[Sep 16] Basis of Machine Learning II</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>[Sep 19] Categorical Logic and Computation I</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14593,7 +14593,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%5BSep-16%5D-Basis-of-Machine-Learning-II">[Sep 16] Basis of Machine Learning II<a class="anchor-link" href="#%5BSep-16%5D-Basis-of-Machine-Learning-II">&#182;</a></h2><p>Presenter: Yuchen Ge<br />
+<h2 id="%5BSep-19%5D-Categorical-Logic-and-Computation-I">[Sep 19] Categorical Logic and Computation I<a class="anchor-link" href="#%5BSep-19%5D-Categorical-Logic-and-Computation-I">&#182;</a></h2><p>Presenter: Yuchen Ge<br />
 Affiliation: University of Oxford<br />
 Contact Email: gycdwwd@gmail.com<br />
 Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</a></p>
@@ -14622,9 +14622,10 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Content</p>
 <ol>
-<li><a href="#Kernel-Method">Kernel Method</a></li>
-<li><a href="#SVM-Method">SVM Method</a></li>
-<li><a href="#Basic-Convex-Optimization">Basic Convex Optimization</a></li>
+<li><p><a href="#Draw-Commutative-Diagram">Draw Commutative Diagram</a></p>
+</li>
+<li><p><a href="#Cartesian-Closed-Categories">Cartesian-Closed-Categories</a></p>
+</li>
 </ol>
 <hr />
 
@@ -14638,39 +14639,21 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="1.-Kernel-Method-">1. Kernel Method <a id="Kernel-Method" /><a class="anchor-link" href="#1.-Kernel-Method-">&#182;</a></h3><p>In practice, <strong>linear separation</strong> is often not possible. One way to define such a non-linear decision boundary is to use a non-linear mapping $\Phi$ from the input space $\mathcal{X}$ to a higher-dimensional space $\mathbb{H}$ (which is called a <strong>feature space</strong>), where linear separation is possible.</p>
-<blockquote>
-<p>A <strong>kernel over $\mathcal{X}$</strong> is a function $K: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$.</p>
+<h3 id="1.-Draw-Commutative-Diagram-">1. Draw Commutative Diagram <a id="Draw-Commutative-Diagram" /><a class="anchor-link" href="#1.-Draw-Commutative-Diagram-">&#182;</a></h3><p>Please refer to <a href="https://tikzcd.yichuanshen.de">https://tikzcd.yichuanshen.de</a> in which one first draws a picture and the corresponding <strong>tikzde code</strong> shall be generated.</p>
+<hr />
+<h3 id="2.-Cartesian-Closed-Categories-">2. Cartesian Closed Categories <a id="Cartesian-Closed-Categories" /><a class="anchor-link" href="#2.-Cartesian-Closed-Categories-">&#182;</a></h3><blockquote>
+<p><strong>A deductive system</strong> is a graph in which</p>
+<ul>
+<li>to each object  $A$  there is associated an arrow  $1_{A}: A \rightarrow A$,</li>
+<li>to each pair of arrows  $f: A \rightarrow B$  and  $g: B \rightarrow C$ there is associated a compositional arrow  $g f: A \rightarrow C$.</li>
+</ul>
 </blockquote>
-<p>The idea is to define a kernel such that $K(x, x^{\prime})=\langle\Phi(x), \Phi(x^{\prime})\rangle$. However, <strong>this is not true for general kernels</strong>. Thereby, we define</p>
-<blockquote>
-<p>A <strong>positive definite symmetric (PDS) kernel</strong> is a kernel $K$ such that for any $\{x_1,...,x_m \} \subset \mathcal{X}$, the kernel (Gram) matrix matrix $[K(x_i,x_j)]_{ij} \in \mathbb{R}_{m \times m}$ is symmetric positive semidefinite (SPSD).</p>
+<p>For a deductive system, a logician may think of the <strong>objects</strong> as <strong>formulas</strong> and of the <strong>arrows</strong> as <strong>deductions</strong> or <strong>proofs</strong>. It also can be visualized as</p>
+$$\frac{f: A \rightarrow B \quad g: B \rightarrow C}{g f: A \rightarrow C}.$$<blockquote>
+<p>A <strong>category</strong> $\mathscr{A}$ is a deductive system in which $f 1_{A}=f=1_{B} f, \quad(h g) f=h(g f)$.</p>
+<p>A <strong>functor</strong> $F: \mathscr{A} \rightarrow \mathscr{B}$  is a morphism of graphs.</p>
 </blockquote>
-<p>For example, we have</p>
-<blockquote>
-<p><strong>Polynomial kernels:</strong> $K\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\left(\mathbf{x} \cdot \mathbf{x}^{\prime}+c\right)^{d}$.</p>
-<p><strong>Gaussian kernels:</strong> $K\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\exp \left(-\frac{\left\|\mathbf{x}^{\prime}-\mathbf{x}\right\|^{2}}{2 \sigma^{2}}\right)$.</p>
-<p><strong>Sigmoid kernels:</strong> $K\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\tanh \left(a\left(\mathbf{x} \cdot \mathbf{x}^{\prime}\right)+b\right)$.</p>
-</blockquote>
-<p>The following is <strong>the main result</strong> of this note.</p>
-<p>Seeing that</p>
-<blockquote>
-<p>$K\left(x, x^{\prime}\right)^{2} \leq K(x, x) K\left(x^{\prime}, x^{\prime}\right)$</p>
-</blockquote>
-<p>since the matrix \begin{pmatrix}
-K(x, x) &amp; K\left(x, x^{\prime}\right) \\
-K\left(x^{\prime}, x\right) &amp; K\left(x^{\prime}, x^{\prime}\right)
-\end{pmatrix}
-is SPDS, then we immediately arrive at</p>
-<blockquote>
-<p>If $K: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ is a PDS kernel, then there exist $\Phi$ s.t. $K\left(x, x^{\prime}\right)=\left\langle\Phi(x), \Phi\left(x^{\prime}\right)\right\rangle$.</p>
-</blockquote>
-<p><strong>Proof.</strong> Define $\Phi(x)\left(x^{\prime}\right)=K\left(x, x^{\prime}\right)$ and 
-$ \mathbb{H}_{0}=\left\{\sum_{i \in I} a_{i} \Phi\left(x_{i}\right): a_{i} \in \mathbb{R}, x_{i} \in X,|I|&lt;\infty\right\}$. Next, we introduce an operation on $\mathbb{H}_{0}$, which is</p>
-$$\langle f, g\rangle=\sum_{i \in I, j \in J} a_{i} b_{j} K\left(x_{i}, x_{j}^{\prime}\right) = \sum_{j \in J} b_{j} f (x_{j}') = \sum_{i \in I} a_{i} g\left(x_{i}\right)$$<p>with $f=\sum_{i \in I} a_{i} \Phi\left(x_{i}\right)$ and $g=\sum_{j \in J} b_{j} \Phi\left(x_{j}^{\prime}\right)$.  The last two equations show that the operation is well-defined. Then, it's routine to show that $\langle f, g\rangle$ defines a <strong>PDS kernel</strong> on $\mathbb{H}_{0}$. The only <strong>untrivial</strong> thing is to show $\langle f, f\rangle=0$ iff $f=0$. Seeing</p>
-$$ f(x)^2=\bigg(\sum_{i \in I} a_{i} K\left(x_{i}, x\right)\bigg)^2 = \langle f, \Phi(x)\rangle^{2} \leq\langle f, f\rangle\langle\Phi(x), \Phi(x)\rangle. $$<p>The last inequality is true since</p>
-$$ \bigg( \sum a_i \langle x_i, x\rangle\bigg) ^{2} = \sum a_i^2 \langle x_i, x\rangle^{2} +  \sum_{ij} a_i a_j \langle x_i, x\rangle \langle x_j, x\rangle \leq  \sum a_i^2 \langle x_i, x_i\rangle \langle x, x\rangle +  \sum_{ij} a_i a_j \langle x_i, x_i\rangle^{1/2} \langle x_j, x_j\rangle^{1/2} \langle x,x\rangle
-$$<p>where the last inequality is from the lemma.</p>
+<p>A small graph may be viewed as a functor from the small category  $\cdot \rightrightarrows \cdot$ to Sets.</p>
 
 </div>
 </div>
@@ -14682,143 +14665,160 @@ $$<p>where the last inequality is from the lemma.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-SVM-Method-">2. SVM Method <a id="SVM-Method" /><a class="anchor-link" href="#2.-SVM-Method-">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We consider a binary classifier problem.</p>
-<blockquote>
-<p>Determine a <strong>hypothesis</strong> $h \in \mathcal{H}$ where</p>
-$$ \mathcal{H}=\left\{\mathbf{x} \mapsto \operatorname{sign}(\mathbf{w} \cdot \mathbf{x}+b): \mathbf{w} \in \mathbb{R}^{N}, b \in \mathbb{R}\right\}$$<p>with small generalization error $R_{\mathcal{D}}(h)=\underset{x \sim \mathcal{D}}{\mathbb{P}}[h(x) \neq f(x)].$</p>
-</blockquote>
-<p>Here's the outline: we first introduce the algorithm for <strong>separable datasets</strong>, then its general version for <strong>non-separable datasets</strong>, and finally provide a theoretical foundation for SVMs based on <strong>margin</strong>.</p>
-<blockquote>
-<p><strong>Def 1.</strong> $S=\left(\left(x_{1}, y_{1}\right), \ldots,\left(x_{m}, y_{m}\right)\right)$ is <strong>separable</strong> if  $\exists (\mathbf{w}, b) \in\left(\mathbb{R}^{N}-\{\mathbf{0}\}\right) \times \mathbb{R}$ such that $\forall i \in[m]$, $y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right) \geq 0$.</p>
-</blockquote>
-<p>We can see that if there exist one  hyperplane $\mathbf{w} \cdot \mathbf{x}+b=0$ separating $S$, there exist ifinite many. Therefore, we require one criterion for determing the unique one.</p>
-<blockquote>
-<p>Consider maximizing the margin $\rho$ of a separating hyperplane</p>
-$$\rho=\max _{\substack{\mathbf{w}, b:\\ y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right) \geq 0}} \min _{i} \frac{\left|\mathbf{w} \cdot \mathbf{x}_{i}+b\right|}{\|\mathbf{w}\|}=\max _{\mathbf{w}, b} \min _{i} \frac{y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right)}{\|\mathbf{w}\|}=\max _{\substack{\mathbf{w}, b: \\ \min _{i} y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right)=1}} \frac{1}{\|\mathbf{w}\|}=\max _{\substack{\mathbf{w}, b: \\ \forall i, y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right) \geq 1}} \frac{1}{\|\mathbf{w}\|}.$$</blockquote>
-<p>The above (last) optimization problem is equivalent to</p>
-$$
-\begin{aligned}
-\min _{\mathbf{w}, b} &amp; \quad \frac{1}{2}\|\mathbf{w}\|^{2} \\
-\text { subject to: } &amp; \quad y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right) \geq 1, \forall i \in \{1,2,...,m\}.
-\end{aligned}
-$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In <a href="#Basic-Convex-Optimization">Basic Convex Optimization</a>, we will have recalled some basic facts about convex optimization. Write the Lagrangian function</p>
-$$\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha})=\frac{1}{2}\|\mathbf{w}\|^{2}-\sum_{i=1}^{m} \alpha_{i}\left[y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right)-1\right]$$<p>It's welcome to check the conditions stated in <strong>KKT condition</strong> are all satisfied. Therefore, we write the KKT conditions as follows:</p>
-$$\begin{aligned}
-\nabla_{\mathbf{w}} \mathcal{L}=\mathbf{w}-\sum_{i=1}^{m} \alpha_{i} y_{i} \mathbf{x}_{i}=0 \quad \Longrightarrow  &amp; \quad \mathbf{w}=\sum_{i=1}^{m} \alpha_{i} y_{i} \mathbf{x}_{i} \\
-\nabla_{b} \mathcal{L}=-\sum_{i=1}^{m} \alpha_{i} y_{i}=0 \quad \Longrightarrow &amp; \quad  \sum_{i=1}^{m} \alpha_{i} y_{i}=0 \\
- &amp; \quad \alpha_{i}=0 \vee y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right)=1 .
-\end{aligned}$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The weight vector  $\mathbf{w}$  at the solution of the SVM problem is a linear combination of the training set vectors  $\mathbf{x}_{1}, \ldots, \mathbf{x}_{m}$. A vector  $\mathbf{x}_{i}$  appears in that expansion iff  $\alpha_{i} \neq 0$. Such vectors are called <strong>support vectors</strong>. By the <strong>complementarity conditions</strong>, if  $\alpha_{i} \neq 0$, then $y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right)=1$. Thus, support vectors lie on the marginal hyperplanes  $\mathbf{w} \cdot \mathbf{x}_{i}+b= \pm 1$, which justifies the name of the algorithm.</p>
-<p>The Lagrangian function ( dual optimization problem ) <strong>via the KKT conditions</strong> can be simplified to</p>
-$$
-\begin{aligned}
-\max _{\boldsymbol{\alpha}} \quad &amp; \sum_{i=1}^{m} \alpha_{i}-\frac{1}{2} \sum_{i, j=1}^{m} \alpha_{i} \alpha_{j} y_{i} y_{j}\left(\mathbf{x}_{i} \cdot \mathbf{x}_{j}\right) \\
-\text { subject to: } \quad &amp; \alpha_{i} \geq 0 \wedge \sum_{i=1}^{m} \alpha_{i} y_{i}=0, \forall i \in[m] .
-\end{aligned}
-$$<p>The dual optimization problem reveals an important property of SVMs: <strong>the hypothesis solution depends only on inner products between vectors and not directly on the vectors themselves.</strong> Therefore, the general framework of the <strong>kernel mathod</strong> applies.</p>
-<p>In the non-separable case, for any hyperplane  $\mathbf{w} \cdot \mathbf{x}+b=0$, there exists  $\mathbf{x}_{i} \in S$  such that</p>
-$$y_{i}\left[\mathbf{w} \cdot \mathbf{x}_{i}+b\right] \ngeq 1.$$<p>Therefore, it's natural to introduce slack variables: for each  $i \in[m]$, there exist  $\xi_{i} \geq 0$  such that</p>
-$$y_{i}\left[\mathbf{w} \cdot \mathbf{x}_{i}+b\right] \geq 1-\xi_{i}.$$<p>This leads to the following general optimization problem defining SVMs in the non-separable case where the parameter  $C \geq 0$  determines the trade-off between margin-maximization and the minimization of the slack penalty  $\sum_{i=1}^{m} \xi_{i}^{p}$:</p>
-$$\begin{aligned}
-\min _{\mathbf{w}, b, \boldsymbol{\xi}} \quad &amp; \frac{1}{2}\|\mathbf{w}\|^{2}+C \sum_{i=1}^{m} \xi_{i}^{p} \\
-\text { subject to } \quad &amp; y_{i}\left(\mathbf{w} \cdot \mathbf{x}_{i}+b\right) \geq 1-\xi_{i} \wedge \xi_{i} \geq 0, i \in[m]
-\end{aligned}$$<p>We may derive similar formulas and conclusions as in the separable case, and thus we omit it here.</p>
+<p><code class="language-tikzcd"><a href="https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRADEAKAQQEoQAvqXSZc+QigCM5KrUYs2AcR78hI7HgJEyk2fWatEHTgCFVwkBg3ii03dX0Kjys4NkwoAc3hFQAMwAnCABbJDIQHAgkaRAGOgAjGAYABVFNCViYPxwQB3lDCJVBC0CQpAAmakikAGY8gzYcU3N-INDEcOrESrkGoy4-FpBS9piuut6nEGVBtwEgA">Tikzcd codes of Natural Transformation</a>
+\begin{tikzcd}
+    F(A) \arrow[r, "t(A)"] \arrow[d, "F(f)"] &amp; G(A) \arrow[d, "G(f)"] \\
+    F(B) \arrow[r, "t(B)"] &amp; G(B)
+\end{tikzcd}</p>
+</code>
 
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.-Basic-Convex-Optimization-">3. Basic Convex Optimization <a id="Basic-Convex-Optimization" /><a class="anchor-link" href="#3.-Basic-Convex-Optimization-">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>A <strong>general (primal) constrained optimization problem</strong> has the form:</p>
-<blockquote>
-$$\begin{aligned}\min _{\mathbf{x} \in X} &amp; \quad f(\mathbf{x}) \\ \text { subject to:} &amp; \quad g_{i}(\mathbf{x}) \leq 0, \forall i \in\{1, \ldots, m\}.\end{aligned}$$</blockquote>
-<p>Recall that for any convex optimization problem ( i.e. it has convex $f, g_i$'s ), any local minimum is also a global minimum and a strictly convex objective function has at most one global minimum. We will denote by $p^∗$ the optimal value of the objective if it exists. Then</p>
-<blockquote>
-<p>the <strong>Lagrange function</strong> associated to the general constrained optimization problem has the form</p>
-$$\forall \mathbf{x} \in X, \forall \boldsymbol{\alpha} \geq 0, \quad \mathcal{L}(\mathbf{x}, \boldsymbol{\alpha})=f(\mathbf{x})+\sum_{i=1}^{m} \alpha_{i} g_{i}(\mathbf{x}).$$<p>with the corresponding <strong>Lagrange dual function</strong> being $F(\boldsymbol{\alpha})=\inf _{\mathbf{x} \in X} \mathcal{L}(\mathbf{x}, \boldsymbol{\alpha})$, $\boldsymbol{\alpha} \geq 0$.</p>
-</blockquote>
-<p>Therefore, the <strong>dual optimization problem</strong> is defined as</p>
-<blockquote>
-$$\begin{aligned} \max _{\boldsymbol{\alpha}} &amp; \quad F(\boldsymbol{\alpha}) \\ \text { subject to: } &amp; \quad \boldsymbol{\alpha} \geq 0 . \end{aligned}$$</blockquote>
-<p>Let $d^∗$ denote an optimal value of the dual optimization problem. Since $F(\boldsymbol{\alpha}) \leq f(\mathbf{x})+\sum_{i=1}^{m} \alpha_{i} g_{i}(\mathbf{x}) \leq f(\mathbf{x})$, $\forall \alpha, x$, $d^{*} \leq p^{*}$ and The difference $p^{*}-d^{*}$ is known as the <strong>duality gap</strong>.</p>
-<p>Hereafter, we give without proof some technical lemmas:</p>
-<blockquote>
-<p>( <strong>sufficient</strong> )  $ \quad \forall \mathbf{x} \in \mathbb{R}^{N}, \forall \boldsymbol{\alpha} \geq 0, \quad \mathcal{L}\left(\mathbf{x}^{*}, \boldsymbol{\alpha}\right) \leq \mathcal{L}\left(\mathbf{x}^{*}, \boldsymbol{\alpha}^{*}\right) \leq \mathcal{L}\left(\mathbf{x}, \boldsymbol{\alpha}^{*}\right) \implies $ $\mathbf{x}^{*}$ is a solution of the primal problem.</p>
-</blockquote>
-<p><strong>Proof.</strong> The first inequality implies that 
-$$\begin{aligned}
-\forall \boldsymbol{\alpha} \geq 0, \mathcal{L}\left(\mathbf{x}^{*}, \boldsymbol{\alpha}\right) \leq \mathcal{L}\left(\mathbf{x}^{*}, \boldsymbol{\alpha}^{*}\right) &amp; \Rightarrow \forall \boldsymbol{\alpha} \geq 0, \boldsymbol{\alpha} \cdot g\left(\mathbf{x}^{*}\right) \leq \boldsymbol{\alpha}^{*} \cdot g\left(\mathbf{x}^{*}\right) \\
-&amp; \Rightarrow g\left(\mathbf{x}^{*}\right) \leq 0 \wedge \boldsymbol{\alpha}^{*} \cdot g\left(\mathbf{x}^{*}\right)=0 \quad \quad \quad \quad \quad \quad \quad \quad \text{(1)}
-\end{aligned}$$</p>
-<p>whereas the second implies that $\forall \mathbf{x}, \mathcal{L}\left(\mathbf{x}^{*}, \boldsymbol{\alpha}^{*}\right) \leq \mathcal{L}\left(\mathbf{x}, \boldsymbol{\alpha}^{*}\right) \Rightarrow \forall \mathbf{x}, f\left(\mathbf{x}^{*}\right) \leq f(\mathbf{x})+\boldsymbol{\alpha}^{*} \cdot g(\mathbf{x})$. Thus, combining the two inequalities above, we achieve the conclusion.</p>
-<p>Here $\left(\mathbf{x}^{*}, \boldsymbol{\alpha}^{*}\right)$ is known as a <strong>saddle point</strong> of the associated Lagrangian. Also, we have some necessay conditions as follows:</p>
-<blockquote>
-<p>( <strong>necessary I</strong> ) Assume that  $f$  and  $g_{i}$'s, are convex and that <strong>Slater's condition</strong> holds. Then,</p>
-$$\mathbf{x} \text{ is a solution} \implies \exists  \boldsymbol{\alpha} \geq 0: (\mathbf{x}, \boldsymbol{\alpha})   \text{ is a saddle point of the Lagrangian.}$$<p>( <strong>necessary II</strong> ) Assume that  $f$  and  $g_{i}$'s, are convex differentiable and that the weak Slater's condition holds. Then,</p>
-$$\mathbf{x} \text{ is a solution} \implies \exists  \boldsymbol{\alpha} \geq 0: (\mathbf{x}, \boldsymbol{\alpha})   \text{ is a saddle point of the Lagrangian.}$$</blockquote>
-<p>Here, the <strong>Slater’s condition</strong> means that $\exists \overline{\mathbf{x}} \in \operatorname{int}(X): g(\overline{\mathbf{x}})&lt;0$, while the <strong>(weak) Slater’s condition</strong> means that</p>
-$$\exists \overline{\mathbf{x}} \in \operatorname{int}(X): \forall i \in[m],\left(g_{i}(\overline{\mathbf{x}})&lt;0\right) \vee\left(g_{i}(\overline{\mathbf{x}})=0 \wedge g_{i} \text { affine}\right).$$<p>Finally, combing the above conclusions, we get to:</p>
-<blockquote>
-<p>( <strong>KKT condition</strong> )</p>
-<p>Assume that $f, g_{i}: \mathcal{X} \rightarrow \mathbb{R}$ are convex and differentiable and that the constraints are qualified, then $\bar{x}$ is a solution of the primal constrained program iff there exists  $\overline{\boldsymbol{\alpha}} \geq 0$ such that,</p>
-$$ \nabla_{\mathbf{x}} \mathcal{L}(\overline{\mathbf{x}}, \overline{\boldsymbol{\alpha}})=0 \wedge  g\left(\mathbf{x}^{*}\right) \leq 0 \wedge \boldsymbol{\alpha}^{*} \cdot g\left(\mathbf{x}^{*}\right)=0.$$</blockquote>
-<p><strong>Proof.</strong> The forward direction is from <strong>necessary II</strong> and <strong>sufficient</strong>. For the opposite, simply observing that</p>
-$$\begin{aligned}
-f(\mathbf{x})-f(\overline{\mathbf{x}}) &amp; \geq \nabla_{\mathbf{x}} f(\overline{\mathbf{x}}) \cdot(\mathbf{x}-\overline{\mathbf{x}})  =-\sum_{i=1}^{m} \overline{\boldsymbol{\alpha}}_{i} \nabla_{\mathbf{x}} g_{i}(\overline{\mathbf{x}}) \cdot(\mathbf{x}-\overline{\mathbf{x}}) \\
-&amp; \geq-\sum_{i=1}^{m} \overline{\boldsymbol{\alpha}}_{i}\left[g_{i}(\mathbf{x})-g_{i}(\overline{\mathbf{x}})\right] = -\sum_{i=1}^{m} \overline{\boldsymbol{\alpha}}_{i} g_{i}(\mathbf{x}) \geq 0.
-\end{aligned}$$<p>Here the constraints are qualified if, for example, the <strong>(weak) Slater’s condition</strong> holds. Also we remark that the last two conditions are simply (1).</p>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
 
+     </div>
 </div>
 </div>
 </div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14828,7 +14828,7 @@ f(\mathbf{x})-f(\overline{\mathbf{x}}) &amp; \geq \nabla_{\mathbf{x}} f(\overlin
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr />
 <h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
-<li>Mohri, M., Rostamizadeh, A., &amp; Talwalkar, A. (2018). Foundations of Machine Learning. The MIT Press.</li>
+<li>Gallager, Robert G. Discrete Stochastic Processes. Kluwer Acad. Publ., 1999.</li>
 </ol>
 
 </div>
