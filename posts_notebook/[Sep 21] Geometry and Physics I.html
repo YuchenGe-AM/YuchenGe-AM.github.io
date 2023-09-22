@@ -14620,11 +14620,184 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="1.-Quantum-Physics">1. Quantum Physics<a class="anchor-link" href="#1.-Quantum-Physics">&#182;</a></h3><p>Recall some elementary principles of <strong>Lagrangian and Hamiltonian formalisms</strong>.</p>
+<h3 id="1.-Lagrangian-and-Hamiltonian-Formalisms">1. Lagrangian and Hamiltonian Formalisms<a class="anchor-link" href="#1.-Lagrangian-and-Hamiltonian-Formalisms">&#182;</a></h3><p>Recall some elementary principles of <strong>Lagrangian and Hamiltonian formalisms</strong>.</p>
 <blockquote>
 <p><strong>Equation of motion</strong>: $$m \frac{\mathrm{d}^{2} \boldsymbol{x}(t)}{\mathrm{d} t^{2}}=\boldsymbol{F}(\boldsymbol{x}(t)).$$</p>
 </blockquote>
-<p>Here if force $\boldsymbol{F}(\boldsymbol{x}) =   -\nabla V(\boldsymbol{x})$ is a <strong>conserved force</strong> where  $V(\boldsymbol{x})$ is called the <strong>potential energy</strong>.</p>
+<p>Here if force $\boldsymbol{F}(\boldsymbol{x}) =   -\nabla V(\boldsymbol{x})$ is a <strong>conserved force</strong> where  $V(\boldsymbol{x})$ is called the <strong>potential energy</strong>, the combination $E=\frac{m}{2}\left(\frac{\mathrm{d} \boldsymbol{x}}{\mathrm{d} t}\right)^{2}+V(\boldsymbol{x})$ is conserved, i.e.</p>
+$$\frac{\mathrm{d} E}{\mathrm{~d} t}=\sum_{k}\left[m \frac{\mathrm{d} x_{k}}{\mathrm{~d} t} \frac{\mathrm{d}^{2} x_{k}}{\mathrm{~d} t^{2}}+\frac{\partial V}{\partial x_{k}} \frac{\mathrm{d} x_{k}}{\mathrm{~d} t}\right]=\sum_{k}\left(m \frac{\mathrm{d}^{2} x_{k}}{\mathrm{~d} t^{2}}+\frac{\partial V}{\partial x_{k}}\right) \frac{\mathrm{d} x_{k}}{\mathrm{~d} t}=0.$$<p>Quantum mechanics cannot be derived directly from Newtonian mechanics. The Lagrangian formalism is now introduced to overcome these difficulties.</p>
+<p>Let us consider a system whose <strong>state</strong> is described by $N$ parameters $\{q_i\}$, then consider</p>
+$$ S[q(t), \dot{q}(t)]=\int_{t_{i}}^{t_{f}} L(q, \dot{q}) \mathrm{d} t.
+$$<p>Suppose  $q(t)$  is a path realizing an extremum of $S$. Consider a variation  $\delta q(t)$  of the trajectory such that  $\delta q\left(t_{i}\right)=\delta q\left(t_{f}\right)=0$. Then</p>
+$$\begin{aligned}
+\delta S &amp; =\int_{t_{i}}^{t_{f}} L(q+\delta q, \dot{q}+\delta \dot{q}) \mathrm{d} t-\int_{t_{i}}^{t_{f}} L(q, \dot{q}) \mathrm{d} t \\
+&amp; =\int_{t_{i}}^{t_{f}}\left(\frac{\partial L}{\partial q}-\frac{\mathrm{d}}{\mathrm{d} t} \frac{\partial L}{\partial \dot{q}}\right) \delta q \mathrm{~d} t
+\end{aligned}$$<p>Since this is true for any $\delta q$, we have the <strong>Euler–Lagrange equation</strong> for $N$ parameters:</p>
+$$\frac{\partial L}{\partial q_k} = \frac{\mathrm{d}}{\mathrm{d} t} \frac{\partial L}{\partial \dot{q}_k} = \dot{p_{k}}$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>where we set that</p>
+<blockquote>
+<p>The <strong>generalized momentum</strong> is $$p_{k}=\frac{\partial L}{\partial \dot{q}_{k}}.$$</p>
+</blockquote>
+<p>Note that $L=\frac{1}{2} m \dot{\boldsymbol{q}}^{2}-V(\boldsymbol{q})$ would take this formula back to the <strong>Equation of motion</strong>. An interesting observation is that <strong>Newtonian mechanics is realized as an extremum of the action but the action itself is defined for any trajectory.</strong></p>
+<p>Suppose a Lagrangian $L$ is given. Then we define the <strong>corresponding Hamiltonian</strong> via Legendre transformation as</p>
+<blockquote>
+$$ H(q, p) \equiv \sum_{k} p_{k} \dot{q}_{k}-L(q, \dot{q}). $$</blockquote>
+<p>Here the Legendre transoformation is naively understood choosing appropriate $\omega$ such that</p>
+$$ dg = d(f-wy) = f_x dx + f_y dy - w dy - ydw = f_x dx - ydw.$$<blockquote>
+<p>The space with coordinates $( q_k , p_k )$ is called the <strong>phase space</strong>.</p>
+</blockquote>
+<p>Similarly, we have</p>
+$$\begin{aligned}
+\delta H &amp; =\sum_{k}\left[\delta p_{k} \dot{q}_{k}+p_{k} \delta \dot{q}_{k}-\frac{\partial L}{\partial q_{k}} \delta q_{k}-\frac{\partial L}{\partial \dot{q}_{k}} \delta \dot{q}_{k}\right] \\
+&amp; =\sum_{k}\left[\delta p_{k} \dot{q}_{k}-\frac{\partial L}{\partial q_{k}} \delta q_{k}\right] .
+\end{aligned}.$$<p>Then we have <strong>the Hamilton equations of motion</strong></p>
+$$ \frac{\partial H}{\partial p_{k}}=\dot{q}_{k}, \quad \frac{\partial H}{\partial q_{k}}=-\frac{\partial L}{\partial q_{k}} = - \dot{p_k}.$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<p>Define the <strong>Poisson bracket</strong> $$[A, B]=\sum_{k}\left(\frac{\partial A}{\partial q_{k}} \frac{\partial B}{\partial p_{k}}-\frac{\partial A}{\partial p_{k}} \frac{\partial B}{\partial q_{k}}\right)$$ 
+and we have</p>
+<p>$$ \frac{\mathrm{d} A}{\mathrm{~d} t} =\sum_{k}\left(\frac{\mathrm{d} A}{\mathrm{~d} q_{k}} \frac{\mathrm{d} q_{k}}{\mathrm{~d} t}+\frac{\mathrm{d} A}{\mathrm{~d} p_{k}} \frac{\mathrm{d} p_{k}}{\mathrm{~d} t}\right)</p>
+</blockquote>
+<p>= \sum_{k}\left(\frac{\mathrm{d} A}{\mathrm{~d} q_{k}} \frac{\partial H}{\partial p_{k}}-\frac{\mathrm{d} A}{\mathrm{~d} p_{k}} \frac{\partial H}{\partial q_{k}}\right) = [A, H] .$$</p>
+<p>As a special case, the Hamilton equations of motion can be written as</p>
+$$\frac{\mathrm{d} p_{k}}{\mathrm{~d} t}=\left[p_{k}, H\right] \quad \frac{\mathrm{d} q_{k}}{\mathrm{~d} t}=\left[q_{k}, H\right].$$<p>Finally, we give the famous</p>
+<blockquote>
+<p>( <strong>Noether's theorem</strong> )</p>
+<p>Let  $H\left(q_{k}, p_{k}\right)$  be a Hamiltonian which is invariant under an infinitesimal coordinate transformation  $q_{k} \rightarrow q_{k}^{\prime}=q_{k}+   \varepsilon f_{k}(q)$. Then</p>
+$$Q=\sum_{k} p_{k} f_{k}(q)$$</blockquote>
+<p>is conserved.</p>
+<p><strong>Proof.</strong> Observe that</p>
+$$\begin{aligned}
+0 &amp; = \sum_{k} \bigg(H(q_{k}^{\prime}, p_{k}^{\prime})-H(q_{k}, p_{k}) \bigg)=\sum_{k}\frac{\partial H}{\partial q_{k}} \varepsilon f_k(q)-\sum_{i,j}\frac{\partial H}{\partial p_{j}} \varepsilon p_{i} \frac{\partial f_{i}}{\partial q_{j}} \\
+&amp; =\varepsilon\left[\sum_{k}\frac{\partial H}{\partial q_{k}} f_{k}(q)-\sum_{i,j}\frac{\partial H}{\partial p_{j}} p_{i} \frac{\partial f_{i}}{\partial q_{j}}\right]  =\varepsilon[H, Q]=\varepsilon \frac{\mathrm{d} Q}{\mathrm{~d} t}, \end{aligned}$$<p>where the first equality is easily deduced from</p>
+$$\frac{\partial q_{i}^{\prime}}{\partial q_{j}} \simeq \delta_{i j}+\varepsilon \frac{\partial f_{i}(q)}{\partial q_{j}} \quad \text{and} \quad \sum_{j} p_{j} \frac{\partial q_{j}}{\partial q_{i}^{\prime}} \simeq \sum_{j} p_{j}(\delta_{j i}-\varepsilon \frac{\partial f_{j}(q)}{\partial q_{i}}) = p_{i}-\varepsilon \sum_{j} p_{j} \frac{\partial f_{j}}{\partial q_{i}}.$$<p><strong>Remark.</strong> Here $$\frac{\partial q_{j}}{\partial q_{i}^{\prime}} = \frac{\partial \dot{q_{j}}}{\partial \dot{q_{i}^{\prime}}}$$
+is a direct consequence of the <strong>L'Hospital's Rule</strong>.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>This theorem shows that <strong>to find a conserved quantity is equivalent to finding a transformation which leaves the Hamiltonian invariant.</strong> Also, if it exists, the conserved quantity $Q$ is the <strong>‘generator’</strong> of the transformation under discussion:</p>
+$$\left[q_{i}, Q\right]=\sum_{k}\left[\frac{\partial q_{i}}{\partial q_{k}} \frac{\partial Q}{\partial p_{k}}-\frac{\partial q_{i}}{\partial p_{k}} \frac{\partial Q}{\partial q_{k}}\right]=\sum_{k} \delta_{i k} f_{k}(q)=f_{i}(q)$$<p>which shows that  $\delta q_{i}=\varepsilon f_{i}(q)=\varepsilon\left[q_{i}, Q\right]$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="2.-Canonical-Quantization">2. Canonical Quantization<a class="anchor-link" href="#2.-Canonical-Quantization">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Consider a complex Hilbert space $\mathcal{H}=\{|\phi\rangle,|\psi\rangle, \ldots\}$. Let  $\left\{\left|e_{1}\right\rangle,\left|e_{2}\right\rangle, \ldots\right\}$  be a basis of $\mathcal{H}$, and define the dual basis as</p>
+$$\left\langle\varepsilon_{i} \mid e_{j}\right\rangle=\delta_{i j}.$$<p>It's immediate that</p>
+$$\langle\alpha \mid \psi\rangle=\sum_{i j} \alpha_{i} \psi_{j}\left\langle\varepsilon_{i} \mid e_{j}\right\rangle=\sum_{i j} \alpha_{i} \psi_{j} \delta_{i j}=\sum_{i} \alpha_{i} \psi_{i}.$$<p>It is possible to introduce a one-to-one correspondence between elements in $\mathcal{H}$ and $\mathcal{H}^{*}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Fix a basis  $\left\{\left|e_{k}\right\rangle\right\}$  of  $\mathcal{H}$  and  $\left\{\left\langle\varepsilon_{k}\right|\right\}$  of  $\mathcal{H}^{*}$. Then there exist a correspondence</p>
+$$|\psi\rangle=\sum_{k} \psi_{k}\left|e_{k}\right\rangle \leftrightarrow \langle\psi|=\sum_{k} \psi_{k}^{*}\left\langle\varepsilon_{k}\right|.$$<p>Then the inner product is defined by</p>
+$$(|\phi\rangle,|\psi\rangle) \equiv\langle\phi \mid \psi\rangle=\sum_{k} \phi_{k}^{*} \psi_{k}.$$<p>and specially $\||\psi\rangle \|=   \sqrt{\langle\psi \mid \psi\rangle}$.</p>
+<blockquote>
+<p>( <strong>the completeness relation</strong> ) $$\sum_{k}\left|e_{k}\right\rangle\left\langle e_{k}\right|=I.$$</p>
+</blockquote>
+<p><strong>Proof.</strong> Check the following is true for any $|\psi\rangle$: 
+$$|\psi\rangle=\sum_{k}\left\langle e_{k} \mid \psi\right\rangle\left|e_{k}\right\rangle=\sum_{k}\left|e_{k}\right\rangle\left\langle e_{k} \mid \psi\right\rangle.$$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The Poisson bracket in classical mechanics is replaced by</p>
+$$\frac{\mathrm{d} \hat{q}_{i}}{\mathrm{~d} t}=\frac{1}{\mathrm{i}}\left[\hat{q}_{i}, H\right] \quad \frac{\mathrm{d} \hat{p}_{i}}{\mathrm{~d} t}=\frac{1}{\mathrm{i}}\left[\hat{p}_{i}, H\right]$$<p>and analogously, one has <strong>Heisenberg’s equation of motion</strong>:</p>
+$$ \frac{\mathrm{d} \hat{A}}{\mathrm{~d} t}=\frac{1}{\mathrm{i}}[\hat{A}, \hat{H}] $$<p>.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="3.-Tensors">3. Tensors<a class="anchor-link" href="#3.-Tensors">&#182;</a></h3><p>First we recall the  <strong>Dual vector space</strong>. Let us choose the dual basis,</p>
+$$ e^{* i}\left(\boldsymbol{e}_{j}\right)=\delta_{j}^{i} $$<p>Thus, if $f=f_{i} e^{* i}$ is expanded, then we can define</p>
+<p>the inner product $\langle \cdot , \cdot \rangle: V^{*} \times V \rightarrow K$ as follows:</p>
+<blockquote>
+$$ \langle f , \boldsymbol{v} \rangle  \equiv f(\boldsymbol{v})=f_{i} e^{* i}\left(v^{j} \boldsymbol{e}_{j}\right)=f_{i} v^{j} e^{* i}\left(\boldsymbol{e}_{j}\right)=f_{i} v^{i}. $$</blockquote>
+<p>Since  $\operatorname{dim} V^{*}=\operatorname{dim} V$, there exists an isomorphism between $V$  and $V^{*}$. However, this isomorphism is not canonical; we have to specify an inner product in $V$  to define an isomorphism between  $V$  and  $V^{*}$  and vice versa.</p>
+<p>Define $g: V \rightarrow V^{*}$  where $g \in \mathrm{GL}(m, K)$ with component representation</p>
+$$g: v^{j} \rightarrow g_{i j} v^{j}.$$<blockquote>
+<p>The <strong>inner product of two vectors</strong> $v_1, v_2$ is defined as $g\left(\boldsymbol{v}_{1}, \boldsymbol{v}_{2}\right) \equiv\left\langle g \boldsymbol{v}_{1}, \boldsymbol{v}_{2}\right\rangle$.</p>
+</blockquote>
+<p>In component expression, $$g\left(\boldsymbol{v}_{1}, \boldsymbol{v}_{2}\right)=v_{1}^{i} g_{j i} v_{2}^{j}.$$</p>
+<p>Next, let $W=W(n, \mathbb{R})$  be a vector space with a basis  $\left\{\boldsymbol{f}_{\alpha}\right\}$  and a vector space isomorphism  $G: W \rightarrow W^{*}$. Given a map  $f: V \rightarrow W$, we may define the adjoint of  $f$, denoted by  $\tilde{f}$, by</p>
+$$ G(\boldsymbol{w}, f \boldsymbol{v})=g(\boldsymbol{v}, \tilde{f} \boldsymbol{w}). $$<p>In component expression,</p>
+$$ w^{\alpha} G_{\alpha \beta} f^{\beta}{ }_{i} v^{i}=v^{i} g_{i j} \widetilde{f}^{j}{ }_{\alpha} w^{\alpha},$$<p>which follows that $G_{\alpha \beta} f^{\beta}{ }_{i}=g_{i j} \tilde{f}_{\alpha}^{j}$, i.e. $\tilde{f}=g^{-1} f^{\mathrm{t}} G^{\mathrm{t}}$. Therefore, $\tilde{\tilde{f}}=f$ and also we have</p>
+<blockquote>
+<p><strong>Lemma.</strong> $\operatorname{rank} f=\operatorname{rank} \tilde{f}$.</p>
+<p><strong>Toy Index Theorem.</strong></p>
+$$ \operatorname{dim} \operatorname{ker} f-\operatorname{dim} \operatorname{ker} \tilde{f}=\operatorname{dim} V-\operatorname{dim} W. $$</blockquote>
+<p><strong>Proof.</strong> We know that $$\operatorname{dim} V=\operatorname{dim} \operatorname{ker} f+\operatorname{dimim} f \text {, } \operatorname{dim} W=\operatorname{dim} \operatorname{ker} \tilde{f}+\operatorname{dimim} \tilde{f}. $$</p>
+<p>Since $ \operatorname{rank} f = \operatorname{dimim} f = \operatorname{dimim} \tilde{f}$, the conclusion immediately follows.</p>
+<p>Finally, we introduce tensors.</p>
+<blockquote>
+<p>A tensor $T$ of type $( p, q )$ is a multilinear map that maps $p$ dual vectors and $q$ vectors to $\mathbb{R}$.</p>
+</blockquote>
+<p>For example, Let  $V$  and  $W$  be vector spaces and let  $f: V \rightarrow W$  be a linear map, then $f$  is a tensor of type  $(1,1)$. It's known that there are two operations concerning tensors: <strong>tensor product</strong> and <strong>contraction</strong>.</p>
 
 </div>
 </div>
@@ -14639,28 +14812,15 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 <hr />
 <h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
 <li>Nakahara, Mikio, and Matthias Delbrück. Differentialgeometrie, Topologie Und Physik. Springer Berlin, 2022.</li>
+</ol>
+<p>( errata: <a href="https://www2.physics.ox.ac.uk/sites/default/files/profiles/johnsong/nakahara-errata-new-41775.pdf">https://www2.physics.ox.ac.uk/sites/default/files/profiles/johnsong/nakahara-errata-new-41775.pdf</a> )</p>
+<ol start="2">
 <li>Liu, Qing. Algebraic Geometry and Arithmetic Curves. Oxford University Press, 2010.</li>
 </ol>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 
