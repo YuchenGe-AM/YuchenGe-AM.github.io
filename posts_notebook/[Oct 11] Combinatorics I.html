@@ -14694,28 +14694,26 @@ $$\sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{n}{i}} \le
 <p><strong>Probabilistic proof.</strong> Let  $\mathcal{F}$  be an antichain in  $\mathcal{P}(n)$. Choose a maximal chain  $C=\left(A_{0}, \ldots, A_{n}\right)$, where  $\emptyset=A_{0} \subseteq \ldots A_{n}=[n]$, uniformly at random from all  $n!$ maximal chains. For  $A \in \mathcal{F}$  with  $|A|=k$  we have</p>
 $$\mathbb{P}[A \in C]=\frac{k !(n-k) !}{n !}=\frac{1}{\binom{n}{k}}.$$<p>The events  $(A \in C)_{A \in \mathcal{F}}$  are pairwise disjoint, so by the union bound we have</p>
 $$1 \geq \sum_{A \in \mathcal{F}} \mathbb{P}[A \in C]=\sum_{A \in \mathcal{F}} \frac{1}{\binom{n}{
-|A|}}.$$<blockquote>
-<p>( <strong>Refined Version of Sperner's Lemma</strong> ) Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. Then  $$|\mathcal{F}| \leq \binom{</p>
-</blockquote>
-<p>n}{\lfloor n / 2\rfloor},$$</p>
+|A|}}.$$<p>Here is a <strong>complete</strong> proof of the LYM inequality, using some local inequality.</p>
 <blockquote>
-<p>with equality if and only if if  $\mathcal{F}=[n]^{\lfloor n / 2\rfloor}$  or  $\mathcal{F}=[n]^{ \lceil n / 2 \rceil }$.</p>
+<p><strong>Lemma.</strong> ( <strong>Local LYM Inequality</strong> ) Let  $\mathcal{A} \subseteq[n]^{(r)}$. Then
+$$\frac{|\partial \mathcal{A}|}{\binom{n}{r-1}} \geq \frac{|\mathcal{A}|}{\binom{n}{r}}$$
+with equality if and only if $\mathcal{A}=\emptyset$ or $\mathcal{A}=[n]^{(r)}$.</p>
+<p>Once more, we use double counting to prove this. By succesively applying the <strong>Local LYM Inequality</strong> to $\mathcal{G}_{r}:=\mathcal{F}_{r} \cup \partial \mathcal{G}_{r+1}$, we can show that 
+$$ 1\geq \frac{\left|\mathcal{G}_{r}\right|}{\binom{n}{r}} \geq \sum_{i=r}^{n} \frac{\left|\mathcal{F}_{i}\right|}{\binom{n}{i}}, $$</p>
+<p>which forms a complete proof of the refined version.</p>
+</blockquote>
+<p>Then we are in a position to propose the refined version of the Sperner's Lemma.</p>
+<blockquote>
+<p>( <strong>Refined Version of Sperner's Lemma</strong> ) Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. Then</p>
+$$|\mathcal{F}| \leq \binom{n}{\lfloor n / 2\rfloor},$$<p>with equality if and only if if  $\mathcal{F}=[n]^{\lfloor n / 2\rfloor}$  or  $\mathcal{F}=[n]^{ \lceil n / 2 \rceil }$.</p>
 </blockquote>
 <p><strong>Proof.</strong> Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. By the LYM Inequality, we have</p>
 $$ 1 \geq \sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{
 n}{i}} \geq \sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{
 n}{\lfloor n / 2\rfloor}} =\frac{|\mathcal{F}|}{\binom{
 n }{ \lceil n / 2\rfloor}}, $$<p>where if we have the first equality we must have $\mathcal{F}=[n]^{(i)}$  for some  $i$, and if the second equality we must have  $i=\lfloor n / 2\rfloor$  or  $i=\lceil n / 2\rceil$.</p>
-<p>Here is a complete proof of the refined version of the LYM inequality, using some local inequality.</p>
-<blockquote>
-<p><strong>Lemma.</strong> ( <strong>Local LYM Inequality</strong> ) Let  $\mathcal{A} \subseteq[n]^{(r)}$. Then</p>
-</blockquote>
-$$\frac{|\partial \mathcal{A}|}{\binom{n}{r-1}} \geq \frac{|\mathcal{A}|}{\binom{n}{r}}$$<blockquote>
-<p>with equality if and only if $\mathcal{A}=\emptyset$ or $\mathcal{A}=[n]^{(r)}$.</p>
-<p>Once more, we use double counting to prove this. By succesively applying the <strong>Local LYM Inequality</strong> to $\mathcal{G}_{r}:=\mathcal{F}_{r} \cup \partial \mathcal{G}_{r+1}$, we can show that 
-$$ 1\geq \frac{\left|\mathcal{G}_{r}\right|}{\binom{n}{r}} \geq \sum_{i=r}^{n} \frac{\left|\mathcal{F}_{i}\right|}{\binom{n}{i}}, $$</p>
-<p>which forms a complete proof of the refined version.</p>
-</blockquote>
+<p>The following is somehow the generalization of the Sperner's Lemma.</p>
 <blockquote>
 <p>( <strong>Dilworth's Theorem</strong> ) Let $(P, \leq)$  be a finite poset. The minimum number of chains needed to cover  $P$  is equal to the maximum size of an antichain.</p>
 </blockquote>
