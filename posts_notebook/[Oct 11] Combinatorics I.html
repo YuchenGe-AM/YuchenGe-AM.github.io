@@ -14695,17 +14695,20 @@ $$\sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{n}{i}} \le
 $$\mathbb{P}[A \in C]=\frac{k !(n-k) !}{n !}=\frac{1}{\binom{n}{k}}.$$<p>The events  $(A \in C)_{A \in \mathcal{F}}$  are pairwise disjoint, so by the union bound we have</p>
 $$1 \geq \sum_{A \in \mathcal{F}} \mathbb{P}[A \in C]=\sum_{A \in \mathcal{F}} \frac{1}{\binom{n}{
 |A|}}.$$<blockquote>
-<p>( <strong>Refined Version of Sperner's Lemma</strong> ) Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. Then  $|\mathcal{F}| \leq \binom{</p>
+<p>( <strong>Refined Version of Sperner's Lemma</strong> ) Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. Then  $$|\mathcal{F}| \leq \binom{</p>
 </blockquote>
-<p>n}{\lfloor n / 2\rfloor}$, with equality if and only if if  $\mathcal{F}=[n]^{(\lfloor n / 2\rfloor)}$  or  $\mathcal{F}=[n]^{\lceil n / 2]}$.</p>
+<p>n}{\lfloor n / 2\rfloor},$$</p>
+<blockquote>
+<p>with equality if and only if if  $\mathcal{F}=[n]^{\lfloor n / 2\rfloor}$  or  $\mathcal{F}=[n]^{ \lceil n / 2 \rceil }$.</p>
+</blockquote>
 <p><strong>Proof.</strong> Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. By the LYM Inequality, we have</p>
 $$ 1 \geq \sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{
 n}{i}} \geq \sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{
 n}{\lfloor n / 2\rfloor}} =\frac{|\mathcal{F}|}{\binom{
-n }{ n / 2\rfloor}}, $$<p>where if we have the first equality we must have $\mathcal{F}=[n]^{(i)}$  for some  $i$, and if the second equality we must have  $i=\lfloor n / 2\rfloor$  or  $i=\lceil n / 2\rceil$.</p>
-<p>Here is a complete proof of the refined version, using some local inequality.</p>
+n }{ \lceil n / 2\rfloor}}, $$<p>where if we have the first equality we must have $\mathcal{F}=[n]^{(i)}$  for some  $i$, and if the second equality we must have  $i=\lfloor n / 2\rfloor$  or  $i=\lceil n / 2\rceil$.</p>
+<p>Here is a complete proof of the refined version of the LYM inequality, using some local inequality.</p>
 <blockquote>
-<p><strong>Lemma.</strong> ( <strong>Local LYM Inequality</strong> ) Let  $\mathcal{F} \subseteq[n]^{(r)}$. Then</p>
+<p><strong>Lemma.</strong> ( <strong>Local LYM Inequality</strong> ) Let  $\mathcal{A} \subseteq[n]^{(r)}$. Then</p>
 </blockquote>
 $$\frac{|\partial \mathcal{A}|}{\binom{n}{r-1}} \geq \frac{|\mathcal{A}|}{\binom{n}{r}}$$<blockquote>
 <p>with equality if and only if $\mathcal{A}=\emptyset$ or $\mathcal{A}=[n]^{(r)}$.</p>
