@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>[Oct 11] Geometry and Physics II</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>[Oct 11] Combinatorics I</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14593,11 +14593,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%5BOct-11%5D-Geometry-and-Physics-II">[Oct 11] Geometry and Physics II<a class="anchor-link" href="#%5BOct-11%5D-Geometry-and-Physics-II">&#182;</a></h2><p>Presenter: Yuchen Ge<br />
+<h2 id="%5BOct-11%5D-Combinatorics-I">[Oct 11] Combinatorics I<a class="anchor-link" href="#%5BOct-11%5D-Combinatorics-I">&#182;</a></h2><p>Presenter: Yuchen Ge<br />
 Affiliation: University of Oxford<br />
 Contact Email: gycdwwd@gmail.com<br />
 Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</a></p>
-<h3 id="All-coordinate-systems-are-equally-good.">All coordinate systems are equally good.<a class="anchor-link" href="#All-coordinate-systems-are-equally-good.">&#182;</a></h3>
+
 </div>
 </div>
 </div>
@@ -14608,7 +14608,7 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr />
+<h3 id="Combinatorics-is-not-a-science,-it's-an-attitude.">Combinatorics is not a science, it's an attitude.<a class="anchor-link" href="#Combinatorics-is-not-a-science,-it's-an-attitude.">&#182;</a></h3><hr />
 
 </div>
 </div>
@@ -14622,11 +14622,9 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Content</p>
 <ol>
-<li><a href="#Tensor-Fields">Tensor Fields</a></li>
-<li><a href="#Differential-Forms">Differential Forms</a></li>
-<li><a href="#Orientation">Orientation</a></li>
-<li><a href="#Lie-Groups">Lie Groups</a></li>
-<li><a href="#Affine-Connections">Affine Connections</a></li>
+<li><a href="#Pr%C3%BCfer-Codes">Prüfer Codes</a></li>
+<li><a href="#Halls-Theorem-and-its-Application">Hall's Theorem and its application</a></li>
+<li><a href="#Eulerian-Circuit">Eulerian Circuit</a></li>
 </ol>
 <hr />
 
@@ -14640,103 +14638,26 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="1.-Tensor-Fields-">1. Tensor Fields <a id="Tensor-Fields" /><a class="anchor-link" href="#1.-Tensor-Fields-">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Assume $M$ is provided with a family of pairs $\left\{\left(U_{i}, \varphi_{i}\right)\right\}$ where $\varphi_{i}$ is represented by $m$ functions $\left\{x^{1}(p), \ldots, x^{m}(p)\right\}$. The coordinate transformation functions $x^{\mu}=x^{\mu}(y)$  are the explicit form of the map</p>
-$$\psi_{j i}=\varphi_{j} \circ \varphi_{i}^{-1}.$$<blockquote>
-<p>An example:  Let $M_{k, n}(\mathbb{R})$ be the set of $k \times n$ matrices of $\operatorname{rank} k$ $(k \leq n)$. We identify  $G_{k, n}(\mathbb{R})$  with the coset space  $M_{k, n}(\mathbb{R}) / \mathrm{GL}(k, \mathbb{R})$.</p>
-<p>Here the differentiability has been defined via the following. Assume the minor  $A_{1}$  made of the first $k$  columns has non-vanishing determinant,
-$$A=\left(A_{1}, \widetilde{A_{1}}\right).$$
-Then take the represtative $A_{1}^{-1} \cdot A=\left(I_{k}, A_{1}^{-1} \cdot \widetilde{A_{1}}\right)$ and $A_{1}^{-1} \cdot \widetilde{A_{1}}$ gives the coordinates.</p>
+<h3 id="1.-Pr%C3%BCfer-Codes-">1. Pr&#252;fer Codes <a id="Pr&#252;fer-Codes" /><a class="anchor-link" href="#1.-Pr%C3%BCfer-Codes-">&#182;</a></h3><blockquote>
+<p>What's the number of trees of $[n]$?</p>
 </blockquote>
-<p>Consider a curve $c:(a, b) \rightarrow M$, then the rate of change of the curve is denoted as $\left.\frac{\mathrm{d} f(c(t))}{\mathrm{d} t}\right|_{t=0}$. In local coordinates, this becomes</p>
-$$ \left.\frac{\partial f}{\partial x^{\mu}} \frac{\mathrm{d} x^{\mu}(c(t))}{\mathrm{d} t}\right|_{t=0}.
-$$<blockquote>
-<p>The <strong>tangent vector $X$</strong> in $T_{p} M $ with the equivalence class of curves</p>
-</blockquote>
-<p>$[c(t)]=\left\{\widetilde{c}(t) \mid \widetilde{c}(0)=c(0) \text { and }\left.\frac{\mathrm{d} x^{\mu}(\widetilde{c}(t))}{\mathrm{d} t}\right|_{t=0}=\left.\frac{\mathrm{d} x^{\mu}(c(t))}{\mathrm{d} t}\right|_{t=0}\right\}$.</p>
+<p>To do this, We shall notice that</p>
 <blockquote>
+<p>There is a correspondence between each tree on  $[n]$  and its Prüfer code  $\mathbf{c}=\left(c_{1}, c_{2}, \ldots, c_{n-2}\right)$, where  $1 \leqslant c_{i} \leqslant n$.</p>
 </blockquote>
-<p>Therefore, the above computation becomes $$ \left.\frac{\mathrm{d} f(c(t))}{\mathrm{d} t}\right|_{t=0}=X^{\mu}\left(\frac{\partial f}{\partial x^{\mu}}\right) \equiv X[f]. $$</p>
-<p>Clearly, a vector $V \in T_{p} M$ can be written as $V=V^{\mu} e_{\mu} = \partial / \partial x^{\mu}$.</p>
+<p>To generate the code from the tree, we repeatedly Find the leaf  $v_{i}$  with the smallest number, remove it, and write down the number  $c_{i}$  of the (unique) vertex  $v_{i}$ was adjacent to. Repeat until exactly two vertices remain.</p>
 <blockquote>
-<p>An element $\omega: T_{p} M \rightarrow \mathbb{R}$  of  $T_{p}^{*} M$  is called a <strong>dual vector</strong>, in which $\langle\mathrm{d} f, V\rangle \equiv V[f]=V^{\mu} \frac{\partial f}{\partial x^{\mu}} \in \mathbb{R}$.</p>
+<p><strong>Observation I</strong>: a vertex $w$ with degree $d$ in $T$ appears exactly $d − 1$ times in the code $\mathbf{c}$.</p>
+<p><strong>Observation II</strong>: More generally, if the degree of $w$ in $T − v_1 − v_2 − ··· − v_{i−1}$ is $d$, then $w$ occurs $d−1$ times in $c_i,...,c_{n−2}$.</p>
 </blockquote>
-<p>We may define the inner product  $\langle \quad, \quad\rangle: T_{p}^{*} M \times T_{p} M \rightarrow \mathbb{R}$ as</p>
-$$\langle\omega, V\rangle=\omega_{\mu} V^{\nu}\left\langle\mathrm{d} x^{\mu}, \frac{\partial}{\partial x^{\nu}}\right\rangle=\omega_{\mu} V^{v} \delta_{v}^{\mu}=\omega_{\mu} V^{\mu}$$<p>which is also left invariant in different coordinates.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<p>A <strong>tensor</strong> of type  $(q, r)$  is a multilinear object which maps  $q$  elements of  $T_{p}^{*} M$  and  $r$  elements of  $T_{p} M$  to a real number.  $\mathcal{T}_{r, p}^{q}(M)$  denotes the set of type  $(q, r)$  tensors at  $p \in M$.</p>
-</blockquote>
-<p>Through the distributivity $\left(\oplus_{i \in I} M_{i}\right) \otimes_{A} N \simeq \oplus_{i \in I}\left(M_{i} \otimes_{A} N\right)$, we can see</p>
-<blockquote>
-<p>An element of  $\mathcal{T}_{r, p}^{q}(M)$  can be written in terms of the bases as
-$$T=T^{\mu_{1} \ldots \mu_{q}}{ }_{\nu_{1} \ldots \nu_{r}} \frac{\partial}{\partial x^{\mu_{1}}} \ldots \frac{\partial}{\partial x^{\mu_{q}}} \mathrm{~d} x^{\nu_{1}} \ldots \mathrm{d} x^{\nu_{r}}.$$</p>
-</blockquote>
-<p>Let $V_{i}=V_{i}^{\mu} \partial / \partial x^{\mu}(1 \leq i \leq r)$ and $\omega_{i}=\omega_{i \mu} \mathrm{d} x^{\mu}(1 \leq i \leq q)$. Then $T$ yields</p>
-$$T\left(\omega_{1}, \ldots, \omega_{q} ; V_{1}, \ldots, V_{r}\right)=T^{\mu_{1} \ldots \mu_{q}}{ }_{\nu_{1} \ldots \nu_{r}} \omega_{1 \mu_{1}} \ldots \omega_{q \mu_{q}} V_{1}^{\nu_{1}} \ldots V_{r}^{v_{r}}.$$<p>If a vector is assigned smoothly to each point of $M$, it is called a <strong>vector field</strong>
-over $M$. The set of the vector fields on $M$ is denoted as $\mathcal{X}(M)$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>A smooth map $f: M \rightarrow N$  naturally induces $f_{*}$  and $f^{*}$,</p>
-$$f_{*}: T_{p} M \rightarrow T_{f(p)} N \text{ and } f^{*}: T_{f(p)}^{*} N \rightarrow T_{p}^{*} M. $$<p>The differential map  $f_{*}$  is naturally extended to tensors of type  $(q, 0) ,  f_{*}: \mathcal{T}_{0, p}^{q}(M) \rightarrow \mathcal{T}_{0, f(p)}^{q}(N)$.</p>
-<p>In terms of charts  $(U, \varphi)$  on  $M$  and  $(V , \psi)$  on $N$ with $V=V^{\mu} \partial / \partial x^{\mu}$  and $f_{*} V=W^{\alpha} \partial / \partial y^{\alpha}$:</p>
-$$\left(f_{*} V\right)\left[g \circ \psi^{-1}(y)\right] \equiv V\left[g \circ f \circ \varphi^{-1}(x)\right] \implies W^{\alpha} \frac{\partial}{\partial y^{\alpha}}\left[g \circ \psi^{-1}(y)\right]=V^{\mu} \frac{\partial}{\partial x^{\mu}}\left[g \circ f \circ \varphi^{-1}(x)\right].$$<p>Taking $g=y^\alpha$, we have $W^{\alpha}=V^{\mu} \frac{\partial}{\partial x^{\mu}} y^{\alpha}(x)$. Similarly, we may define $\left\langle f^{*} \omega, V\right\rangle=\left\langle\omega, f_{*} V\right\rangle$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<p>Let  $X$  be a vector field in  $M$. An <strong>integral curve</strong>  $x(t)$  of  $X$  is a curve in  $M$, whose tangent vector at  $x(t)$  is  $\left.X\right|_{x}$. Given a chart $(U, \varphi)$, this means</p>
-</blockquote>
-$$\frac{\mathrm{d} x^{\mu}}{\mathrm{d} t}=X^{\mu}(x(t)).$$<p>Let  $\sigma\left(t, x_{0}\right)$  be an integral curve of $X$  which passes a point  $x_{0}$  at  $t=0$  and denote the coordinate by  $\sigma^{\mu}\left(t, x_{0}\right)$. The above equation then becomes a <strong>flow</strong></p>
-$$\frac{\mathrm{d}}{\mathrm{d} t} \sigma^{\mu}\left(t, x_{0}\right)=X^{\mu}\left(\sigma\left(t, x_{0}\right)\right),$$<p>with the initial condition $\sigma^{\mu}\left(0, x_{0}\right)=x_{0}^{\mu}$. Then we have 
+<p>To generate the tree from the code, from the observation we know that</p>
 $$\begin{aligned}
-\sigma^{\mu}(t, x) &amp; =x^{\mu}+\left.t \frac{\mathrm{d}}{\mathrm{d} s} \sigma^{\mu}(s, x)\right|_{s=0}+\left.\frac{t^{2}}{2 !}\left(\frac{\mathrm{d}}{\mathrm{d} s}\right)^{2} \sigma^{\mu}(s, x)\right|_{s=0}+\cdots \\
-&amp; =\left.\left[1+t \frac{\mathrm{d}}{\mathrm{d} s}+\frac{t^{2}}{2 !}\left(\frac{\mathrm{d}}{\mathrm{d} s}\right)^{2}+\cdots\right] \sigma^{\mu}(s, x)\right|_{s=0} \\
-&amp; \left.\equiv \exp \left(t \frac{\mathrm{d}}{\mathrm{d} s}\right) \sigma^{\mu}(s, x)\right|_{s=0} .
-\end{aligned}$$</p>
-<p>The last expression can also be written as $\sigma^{\mu}(t, x)=\exp (t X) x^{\mu}$. Therefore, we may rewrite the ODE as</p>
-$$\begin{aligned}
-&amp; \frac{\mathrm{d} \sigma(t, x)}{\mathrm{d} t}=X_{\exp (t X) x}=\frac{\mathrm{d}}{\mathrm{d} t}[\exp (t X) x] \\
-&amp; \sigma(0, x)=x=\exp (0 X) x,
-\end{aligned}$$<p>which follows that $ \sigma(t, \sigma(s, x)) = \sigma(t, \exp(sX)x) = \exp(tX) \exp(sX)x = \exp\{(t + s)X\}x = \sigma(t + s, x) $.</p>
-
+v_{1} &amp; =\min \left\{[n] \backslash\left\{c_{1}, \ldots, c_{n-2}\right\}\right\} \\
+v_{2} &amp; =\min \left\{[n] \backslash\left\{v_{1}, c_{2} \ldots, c_{n-2}\right\}\right\} \\
+&amp; \ldots \\
+v_{i} &amp; =\min \left\{[n] \backslash\left\{v_{1}, \ldots, v_{i-1}, c_{i}, \ldots, c_{n-2}\right\}\right\} \quad i \leqslant n-2 .
+\end{aligned}$$<p>Since we deleted the edge  $v_{i} c_{i}$  at step  $i$, and were left with the edge  $v_{n-1} v_{n}$  between the final two vertices,</p>
+$$E(T)=\left\{v_{1} c_{1}, \ldots, v_{n-2} c_{n-2}, v_{n-1} v_{n}\right\}.$$
 </div>
 </div>
 </div>
@@ -14747,62 +14668,69 @@ $$\begin{aligned}
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>To conclude, for fixed  $t \in \mathbb{R}$, a flow  $\sigma(t, x)$  is a diffeomorphism from  $M$  to  $M$, denoted by  $\sigma_{t}: M \rightarrow M$. It is important to note that  $\sigma_{t}$  is made into a commutative group satisfying:</p>
+<h3 id="2.-Hall's-Theorem-and-its-Application-">2. Hall's Theorem and its Application <a id="Halls-Theorem-and-its-Application" /><a class="anchor-link" href="#2.-Hall's-Theorem-and-its-Application-">&#182;</a></h3><p>We will refer to sets of size  $k$  as  $k$-sets. For  $k \geq 0$  we write  $X^{(k)}=   \{A \in \mathcal{P}(X):|A|=k\}$  for the set of all subsets of  $X$  of size  $k$. A family  $\mathcal{F} \subseteq \mathcal{P}(X)$  is  $k$-uniform if $\mathcal{F} \subseteq X^{(k)}$</p>
 <blockquote>
+<p>( <strong>Sperner's Lemma</strong> ) An antichain in  $\mathcal{P}(n)$  has size at most  $$\binom{n}{\lfloor n / 2\rfloor}.$$</p>
+</blockquote>
+<p>To prove this, recall</p>
+<blockquote>
+<p>( <strong>Hall's Theorem</strong> ) Let  $G=(V, E)$  be a bipartite graph with vertex classes  $X$  and $Y$. Then $G$  has a complete matching from  $X$ to $Y$  if and only if, for all  $S \subseteq X$, we have</p>
+</blockquote>
+$$|\Gamma(S)| \geq|S|.$$<p>From Hall's theorem, by considering a set $S \subseteq[n]^{(r)}$, and let $T=\Gamma(S)$ we can deduce from $ (n-r)|S| = e(S, T) \leq (r+1)|T|$ that</p>
+$$|T| \geq \frac{n-r}{r+1}|S| \geq|S|$$<p>for  $r&lt;n / 2$. Therefore,</p>
 <ol>
-<li>$\sigma_{t}\left(\sigma_{s}(x)\right)=\sigma_{t+s}(x)$, that is,  $\sigma_{t} \circ \sigma_{s}=\sigma_{t+s};$</li>
-<li>$\sigma_{0}= \text{the identity map (= unit element)};$ and</li>
-<li>$\sigma_{-t}=\left(\sigma_{t}\right)^{-1}$.</li>
+<li>for  $r&lt;n / 2$, there is a complete matching from  $[n]^{(r)}$  to  $[n]^{(r+1)}$;</li>
+<li>for  $r&gt;n / 2$, there is a complete matching from  $[n]^{(r)}$  to  $[n]^{(r-1)}$.</li>
 </ol>
-</blockquote>
-<p>Let  $\sigma(t, x)$  and  $\tau(t, x)$  be two flows generated by the vector fields  $X$  and  $Y$,</p>
-$$\begin{aligned} 
-&amp; \frac{\mathrm{d} \sigma^{\mu}(s, x)}{\mathrm{d} s}=X^{\mu}(\sigma(s, x)) \\
-&amp; \frac{\mathrm{d} \tau^{\mu}(t, x)}{\mathrm{d} t}=Y^{\mu}(\tau(t, x)) .
-\end{aligned}$$<p>Let us evaluate the change of the vector field $Y$  along  $\sigma(s, x)$. To do this, we have to compare the vector  $Y$  at a point $x$  with that at a nearby point  $x^{\prime}=\sigma_{\varepsilon}(x)$,</p>
-<p>First note that under the action of  $\sigma_{\varepsilon}$, with an infinitesimal $\varepsilon$, we find that</p>
-$$\sigma_{\varepsilon}^{\mu}(x)=\sigma^{\mu}(\varepsilon, x)=x^{\mu}+\varepsilon X^{\mu}(x).$$<p>The vector field $X$ is called, in this context, the infinitesimal generator of the transformation $\sigma_t$. For this, we define</p>
-$$\mathcal{L}_{X} Y=\lim _{\varepsilon \rightarrow 0} \frac{1}{\varepsilon}\left[\left.\left(\sigma_{-\varepsilon}\right)_{*} Y\right|_{\sigma_{\varepsilon}(x)}-\left.Y\right|_{x}\right].$$<p>In coordinates, 
-$$\begin{aligned}
-\left.Y\right|_{\sigma_{\varepsilon}(x)} &amp; =\left.Y^{\mu}\left(x^{\nu}+\varepsilon X^{\nu}(x)\right) e_{\mu}\right|_{x+\varepsilon X} \\
-&amp; \left.\simeq\left[Y^{\mu}(x)+\varepsilon X^{\nu}(x) \partial_{\nu} Y^{\mu}(x)\right] e_{\mu}\right|_{x+\varepsilon X}
-\end{aligned}.$$</p>
-<p>After acting $\left(\sigma_{-\varepsilon}\right)_{*}$, we obtain</p>
-$$\begin{aligned}
-{\left[Y^{\mu}(x)\right.} \left.+\varepsilon X^{\lambda}(x) \partial_{\lambda} Y^{\mu}(x)\right]\left.\partial_{\mu}\left[x^{\nu}-\varepsilon X^{\nu}(x)\right] e_{\nu}\right|_{x} = &amp; {\left.\left[Y^{\mu}(x)+\varepsilon X^{\lambda}(x) \partial_{\lambda} Y^{\mu}(x)\right]\left[\delta_{\mu}^{\nu}-\varepsilon \partial_{\mu} X^{\nu}(x)\right] e_{\nu}\right|_{x} } \\
-\quad= &amp; \left.Y^{\mu}(x) e_{\mu}\right|_{x}+\left.\varepsilon\left[X^{\mu}(x) \partial_{\mu} Y^{\nu}(x)-Y^{\mu}(x) \partial_{\mu} X^{\nu}(x)\right] e_{\nu}\right|_{x}+O\left(\varepsilon^{2}\right).
-\end{aligned}$$<p>Therefore, we find out that</p>
+<p>If we glue these matchings together, we obtain a collection of  $\binom{n}{\lfloor n / 2\rfloor}$ chains
+that partition $\mathcal{P}(n)$.</p>
+<p><strong>First proof of Sperner's Lemma.</strong> A chain and an antichain meet in at most one element. We have partitioned  $\mathcal{P}(n)$  into  $\binom{n}{\lfloor n / 2\rfloor}$  chains, so no antichain can have more than  $\binom{n}{\lfloor n / 2\rfloor}$  elements.</p>
+<p>Second proof of the Sperner's Lemma relies on</p>
 <blockquote>
-<p>$\mathcal{L}_{X} Y=\left(X^{\mu} \partial_{\mu} Y^{\nu}-Y^{\mu} \partial_{\mu} X^{\nu}\right) e_{\nu} = X^{\nu}\frac{\partial}{\partial x^{\nu}} (Y^{\mu}\frac{\partial f}{\partial x^{\mu}}) - Y^{\lambda}\frac{\partial}{\partial x^{\lambda}} (X^{\mu}\frac{\partial f}{\partial x^{\mu}}) = X[Y[f]]-Y[X[f]] = [X, Y] f$.</p>
+<p>( <strong>LYM Inequality</strong> ) Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. Then
+$$\sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{n}{i}} \leq 1.$$</p>
+<p>Furthermore, we have equality iff $\mathcal{F}=[n]^{(i)}$ for some $i$.</p>
 </blockquote>
-<p>Geometrically, the Lie bracket shows the non-commutativity of two flows. Computation shows that</p>
-$$\begin{aligned}
-\tau^{\mu}(\delta, \sigma(\varepsilon, x)) &amp; \simeq \tau^{\mu}\left(\delta, x^{\nu}+\varepsilon X^{\nu}(x)\right) \\
-&amp; \simeq x^{\mu}+\varepsilon X^{\mu}(x)+\delta Y^{\mu}\left(x^{\nu}+\varepsilon X^{\nu}(x)\right) \\
-&amp; \simeq x^{\mu}+\varepsilon X^{\mu}(x)+\delta Y^{\mu}(x)+\varepsilon \delta X^{\nu}(x) \partial_{\nu} Y^{\mu}(x)
-\end{aligned}$$<p>and similarly</p>
-$$\begin{aligned}
-\sigma^{\mu}(\varepsilon, \tau(\delta, x)) &amp; \simeq \sigma^{\mu}\left(\varepsilon, x^{\nu}+\delta Y^{\nu}(x)\right) \\
-&amp; \simeq x^{\mu}+\delta Y^{\mu}(x)+\varepsilon X^{\mu}\left(x^{\nu}+\delta Y^{\nu}(x)\right) \\
-&amp; \simeq x^{\mu}+\delta Y^{\mu}(x)+\varepsilon X^{\mu}(x)+\varepsilon \delta Y^{\nu}(x) \partial_{\nu} X^{\mu}(x)
-\end{aligned}$$<p>The difference between the coordinates of these two points is proportional to the Lie bracket,</p>
-$$\tau^{\mu}(\delta, \sigma(\varepsilon, x))-\sigma^{\mu}(\varepsilon, \tau(\delta, x))=\varepsilon \delta[X, Y]^{\mu}.$$<p>Then we may see that</p>
+<p><strong>Probabilistic proof.</strong> Let  $\mathcal{F}$  be an antichain in  $\mathcal{P}(n)$. Choose a maximal chain  $C=\left(A_{0}, \ldots, A_{n}\right)$, where  $\emptyset=A_{0} \subseteq \ldots A_{n}=[n]$, uniformly at random from all  $n!$ maximal chains. For  $A \in \mathcal{F}$  with  $|A|=k$  we have</p>
+$$\mathbb{P}[A \in C]=\frac{k !(n-k) !}{n !}=\frac{1}{\binom{n}{k}}.$$<p>The events  $(A \in C)_{A \in \mathcal{F}}$  are pairwise disjoint, so by the union bound we have</p>
+$$1 \geq \sum_{A \in \mathcal{F}} \mathbb{P}[A \in C]=\sum_{A \in \mathcal{F}} \frac{1}{\binom{n}{
+|A|}}.$$<p>Here is a <strong>complete</strong> proof of the LYM inequality, using some local inequality.</p>
 <blockquote>
-<p>$\mathcal{L}_{X} Y=[X, Y]=0$ iff $\sigma(s, \tau(t, x))=\tau(t, \sigma(s, x))$.</p>
+<p><strong>Lemma.</strong> ( <strong>Local LYM Inequality</strong> ) Let  $\mathcal{A} \subseteq[n]^{(r)}$. Then
+$$\frac{|\partial \mathcal{A}|}{\binom{n}{r-1}} \geq \frac{|\mathcal{A}|}{\binom{n}{r}}$$
+with equality if and only if $\mathcal{A}=\emptyset$ or $\mathcal{A}=[n]^{(r)}$.</p>
+<p>Once more, we use double counting to prove this. By succesively applying the <strong>Local LYM Inequality</strong> to $\mathcal{G}_{r}:=\mathcal{F}_{r} \cup \partial \mathcal{G}_{r+1}$, we can show that 
+$$ 1\geq \frac{\left|\mathcal{G}_{r}\right|}{\binom{n}{r}} \geq \sum_{i=r}^{n} \frac{\left|\mathcal{F}_{i}\right|}{\binom{n}{i}}, $$</p>
+<p>which forms a complete proof of the refined version.</p>
 </blockquote>
-<p>We may also define</p>
+<p>Then we are in a position to propose the refined version of the Sperner's Lemma.</p>
 <blockquote>
-<p><strong>Lie derivatives for one-forms and functions</strong>:</p>
-$$\mathcal{L}_{X} \omega \equiv \lim _{\varepsilon \rightarrow 0} \frac{1}{\varepsilon}\left[\left.\left(\sigma_{\varepsilon}\right)^{*} \omega\right|_{\sigma_{\varepsilon}(x)}-\left.\omega\right|_{x}\right] \quad \text{ and } \quad \mathcal{L}_{X} f \equiv \lim _{\varepsilon \rightarrow 0} \frac{1}{\varepsilon}\left[f\left(\sigma_{\varepsilon}(x)\right)-f(x)\right]$$</blockquote>
-<p>The Lie derivative of a general tensor is obtained from the following proposition.</p>
-<blockquote>
-<p><strong>Thm.</strong> $$\mathcal{L}_{X}\left(t_{1} \otimes t_{2}\right)=\left(\mathcal{L}_{X} t_{1}\right) \otimes t_{2}+t_{1} \otimes\left(\mathcal{L}_{X} t_{2}\right).$$</p>
+<p>( <strong>Refined Version of Sperner's Lemma</strong> ) Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. Then</p>
+$$|\mathcal{F}| \leq \binom{n}{\lfloor n / 2\rfloor},$$<p>with equality if and only if if  $\mathcal{F}=[n]^{\lfloor n / 2\rfloor}$  or  $\mathcal{F}=[n]^{ \lceil n / 2 \rceil }$.</p>
 </blockquote>
-<p><strong>Proof.</strong> The following case can easily be generalized: $$\begin{aligned}
-\mathcal{L}_{X}(Y \otimes \omega) &amp; =\lim _{\varepsilon \rightarrow 0} \frac{1}{\varepsilon}\left[\left.\left\{\left(\sigma_{-\varepsilon}\right)_{*} Y \otimes\left(\sigma_{\varepsilon}\right)^{*} \omega\right\}\right|_{x}-\left.(Y \otimes \omega)\right|_{x}\right] \\
-&amp; =\lim _{\varepsilon \rightarrow 0} \frac{1}{\varepsilon}\left[\left(\sigma_{-\varepsilon}\right)_{*} Y \otimes\left\{\left(\sigma_{\varepsilon}\right)^{*} \omega-\omega\right\}+\left\{\left(\sigma_{-\varepsilon}\right)_{*} Y-Y\right\} \otimes \omega\right] \\
-&amp; =Y \otimes\left(\mathcal{L}_{X} \omega\right)+\left(\mathcal{L}_{X} Y\right) \otimes \omega .
-\end{aligned}$$</p>
+<p><strong>Proof.</strong> Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. By the LYM Inequality, we have</p>
+$$ 1 \geq \sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{
+n}{i}} \geq \sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{
+n}{\lfloor n / 2\rfloor}} =\frac{|\mathcal{F}|}{\binom{
+n }{ \lceil n / 2\rfloor}}, $$<p>where if we have the first equality we must have $\mathcal{F}=[n]^{(i)}$  for some  $i$, and if the second equality we must have  $i=\lfloor n / 2\rfloor$  or  $i=\lceil n / 2\rceil$.</p>
+<p>The following is somehow the generalization of the Sperner's Lemma.</p>
+<blockquote>
+<p>( <strong>Dilworth's Theorem</strong> ) Let $(P, \leq)$  be a finite poset. The minimum number of chains needed to cover  $P$  is equal to the maximum size of an antichain.</p>
+</blockquote>
+<p><strong>Proof.</strong> We break down the proof into the following observations:</p>
+<blockquote>
+<p><strong>Observation I:</strong> a chain and an antichain meet in at most one element.</p>
+</blockquote>
+<p>So we need only prove that there is a cover with this many chains. Let $m$ be the maximum size of an antichain and let $C$ be a maximal chain.</p>
+<p>If  $P \backslash C$  contains no antichain of size $m$  then we are done by induction: we can cover  $P \backslash C$  with  $m-1$  chains, and then add  $C$  to get a cover of  $P$  with  $m$  chains.
+Otherwise, there is an antichain of size  $m$  in  $P \backslash C$, say  $A=\left\{a_{1}, \ldots, a_{m}\right\}$.</p>
+<p>Let $S^{+}:=\left\{x \in P: x \geq a_{i} \text { for some } a_{i} \in A\right\}$ and $S^{-}:=\left\{x \in P: x \leq a_{i} \text { for some } a_{i} \in A\right\}$. Then we claim that</p>
+<blockquote>
+<p><strong>Observation II:</strong> $S^{+} \cap S^{-}=A$, as $A$  is an antichain.<br />
+<strong>Observation III:</strong> $S^{+} \cup S^{-}=P$  as  $A$  is maximal.<br />
+<strong>Observation IV:</strong> $S^{+}$ and  $S^{-}$ are both proper subsets of  $P$.</p>
+</blockquote>
+<p>Therefore,  $S^{+}$ and  $S^{-}$ are proper subsets of $P$, and so by induction we can partition $S^{+}$ into $m$  chains  $C_{1}^{+}, \ldots, C_{m}^{+}$, and we can partition $S^{+}$ into $m$  chains  $C_{1}^{-}, \ldots, C_{m}^{-}$. <strong>Relabelling if necessary, we can glue $C_{i}^{+}$ and $C_{i}^{-}$ together through some element in $A$</strong>, which finishes the proof.</p>
 
 </div>
 </div>
@@ -14814,21 +14742,28 @@ $$\mathcal{L}_{X} \omega \equiv \lim _{\varepsilon \rightarrow 0} \frac{1}{\vare
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-Differential-Forms-">2. Differential Forms <a id="Differential-Forms" /><a class="anchor-link" href="#2.-Differential-Forms-">&#182;</a></h3><blockquote>
-<p>For $\omega \in \mathcal{T}_{r, p}^{0}(M)$, the symmetrizer  $\mathcal{S}$  and antisymmetrizer $\mathcal{A}$ is defined by</p>
-$$\mathcal{S} \omega=\frac{1}{r !} \sum_{P \in S_{r}} P \omega \quad \text{ and } \quad \mathcal{A} \omega=\frac{1}{r !} \sum_{P \in S_{r}} \operatorname{sgn}(P) P \omega.$$</blockquote>
-<p>Define the exterior products in terms of $r$ one-forms or a $q$-form and an $r$-form:</p>
+<h3 id="3.-Eulerian-Circuit-">3. Eulerian Circuit <a id="Eulerian-Circuit" /><a class="anchor-link" href="#3.-Eulerian-Circuit-">&#182;</a></h3><blockquote>
+<p>A <strong>trail</strong> is a walk with distinct edges.</p>
+<p>A <strong>path</strong> is a walk with distinct vertices.</p>
+<p>A <strong>circuit</strong> is a closed trail. And an <strong>Eulerian circuit</strong> is a circuit that goes through every edges.</p>
+<p>A <strong>cycle</strong> is a closed path except for that the end points coincides. And a <strong>Hamilton cycle</strong> is a cycle that contains every vertex.</p>
+</blockquote>
+<p>Recall some famous results:</p>
 <blockquote>
-$$\mathrm{d} x^{\mu_{1}} \wedge \mathrm{d} x^{\mu_{2}} \wedge \ldots \wedge \mathrm{d} x^{\mu_{r}} \equiv \sum_{P \in S_{r}} \operatorname{sgn}(P) \mathrm{d} x^{\mu_{P(1)}} \otimes \mathrm{d} x^{\mu_{P(2)}} \otimes \ldots \otimes \mathrm{d} x^{\mu_{P(r)}};$$$$ (\omega \wedge \xi)\left(V_{1}, \ldots, V_{q+r}\right) \equiv \frac{1}{q ! r !} \sum_{P \in S_{q+r}} \operatorname{sgn}(P) \omega\left(V_{P(1)}, \ldots, V_{P(q)}\right) \xi\left(V_{P(q+1)}, \ldots, V_{P(q+r)}\right).  $$</blockquote>
-<p>One should check that these definitions are compatible. With this product, we have an algebra $\Omega_{p}^{*}(M) \equiv \Omega_{p}^{0}(M) \oplus \Omega_{p}^{1}(M) \oplus \ldots \oplus \Omega_{p}^{m}(M)$. Note that $\Omega^{0}(M)=\mathcal{F}(M)$ and $\Omega^{1}(M)=T^{*} M$.</p>
-<p>For $\omega=\frac{1}{r !} \omega_{\mu_{1} \ldots \mu_{r}} \mathrm{~d} x^{\mu_{1}} \wedge \ldots \wedge \mathrm{d} x^{\mu_{r}}$, we define two impoertant operations: the <strong>exterior derivative</strong> and <strong>interior product</strong>.</p>
+<p><strong>Prop.</strong> Every tree on $n \geqslant 2$ vertices has at least two leaves.</p>
+<p><strong>Prop.</strong> Let $G$  be a finite graph in which every vertex has degree at least $2$. Then  G  contains a cycle.</p>
+<p><strong>Thm.</strong> Let $G$ be connected. Then $G$ is Eulerian iff all degrees are even.</p>
+</blockquote>
+<p><strong>Proof.</strong> The first is proved simply by considering a longest path $v_1 ... v_t$ in the tree. The second is proved by successively picking new elements. For the third, only one direction is interesting. For this, we proceed by <strong>induction on $e(G)$</strong> and the last proposition is used in the induction.</p>
+<p>Next, we are in a position to detect the existence of a Hamilton cycle.</p>
 <blockquote>
-$$\mathrm{d}_{r} \omega \equiv \frac{1}{r !}\left(\frac{\partial}{\partial x^{\nu}} \omega_{\mu_{1} \ldots \mu_{r}}\right) \mathrm{d} x^{\nu} \wedge \mathrm{d} x^{\mu_{1}} \wedge \ldots \wedge \mathrm{d} x^{\mu_{r}};$$$$\mathrm{i}_{X} \omega\left(X_{1}, \ldots, X_{r-1}\right) \equiv \omega\left(X, X_{1}, \ldots, X_{r-1}\right).$$</blockquote>
-<p>A useful expression for the exterior derivative is obtained as follows. It is easy to see that we have</p>
-$$
-X[\omega(Y)] - Y[\omega(X)] - \omega([X, Y]) = \frac{\partial \omega^\mu}{\partial x^\nu} (X^\nu Y^\mu - X^\mu Y^\nu) = d\omega(X, Y),$$<p>and in the meanwhile for the interior product we have</p>
-$$ i_X\omega = \frac{1}{(r-1)!} X^\nu \omega_{\nu\mu_2...\mu_r} dx^{\mu_2} \wedge ... \wedge dx^{\mu_r} = \frac{1}{r!} \sum_{s=1}^{r} X^{\mu_s} \omega_{\mu_1...\mu_s...\mu_r} (-1)^{s-1} dx^{\mu_1} \wedge ... \wedge dx^{\mu_s} \wedge ... \wedge dx^{\mu_r}
-$$<p>where $X = X^\mu \frac{\partial}{\partial x^\mu}$ and $\omega = \frac{1}{r!} \omega_{\mu_1...\mu_r} dx^{\mu_1} \wedge ... \wedge dx^{\mu_r}$.</p>
+<p><strong>Lemma.</strong>  If  $G $ is connected while not Hamiltonian, then the edge length of a longest path in  $G$  is <strong>at least</strong> the length of a longest cycle.</p>
+<p><strong>Thm.</strong> $G$ is connected with  $n \geqslant 3$  vertices in which every pair  v, w  of non-adjacent vertices satisfies  $d(v)+d(w) \geqslant k$. If  $k&lt;n$  then  $G$  contains a path of edge length  $k$; if  $k \geqslant n$  then  $G$  is Hamiltonian.</p>
+<p>( <strong>Dirac's Theorem</strong> ) Let  $G$  be a graph with  $n \geqslant 3$  vertices. If  $\delta(G) \geqslant \frac{n}{2}$, then $G$  contains a Hamilton cycle.</p>
+</blockquote>
+<p><strong>Proof.</strong> The first is proved simply by add an edge to to the longest cycle. For the second, consider the non-Hamiltonian case ( therefore we can apply the lemma above ) and a longest path $P=v_{0} v_{1} \cdots v_{\ell}$. Construct $A=\left\{i \in[\ell]: v_{0} v_{i} \in E(G)\right\}$ and $B=\left\{i \in[\ell]: v_{i-1} v_{\ell} \in E(G)\right\}$. Then we may notice that all neighbours of $v_{0}$  and  $v_{\ell}$ are on $P$, and therefore
+$$\ell \geqslant|A|+|B|=d\left(v_{0}\right)+d\left(v_{\ell}\right) \geqslant k .$$</p>
+<p>As a corollary, we get the <strong>Dirac's Theorem</strong>.</p>
 
 </div>
 </div>
@@ -14840,131 +14775,6 @@ $$<p>where $X = X^\mu \frac{\partial}{\partial x^\mu}$ and $\omega = \frac{1}{r!
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.-Orientation-">3. Orientation <a id="Orientation" /><a class="anchor-link" href="#3.-Orientation-">&#182;</a></h3><blockquote>
-<p>$M$  is <strong>orientable</strong> if for any overlapping charts  $U_{i}$  and  $U_{j}$, there exist $\left\{x^{\mu}\right\}$  for  $U_{i}$  and  $\left\{y^{\alpha}\right\}$  for  $U_{j}$  such that</p>
-$$J=\operatorname{det}\left(\partial x^{\mu} / \partial y^{\alpha}\right)&gt;0.$$</blockquote>
-<p>If an $m$-dimensional manifold M is orientable, there exists an $m$-form $\omega = h(p) dx^1 \wedge \dots \wedge dx^m $ which vanishes nowhere. This $m$-form $\omega$ is called a volume element.</p>
-<blockquote>
-<p>The integration of a $m$-form in local coordinates is define by</p>
-$$ \int_{U_i} f \omega = \int_{\phi(U_i)} f(\phi_i^{-1}(x))h(\phi_i^{-1}(x)) dx^1 \dots dx^m. $$<p>Then we glue the integration process together by <strong>partition of unity</strong> to obtain the inetgration of $\omega$.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="4.-Lie-Groups-">4. Lie Groups <a id="Lie-Groups" /><a class="anchor-link" href="#4.-Lie-Groups-">&#182;</a></h3><p>Define $L_{a} g=a g$.</p>
-<blockquote>
-<p>A Lie group $G$ is a differentiable manifold endowed with a differentiable group structure.</p>
-<p><strong>Thm.</strong> Every closed subgroup $H$ of a Lie group $G$ is a Lie subgroup.</p>
-<p>Let  $X$  be a vector field on a Lie group  $G$. $X$  is said to be a <strong>left invariant</strong> vector field if  $\left.L_{a *} X\right|_{g}=\left.X\right|_{a g}$.</p>
-</blockquote>
-<p>It is instructive to work out the left-invariant vector field of $\operatorname{GL}(n, \mathbb{R})$.</p>
-<blockquote>
-<p>The left-translation is
-$$L_{a} g=a g=\sum x^{i k}(a) x^{k j}(g).$$</p>
-<p>The left-invariant vector field generated by $V$ is
-$$\begin{aligned}</p>
-</blockquote>
-<p>\left.X_{V}\right|<em>{g} &amp; =L</em>{g *} V=\left.\left.\sum_{i j k l m} V^{i j} \frac{\partial}{\partial x^{i j}}\right|<em>{e} x^{k l}(g) x^{l m}(e) \frac{\partial}{\partial x^{k m}}\right|</em>{g} \
-&amp; =\left.\sum V^{i j} x^{k l}(g) \delta_{i}^{l} \delta_{j}^{m} \frac{\partial}{\partial x^{k m}}\right|<em>{g} \
-&amp; =\left.\sum x^{k i}(g) V^{i j} \frac{\partial}{\partial x^{k j}}\right|</em>{g}=\left.\sum(g V)^{k j} \frac{\partial}{\partial x^{k j}}\right|_{g}
-\end{aligned}$$</p>
-<blockquote>
-<p>The Lie bracket of  $X_{V}$  and  $X_{W}$  generated by  $V=V^{i j} \partial /\left.\partial x^{i j}\right|_{e}$  and  $W=   W^{i j} \partial /\left.\partial x^{i j}\right|_{e}$  is</p>
-<p>$$\begin{aligned}</p>
-</blockquote>
-<p>{\left.\left[X_{V}, X_{W}\right]\right|<em>{g} } &amp; =\left.\left.\sum x^{k i}(g) V^{i j} \frac{\partial}{\partial x^{k j}}\right|</em>{g} x^{c a}(g) W^{a b} \frac{\partial}{\partial x^{c b}}\right|<em>{g}-(V \leftrightarrow W) \
-&amp; =\left.\sum x^{i j}(g)\left[V^{j k} W^{k l}-W^{j k} V^{k l}\right] \frac{\partial}{\partial x^{i l}}\right|</em>{g} \
-&amp; =\left.\sum(g[V, W])^{i j} \frac{\partial}{\partial x^{i j}}\right|_{g}.
-\end{aligned}$$</p>
-<p>Clearly, the above equations <strong>remain true for any matrix group</strong> and we establish that for any matrix group</p>
-<blockquote>
-<p><strong>Prop.</strong> $L_{g *} V =g V$ and ${\left.\left[X_{V}, X_{W}\right]\right|_{g} } = L_{g *}[V, W]=g[V, W]$.</p>
-<p><strong>Def.</strong> The set of left-invariant vector fields  $\mathfrak{g}$  with the Lie bracket  $[\text{ },\text{ }]: \mathfrak{g} \times \mathfrak{g} \rightarrow \mathfrak{g}$  is called the Lie algebra of $G$.</p>
-</blockquote>
-<p>Since $f_{*}[X, Y]=\left[f_{*} X, f_{*} Y\right]$, the Lie bracket is well defined in any $G$. Next we show that</p>
-<blockquote>
-<p><strong>Thm. There is a one-to-one correspondence between a one-parameter subgroup of $G$ and a left-invariant vector field.</strong> Here a one-parameter subgroup of $G$ is a curve $\phi : \mathbb{R} \rightarrow G$ s.t. $\phi(t) \phi(s) = \phi(t + s)$.</p>
-</blockquote>
-<p><strong>Proof.</strong> Given a one-parameter subgroup $\phi : \mathbb{R} \to G$, there exists a vector field $X$, such that
-$$ \frac{d\phi^\mu(t)}{dt} = X^\mu(\phi(t))$$
-which is clearly left-invariant whose essence is that a one-parameter subgroup is Abelian. Another direction is proved via $\phi : \mathbb{R} \to G \text{ by } \phi(t) = \sigma(t,e)$, where the only nontrivial thing is to prove $\phi(t) \phi(s) = \phi(t + s)$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The corresponding is still not manifest yet. until we present the following definition.</p>
-<blockquote>
-<p>Define $ \exp V = \phi_V(1) $ where $ \phi_V $ is a one-parameter subgroup of $ G $ generated by the left-invariant vector field $ X_V|_g = L_{g*} V $. Then $ \exp(tV) = \phi_V(t) $.</p>
-</blockquote>
-<p><strong>Proof.</strong> It's routine to check that $ \phi_V(at) = \phi_{aV}(t) $, which follows that $$\exp(aV) = \phi_{aV}(1) = \phi_V(a).$$</p>
-<p>It's clear that the definition is compatible with the definition of $\operatorname{exp}$ earlier. Take $G = GL(n, \mathbb{R})$ and $A \in gl(n, \mathbb{R})$, then the subgroup $\phi_A : \mathbb{R} \rightarrow GL(n, \mathbb{R})$ has the following expression</p>
-$$\phi_A(t) = \exp(tA) = I_n + tA + \frac{t^2}{2!}A^2 + \dots + \frac{t^n}{n!}A^n + \dots.$$<p>Similarly, the curve $g \exp(tA)$ is a flow through $g \in G$. We find that
-$$
-\left. \frac{d}{dt} g \exp(tA) \right|_{t=0} = L_g^* A = X_A|_g = gA.
-$$</p>
-<p>Finally, we consider the adjoint $\operatorname{ad}_{a}: g \mapsto a g a^{-1}$. Noting that $\text{ad}_a e = e$, we have 
-$$\text{Ad}_a : T_e G \rightarrow T_e G, $$
-where $\text{Ad}_a = \text{ad}_a^*|_{T_e G}$. Identify $T_e G$ with the Lie algebra $\mathfrak{g}$, then we have obtained a map $\text{Ad} : G \times \mathfrak{g} \rightarrow \mathfrak{g}$, called the <strong>adjoint map of $G$</strong>. It's clear that $\text{Ad}_a \text{Ad}_b = \text{Ad}_{ab}$ and $\text{Ad}_{a^{-1}} = \text{Ad}_a^{-1}$. If $G$ is a matrix group, the adjoint representation becomes a simple matrix operation. Let $g \in G$ and $X_V \in \mathfrak{g}$, and let $\sigma_V(t) = \exp(tV)$ be a one-parameter subgroup generated by $V \in T_e G$. Then $\text{ad}_g$ acting on $\sigma_V(t)$ yields $g \exp(tV) g^{-1}$. As for $\text{Ad}_g$, we have $\text{Ad}_g : V \mapsto g V g^{-1}$ since
-$$\begin{equation}
-\text{Ad}_g V = \left. \frac{d}{dt} \right|_{t=0} [\text{ad}_g \exp(tV)] = \left. \frac{d}{dt} \right|_{t=0} \exp(t g V g^{-1}) = g V g^{-1}.
-\end{equation}$$</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="5.-Affine-Connections-">5. Affine Connections <a id="Affine-Connections" /><a class="anchor-link" href="#5.-Affine-Connections-">&#182;</a></h3><blockquote>
-<p><strong>Definition</strong>. Let $M$ be a differentiable manifold. A Riemannian metric $g$ on $M$ is a type $(0,2)$ tensor field s.t. for any $p\in M$:</p>
-</blockquote>
-$$ \begin{aligned} &amp; \text{(i) $g_p(U, V) = g_p(V, U)$}, \quad \quad \quad \quad\\                 
-&amp; \text{(ii) $g_p(U, U) \geq 0$, where the equality holds only when $U = 0$.} \quad \quad \quad \quad \end{aligned} $$<p>Then we define</p>
-<blockquote>
-<p><strong>Definition.</strong> An affine connection $\nabla$ is a map $\nabla : \mathcal{X}(M) \times \mathcal{X}(M) \to \mathcal{X}(M)$, or $(X, Y) \mapsto \nabla_X Y$ which satisfies the following conditions:
-$$\begin{align}</p>
-</blockquote>
-<p>\nabla_X (Y + Z) &amp; = \nabla_X Y + \nabla_X Z \
-\nabla_{X+Y} Z &amp; = \nabla_X Z + \nabla_Y Z \
-\nabla_{fX} Y &amp; = f \nabla_X Y \
-\nabla_X (fY) &amp; = X[f]Y + f \nabla_X Y.\end{align}$$</p>
-<p>Here's the <strong>intuition</strong>. in a Euclidean space $\mathbb{R}^m$ is defined. The derivative of a vector field $V = V^\mu e_\mu$ with respect to $x^v$ has the $\mu$th component
-$$
-\frac{\partial V^\mu}{\partial x^v} = \lim_{{\Delta x \to 0}} \frac{V^\mu(...,x^v + \Delta x^v,...) - V^\mu(...,x^v,...)}{\Delta x^v}.
-$$
-In the subtraction, the transport of a vector is called a <strong>parallel transport</strong>. However, in a manifold, there's no natural way. Let $\tilde{V}_{x+\Delta x}$ denote a vector $V_x$ parallel transported to $x + \Delta x$. We demand that the components satisfy</p>
-$$\begin{equation}
-\tilde{V}^\mu(x + \Delta x) - V^\mu(x) \propto \Delta x \quad \text{ and } \quad 
-(V^\mu + W^\mu)(x + \Delta x) = \tilde{V}^\mu(x + \Delta x) + \tilde{W}^\mu(x + \Delta x).
-\end{equation} $$<p>These conditions are satisfied if we take $ \tilde{V}^\mu(x + \Delta x) = V^\mu(x) - V^\lambda(x) \Gamma^\mu_{\lambda v}(x) \Delta x^v.$</p>
-<p>The covariant derivative of $V$ with respect to $x^v$ is defined by
-$$
-\lim_{\Delta x^v \to 0} \frac{V^\mu(x + \Delta x) - \tilde{V}^\mu(x + \Delta x)}{\Delta x^v} = \left( \frac{\partial V^\mu}{\partial x^v} + V^\lambda \Gamma^\mu_{\lambda v} \right) \frac{\partial}{\partial x^\mu}.
-$$</p>
-<p>We then can see how affine connection is linked to the intuition above. Let $V = V^\mu e_\mu$ and $W = W^v e_v$ be elements of $T_p(M)$. Then
-$$\begin{equation}
-\nabla_v W = V^\mu \nabla_\mu (W^v e_v) = V^\mu (e_\mu[W^\mu]e_v + W^v \nabla_\mu e_v) = V^\mu \left( \frac{\partial W^\lambda}{\partial x^\mu} + W^v \Gamma^\lambda_{\mu v} \right) e_\lambda.
-\end{equation}$$
-where $\Gamma^\lambda_{v\mu}$ is called the <strong>connection coefficients</strong> s.t. $\nabla_{e_\mu} e_\nu = \nabla_{e_\nu} e_\mu = e_\lambda \Gamma^\lambda_{\mu\nu}$.</p>
 
 </div>
 </div>
@@ -14978,32 +14788,12 @@ where $\Gamma^\lambda_{v\mu}$ is called the <strong>connection coefficients</str
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr />
 <h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
-<li>Nakahara, Mikio, and Matthias Delbrück. Differentialgeometrie, Topologie Und Physik. Springer Berlin, 2022.</li>
-</ol>
-<p>( errata: <a href="https://www2.physics.ox.ac.uk/sites/default/files/profiles/johnsong/nakahara-errata-new-41775.pdf">https://www2.physics.ox.ac.uk/sites/default/files/profiles/johnsong/nakahara-errata-new-41775.pdf</a> )</p>
-<ol start="2">
-<li>Liu, Qing. Algebraic Geometry and Arithmetic Curves. Oxford University Press, 2010.</li>
+<li>Geoffrey Grimmett. Probability on Graphs.</li>
 </ol>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 
