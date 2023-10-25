@@ -14827,8 +14827,11 @@ $$\mathrm{d}_{r} \omega \equiv \frac{1}{r !}\left(\frac{\partial}{\partial x^{\n
 <p>A useful expression for the exterior derivative is obtained as follows. It is easy to see that we have</p>
 $$
 X[\omega(Y)] - Y[\omega(X)] - \omega([X, Y]) = \frac{\partial \omega^\mu}{\partial x^\nu} (X^\nu Y^\mu - X^\mu Y^\nu) = d\omega(X, Y),$$<p>and in the meanwhile for the interior product we have</p>
-$$ i_X\omega = \frac{1}{(r-1)!} X^\nu \omega_{\nu\mu_2...\mu_r} dx^{\mu_2} \wedge ... \wedge dx^{\mu_r} = \frac{1}{r!} \sum_{s=1}^{r} X^{\mu_s} \omega_{\mu_1...\mu_s...\mu_r} (-1)^{s-1} dx^{\mu_1} \wedge ... \wedge dx^{\mu_s} \wedge ... \wedge dx^{\mu_r}
+$$ i_X\omega = \frac{1}{(r-1)!} X^\nu \omega_{\nu\mu_2...\mu_r} dx^{\mu_2} \wedge ... \wedge dx^{\mu_r} = \frac{1}{r!} \sum_{s=1}^{r} X^{\mu_s} \omega_{\mu_1...\mu_s...\mu_r} (-1)^{s-1} dx^{\mu_1} \wedge ... \wedge \stackrel{\wedge}{dx^{\mu_s}} \wedge ... \wedge dx^{\mu_r}
 $$<p>where $X = X^\mu \frac{\partial}{\partial x^\mu}$ and $\omega = \frac{1}{r!} \omega_{\mu_1...\mu_r} dx^{\mu_1} \wedge ... \wedge dx^{\mu_r}$.</p>
+<p>The Lie derivative of a form is most neatly written with the interior product:</p>
+<blockquote>
+$$\begin{equation} \mathcal{L}_X \omega = (d\iota_X + i_Xd)\omega. \end{equation}$$</blockquote>
 
 </div>
 </div>
@@ -14943,8 +14946,7 @@ $$
 $$</p>
 <p>We then can see how affine connection is linked to the intuition above. Let $V = V^\mu e_\mu$ and $W = W^v e_v$ be elements of $T_p(M)$. Then
 $$\begin{equation}
-\nabla_v W = V^\mu \nabla_\mu (W^v e_v) = V^\mu (e_\mu[W^\mu]e_v + W^v \nabla_\mu e_v) = V^\mu \left( \frac{\partial W^\lambda}{\partial x^\mu} + W^v \Gamma^\lambda_{\mu v} \right) e_\lambda.
-\end{equation}$$
+\nabla_v W = V^\mu \nabla_\mu (W^v e_v) = V^\mu (e_\mu[W^{\lambda}]e_{\lambda} + W^v \nabla_\mu e_v) = V^\mu \left( \frac{\partial W^\lambda}{\partial x^\mu} + W^v \Gamma^\lambda_{\mu v} \right) e_\lambda. \end{equation}$$
 where $\Gamma^\lambda_{v\mu}$ is called the <strong>connection coefficients</strong> s.t. $\nabla_{e_\mu} e_\nu = \nabla_{e_\nu} e_\mu = e_\lambda \Gamma^\lambda_{\mu\nu}$.</p>
 
 </div>
