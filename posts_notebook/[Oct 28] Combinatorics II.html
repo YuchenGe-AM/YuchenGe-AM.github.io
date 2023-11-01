@@ -14652,7 +14652,8 @@ $$\chi(G_1 \cup G_2) = \max\{\chi(G_1), \chi(G_2)\}.$$<p><strong>Observation II:
 <p>( <strong>Brooks' Theorem</strong> ) Let $G$ be connected which is neither an odd cycle nor a complete graph, then $\chi(G) \leq \Delta(G)$.</p>
 </blockquote>
 <p><strong>Proof.</strong> For $\Delta(G) \leq 2$ the result is easy as the graph is either a cycle or a path.</p>
-<p>So suppose $\Delta(G) \geq 3$. It is convenient to restate the result slightly as follows: let $G$ be connected with $\Delta(G) \leq d$ which does not contain $K_{d+1}$. Then $\chi(G) \leq d$. Since <strong>a connected graph with maximum degree $d$ that contains $K_{d+1}$ must be $K_{d+1}$</strong>, this restatement applied with $d = \Delta(G)$ implies the theorem. We prove the restated result by induction on $n = |G|$. In detail, we discuss through the cutvertex.</p>
+<p>So suppose $\Delta(G) \geq 3$. It is convenient to restate the result slightly as follows: let $G$ be connected with $\Delta(G) \leq d$ which does not contain $K_{d+1}$. Then $\chi(G) \leq d$. Since <strong>a connected graph with maximum degree $d$ that contains $K_{d+1}$ must be $K_{d+1}$</strong>, this restatement applied with $d = \Delta(G)$ implies the theorem. We prove the restated result by induction on $n = |G|$.</p>
+<p>Specifically, we discuss through the cutvertex. If some cutvertex exists, induction applies. If there esists no cutvertex, we can find neighbours $x$ and $y$ of $v$ s.t. $xy \notin E(G)$. ( Here we assume there esixt some vertex $v$ with degree $d$, since otherwise we may apply Thm I. ) After that, we discuss if $G − x − y$ is connected. If connected, then we may prove by ordering the vertices. If not, we prove by partitioning $V(G)-\{x,y\}$ and then do some induction.</p>
 
 </div>
 </div>
