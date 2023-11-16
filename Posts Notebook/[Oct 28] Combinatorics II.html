@@ -14714,24 +14714,23 @@ for all $i$, and $|C_1| + |C_m| = n$. We saw that $\mathcal{P}(n)$ can be partit
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Then we move on to the <strong>Kruskal-Katona Theorem</strong>.</p>
 <blockquote><p>$A&lt;_{\text{lex}} B$ if $A \neq B$ and $\min (A \Delta B) \in A$.</p>
-<p>$A&lt;_{\text{colex}}B$ if $A \neq B$ and $\max (A \triangle B) \in B$.</p>
-<p>( <strong>Kruskal-Katona Theorem</strong> ) Let $F \subseteq [n]^{(r)}$ and let $A$ be the family consisting of the first $|F|$ elements of $[n]^{(r)}$ in colexicographic order. Then $|F| \geq |A|$.</p>
+<p>$A&lt;_{\text{colex}}B$ if $A \neq B$ and $\max (A \Delta B) \in B$.</p>
+<p>( <strong>Kruskal-Katona Theorem</strong> ) Let $\mathcal{F} \subseteq [n]^{(r)}$ and let $\mathcal{A}$ be the family consisting of the first $|\mathcal{F}|$ elements of $[n]^{(r)}$ in colexicographic order. Then $|\partial \mathcal{F}| \geq |\partial \mathcal{A}|$.</p>
 </blockquote>
-<p>For this, we define the compression operator $C_{ij}$ from $P(n)$ to $P(n)$ with distinct $i, j \in [n]$ via
+<p>For this, we define the compression operator $C_{ij}$ for a set system with distinct $i, j \in [n]$ via the elementwise operation on $A\in \mathcal{P}([n])$:</p>
 $$C_{ij}(A) = 
 \begin{cases} 
 (A \setminus j) \cup i &amp; \text{if } i \notin A, j \in A \\
 A &amp; \text{otherwise}
-\end{cases}$$</p>
-<p>It's clear that</p>
-<blockquote><p><strong>Lemma I.</strong> For $1 \leq i &lt; j \leq n$ and $F \subseteq [n]^{(r)}$. we have $| \partial C_{ij}(F) | \leq | \partial F |$. ( shadows are minimized by taking initial segments of colex )</p>
-<p><strong>Lemma II.</strong> Let  $U, V \subseteq[n]$  be disjoint sets with  $|U|=|V|$. Suppose that  $\mathcal{F} \subseteq[n]^{(r)}$  satisfies $\forall u \in U \exists v \in V$  s.t.  $\mathcal{F}$  is  $(U \backslash u, V \backslash v)$-compressed. Then $\left|\partial C_{U V}(\mathcal{F})\right| \leq|\partial \mathcal{F}|$. ( A family $\mathcal{A}$ is $(U, V)$-compressed if $C_{U V}(\mathcal{A})=\mathcal{A}$. )</p>
+\end{cases}$$<p>It's clear that</p>
+<blockquote><p><strong>Lemma I.</strong> For $1 \leq i &lt; j \leq n$ and $\mathcal{F} \subseteq [n]^{(r)}$. we have $| \partial C_{ij}(\mathcal{F}) | \leq | \partial \mathcal{F} |$. ( shadows are minimized by taking initial segments of colex )</p>
+<p><strong>Lemma II.</strong> Let  $U, V \subseteq[n]$  be disjoint sets with  $|U|=|V|$. Suppose that  $\mathcal{F} \subseteq[n]^{(r)}$  satisfies $\forall u \in U \exists v \in V$  s.t.  $\mathcal{F}$  is  $(U \backslash u, V \backslash v)$-compressed. Then $\left|\partial C_{U V}(\mathcal{F})\right| \leq|\partial \mathcal{F}|$. ( a family $\mathcal{A}$ is $(U, V)$-compressed if $C_{U V}(\mathcal{A})=\mathcal{A}$ )</p>
 </blockquote>
 <p><strong>Proof of Kruskal-Katona.</strong> Let $\mathcal{A} \subseteq[n]^{(r)}$  satisfy</p>
 <ul>
 <li>$|\mathcal{A}|=|\mathcal{F}|$</li>
 <li>$|\partial \mathcal{A}| \leq|\partial \mathcal{F}|$</li>
-<li>subject to this,  $\sum_{A \in \mathcal{A}} \sum_{i \in A} 2^{i}$  is minimal.</li>
+<li>$\sum_{A \in \mathcal{A}} \sum_{i \in A} 2^{i}$  is minimal.</li>
 </ul>
 <p>Let $\Lambda=\{(U, V):|U|=|V|&gt;0, U \cap V=\emptyset, \max U&lt;\max V\}$.</p>
 <p>If  $\mathcal{A}$  is  $(U, V)$-compressed for all  $(U, V) \in \Lambda$  then  $\mathcal{A}$  is an initial segment of colex: if  $A \in \mathcal{A}$  and  $B&lt;_{\text {colex }} A$  then  $\max (B \backslash A)&lt;\max (A \backslash B)$  and so  $\mathcal{A}$  is  $(B \backslash A, A \backslash B)$-compressed, which implies  $C_{B \backslash A, A \backslash B}(A)=B \in \mathcal{A}$.</p>
