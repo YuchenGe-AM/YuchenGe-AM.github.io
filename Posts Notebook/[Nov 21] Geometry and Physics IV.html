@@ -14707,17 +14707,6 @@ $$\mathfrak{h}=\{X \in \mathfrak{g}: \exp t X \in H \text { for all } t \in \mat
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>We recollect some conclusions about universal covering.</p>
 <blockquote><p><strong>Prop.</strong> A smooth covering map $X \to Y$ is an open and a quotient map ( onto and a set in $Y$ open iff its preimage in $X$ is open ).</p>
 <p><strong>Prop.</strong> A topological covering map $X \to Y$ is a smooth covering map iff it is a local diffeomorphism.</p>
@@ -14744,12 +14733,17 @@ $$\mathfrak{h}=\{X \in \mathfrak{g}: \exp t X \in H \text { for all } t \in \mat
 <p>For example, If  $V$  is a nowhere-vanishing smooth vector field on a manifold  $M$, then  $V$  spans a smooth rank-$1$ distribution $D$ on  $M$. The image of any integral curve of $V$  is an integral manifold of  $D$.</p>
 <blockquote><p>A smooth distribution $D$ is <strong>involutive</strong> if the Lie bracket of smooth local sections of $D$ is also a local section of $D$.</p>
 <p>A smooth distribution $D$ is <strong>integrable</strong> if $\forall p\in M$ is contained in an integral manifold of $D$.</p>
-<p>A smooth distribution $D$ is <strong>completely integrable</strong> if $\forall p\in M$ is contained in an integral manifold of $D$.</p>
+<p>A smooth distribution $D$ is <strong>completely integrable</strong> if $\forall p\in M$ is contained in a flat chart for $D$ ( a chart s.t. $D \subset TM$ is spanned by $\partial / \partial x^{1}, \ldots, \partial / \partial x^{k}$ ).</p>
 </blockquote>
 <p>Then we know</p>
-<blockquote><p><strong>( Frobenius )</strong> $D$ is involutive $\iff$ $D$ integrable.</p>
+<blockquote><p><strong>Prop.</strong> Completely integrable $\implies$ integrable $\implies$ involutive.</p>
+<p><strong>( Frobenius )</strong> Completely integrable $\implies$ involutive.</p>
 </blockquote>
-<p>The distribution  $E$  on  $G$  given by the left-invariant vector fields  $\mathfrak{h}$  is clearly involutive. Let  $H$  be the maximal connected integral submanifold through  $e$. Since  $E$  is left-invariant left translation gives another integral submanifold so if  $h \in H, h^{-1} H$  is an integral submanifold. But it passes through  $e=h^{-1} h$  so  $h^{-1} H=H$  and we deduce that  $H$  is closed under multiplication and inversion.</p>
+<p><strong>Proof.</strong> For the first, observe that: in any flat charts for $D$, each slice $\{ x^{k+1}=c^{k+1}, \ldots, x^{n}=c^{n} \}$ is an integral manifold of $D$; wheareas involutive is proved since $X, Y$ is tangent to some submanifolds $\implies$ $[X,Y]$ is also. For the second, assume that we have local representation of $D$ as $Y_{i}=\sum_{j=1}^{n} A_{i j} \frac{\partial}{\partial x_{j}}, i \in [r]$. WLOG, let $A_{i j}, 1 \leq i, j \leq r$ be nonsingular. Then since $[f X, g Y]=f(X g) Y-g(Y f) X+f g[X, Y]$ and the integrability condition,</p>
+$$\left[X_{i}, X_{j}\right]=\sum_{k=r+1}^{n} a_{i j k} \frac{\partial}{\partial x_{k}}=0.$$<p>Let  $\varphi_{t}^{i}$  be the (local) one-parameter group of diffeomorphisms for  $X_{i}$  and define the smooth map</p>
+$$F\left(t_{1}, \ldots, t_{r}\right)=\varphi_{t_{1}}^{1} \circ \varphi_{t_{2}}^{2} \cdots \circ \varphi_{t_{r}}^{r}(a).$$<p>Since the vector fields commute, so do the one-parameter groups of diffeomorphisms, so  $F$  is independent of the ordering. By moving  $\varphi_{t_{i}}^{i}$  to the beginning and differentiating with respect to  $t_{i}$  we obtain  $X_{i}$. So we see that  $F$  has injective derivative whose image is spanned by  $X_{1}, \ldots, X_{r}$  as required.</p>
+<p>Now restrict  $a$  to depend on  $x_{r+1}, \ldots, x_{n}: a=\left(a_{1}, \ldots, a_{r}, x_{r+1}, \ldots, x_{n}\right)$  then by the inverse function theorem the local coordinate system  $\left(t_{1}, \ldots, t_{r}, x_{r+1}, \ldots, x_{n}\right)$  satisfies the conditions.</p>
+<p>Finally, we can give a full proof of Lemma I. The distribution  $E$  on  $G$  given by the left-invariant vector fields  $\mathfrak{h}$  is clearly involutive. Let  $H$  be the maximal connected integral submanifold through  $e$. Since  $E$  is left-invariant left translation gives another integral submanifold so if  $h \in H, h^{-1} H$  is an integral submanifold. But it passes through  $e=h^{-1} h$  so  $h^{-1} H=H$  and we deduce that  $H$  is closed under multiplication and inversion.</p>
 <p>It suffices to prove that multiplication and inversion are smooth, which can be derived from</p>
 <blockquote><p><strong>Prop.</strong> Lie subgroup is an integral manifold of an involutive distribution, and therefore weakly embedded ( An immersed submanifold $S$ is weakly embedded if $\forall F:N \to M$ whose image lies in $S$ is smooth as a map from $N$ to $S$ ).</p>
 </blockquote>
