@@ -14656,6 +14656,37 @@ $$ m \leq \binom{r+(n-r-s)}{r} = \binom{n-s}{r}. $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Also, we prove the <strong>sunflower lemma</strong>:</p>
+<blockquote><p>For each  $k&gt;0$, $r&gt;0$, there is an integer  $f(k, r) \leq k !(r-1)^{k}$  s.t. if a set system  $W$  of  $k$-sets is of cardinality greater than  $f(k, r)$, then  $W$  contains a sunflower of size  $r$.</p>
+</blockquote>
+<p><strong>Proof.</strong> It's clear that $f(1, r) \leq r-1$. In the general case, suppose $W$  has no sunflower with  $r$  sets. Then consider  $A_{1}, A_{2}, \ldots, A_{t} \in W$  to be a maximal collection of pairwise disjoint sets, which follows that $t&lt;r$.</p>
+<p>Let  $A=A_{1} \cup A_{2} \cup \cdots \cup A_{t}$, and we know $|A| \leq k t \leq k(r-1)$. Define  $W_{a}$  for some  $a \in A$  to be $W_{a}=\{S \backslash\{a\} \mid a \in S, S \in W\}$.</p>
+<p>Then  $W_{a}$  is a set system, and by induction every sunflower of  $W_{a}$  corresponds to a sunflower of  $W$, simply by adding back  $a$  to every set. Therefore  since $W$  has no sunflower of size  $r$, $|W_{a}|\leq f(k-1, r)-1$.</p>
+<p>Since every set  $S \in W$  intersects with one of the  $A_{i}$'s, it intersects with  $A$, and so it corresponds to at least one of the sets in a  $W_{a}$:</p>
+$$|W| \leq \sum_{a \in A}\left|W_{a}\right| \leq|A|(f(k-1, r)-1) \leq k(r-1) f(k-1, r)-|A| \leq k(r-1) f(k-1, r)-1 .$$<p>Therefore, the theorem follows.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="2.-Multigraph">2. Multigraph<a class="anchor-link" href="#2.-Multigraph">&#182;</a></h3><blockquote><p>A multigraph is $(V, E, \phi)$ where  $V$  and  $E$  are finite sets, and  $\phi: E \rightarrow \binom{V}{2} \cup \binom{V}{1}$  encodes the ends ( or end for a loop ) of an edge  $e \in E$.</p>
 </blockquote>
 <p>Then we know that</p>
