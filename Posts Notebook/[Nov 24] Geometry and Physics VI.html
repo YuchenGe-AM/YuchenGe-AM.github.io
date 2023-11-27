@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>[Nov 21] Geometry and Physics IV</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>[Nov 24] Geometry and Physics VI</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14579,7 +14579,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%5BNov-21%5D-Geometry-and-Physics-IV">[Nov 21] Geometry and Physics IV<a class="anchor-link" href="#%5BNov-21%5D-Geometry-and-Physics-IV">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
+<h2 id="%5BNov-24%5D-Geometry-and-Physics-VI">[Nov 24] Geometry and Physics VI<a class="anchor-link" href="#%5BNov-24%5D-Geometry-and-Physics-VI">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
 Affiliation: University of Oxford<br>
 Contact Email: gycdwwd@gmail.com<br>
 Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</a></p>
@@ -14594,48 +14594,15 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="1.-The-Correspondence-between-Lie-Algebra-and-Lie-Groups">1. The Correspondence between Lie Algebra and Lie Groups<a class="anchor-link" href="#1.-The-Correspondence-between-Lie-Algebra-and-Lie-Groups">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>A <strong>Lie subgroup</strong> is a Lie group which is also an immersed submanifold.</p>
-<p>A <strong>Lie group homomorphism</strong> is a smooth homomorphism.</p>
+<h3 id="1.-Integration-on-Lie-Groups">1. Integration on Lie Groups<a class="anchor-link" href="#1.-Integration-on-Lie-Groups">&#182;</a></h3><p>Recall some basic properties of tensor pullbacks for covariant tensor fields:</p>
+<blockquote><p>$F^{*}(f B)=(f \circ F) F^{*} B$, $F^{*}(A \otimes B)=F^{*} A \otimes F^{*} B$, and $(G \circ F)^{*} B=F^{*}\left(G^{*} B\right)$.</p>
 </blockquote>
-<p>There are some relevant properties:</p>
-<blockquote><p><strong>Prop I.</strong> A subgroup with embedded structure is a Lie subgroup.</p>
-<p><strong>Prop II.</strong> An open subgroup $H$ is both closed and an embedded Lie subgroup.</p>
-<p><strong>Prop III.</strong> If  $F: G \rightarrow H$  is an injective Lie group homomorphism, the image of $F$  has a unique smooth structure s.t.</p>
-$$ \text{$F(G)$  is a Lie subgroup of  $H$  and  $F: G \rightarrow F(G) $ is a Lie group isomorphism.} $$
+<p>Then a covariant tensor field  $A$  on  $G$  is <strong>left-invariant</strong> if  $L_{g}^{*} A=A, \forall  g \in G$.</p>
+<blockquote><p>Let $G$ be compact. Then  $G$  has a unique positively oriented left-invariant  $n$-form  $\omega_{G}$ s.t. $\int_{G} \omega_{G}=1$.</p>
 </blockquote>
-<p><strong>Proof.</strong> Observe that <strong>a Lie group homomorphism has constant rank</strong>, it follows from the global rank theorem ( $F$ is injective with constant rank $\implies$ $F$ is a smooth immersion ) that $F$ is a smooth immersion.</p>
-<p>Some examples follow</p>
-<blockquote><p>The image of 1-parameter subgroup is a Lie subgroup since it's either $\mathbb{R}$, $S^1$ or $\{e\}$ ( <strong>the image is abelian</strong> ).</p>
-<p>If $G$ is not connected, the component containing the identity is closed, thus an embedded Lie subgroup.</p>
-<p>$H$ compact and $\varphi: H \rightarrow G$ injective $\implies$ $H$ is an embedded subgroup ( since compact subset of a hausdorff space is closed ).</p>
-</blockquote>
-<p>Actually, we have that</p>
-<blockquote><p><strong>Prop.</strong> The identity component $G_0$ is a normal subgroup of $G$, and is the only connected open subgroup.</p>
-</blockquote>
-<p><strong>Proof.</strong> $g(t), h(t)$  from the identity to  $g, h$  define a path  $g(t) h(t)$  to  $g h$. It is also normal since  $x \mapsto g x g^{-1}$  is a homeomorphism that takes connected components to connected components. It's unique as a connected open subgroup simply by observing that <strong>for a topological group $G$, $H$ is an open subgroup $\implies$ $H$ contains identity component of $G$.</strong></p>
-<p>In general, smooth submanifolds can be closed without being embedded ( the figure-eight curve which is not a topological embedding, because its image is compact in the subspace topology, while its domain is not ) or embedded without being closed ( open unit ball in $\mathbb{R}^n$ ). However,</p>
-<blockquote><p><strong>Thm.</strong> Let $G$ be a Lie group. A subgroup $H$ is an embedded Lie subgroup iff $H$ is closed.</p>
-</blockquote>
-<p><strong>Proof.</strong> Recall some properties concerning embedded submanifolds:</p>
-<blockquote><p><strong>Prop.</strong> $S \subset M$ is an embedded submanifold iff it satisfies the local $k$-slice condition for charts ( embedded submanifolds are locally $\mathbb{R}^k \hookrightarrow \mathbb{R}^n$ )</p>
-<p><strong>Prop.</strong> The level set of $f: M\to N$ with constant rank is a properly embedded submanifold.  ( Here properly means the inclusion map is proper )</p>
-<p><strong>Corollary.</strong> The regular level set can remove the condition being constant rank ( since the set of $ m\times n$ matrices of full rank is open ).</p>
-<p><strong>Thm.</strong> the subspace topology and the smooth structure described on the embedded submanifold $S \subset M$ are the <strong>only</strong> ones s.t. $S$ is an embedded or immersed submanifold.</p>
-</blockquote>
-<p>Next, we shall give $H \subset G$ a <strong>slice chart</strong>: on open $U \subset G$, Let $\log$ denote the local inverse of $\exp$ at the identity, and set  $U^{\prime}=U \cap H$  and  $V^{\prime}=\log \left(U^{\prime}\right)$. Define</p>
-$$\mathfrak{h}=\{X \in \mathfrak{g}: \exp t X \in H \text { for all } t \in \mathbb{R}\} = \{tX \in \mathfrak{g}:  \exists v_{n} \in V^{\prime}  s.t.  v_{n} \rightarrow 0 \text{ and }  \frac{v_{n}}{\left\|v_{n}\right\|} \to  X \}$$<p></p>
-<p>Then $\mathfrak{h}$ is a linear subspace of $\mathfrak{g}$. Next we define $\psi(w, v)=\exp (w) \exp (v)$ from $T_e(G)=\mathfrak{h} \oplus \mathfrak{h}^{\perp}$ to $G$, which is a local diffeomorphism since $d\psi_e(w + v) = w + v$ (consider the tangent space to a product manifold ). Suppose  $\psi(w, v)$  lies in  $H$, then $\exp (w)\in \mathfrak{h}^{\perp} \implies  \exp (v) \in \mathfrak{h}^{\perp}$. Repeat the process above with a sequence of such  $v$'s. Then  $v_{n} /\left\|v_{n}\right\|$  will converge to a unit vector  $u \in \mathfrak{h}^{\perp}$. But also by definition  $u \in \mathfrak{h}$, a contradiction. Hence  $v=0$. The map  $\psi^{-1}$  gives a local coordinate system in which  $H$  is defined as the kernel of projection onto  $\mathfrak{h}^{\perp}$.</p>
+<p><strong>Proof.</strong> Let $E_{1}, \ldots, E_{n}$ be a left-invariant global frame on $G$. WLOG, this frame is positively oriented. Also let $\varepsilon^{1}, \ldots, \varepsilon^{n}$ be the dual coframe. Then</p>
+$$\left(L_{g}^{*} \varepsilon^{i}\right)\left(E_{j}\right)=\varepsilon^{i}\left(L_{g *} E_{j}\right)=\varepsilon^{i}\left(E_{j}\right)=\delta_{j}^{i}$$<p>which shows that $\omega_{G}=\varepsilon^{1} \wedge \cdots \wedge \varepsilon^{n}$ is left-invariant. Since  $G$  is compact and oriented,  $\int_{G} \omega_{G} = \sum_{i} \int_{G} \psi_{i} \omega_G \in \mathbb{R}^{+}$ where $\left\{\psi_{i}\right\}$ is a subordinate smooth partition of unity, so we can define</p>
+$$\tilde{\omega}_{G}=\left(\int_{G} \omega_{G}\right)^{-1} \omega_{G}.$$<p>As a matter of fact, $\omega_G$ is also right-invariant because $R_{g^{-1}}^*$ acts on the one-dimensional space of degree $n$ multilinear maps. But $\pm 1$ is the only compact subgroup of $\mathbb{R}^*$ and if $G$  is connected the action must be trivial. We shall write $\int_{G} f(g) dg$ or $\int_{G} f(g)$.</p>
 
 </div>
 </div>
@@ -14647,105 +14614,32 @@ $$\mathfrak{h}=\{X \in \mathfrak{g}: \exp t X \in H \text { for all } t \in \mat
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We note that $\exp$ can be non-surjective by seeing that</p>
-<blockquote><p>$\left(\begin{array}{cc} -1 &amp; 0 \\ 0 &amp; -2 \end{array}\right) \notin \exp(\mathfrak{g l}(2, \mathbb{R}))$.</p>
+<h3 id="2.-Characters">2. Characters<a class="anchor-link" href="#2.-Characters">&#182;</a></h3><blockquote><p>A measure is left translation invariant if $\mu(g S)=\mu(S) \text { for all } g \in G$.</p>
 </blockquote>
-<p>If  $A$  has eigenvalues  $\alpha$  and  $\beta$, then  $\exp (A)$  has eigenvalues  $e^{\alpha}$  and  $e^{\beta}$. Hence we may suppose that  $e^{\alpha}=-1$  and  $e^{\beta}=-2$. However, $A$  is a real matrix $\implies$ $\alpha$  and  $\beta$  are the roots of the same real quadratic equation $\implies$ $\alpha=\overline{\beta}$. But then  $|e^{\alpha}| = |e^{\beta}|$, a contradiction.</p>
-<p>Also we have</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p><strong>Cor.</strong> A continuous group homomorphism is smooth.</p>
+<p>Suppose the topological group $G$ is compact in the following. Using differential forms as above,</p>
+<blockquote><p><strong>Thm.</strong> $G$ has a left Haar measure up to scalar multiplication ( a nonzero regular Borel measure that is invariant under left translation ).</p>
 </blockquote>
-<p><strong>Proof.</strong> Consider $\Gamma=\{(g, \varphi(g)) \in G \times H\}$. Since manifolds are Hausdorff, the graph is closed. ( Closed graph theorem ) Therefore, it's embeded w.r.t. $\Gamma \to G \times H$. It's clear that $\pi: \Gamma \to G$ is a homeomorphism. To continue, we need the following lemmas:</p>
-<blockquote><p><strong>Lemma I.</strong> Every Lie group homomorphism has constant rank. $\big($ observe that $F \circ L_{g_{0}}=L_{F(g_{0})} \circ F \implies d F_{g_{0}} \circ d(L_{g_{0}})_{e}=d(L_{F(g_{0})})_{e} \circ d F_{e}$ holds $\big)$</p>
-<p><strong>Lemma II.</strong> A Lie group homomorphism is a Lie group isomorphism iff it is bijective. ( Global rank theorem )</p>
+<p>We shall now prove</p>
+<blockquote><p>$\exists !$ left Haar measure up to a proportionality constant and it is a right Haar measure.</p>
 </blockquote>
-<p>From Lemma II, $\phi$ defines a Lie group isomorphism between  $\Gamma$  and  $G$. Composing $\tilde{\pi}: \Gamma \to H$ with  $\pi^{-1}$ is exactly the homomorphism  $\varphi$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We have a conclusion whose proof also using the construction of graph.</p>
-<blockquote><p><strong>Thm.</strong> Let  $G$  be simply connected, then</p>
-<ul>
-<li>$\{$ Lie algebra homomorphisms  $\mathfrak{g} \rightarrow \mathfrak{h}$ $\}$ $\leftrightarrow$ $\{$ Lie group homomorphisms  $G \rightarrow H$ $\}$.</li>
-<li>$G$  and  $H$  are simply connected and have isomorphic Lie algebras $\implies$ $G \cong H$.</li>
-</ul>
+<p><strong>Proof.</strong> Let  $\mu_{l}$  be a left Haar measure, then we may define a right Haar measur $\mu_{r}(E)=\mu_{l}\left(E^{-1}\right) $. By Fubini's theorem,</p>
+$$ \begin{aligned} \mu_{l}(G) \mu_{r}(A) &amp; =\int_{G}\left[\int_{G} I_{A}(x) d \mu_{r}(x)\right] d \mu_{l}(y)  =\int_{G}\left[\int_{G} I_{A}(x y) d \mu_{r}(x)\right] d \mu_{l}(y) =\int_{G}\left[\int_{G} I_{A}(x y) d \mu_{l}(y)\right] d \mu_{r}(x) \\ &amp; =\int_{G}\left[\int_{G} I_{A}(y) d \mu_{l}(y)\right] d \mu_{r}(x) =\mu_{r}(G) \mu_{l}(A).
+\end{aligned}$$<p>If $\langle\cdot, \cdot\rangle$ is any Hermitian inner product on $V$, set $(u, v)=\int_{G}\langle g u, g v\rangle d x$ and we $V$ admits a Hermitian inner product $(\cdot, \cdot)$ s.t. $g$ acts unitary transformation:</p>
+$$ (u,v) = (g u, g v), \forall g\in G.
+$$<blockquote><p>Define $P(v)=\int_{G} g v$, then  $P(v)$ is a projection onto the subspace $V^{G} \subset V$ of invariant vectors.</p>
 </blockquote>
-<p><strong>Proof.</strong> We shall use the lemmas below.</p>
-<blockquote><p><strong>Lemma I.</strong> There is a one-to-one correspondence between Lie subalgebras  $\mathfrak{h} \subseteq \mathfrak{g}$  and connected Lie subgroups  $H \subseteq G$.</p>
-<p><strong>Lemma II.</strong> Let  $\pi: G \rightarrow H$  be a Lie group homomorphism, with  $H$  connected, then  $\pi$  is a covering map iff  $D \pi_{e}$  is an isomorphism of Lie algebras.</p>
+<p><strong>Proof.</strong> It is orthogonal ( $P=P^{*}$ ) since $ ( P v, w ) = \int_{G} ( g v, w ) = \int_{G}\left ( v, g^{-1} w\right ) =  \int_{G} \left ( v, g w\right ) = ( v, P w )$.</p>
+<blockquote><p>Define $\chi_{V}(g)=\operatorname{tr}(\Phi(g)) =\sum_{i}\left(g u_{i}, u_{i}\right)$ where $u_i$'s form orthonormal basis. ( $\operatorname{tr}(\xi \otimes v) = \xi(v)$ can be observed from $\operatorname{End}V \cong V^{*} \otimes V$ )</p>
 </blockquote>
-<p>The second is a special case of the proof of first case. We already saw, using the exponential map, that a Lie group homomorphism is uniquely determined by the corresponding Lie algebra homomorphism. Given $\psi: \mathfrak{g} \rightarrow \mathfrak{h}$, consider the Lie subalgebra $\Gamma=\{(x, \psi(x)) \in \mathfrak{g} \oplus \mathfrak{h}\}$, by Lemma I we get a connected Lie subgroup  $S \subset G \times H$  with Lie algebra  $\Gamma$.</p>
-<p>Then $ \Gamma \cong \mathfrak{g} \implies $ we have a covering homomorphism  $\pi: S \rightarrow G$. ( Lemma II ) But it is a diffeomorphism since $G$  is simply connected. Then  $\pi^{-1}$  followed by projection onto the second factor in  $G \times H$  gives the required Lie group homomorphism.</p>
-<p><strong>Proof of Lemma I.</strong> Application of distribution and integrable manifolds, a special example of which is Lie subgroups.</p>
-<p><strong>Proof of Lemma II.</strong>  $\pi$ is a local diffeomorphism at identity from $W \subset G$ to $U \subset H$, which follows that $\pi$ is surjective. Then we can get the covering by shrinking $U$ if necessary to get that $k \in \operatorname{Ker} \pi \implies k V \cap V = V$ or $\emptyset$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We recollect some conclusions about universal covering.</p>
-<blockquote><p><strong>Prop.</strong> A smooth covering map $X \to Y$ is an open and a quotient map ( onto and a set in $Y$ open iff its preimage in $X$ is open ).</p>
-<p><strong>Prop.</strong> A topological covering map $X \to Y$ is a smooth covering map iff it is a local diffeomorphism.</p>
-<p><strong>Thm.</strong> $\pi: E \to M$ is a topological covering map with $M$ being a connected smooth manifold. Then $E$ is a topological manifold, which has a unique smooth structure s.t. $\pi$ is a smooth covering map.</p>
+<p>Then it's clear that</p>
+<blockquote><p><strong>Prop I.</strong> $\int_{G} \chi_{V}(g)=\operatorname{dim} V^{G}$.</p>
+<p><strong>Prop II.</strong> $\left ( \chi_{V}, \chi_{W}\right )=\operatorname{dim} \operatorname{Hom}^{G}(V, W)$.</p>
+<p><strong>Cor.</strong> If  $\chi$ is the char. of an irreducible representation, then $\|\chi\|_{2}=1$. If  $\chi$  and  $\chi^{\prime}$  are moreover char. of inequivalent representations, then  $\int_{G} \chi(g) \overline{\chi^{\prime}(g)}=0$.</p>
 </blockquote>
-<p>Specifically, $\widetilde{G}=\{$  homotopy classes of $\gamma$  $\mid$ $\gamma:[0,1] \rightarrow G, \gamma(0)=e, \gamma(1)$  is given  }  and  $\pi: \widetilde{G} \rightarrow   G,[\gamma] \mapsto \gamma(1)$ is a construction of universal covering manifold. ( charts are constructed via  the observing the evenly covered nature )</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>After that we recall <strong>distribution</strong> and <strong>integrable manifolds</strong>. First recall that a distribution on $M$ of rank $k$ is a rank-$k$ subbundle of $TM$. It is called a smooth distribution if it is a smooth subbundle.</p>
-<blockquote><p>A <strong>vector bundle</strong> is a surjective continuous map $\pi: E \rightarrow M$ s.t. $E_{p}=\pi^{-1}(p) \cong \mathbb{R}^k$ admitting local trivialization. The vector bundle is smooth if every part of def. is added smooth conditions.</p>
-<p>A <strong>subbundle</strong> is the restriction of $\pi_{E}:E\to M$ to $D$ s.t. $D_{p}=D \cap E_{p}$ is a vector subspace. A subbundle is smooth if it is a smooth vector bundle and an embedded submanifold of $E$.</p>
-<p>A smooth <strong>distribution</strong> $D$ on $M$ of rank $k$ is a smooth rank-$k$ subbundle of $TM$. A immersed submanifold  $\emptyset \neq N \subseteq M$  is an <strong>integral manifold</strong> of  $D$  if  $T_{p} N=D_{p}$, $\forall p \in N$.</p>
-</blockquote>
-<p>Often a rank-$k$  distribution is described by specifying for each  $p \in M$  a linear subspace  $D_{p} \subseteq T_{p} M$  of dimension  $k$, and letting  $D=\bigcup_{p \in M} D_{p}$. It then follows from the <strong>local frame criterion for subbundles</strong> that  $D$  is a smooth distribution iff each point of  $M$  has a neighborhood  $U$  on which there are smooth vector fields  $X_{1}, \ldots, X_{k}: U \rightarrow T M$  s.t. $\left.X_{1}\right|_{q}, \ldots,\left.X_{k}\right|_{q}$  form a basis for  $D_{q}$  at each  $q \in U$.</p>
-<p>For example, If  $V$  is a nowhere-vanishing smooth vector field on a manifold  $M$, then  $V$  spans a smooth rank-$1$ distribution $D$ on  $M$. The image of any integral curve of $V$  is an integral manifold of  $D$.</p>
-<blockquote><p>A smooth distribution $D$ is <strong>involutive</strong> if the Lie bracket of smooth local sections of $D$ is also a local section of $D$.</p>
-<p>A smooth distribution $D$ is <strong>integrable</strong> if $\forall p\in M$ is contained in an integral manifold of $D$.</p>
-<p>A smooth distribution $D$ is <strong>completely integrable</strong> if $\forall p\in M$ is contained in a flat chart for $D$ ( a chart s.t. $D \subset TM$ is spanned by $\partial / \partial x^{1}, \ldots, \partial / \partial x^{k}$ ).</p>
-</blockquote>
-<p>Then we know</p>
-<blockquote><p><strong>Prop.</strong> Completely integrable $\implies$ integrable $\implies$ involutive.</p>
-<p><strong>( Frobenius )</strong> Completely integrable $\implies$ involutive.</p>
-</blockquote>
-<p><strong>Proof.</strong> For the first, observe that: in any flat charts for $D$, each slice $\{ x^{k+1}=c^{k+1}, \ldots, x^{n}=c^{n} \}$ is an integral manifold of $D$; wheareas involutive is proved since $X, Y$ is tangent to some submanifolds $\implies$ $[X,Y]$ is also. For the second, assume that we have local representation of $D$ as $Y_{i}=\sum_{j=1}^{n} A_{i j} \frac{\partial}{\partial x_{j}}, i \in [r]$. WLOG, let $A_{i j}, 1 \leq i, j \leq r$ be nonsingular. Then since $[f X, g Y]=f(X g) Y-g(Y f) X+f g[X, Y]$ and the integrability condition,</p>
-$$\left[X_{i}, X_{j}\right]=\sum_{k=r+1}^{n} a_{i j k} \frac{\partial}{\partial x_{k}}=0.$$<p>Let  $\varphi_{t}^{i}$  be the (local) one-parameter group of diffeomorphisms for  $X_{i}$  and define the smooth map</p>
-$$F\left(t_{1}, \ldots, t_{r}\right)=\varphi_{t_{1}}^{1} \circ \varphi_{t_{2}}^{2} \cdots \circ \varphi_{t_{r}}^{r}(a).$$<p>Since the vector fields commute, so do the one-parameter groups of diffeomorphisms, so  $F$  is independent of the ordering. By moving  $\varphi_{t_{i}}^{i}$  to the beginning and differentiating with respect to  $t_{i}$  we obtain  $X_{i}$. So we see that  $F$  has injective derivative whose image is spanned by  $X_{1}, \ldots, X_{r}$  as required.</p>
-<p>Now restrict  $a$  to depend on  $x_{r+1}, \ldots, x_{n}: a=\left(a_{1}, \ldots, a_{r}, x_{r+1}, \ldots, x_{n}\right)$  then by the inverse function theorem the local coordinate system  $\left(t_{1}, \ldots, t_{r}, x_{r+1}, \ldots, x_{n}\right)$  satisfies the conditions.</p>
-<p>Finally, we can give a full proof of Lemma I. The distribution  $E$  on  $G$  given by the left-invariant vector fields  $\mathfrak{h}$  is clearly involutive. Let  $H$  be the maximal connected integral submanifold through  $e$. Since  $E$  is left-invariant left translation gives another integral submanifold so if  $h \in H, h^{-1} H$  is an integral submanifold. But it passes through  $e=h^{-1} h$  so  $h^{-1} H=H$  and we deduce that  $H$  is closed under multiplication and inversion.</p>
-<p>It suffices to prove that multiplication and inversion are smooth, which can be derived from</p>
-<blockquote><p><strong>Prop.</strong> Lie subgroup is an integral manifold of an involutive distribution, and therefore weakly embedded ( An immersed submanifold $S$ is weakly embedded if $\forall F:N \to M$ whose image lies in $S$ is smooth as a map from $N$ to $S$ ).</p>
+<p><strong>Proof.</strong> We only prove the second by integrating both sides of $\chi_{V^{*} \otimes W}=\chi_{V^{*}} \chi_{W}=\overline{\chi_{V}} \chi_{W}$.</p>
+<p>Using the <strong>Cor.</strong>, if $V$ is a irreducible rep., so is $ V \otimes V$. More generally,</p>
+<blockquote><p><strong>Thm.</strong> Let  $V, W$  be irreducible and take  $v_{1}, v_{2} \in V$, $w_{1}, w_{2} \in W$. Then
+$$\int_{G}\left ( g v_{1}, v_{2}\right ) \overline{\left\langle g w_{1}, w_{2}\right\rangle}= \begin{cases} \frac{1}{\operatorname{dim} V}\left ( v_{1}, w_{1}\right ) \left ( v_{2}, w_{2}\right) &amp; \text{ if } V \cong W \\ 0 &amp; \text{ else } \end{cases}.$$</p>
 </blockquote>
 
 </div>
@@ -14758,31 +14652,9 @@ $$F\left(t_{1}, \ldots, t_{r}\right)=\varphi_{t_{1}}^{1} \circ \varphi_{t_{2}}^{
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-Abstract-Representation-Theory">2. Abstract Representation Theory<a class="anchor-link" href="#2.-Abstract-Representation-Theory">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>First recall some correspondence</p>
-<blockquote><p>$V^{*} \otimes W \cong \operatorname{hom}(V, W)$  via $(\phi \otimes w)(v)=\phi(v) w$, whose inverse is magically $\sum_{i} e_{i}^{*} \otimes f\left(e_{i}\right)$.</p>
-</blockquote>
-<p>From which we can construct some:</p>
-<blockquote><p><strong>Def.</strong> $g\in G$ act on $V^{*}$  via $g \xi=\varphi\left(g^{-1}\right)^{\prime}(\xi) \in V^{*}$ where $\xi\in V^{*}$.</p>
-<p><strong>Def.</strong> $g\in G$ act on $\operatorname{Hom}(V, W)$  via $(g \cdot A)(v)=g \cdot\left[A\left(g^{-1} \cdot v\right)\right]$, $\forall g \in G, v \in V$. ( $Hom  (V, W) \cong V^{*} \otimes W$ as representations )</p>
-<p><strong>Prop.</strong> $Hom  (V, W) \cong V^{*} \otimes W$ as representations.</p>
-</blockquote>
-<p><strong>Proof.</strong> $g\left( \xi(\square) \omega \right)(v) = g \left( \xi(g^{-1}v)w \right) = \xi(g^{-1}v) g ( w ) = (\varphi (g^{-1})'\xi)(v) g ( w ) = g\xi(v) g(\omega)$ where $\square$ simply denotes an entry.</p>
-<blockquote><p>A rep. is <strong>reducible</strong> if $\exists \{0\} \neq W &lt; V$  such that  $G(W) \subseteq W$;</p>
-<p>A rep. is <strong>irreducible</strong> if  $\{0\}$  and  $V$  are the only invariant subspace;</p>
-<p>A rep. is <strong>completely reducible</strong> if it is a direct sum  $V=V_{1} \oplus \cdots \oplus V_{m}$  with  $V_{i}$.</p>
-</blockquote>
-<p>For example, consider  $G=\mathbb{R}$  and  $V=\mathbb{R}^{2}$ s.t.  $(x, y) \in \mathbb{R}^{2} \mapsto(x+t y, y)$. Then  $V$  is reducible as  $G(\mathbb{R} \times\{0\})=\mathbb{R} \times\{0\}$ but not complete reducible.</p>
+<p><strong>Proof.</strong> Define $\xi_{w} = \overline{( w, u)}$, and then from the definition of $G$ acting on $W^*$, $\overline{\left\langle g w_{1}, w_{2}\right\rangle}=g \xi_{w_{1}}\left(w_{2}\right)$. Now $P(v_{1} \otimes \xi_{w_{1}}) = \int_{G} g v_{1} \otimes g \xi_{w_{1}}$ is the orthogonal projection $P$  onto the invariant subspace of  $V \otimes W^{*}=\operatorname{Hom}(W, V)$. By Schur's lemma if  $V, W$  are irreducible this is zero. If  $V=W$, then  $P(A) = \lambda I \in \operatorname{End} V$, which follows that $\operatorname{tr}( A) = \operatorname{tr}(P(A)) = \lambda \operatorname{dim}(V) \implies P(A) = \frac{1}{\operatorname{dim} V}(\operatorname{tr} A) I$. Therefore,</p>
+$$P\left(v_{1} \otimes \xi_{w_{1}}\right)=\xi_{w_{1}}\left(v_{1}\right) I / \operatorname{dim} V=\overline{\left( w_{1}, v_{1}\right)} I / \operatorname{dim} V=   \left( v_{1}, w_{1}\right) I / \operatorname{dim}V.$$<p>Evaluating  $g v_{1} \otimes g \xi_{w_{1}} \in V \otimes V^{*}$  on  $\xi_{v_{2}} \otimes w_{2} $ gives $\left( g v_{1}, v_{2}\right)\left( w_{2}, g w_{1}\right)=\left( g v_{1}, v_{2}\right) \overline{\left( g w_{1}, w_{2}\right)}$ and so</p>
+$$\int_{G}\left( g v_{1}, v_{2}\right) \overline{\left( g w_{1}, w_{2}\right)} = \frac{1}{\operatorname{dim} V}\left( v_{1}, w_{1}\right) \big(\sum_{i}e_i\otimes f_i\big)\left(\xi_{v_{2}} \otimes w_{2}\right) = \frac{1}{\operatorname{dim} V}\left( v_{1}, w_{1}\right) \operatorname{tr}\left(\xi_{v_{2}} \otimes w_{2}\right)=\frac{1}{\operatorname{dim} V}\left( v_{1}, w_{1}\right)\left( v_{2}, w_{2}\right)$$<p>where $e_i$ forms a orthonormal basis and $f_i$ forms its dual.</p>
 
 </div>
 </div>
@@ -14794,29 +14666,51 @@ $$F\left(t_{1}, \ldots, t_{r}\right)=\varphi_{t_{1}}^{1} \circ \varphi_{t_{2}}^{
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Then we need two constructions that relate real and complex representations.</p>
-<blockquote><p>Define the complexification $cV = V^{\mathbb{C}} \equiv V \otimes_{\mathbb{R}} \mathbb{C}$ and its complex conjugate where $\overline{cV}$ with scarlar multiplication $\alpha * v=\bar{\alpha} \cdot v$.</p>
-<p>The realification is $rW = W^{\mathbb{R}} $ is obtained by forgeting about the $\mathbb{C}$-structure.</p>
-<p>A <strong>real structure</strong> $T$ on a complex vector space $X$ is an antilinear involution, denoted either by $T(x)$ or $\overline{x}$.</p>
+<p>Write  $$\Phi = \Phi_{1} \oplus \ldots \oplus \Phi_{n}.$$</p>
+<p>If  $\tau$  is irreducible, then the corollary show that  $\int_{G} \chi_{\Phi}(g) \overline{\chi_{\tau}(g)} $  is the number of summands  $\Phi_{i}$  equivalent with  $\tau$, the number of which is called the <strong>multiplicity</strong> of  $\tau$  in  $\Phi$ and is independent of the decomposition of  $\Phi$  into irreducible representations.</p>
+<p>Let  $\left\{\Phi^{(\alpha)}\right\}$  be a maximal set of mutually inequivalent finite-dimensional irreducible unitary representations of $G$. Then $\left\{\Phi_{i j}^{(\alpha)}(g)\right\}_{i, j, \alpha}$  form an orthogonal set in  $L^{2}(G)$. In fact, if  $d^{(\alpha)}$  denotes the degree of  $\Phi^{(\alpha)}$  (i.e., the dimension of $V^{(\alpha)}$), then  $\left\{\left(d^{(\alpha)}\right)^{1 / 2} \Phi_{i j}^{(\alpha)}(g)\right\}_{i, j, \alpha}$  is an orthonormal set in  $L^{2}(G)$. The Peter-Weyl Theorem shows that this orthonormal set is an orthonormal basis.</p>
+<blockquote><p>( <strong>Peter-Weyl</strong> ). The linear span of all matrix coefficients for all irreducible unitary representations of  $G$  is dense in  $L^{2}(G)$.</p>
+<p>( <strong>Peter-Weyl II</strong> ) $L^{2}(G) \cong \hat{\bigoplus} V_{L}^{\oplus \operatorname{dim} V_{L}} \cong \hat{\bigoplus} V_{L} \otimes V_{R}^{*}$ where both sides are rep. of $ G\times G$. ( the set of matrix coefficients for $V$ $\equiv$ $\{ \varphi=L \circ \Phi$ where $L\in \operatorname{End}\left(V\right)^*$ $\}$  $\cong \operatorname{End}\left(V\right)$ )</p>
+<p><strong>Cor</strong>. Any compact Lie group  $G$  has a 1-1 finite dimensional representation ( $\implies$ $G \cong$ some closed linear group ).</p>
 </blockquote>
-<p>We have</p>
-<blockquote><p><strong>Prop.</strong> $r c W \cong W \oplus W \text { and } c r V \cong V \oplus \bar{V}$.</p>
-<p><strong>Prop.</strong> $X$  is complex with conjugation, then $X  \cong \mathbb{C} \otimes_{\mathbb{R}} \Re X = \Re X \oplus i \Re X$.</p>
-</blockquote>
-<p><strong>Proof.</strong> For the first, note that 
-$$\mathbb{C} \otimes \mathbb{R}[x] /\left(x^{2}+1\right) =\mathbb{C}[x] /\left(x^{2}+1\right) = \mathbb{C}[x] /((x+i)(x-i)) \stackrel{C R T}{=} \mathbb{C}[x] /(x+i) \oplus \mathbb{C}[x] /(x-i) = \mathbb{C} \oplus \mathbb{C},
-$$
-from which we have</p>
-$$ rV \otimes_{\mathbb{R}} \mathbb{C} = V \otimes_{\mathbb{R}} \mathbb{C} = \left(V \otimes_{\mathbb{C}} \mathbb{C}\right) \otimes_{\mathbb{R}} \mathbb{C} = V \otimes_{\mathbb{C}}\left(\mathbb{C} \otimes_{\mathbb{R}} \mathbb{C}\right) = V \otimes_{\mathbb{C}}(\mathbb{C} \oplus \mathbb{C}) = V \oplus \bar{V}.
-$$<p>For the second, for any  $x, x+\bar{x}$  and  $i \bar{x}-i x$  lie in  the fixed point set $\Re X$, so</p>
-$$ x=(x+\bar{x}) / 2+i(i \bar{x}-i x) / 2 \in   \Re X+i \Re X $$<p></p>
-<p>is true. On the other hand, if  $x \in(\Re X) \cap(i \Re X)$, we have  $x=i y$  with  $y \in \Re X$, and  $\bar{x}=-i y=-x$. Since  $\bar{x}=x$, this implies  $x=0$.</p>
-<p>If $X$  is a complex representation of  $G$, we require the conjugation to preserve the  $G$-action, i.e. $\overline{g x}=g \bar{x}$; then  $\Re X$  is a real representation of  $G$. For $c W$, the conjugation is inherited from  $\mathbb{C}$  and does indeed preserve the  $G$-action; also,  $\Re c W=1 \otimes W \cong W$.</p>
-<p>Reversely, the complexification of a real representation is simply $G \rightarrow \mathrm{GL}(n, \mathbb{R}) \hookrightarrow \mathrm{GL}(n, \mathbb{C})$.</p>
+<p><strong>Proof.</strong> It follows from <strong>Peter-Weyl</strong> that for each  $g \neq 1$  in  $G$, $\exists \Phi_{g}$   s.t. $\Phi_{g}(g) \neq 1$. If the identity component  $G_{0}$  is not  $\{1\}$, pick  $g_{1} \neq 1$  in the identity component  $G_{0}$. Then  $G_{1}=\operatorname{ker} \Phi_{g_{1}}$  is a closed subgroup of  $G$, and its identity component is a proper subgroup of  $G_{0}$. If  $\left(G_{1}\right)_{0} \neq\{1\}$, pick  $g_{2} \neq 1$  in  $\left(G_{1}\right)_{0}$. Then  $G_{2}=\operatorname{ker}\left(\Phi_{g_{1}} \oplus \Phi_{g_{2}}\right)$  is a closed subgroup of  $G_{1}$, and its identity component is a proper subgroup of  $\left(G_{1}\right)_{0}$. Continuing in this way and using the finite-dimensionality of  $G$ and the correspondence between Lie groups and Lie algebra, we see that we can find a finite-dimensional representation  $\Phi_{0}$  of  $G$  s.t.  $\operatorname{ker} \Phi_{0}$  is  $\mathbf{0}$-dimensional. Then  $\operatorname{ker} \Phi_{0}$  is finite, being a compact  $\mathbf{0}$-dimensional Lie group. Say  $\operatorname{ker} \Phi_{0}=\left\{g_{1}, \ldots, g_{n}\right\}$. Then</p>
+$$\Phi=\Phi_{0} \oplus \bigoplus_{j=1}^{n} \Phi_{g_{j}}$$<p>is a one-one finite-dimensional representation of  $G$.</p>
 
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14824,19 +14718,40 @@ $$ x=(x+\bar{x}) / 2+i(i \bar{x}-i x) / 2 \in   \Re X+i \Re X $$<p></p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>( <strong>Schur's Lemma</strong> )  A $G$-invariant homomorphism  $A: X \rightarrow Y $ between two irreducible representations is either an isomorphism or is zero. If  $X=Y$  and these are complex vector spaces then  $A$  is scalar multiplication by  $\lambda \in \mathbf{C}$.</p>
+<h3 id="2.-Maximum-Tori">2. Maximum Tori<a class="anchor-link" href="#2.-Maximum-Tori">&#182;</a></h3><p>Let  $\mathfrak{g}$  be a real Lie algebra.</p>
+<blockquote><p>$\operatorname{Int} \mathfrak{g}$ is the analytic subgroup of $\operatorname{Aut}_{\mathbb{R}} g$ with Lie algebra $\operatorname{ad} \mathfrak{g}$.</p>
 </blockquote>
-<p><strong>Proof.</strong> Since  $X$  is irreducible,  $\operatorname{Ker} A=X$  or $0$, so  $A$  is either zero or injective. But  $Y$  is irreducible so the image is either $0$ or $Y$. If $ X = Y $ and the field is  $\mathbf{C}$, then  $A$  has an eigenvalue  $\lambda$ and so  $A-\lambda I$  is an invariant endomorphism of  $Y$, which follows that $A-\lambda I=0$ since  $A-\lambda I$  is not invertible.</p>
-<blockquote><p><strong>Lemma.</strong> If $G$ is abelian, and $V$ is a complex irreducible representation, then $\operatorname{dim} V=1$.</p>
+<p>It is is a universal version of the group of inner automorphisms: suppose  $\mathfrak{g}$  is the Lie algebra of $G$. Recall that  $\operatorname{Ad}(g)$  is the differential at the identity of $x \mapsto g x g^{-1}$. Then it's clear that  $g \mapsto \operatorname{Ad}(g)$  is a smooth homomorphism, and we may regard  $\operatorname{Ad}(G)$  as a Lie subgroup of  $\operatorname{Aut}_{\mathbb{R}} \mathfrak{g}$. As such, its Lie algebra is $\operatorname{ad}g$. By definition the analytic subgroup of $\operatorname{Aut}_{\mathbb{R}}(\mathfrak{g})$  with Lie algebra $\operatorname{ad}\mathfrak{g}$  is $\operatorname{Int} \mathfrak{g}$. Thus $\operatorname{Int} \mathfrak{g}$  is the identity component of  $\operatorname{Ad}(G)$  and equals  $\operatorname{Ad}(G)$  if  $G $ is connected. In this sense $\operatorname{Int} \mathfrak{g}$  can be defined without reference to a particular group  $G$.</p>
+<p>We say that  $\mathfrak{g}$  is a compact Lie algebra if $\operatorname{Int} \mathfrak{g}$  is compact. More generally let  k  be a Lie subalgebra of  \mathfrak{g} , and let  \operatorname{Int}<em>{\mathfrak{g}}(\mathfrak{k})  be the analytic subgroup of  G L(\mathfrak{g})  with Lie algebra  \operatorname{ad}</em>{\mathfrak{g}}(\mathfrak{k}) . We say that  \mathfrak{k}  is compactly embedded in  \mathfrak{g}  if  \operatorname{Int}_{\mathfrak{g}}(\mathfrak{k})  is compact.</p>
+<blockquote><p>A <strong>torus</strong> in  $G$  is a Lie subgroup isomorphic to  $T^{n}=S^{1} \times \cdots \times S^{1}$.</p>
 </blockquote>
-<p><strong>Proof.</strong> $G$ Abelian $\implies$ $G=\lambda I$, which implies the conclusion.</p>
-<blockquote><p><strong>Cor.</strong> If  $W$  is a real representation of an abelian compact connected group $G$ which is completely reducible, then $W$ is a direct sum of a trivial representation of dimension  $k$  and a sum of $2$-dimensional real vector spaces where the action is
-$$ \left[\begin{array}{cc}
-\cos \theta &amp; \sin \theta \\
--\sin \theta &amp; \cos \theta
-\end{array}\right].$$</p>
-</blockquote>
-<p><strong>Proof.</strong> Since  $G$  is abelian, the complexification  $W \otimes_{\mathbb{R}} \mathbb{C}=W_{1} \oplus \cdots \oplus W_{n}$ is the direct sum of 1-dimensional representations $g \in G$  acts as a scalar  $\lambda(g) \in \mathbb{C}^{*}$  on each one. Since $g$ commutes with complex conjugation $T$, we may assume $T$  maps  $W_{i}$  into some  $W_{j}$  and then the action  $\lambda(g)$  on  $W_{i}$  is paired with  $\overline{\lambda(g)}$  on  $W_{j}$. $G$ connected implies that $G$  must act by a complex unit scalar or the identity.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 
 </div>
 </div>
@@ -14850,10 +14765,8 @@ $$ \left[\begin{array}{cc}
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
 <h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
-<li><p>Knapp, Anthony W. Lie Groups beyond an Introduction. Birkhäuser, 2005.</p>
-</li>
-<li><p>Lee, John M. Introduction to Smooth Manifolds. Springer, 2013.</p>
-</li>
+<li>Knapp, Anthony W. Lie Groups beyond an Introduction. Birkhäuser, 2005. </li>
+<li>Lee, John M. Introduction to Smooth Manifolds. Springer, 2013. </li>
 </ol>
 
 </div>

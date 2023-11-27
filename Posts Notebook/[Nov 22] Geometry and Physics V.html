@@ -14594,29 +14594,10 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="1.-Characters">1. Characters<a class="anchor-link" href="#1.-Characters">&#182;</a></h3><p>Now let us suppose that the topological group $G$ is compact. Then</p>
-<blockquote><p>$G$ has a left Haar measure, i.e., a nonzero regular Borel measure that is invariant under left translation.</p>
-</blockquote>
-
+<h3 id="1.-Lie-Group-Action">1. Lie Group Action<a class="anchor-link" href="#1.-Lie-Group-Action">&#182;</a></h3>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14624,28 +14605,23 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-Maximum-Tori">2. Maximum Tori<a class="anchor-link" href="#2.-Maximum-Tori">&#182;</a></h3><blockquote><p>A <strong>torus</strong> in  $G$  is a Lie subgroup isomorphic to  $T^{n}=S^{1} \times \cdots \times S^{1}$.</p>
+<p>Consider $\theta: G \times M \rightarrow M$ or as $(g, p) \mapsto g \cdot p$. Recall that the orbit is
+$G \cdot p=\{g \cdot p: g \in G\}$ and the set of which is denoted by $M / G$ with the quotient topology.</p>
+<blockquote><p><strong>Def.</strong> An action is <strong>free</strong> if any $G_{p}=\{g \in G: g \cdot p=p\}$ is trivial; it is <strong>proper</strong> if $G \times M \rightarrow M \times M$  given by  $(g, p) \mapsto(g \cdot p, p)$  is proper.</p>
 </blockquote>
+<p>We can readily check that</p>
+<blockquote><p><strong>Prop I.</strong> For continuous actions, $\pi: M \rightarrow M / G$ is an open map.</p>
+<p><strong>Prop II.</strong> For continuous and proper actions, $M / G$ is Hausdorff.</p>
+</blockquote>
+<p><strong>Proof.</strong> For the first: assume $U$ be open. $\pi^{-1}(\pi(U))=\bigcup_{g}gU$ is open $\implies$ $\pi(U)$ open. For the second: define the orbit relation  $\mathcal{O}\subseteq M \times M$  by $\{(g \cdot p, p) \in M \times M: p \in M, g \in G\}$. Since proper continuous maps are closed, $\mathcal{O}$ is closed. Since $M \rightarrow M / G$ is open, $M/G$ is Hausdorff.</p>
+<p>The last part uses the following fact:</p>
+<blockquote><p><strong>Thm.</strong> If $X\to X/\sim$ is quotient open, $X / \sim$ is Hausdorff iff $\sim$ is closed in $X \times X$.</p>
+</blockquote>
+<p><strong>Proof.</strong> Set $g(x, y)=(\pi(x), \pi(y))$ and show that $g\left(X^{2}-\sim\right)=(X / \sim)^{2}-\Delta_{X / \sim}$.</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14653,6 +14629,76 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We provide some standard results and corresponding examples. ( there are equivalent conditions for proper actions used in the proof and we omit it here )</p>
+<blockquote><p>( <strong>Quotient Manifold Theorem</strong> ) If $G$ acts smoothly, freely, and properly on $M$, then $M / G$ is a topological manifold with a unique smooth structure s.t. $\pi: M \rightarrow M / G$ is a smooth submersion. ( uniqueness is clear by observing that $M \to M / G \to N$ is smooth iff $M/G \to N$ is smooth )</p>
+</blockquote>
+<p>Some examples follow.</p>
+<blockquote><p><strong>Example I.</strong> $\operatorname{GL}(n, \mathbb{R}) \times  \mathbb{R}^{n} \to \mathbb{R}^{n}$ by matrix multiplication.</p>
+<p><strong>Example II.</strong> Restriction of $\operatorname{GL}(n, \mathbb{R}) \times  \mathbb{R}^{n} \to \mathbb{R}^{n}$  to  $\mathrm{O}(n) \times \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$. In this case, the orbits are the origin and the spheres centered at the origin. To see why, if  $v$  and  $v^{\prime}$  are such vectors, complete  $v /|v|$  and  $v^{\prime} /\left|v^{\prime}\right|$  to orthonormal bases and let  $A$  and  $A^{\prime}$  be the orthogonal matrices whose columns are these orthonormal bases; then $A^{\prime} A^{-1}$  takes  $v$  to  $v^{\prime}$.</p>
+<p><strong>Example III.</strong>  The Hopf action of  $\mathbb{S}^{1}$  on  $\mathbb{S}^{2 n+1}$ by multiplication is free and proper, its orbits are disjoint unit circles in  $\mathbb{C}^{n+1}$  whose union is  $\mathbb{S}^{2 n+1}$. Then $\mathbb{S}^{2 n+1} \to \mathbb{S}^{2 n+1} / \mathbb{S}^{1}$  can be identified with $\mathbb{S}^{2 n+1} \to  \mathbb{C} \mathbb{P}^{n}$. ( imagine through projection )</p>
+</blockquote>
+<p>We then study action of discrete Lie groups.</p>
+<blockquote><p><strong>Prop.</strong> Let  $\pi: E \rightarrow M$  be a smooth covering map. With the discrete topology, $\operatorname{Aut}_{\pi}(E)$  acts smoothly, freely, and properly on  $E$.</p>
+<p>( <strong>Action of Discrete Lie Groups</strong> ) Suppose  $E$  is connected and  $\Gamma$  is a discrete Lie group acting smoothly, freely, and properly on  $E$. Then $E / \Gamma$  is a manifold with a unique smooth structure s.t.  $\pi: E \rightarrow E / \Gamma$  is a smooth normal covering.</p>
+</blockquote>
+<p><strong>Proof.</strong> For the first: freeness and countable number of $\operatorname{Aut}_{\pi}(E)$ action comes from the unique lifting property of covering maps. For the second: it suffices to show that $\pi$ is a normal covering map, which follows the uniqueness of the smooth structure since a smooth normal covering is simply a submersion. Normalness is non-trivial if not observing that</p>
+<blockquote><p>$\operatorname{Aut}_{\pi}(E)$ acts transitively on each fiber of $\pi$ iff $\pi$ is a normal covering.</p>
+</blockquote>
+<p>Some examples follow.</p>
+<blockquote><p><strong>Example III.</strong>  $\{ \pm 1\}$  acts on $\mathbb{S}^{n}$ by multiplication. Then $\mathbb{S}^{n} \rightarrow \mathbb{R} \mathbb{P}^{n}$ can be identified with $\mathbb{S}^{n} \rightarrow \mathbb{S}^{n} /\{ \pm 1\}$, which follows that $\mathbb{S}^{n} /\{ \pm 1\} \cong \mathbb{R} \mathbb{P}^{n}$.</p>
+</blockquote>
+<p>We then study homogeneous space.</p>
+<blockquote><p><strong>Def.</strong> $M$ is a homogeneous  $G$-space if it admits a transitive smooth action by $G$.</p>
+<p>( <strong>Homogeneous Space Characterization Theorem</strong> ) let  $M$  be a homogeneous  $G$-space, and $p \in M$. Then  $G_{p}$  is a closed subgroup of  $G$, and $G / G_{p} \cong M$ is an equivariant diffeomorphism.</p>
+</blockquote>
+<p><strong>Proof.</strong> Consider $G_p$ act on $G$ to give $G / G_{p}$ a homogeneous $G$-space structure with <strong>Quotient Manifold Theorem</strong>. $G / G_{p} \to M $ is smooth because it is obtained from the orbit map  $\theta^{(p)}: G \rightarrow M$  by passing to the quotient. Then it's routine to show that $ G / G_{p} \to M $ is an equivariant smooth bijection, which follows that it has constant rank.</p>
+<p><strong>Homogeneous Space Characterization Theorem</strong> shows that the study of homogeneous spaces can be reduced to algebraic problem of understanding quotients of Lie groups by closed subgroups.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p><strong>Example I.</strong> Consider $\mathrm{O}(n)$ on $\mathbb{S}^{n-1}$, then $G_{(0,0,...,1)}= \mathrm{O}(n-1)$, which follows that $\mathbb{S}^{n-1} \cong \mathrm{O}(n) / \mathrm{O}(n-1)$. Similarly, we have $\mathbb{S}^{n-1} \cong \mathrm{SO}(n) / \mathrm{SO}(n-1)$ for $n \geq 2$.</p>
+<p><strong>Example II.</strong>  We have $\mathbb{S}^{2 n-1} \cong \mathrm{U}(n) / \mathrm{U}(n-1)$, $\forall n \geq 1$, and $\mathbb{S}^{2 n-1} \cong \mathrm{SU}(n) / \mathrm{SU}(n-1)$, $\forall n \geq 1$ ( the natural action of  $\mathrm{U}(n)$  on  $\mathbb{S}^{2 n-1}$  is transitive for $n \geq 1$, and that of  $\mathrm{SU}(n)$  is transitive for $n \geq 2$.</p>
+<p><strong>Example III.</strong> $\mathrm{E}(n)$ is the Euclidean group with $G_0 = \mathrm{O}(n) \subseteq \mathrm{E}(n)$, therefore $\mathbb{R}^{n} \cong \mathrm{E}(n) / \mathrm{O}(n)$.</p>
+<p><strong>Example IV.</strong> Consider the transitive action of  $\operatorname{SL}(2, \mathbb{R})$  on the upper half-plane by Möbius transformations. $G_i = \mathrm{SO}(2)$, which follows that $\mathbb{U} \approx \mathrm{SL}(2, \mathbb{R}) / \mathrm{SO}(2)$.</p>
+</blockquote>
+<p>Note that the Möbius transformation is transitive bacause $\begin{pmatrix} \sqrt{y} &amp; x / \sqrt{y} \\ 0 &amp; 1 / \sqrt{y} \end{pmatrix} i=z$.</p>
+<h3 id="2.-Description-of-Lie-Groups-given-Lie-Algebra">2. Description of Lie Groups given Lie Algebra<a class="anchor-link" href="#2.-Description-of-Lie-Groups-given-Lie-Algebra">&#182;</a></h3><p>For continuous case, we have</p>
+<blockquote><p>The connected Lie groups whose Lie algebras are isomorphic to  $\mathrm{g}$  are precisely those of the form  $G / \Gamma$, where  $G$  is the simply connected Lie group with Lie algebra  $\mathrm{g}$, and  $\Gamma$  is a discrete normal subgroup of  $G$.</p>
+</blockquote>
+<p><strong>Proof.</strong> Given  $\mathfrak{g}$, $\exists$ a simply connected Lie group  $G$  with Lie algebra $\mathrm{g}$. Suppose  $H$  is any other connected Lie group with Lie algebra $\mathfrak{g}$, then let  $\varphi: \operatorname{Lie}(G) \rightarrow \operatorname{Lie}(H)$  be an isomorphism, which follows that $\exists$ a Lie group homomorphism  $\Phi: G \rightarrow H$  s.t. $\Phi_{*}=\varphi$. $\varphi$  is an isomorphism implies that  $\Phi$  is a smooth covering map and its kernel is a discrete normal subgroup of  $G$. It follows from below that  $H$  is isomorphic to  $G / \operatorname{Ker} \Phi$.</p>
+<blockquote><p>( <strong>First Isomorphism Theorem for Lie Groups</strong> ) If $G \rightarrow H$  is a Lie group homomorphism, then $F$  descends to a Lie group isomorphism  $\tilde{F}: G / \operatorname{Ker} F \rightarrow \operatorname{Im} F$.</p>
+</blockquote>
+<p>For discontinuous case, we have</p>
+<blockquote><p>If  $G$  and  $H$  are Lie groups s.t. $\exists$ a surjective Lie group homomorphism $G  \to  H$  with kernel  $G_{0}$, we say that  $G$  is an extension of  $\boldsymbol{G}_{0}$  by  $\boldsymbol{H}$. Then the disconnected Lie groups with Lie algebra $\mathfrak{g}$  are precisely the extensions of the connected ones by discrete Lie groups.</p>
+</blockquote>
+<p>It's proved simply by observing that</p>
+<blockquote><p>The identity component $G_{0}$  is a normal subgroup of $ G $, and is the only connected open subgroup.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="3.-Connectivity-of-Lie-Groups">3. Connectivity of Lie Groups<a class="anchor-link" href="#3.-Connectivity-of-Lie-Groups">&#182;</a></h3><blockquote><p><strong>Prop.</strong> Assume $G$  acts continuously, freely, and properly on $M$. If  $G$  and  $M / G$  are connected, then  $M$  is connected.</p>
+<p><strong>Cor.</strong>  $n \geq 1$, then $\mathrm{SO}(n)$, $\mathrm{U}(n) $, and  $\mathrm{SU}(n)$  are connected. $  \mathrm{O}(n)$  has exactly two components, one of which is $\mathrm{SO}(n)$.</p>
+</blockquote>
+<p>Proof. Assume $G$  and  $M / G$  are connected but  $M$  is not. Then there are disjoint nonempty open subsets  $U, V \subseteq M$  with union $M$. Each  $G$-orbit in  $M$  is the image of  $G$  under an orbit map  $\theta^{(p)}: G \rightarrow M$; since  $G$  is connected, each orbit must lie entirely in one set  $U$  or  $V$.</p>
+<p>Since $$\left(\begin{array}{cc} a &amp; b \\ -\bar{b} &amp; \bar{a} \end{array}\right) \leftrightarrow(\mathfrak{R} a, \Im a, \Re b, \Im b),$$ 
+we have $\operatorname{SU}(2) \cong \mathbb{S}^{4}$, and therefore $\operatorname{SU}(2) \to SO(3)$ given by $\operatorname{Ad}$ is a universal covering map.</p>
 
 </div>
 </div>
@@ -14666,16 +14712,29 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
 <h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
-<li>Nakahara, Mikio, and Matthias Delbrück. Differentialgeometrie, Topologie Und Physik. Springer Berlin, 2022.</li>
-</ol>
-<p>( errata: <a href="https://www2.physics.ox.ac.uk/sites/default/files/profiles/johnsong/nakahara-errata-new-41775.pdf">https://www2.physics.ox.ac.uk/sites/default/files/profiles/johnsong/nakahara-errata-new-41775.pdf</a> )</p>
-<ol>
-<li>Liu, Qing. Algebraic Geometry and Arithmetic Curves. Oxford University Press, 2010. </li>
+<li>Knapp, Anthony W. Lie Groups beyond an Introduction. Birkhäuser, 2005. </li>
+<li>Lee, John M. Introduction to Smooth Manifolds. Springer, 2013. </li>
 </ol>
 
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
