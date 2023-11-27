@@ -14623,6 +14623,10 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 <p>Content</p>
 <ol>
 <li><a href="#Tensor-Fields">Tensor Fields</a></li>
+<li><a href="#Differential-Forms">Differential Forms</a></li>
+<li><a href="#Orientation">Orientation</a></li>
+<li><a href="#Lie-Groups">Lie Groups</a></li>
+<li><a href="#Affine-Connections">Affine Connections</a></li>
 </ol>
 <hr />
 
@@ -14647,7 +14651,7 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Let's fix the $M$ is provided with a family of pairs $\left\{\left(U_{i}, \varphi_{i}\right)\right\}$ where $\varphi_{i}$ is represented by $m$ functions $\left\{x^{1}(p), \ldots, x^{m}(p)\right\}$. The coordinate transformation functions $x^{\mu}=x^{\mu}(y)$  are the explicit form of the map</p>
+<p>Assume $M$ is provided with a family of pairs $\left\{\left(U_{i}, \varphi_{i}\right)\right\}$ where $\varphi_{i}$ is represented by $m$ functions $\left\{x^{1}(p), \ldots, x^{m}(p)\right\}$. The coordinate transformation functions $x^{\mu}=x^{\mu}(y)$  are the explicit form of the map</p>
 $$\psi_{j i}=\varphi_{j} \circ \varphi_{i}^{-1}.$$<blockquote>
 <p>An example:  Let $M_{k, n}(\mathbb{R})$ be the set of $k \times n$ matrices of $\operatorname{rank} k$ $(k \leq n)$. We identify  $G_{k, n}(\mathbb{R})$  with the coset space  $M_{k, n}(\mathbb{R}) / \mathrm{GL}(k, \mathbb{R})$.</p>
 <p>Here the differentiability has been defined via the following. Assume the minor  $A_{1}$  made of the first $k$  columns has non-vanishing determinant,
@@ -14704,8 +14708,8 @@ over $M$. The set of the vector fields on $M$ is denoted as $\mathcal{X}(M)$.</p
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>A smooth map $f: M \rightarrow N$  naturally induces $f_{*}$  and $f^{*}$,</p>
 $$f_{*}: T_{p} M \rightarrow T_{f(p)} N \text{ and } f^{*}: T_{f(p)}^{*} N \rightarrow T_{p}^{*} M. $$<p>The differential map  $f_{*}$  is naturally extended to tensors of type  $(q, 0) ,  f_{*}: \mathcal{T}_{0, p}^{q}(M) \rightarrow \mathcal{T}_{0, f(p)}^{q}(N)$.</p>
-<p>In terms of charts  $(U, \varphi)$  on  $M$  and  $(V , \psi)$  on $N$,</p>
-$$\left(f_{*} V\right)\left[g \circ \psi^{-1}(y)\right] \equiv V\left[g \circ f \circ \varphi^{-1}(x)\right],$$<p>taking $g=y^\alpha$, we have $W^{\alpha}=V^{\mu} \frac{\partial}{\partial x^{\mu}} y^{\alpha}(x)$. Similarly, we may define $\left\langle f^{*} \omega, V\right\rangle=\left\langle\omega, f_{*} V\right\rangle$.</p>
+<p>In terms of charts  $(U, \varphi)$  on  $M$  and  $(V , \psi)$  on $N$ with $V=V^{\mu} \partial / \partial x^{\mu}$  and $f_{*} V=W^{\alpha} \partial / \partial y^{\alpha}$:</p>
+$$\left(f_{*} V\right)\left[g \circ \psi^{-1}(y)\right] \equiv V\left[g \circ f \circ \varphi^{-1}(x)\right] \implies W^{\alpha} \frac{\partial}{\partial y^{\alpha}}\left[g \circ \psi^{-1}(y)\right]=V^{\mu} \frac{\partial}{\partial x^{\mu}}\left[g \circ f \circ \varphi^{-1}(x)\right].$$<p>Taking $g=y^\alpha$, we have $W^{\alpha}=V^{\mu} \frac{\partial}{\partial x^{\mu}} y^{\alpha}(x)$. Similarly, we may define $\left\langle f^{*} \omega, V\right\rangle=\left\langle\omega, f_{*} V\right\rangle$.</p>
 
 </div>
 </div>
@@ -14729,9 +14733,10 @@ $$\begin{aligned}
 \end{aligned}$$</p>
 <p>The last expression can also be written as $\sigma^{\mu}(t, x)=\exp (t X) x^{\mu}$. Therefore, we may rewrite the ODE as</p>
 $$\begin{aligned}
-&amp; \frac{\mathrm{d} \sigma(t, x)}{\mathrm{d} t}=X \exp (t X) x=\frac{\mathrm{d}}{\mathrm{d} t}[\exp (t X) x] \\
-&amp; \sigma(0, x)=x=\exp (0 X) x 
-\end{aligned}$$
+&amp; \frac{\mathrm{d} \sigma(t, x)}{\mathrm{d} t}=X_{\exp (t X) x}=\frac{\mathrm{d}}{\mathrm{d} t}[\exp (t X) x] \\
+&amp; \sigma(0, x)=x=\exp (0 X) x,
+\end{aligned}$$<p>which follows that $ \sigma(t, \sigma(s, x)) = \sigma(t, \exp(sX)x) = \exp(tX) \exp(sX)x = \exp\{(t + s)X\}x = \sigma(t + s, x) $.</p>
+
 </div>
 </div>
 </div>
@@ -14742,7 +14747,7 @@ $$\begin{aligned}
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>For fixed  $t \in \mathbb{R}$, a flow  $\sigma(t, x)$  is a diffeomorphism from  $M$  to  $M$, denoted by  $\sigma_{t}: M \rightarrow M$. It is important to note that  $\sigma_{t}$  is made into a commutative group satisfying:</p>
+<p>To conclude, for fixed  $t \in \mathbb{R}$, a flow  $\sigma(t, x)$  is a diffeomorphism from  $M$  to  $M$, denoted by  $\sigma_{t}: M \rightarrow M$. It is important to note that  $\sigma_{t}$  is made into a commutative group satisfying:</p>
 <blockquote>
 <ol>
 <li>$\sigma_{t}\left(\sigma_{s}(x)\right)=\sigma_{t+s}(x)$, that is,  $\sigma_{t} \circ \sigma_{s}=\sigma_{t+s};$</li>
@@ -14768,21 +14773,83 @@ $$\begin{aligned}
 \quad= &amp; \left.Y^{\mu}(x) e_{\mu}\right|_{x}+\left.\varepsilon\left[X^{\mu}(x) \partial_{\mu} Y^{\nu}(x)-Y^{\mu}(x) \partial_{\mu} X^{\nu}(x)\right] e_{\nu}\right|_{x}+O\left(\varepsilon^{2}\right).
 \end{aligned}$$<p>Therefore, we find out that</p>
 <blockquote>
-<p>$\mathcal{L}_{X} Y=\left(X^{\mu} \partial_{\mu} Y^{\nu}-Y^{\mu} \partial_{\mu} X^{\nu}\right) e_{\nu} = X^{\nu}\frac{\partial}{\partial x^{\nu}} (Y^{\mu}\frac{f}{x^{\mu}}) - Y^{\lambda}\frac{\partial}{\partial x^{\lambda}} (X^{\mu}\frac{f}{x^{\mu}}) = X[Y[f]]-Y[X[f]] = [X, Y] f$.</p>
+<p>$\mathcal{L}_{X} Y=\left(X^{\mu} \partial_{\mu} Y^{\nu}-Y^{\mu} \partial_{\mu} X^{\nu}\right) e_{\nu} = X^{\nu}\frac{\partial}{\partial x^{\nu}} (Y^{\mu}\frac{\partial f}{\partial x^{\mu}}) - Y^{\lambda}\frac{\partial}{\partial x^{\lambda}} (X^{\mu}\frac{\partial f}{\partial x^{\mu}}) = X[Y[f]]-Y[X[f]] = [X, Y] f$.</p>
 </blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Then we introduce differential forms.</p>
+<p>Geometrically, the Lie bracket shows the non-commutativity of two flows. Computation shows that</p>
+$$\begin{aligned}
+\tau^{\mu}(\delta, \sigma(\varepsilon, x)) &amp; \simeq \tau^{\mu}\left(\delta, x^{\nu}+\varepsilon X^{\nu}(x)\right) \\
+&amp; \simeq x^{\mu}+\varepsilon X^{\mu}(x)+\delta Y^{\mu}\left(x^{\nu}+\varepsilon X^{\nu}(x)\right) \\
+&amp; \simeq x^{\mu}+\varepsilon X^{\mu}(x)+\delta Y^{\mu}(x)+\varepsilon \delta X^{\nu}(x) \partial_{\nu} Y^{\mu}(x)
+\end{aligned}$$<p>and similarly</p>
+$$\begin{aligned}
+\sigma^{\mu}(\varepsilon, \tau(\delta, x)) &amp; \simeq \sigma^{\mu}\left(\varepsilon, x^{\nu}+\delta Y^{\nu}(x)\right) \\
+&amp; \simeq x^{\mu}+\delta Y^{\mu}(x)+\varepsilon X^{\mu}\left(x^{\nu}+\delta Y^{\nu}(x)\right) \\
+&amp; \simeq x^{\mu}+\delta Y^{\mu}(x)+\varepsilon X^{\mu}(x)+\varepsilon \delta Y^{\nu}(x) \partial_{\nu} X^{\mu}(x)
+\end{aligned}$$<p>The difference between the coordinates of these two points is proportional to the Lie bracket,</p>
+$$\tau^{\mu}(\delta, \sigma(\varepsilon, x))-\sigma^{\mu}(\varepsilon, \tau(\delta, x))=\varepsilon \delta[X, Y]^{\mu}.$$<p>Then we may see that</p>
 <blockquote>
+<p>$\mathcal{L}_{X} Y=[X, Y]=0$ iff $\sigma(s, \tau(t, x))=\tau(t, \sigma(s, x))$.</p>
+</blockquote>
+<p>We may also define</p>
+<blockquote>
+<p><strong>Lie derivatives for one-forms and functions</strong>:</p>
+$$\mathcal{L}_{X} \omega \equiv \lim _{\varepsilon \rightarrow 0} \frac{1}{\varepsilon}\left[\left.\left(\sigma_{\varepsilon}\right)^{*} \omega\right|_{\sigma_{\varepsilon}(x)}-\left.\omega\right|_{x}\right] \quad \text{ and } \quad \mathcal{L}_{X} f \equiv \lim _{\varepsilon \rightarrow 0} \frac{1}{\varepsilon}\left[f\left(\sigma_{\varepsilon}(x)\right)-f(x)\right]$$</blockquote>
+<p>The Lie derivative of a general tensor is obtained from the following proposition.</p>
+<blockquote>
+<p><strong>Thm.</strong> $$\mathcal{L}_{X}\left(t_{1} \otimes t_{2}\right)=\left(\mathcal{L}_{X} t_{1}\right) \otimes t_{2}+t_{1} \otimes\left(\mathcal{L}_{X} t_{2}\right).$$</p>
+</blockquote>
+<p><strong>Proof.</strong> The following case can easily be generalized: $$\begin{aligned}
+\mathcal{L}_{X}(Y \otimes \omega) &amp; =\lim _{\varepsilon \rightarrow 0} \frac{1}{\varepsilon}\left[\left.\left\{\left(\sigma_{-\varepsilon}\right)_{*} Y \otimes\left(\sigma_{\varepsilon}\right)^{*} \omega\right\}\right|_{x}-\left.(Y \otimes \omega)\right|_{x}\right] \\
+&amp; =\lim _{\varepsilon \rightarrow 0} \frac{1}{\varepsilon}\left[\left(\sigma_{-\varepsilon}\right)_{*} Y \otimes\left\{\left(\sigma_{\varepsilon}\right)^{*} \omega-\omega\right\}+\left\{\left(\sigma_{-\varepsilon}\right)_{*} Y-Y\right\} \otimes \omega\right] \\
+&amp; =Y \otimes\left(\mathcal{L}_{X} \omega\right)+\left(\mathcal{L}_{X} Y\right) \otimes \omega .
+\end{aligned}$$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="2.-Differential-Forms-">2. Differential Forms <a id="Differential-Forms" /><a class="anchor-link" href="#2.-Differential-Forms-">&#182;</a></h3><blockquote>
+<p>For $\omega \in \mathcal{T}_{r, p}^{0}(M)$, the symmetrizer  $\mathcal{S}$  and antisymmetrizer $\mathcal{A}$ is defined by</p>
+$$\mathcal{S} \omega=\frac{1}{r !} \sum_{P \in S_{r}} P \omega \quad \text{ and } \quad \mathcal{A} \omega=\frac{1}{r !} \sum_{P \in S_{r}} \operatorname{sgn}(P) P \omega.$$</blockquote>
+<p>Define the exterior products in terms of $r$ one-forms or a $q$-form and an $r$-form:</p>
+<blockquote>
+$$\mathrm{d} x^{\mu_{1}} \wedge \mathrm{d} x^{\mu_{2}} \wedge \ldots \wedge \mathrm{d} x^{\mu_{r}} \equiv \sum_{P \in S_{r}} \operatorname{sgn}(P) \mathrm{d} x^{\mu_{P(1)}} \otimes \mathrm{d} x^{\mu_{P(2)}} \otimes \ldots \otimes \mathrm{d} x^{\mu_{P(r)}};$$$$ (\omega \wedge \xi)\left(V_{1}, \ldots, V_{q+r}\right) \equiv \frac{1}{q ! r !} \sum_{P \in S_{q+r}} \operatorname{sgn}(P) \omega\left(V_{P(1)}, \ldots, V_{P(q)}\right) \xi\left(V_{P(q+1)}, \ldots, V_{P(q+r)}\right).  $$</blockquote>
+<p>One should check that these definitions are compatible. With this product, we have an algebra $\Omega_{p}^{*}(M) \equiv \Omega_{p}^{0}(M) \oplus \Omega_{p}^{1}(M) \oplus \ldots \oplus \Omega_{p}^{m}(M)$. Note that $\Omega^{0}(M)=\mathcal{F}(M)$ and $\Omega^{1}(M)=T^{*} M$.</p>
+<p>For $\omega=\frac{1}{r !} \omega_{\mu_{1} \ldots \mu_{r}} \mathrm{~d} x^{\mu_{1}} \wedge \ldots \wedge \mathrm{d} x^{\mu_{r}}$, we define two impoertant operations: the <strong>exterior derivative</strong> and <strong>interior product</strong>.</p>
+<blockquote>
+$$\mathrm{d}_{r} \omega \equiv \frac{1}{r !}\left(\frac{\partial}{\partial x^{\nu}} \omega_{\mu_{1} \ldots \mu_{r}}\right) \mathrm{d} x^{\nu} \wedge \mathrm{d} x^{\mu_{1}} \wedge \ldots \wedge \mathrm{d} x^{\mu_{r}};$$$$\mathrm{i}_{X} \omega\left(X_{1}, \ldots, X_{r-1}\right) \equiv \omega\left(X, X_{1}, \ldots, X_{r-1}\right).$$</blockquote>
+<p>A useful expression for the exterior derivative is obtained as follows. It is easy to see that we have</p>
+$$
+X[\omega(Y)] - Y[\omega(X)] - \omega([X, Y]) = \frac{\partial \omega^\mu}{\partial x^\nu} (X^\nu Y^\mu - X^\mu Y^\nu) = d\omega(X, Y),$$<p>and in the meanwhile for the interior product we have</p>
+$$ i_X\omega = \frac{1}{(r-1)!} X^\nu \omega_{\nu\mu_2...\mu_r} dx^{\mu_2} \wedge ... \wedge dx^{\mu_r} = \frac{1}{r!} \sum_{s=1}^{r} X^{\mu_s} \omega_{\mu_1...\mu_s...\mu_r} (-1)^{s-1} dx^{\mu_1} \wedge ... \wedge \stackrel{\wedge}{dx^{\mu_s}} \wedge ... \wedge dx^{\mu_r}
+$$<p>where $X = X^\mu \frac{\partial}{\partial x^\mu}$ and $\omega = \frac{1}{r!} \omega_{\mu_1...\mu_r} dx^{\mu_1} \wedge ... \wedge dx^{\mu_r}$.</p>
+<p>The Lie derivative of a form is most neatly written with the interior product:</p>
+<blockquote>
+$$ \mathcal{L}_X \omega = (d\iota_X + i_Xd)\omega. $$</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="3.-Orientation-">3. Orientation <a id="Orientation" /><a class="anchor-link" href="#3.-Orientation-">&#182;</a></h3><blockquote>
+<p>$M$  is <strong>orientable</strong> if for any overlapping charts  $U_{i}$  and  $U_{j}$, there exist $\left\{x^{\mu}\right\}$  for  $U_{i}$  and  $\left\{y^{\alpha}\right\}$  for  $U_{j}$  such that</p>
+$$J=\operatorname{det}\left(\partial x^{\mu} / \partial y^{\alpha}\right)&gt;0.$$</blockquote>
+<p>If an $m$-dimensional manifold M is orientable, there exists an $m$-form $\omega = h(p) dx^1 \wedge \dots \wedge dx^m $ which vanishes nowhere. This $m$-form $\omega$ is called a volume element.</p>
+<blockquote>
+<p>The integration of a $m$-form in local coordinates is define by</p>
+$$ \int_{U_i} f \omega = \int_{\phi(U_i)} f(\phi_i^{-1}(x))h(\phi_i^{-1}(x)) dx^1 \dots dx^m. $$<p>Then we glue the integration process together by <strong>partition of unity</strong> to obtain the inetgration of $\omega$.</p>
 </blockquote>
 
 </div>
@@ -14795,48 +14862,34 @@ $$\begin{aligned}
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-Lie-Groups">2. Lie Groups<a class="anchor-link" href="#2.-Lie-Groups">&#182;</a></h3><blockquote>
+<h3 id="4.-Lie-Groups-">4. Lie Groups <a id="Lie-Groups" /><a class="anchor-link" href="#4.-Lie-Groups-">&#182;</a></h3><p>Define $L_{a} g=a g$.</p>
+<blockquote>
 <p>A Lie group $G$ is a differentiable manifold endowed with a differentiable group structure.</p>
 <p><strong>Thm.</strong> Every closed subgroup $H$ of a Lie group $G$ is a Lie subgroup.</p>
 <p>Let  $X$  be a vector field on a Lie group  $G$. $X$  is said to be a <strong>left invariant</strong> vector field if  $\left.L_{a *} X\right|_{g}=\left.X\right|_{a g}$.</p>
 </blockquote>
 <p>It is instructive to work out the left-invariant vector field of $\operatorname{GL}(n, \mathbb{R})$.</p>
+<blockquote>
+<p>The left-translation is</p>
+$$ L_{a} g=a g=\sum x^{i k}(a) x^{k j}(g).$$<p>The left-invariant vector field generated by $V$ is</p>
+$$\begin{aligned} \left.X_{V}\right|_{g} &amp; =L_{g *} V=\left.\left.\sum_{i j k l m} V^{i j} \frac{\partial}{\partial x^{i j}}\right|_{e} x^{k l}(g) x^{l m}(e) \frac{\partial}{\partial x^{k m}}\right|_{g} \\ &amp; =\left.\sum V^{i j} x^{k l}(g) \delta_{i}^{l} \delta_{j}^{m} \frac{\partial}{\partial x^{k m}}\right|_{g} \\ &amp; =\left.\sum x^{k i}(g) V^{i j} \frac{\partial}{\partial x^{k j}}\right|_{g}=\left.\sum(g V)^{k j} \frac{\partial}{\partial x^{k j}}\right|_{g} \end{aligned}$$<p>The Lie bracket of  $X_{V}$  and  $X_{W}$  generated by  $V=V^{i j} \partial /\left.\partial x^{i j}\right|_{e}$  and  $W=   W^{i j} \partial /\left.\partial x^{i j}\right|_{e}$  is</p>
+$$\begin{aligned} {\left.\left[X_{V}, X_{W}\right]\right|_{g} } &amp; =\left.\left.\sum x^{k i}(g) V^{i j} \frac{\partial}{\partial x^{k j}}\right|_{g} x^{c a}(g) W^{a b} \frac{\partial}{\partial x^{c b}}\right|_{g}-(V \leftrightarrow W) \\ &amp; =\left.\sum x^{i j}(g)\left[V^{j k} W^{k l}-W^{j k} V^{k l}\right] \frac{\partial}{\partial x^{i l}}\right|_{g} \\ &amp; =\left.\sum(g[V, W])^{i j} \frac{\partial}{\partial x^{i j}}\right|_{g}. \end{aligned}$$</blockquote>
+<p>Clearly, the above equations <strong>remain true for any matrix group</strong> and we establish that for any matrix group</p>
+<blockquote>
+<p><strong>Prop.</strong> $L_{g *} V =g V$ and ${\left.\left[X_{V}, X_{W}\right]\right|_{g} } = L_{g *}[V, W]=g[V, W]$.</p>
+<p><strong>Def.</strong> The set of left-invariant vector fields  $\mathfrak{g}$  with the Lie bracket  $[\text{ },\text{ }]: \mathfrak{g} \times \mathfrak{g} \rightarrow \mathfrak{g}$  is called the Lie algebra of $G$.</p>
+</blockquote>
+<p>Since $f_{*}[X, Y]=\left[f_{*} X, f_{*} Y\right]$, the Lie bracket is well defined in any $G$. Next we show that</p>
+<blockquote>
+<p><strong>Thm. There is a one-to-one correspondence between a one-parameter subgroup of $G$ and a left-invariant vector field.</strong> Here a one-parameter subgroup of $G$ is a curve $\phi : \mathbb{R} \rightarrow G$ s.t. $\phi(t) \phi(s) = \phi(t + s)$.</p>
+</blockquote>
+<p><strong>Proof.</strong> Given a one-parameter subgroup $\phi : \mathbb{R} \to G$, there exists a vector field $X$, such that
+$$ \frac{d\phi^\mu(t)}{dt} = X^\mu(\phi(t))$$
+which is clearly left-invariant whose essence is that a one-parameter subgroup is Abelian. Another direction is proved via $\phi : \mathbb{R} \to G \text{ by } \phi(t) = \sigma(t,e)$, where the only nontrivial thing is to prove $\phi(t) \phi(s) = \phi(t + s)$.</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14844,27 +14897,24 @@ $$\begin{aligned}
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.-Affine-connections">3. Affine connections<a class="anchor-link" href="#3.-Affine-connections">&#182;</a></h3><p>rule of parallel transport which satisfies these two conditions is called a Levi-Civita connection, see section 7.4. Our intuitive approach leads us to the formal definition of the affine connection.</p>
+<p>The corresponding is still not manifest yet. until we present the following definition.</p>
+<blockquote>
+<p>Define $ \exp V = \phi_V(1) $ where $ \phi_V $ is a one-parameter subgroup of $ G $ generated by the left-invariant vector field $ X_V|_g = L_{g*} V $. Then $ \exp(tV) = \phi_V(t) $.</p>
+</blockquote>
+<p><strong>Proof.</strong> It's routine to check that $ \phi_V(at) = \phi_{aV}(t) $, which follows that $$\exp(aV) = \phi_{aV}(1) = \phi_V(a).$$</p>
+<p>It's clear that the definition is compatible with the definition of $\operatorname{exp}$ earlier. Take $G = GL(n, \mathbb{R})$ and $A \in gl(n, \mathbb{R})$, then the subgroup $\phi_A : \mathbb{R} \rightarrow GL(n, \mathbb{R})$ has the following expression</p>
+$$\phi_A(t) = \exp(tA) = I_n + tA + \frac{t^2}{2!}A^2 + \dots + \frac{t^n}{n!}A^n + \dots.$$<p>Similarly, the curve $g \exp(tA)$ is a flow through $g \in G$. We find that
+$$
+\left. \frac{d}{dt} g \exp(tA) \right|_{t=0} = L_g^* A = X_A|_g = gA.
+$$</p>
+<p>Finally, we consider the adjoint $\operatorname{ad}_{a}: g \mapsto a g a^{-1}$. Noting that $\text{ad}_a e = e$, we have 
+$$\text{Ad}_a : T_e G \rightarrow T_e G, $$
+where $\text{Ad}_a = \text{ad}_a^*|_{T_e G}$. Identify $T_e G$ with the Lie algebra $\mathfrak{g}$, then we have obtained a map $\text{Ad} : G \times \mathfrak{g} \rightarrow \mathfrak{g}$, called the <strong>adjoint map of $G$</strong>. It's clear that $\text{Ad}_a \text{Ad}_b = \text{Ad}_{ab}$ and $\text{Ad}_{a^{-1}} = \text{Ad}_a^{-1}$. If $G$ is a matrix group, the adjoint representation becomes a simple matrix operation. Let $g \in G$ and $X_V \in \mathfrak{g}$, and let $\sigma_V(t) = \exp(tV)$ be a one-parameter subgroup generated by $V \in T_e G$. Then $\text{ad}_g$ acting on $\sigma_V(t)$ yields $g \exp(tV) g^{-1}$. As for $\text{Ad}_g$, we have $\text{Ad}_g : V \mapsto g V g^{-1}$ since
+$$ \text{Ad}_g V = \left. \frac{d}{dt} \right|_{t=0} [\text{ad}_g \exp(tV)] = \left. \frac{d}{dt} \right|_{t=0} \exp(t g V g^{-1}) = g V g^{-1}. $$</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14872,29 +14922,31 @@ $$\begin{aligned}
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol start="4">
-<li>Classification Theorem</li>
-</ol>
+<h3 id="5.-Affine-Connections-">5. Affine Connections <a id="Affine-Connections" /><a class="anchor-link" href="#5.-Affine-Connections-">&#182;</a></h3><blockquote>
+<p><strong>Definition</strong>. Let $M$ be a differentiable manifold. A Riemannian metric $g$ on $M$ is a type $(0,2)$ tensor field s.t. for any $p\in M$:</p>
+$$ \begin{aligned} &amp; \text{(i) $g_p(U, V) = g_p(V, U)$}, \quad \quad \quad \quad\\  &amp; \text{(ii) $g_p(U, U) \geq 0$, where the equality holds only when $U = 0$.} \quad \quad \quad \quad \end{aligned} $$</blockquote>
+<p>Then we define</p>
+<blockquote>
+<p><strong>Definition.</strong> An affine connection $\nabla$ is a map $\nabla : \mathcal{X}(M) \times \mathcal{X}(M) \to \mathcal{X}(M)$, or $(X, Y) \mapsto \nabla_X Y$ which satisfies the following conditions:</p>
+$$\begin{aligned} \nabla_X (Y + Z) &amp; = \nabla_X Y + \nabla_X Z \\ \nabla_{X+Y} Z &amp; = \nabla_X Z + \nabla_Y Z \\ \nabla_{fX} Y &amp; = f \nabla_X Y \\ \nabla_X (fY) &amp; = X[f]Y + f \nabla_X Y.\end{aligned}$$</blockquote>
+<p>Here's the <strong>intuition</strong>. in a Euclidean space $\mathbb{R}^m$ is defined. The derivative of a vector field $V = V^\mu e_\mu$ with respect to $x^v$ has the $\mu$th component
+$$
+\frac{\partial V^\mu}{\partial x^v} = \lim_{{\Delta x \to 0}} \frac{V^\mu(...,x^v + \Delta x^v,...) - V^\mu(...,x^v,...)}{\Delta x^v}.
+$$
+In the subtraction, the transport of a vector is called a <strong>parallel transport</strong>. However, in a manifold, there's no natural way. Let $\tilde{V}_{x+\Delta x}$ denote a vector $V_x$ parallel transported to $x + \Delta x$. We demand that the components satisfy</p>
+$$ \tilde{V}^\mu(x + \Delta x) - V^\mu(x) \propto \Delta x \quad \text{ and } \quad 
+(V^\mu + W^\mu)(x + \Delta x) = \tilde{V}^\mu(x + \Delta x) + \tilde{W}^\mu(x + \Delta x).$$<p>These conditions are satisfied if we take $ \tilde{V}^\mu(x + \Delta x) = V^\mu(x) - V^\lambda(x) \Gamma^\mu_{\lambda v}(x) \Delta x^v.$</p>
+<p>The covariant derivative of $V$ with respect to $x^v$ is defined by
+$$
+\lim_{\Delta x^v \to 0} \frac{V^\mu(x + \Delta x) - \tilde{V}^\mu(x + \Delta x)}{\Delta x^v} = \left( \frac{\partial V^\mu}{\partial x^v} + V^\lambda \Gamma^\mu_{\lambda v} \right) \frac{\partial}{\partial x^\mu}.
+$$</p>
+<p>We then can see how affine connection is linked to the intuition above. Let $V = V^\mu e_\mu$ and $W = W^v e_v$ be elements of $T_p(M)$. Then
+$$ \nabla_v W = V^\mu \nabla_\mu (W^v e_v) = V^\mu (e_\mu[W^{\lambda}]e_{\lambda} + W^v \nabla_\mu e_v) = V^\mu \left( \frac{\partial W^\lambda}{\partial x^\mu} + W^v \Gamma^\lambda_{\mu v} \right) e_\lambda. $$
+where $\Gamma^\lambda_{v\mu}$ is called the <strong>connection coefficients</strong> s.t. $\nabla_{e_\mu} e_\nu = \nabla_{e_\nu} e_\mu = e_\lambda \Gamma^\lambda_{\mu\nu}$.</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
