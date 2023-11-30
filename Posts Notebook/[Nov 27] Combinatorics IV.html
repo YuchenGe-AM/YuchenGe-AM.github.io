@@ -14654,7 +14654,24 @@ $$\left\langle\chi_{A}, \chi_{B}\right\rangle=|A \cap B|=\left\{\begin{array}{ll
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-Borsuk%E2%80%99s-Conjecture">2. Borsuk&#8217;s Conjecture<a class="anchor-link" href="#2.-Borsuk%E2%80%99s-Conjecture">&#182;</a></h3>
+<h3 id="2.-Borsuk%E2%80%99s-Conjecture">2. Borsuk&#8217;s Conjecture<a class="anchor-link" href="#2.-Borsuk%E2%80%99s-Conjecture">&#182;</a></h3><blockquote><p><strong>Lemma.</strong> Let  $p$  be prime and suppose  $\mathcal{A} \subseteq[4 p]^{(2 p)}$. Suppose there exists no  $A, B \in \mathcal{A}$  with  $|A \cap B|=p$. Then  $|\mathcal{A}| \leq 4\left(\begin{array}{c}4 p \\ p-1\end{array}\right)$.</p>
+</blockquote>
+<p><strong>Proof.</strong> For  $x \in[4 p]$, let  $\mathcal{A}_{x}:=\{A \in \mathcal{A}: x \in A\}$. We can choose  $x$  such that  $\left|\mathcal{A}_{x}\right| \geq \frac{1}{2}|\mathcal{A}|$. Then, for distinct  $A, B \in \mathcal{A}_{x}$, we have  $|A \cap B| \neq 0, p, 2 p$, which follows that $|A \cap B| \not \equiv 0 \bmod p$. Also, $\forall  A \in \mathcal{A}_{x}$, $|A| \equiv 0 \bmod p$. By applying the Modular Frankl-Wilson Theorem and knowing that $\left(\begin{array}{c} 4 p \\ i \end{array}\right) \geq 2\left(\begin{array}{c} 4 p \\ i-1 \end{array}\right)$, $\forall i \leq p-1$, we have 
+$$\left|\mathcal{A}_{x}\right| \leq \sum_{i=0}^{p-1}\left(\begin{array}{c} 4 p \\ i \end{array}\right) \leq 2\left(\begin{array}{c} 4 p \\ p-1 \end{array}\right).$$</p>
+<p>From the lemma, we have the</p>
+<blockquote><p>( <strong>Kahn-Kalai Theorem</strong> ) Let  $k(d)$  be the smallest integer s.t. every subset of  $\mathbb{R}^{d}$  of diameter $1$ can be partitioned into  $k(d)$  sets of smaller diameter. Then there exists  $c&gt;1$  s.t. $k(d) \geq c^{\sqrt{d}}$ for infinitely many  $d$.</p>
+</blockquote>
+<p><strong>Proof.</strong> Let  $d=\left(\begin{array}{c}4 p \\ 2\end{array}\right)$, where  $p$  is prime. We identify  $W = [4 p]^{(2)}$  with the edges of the complete graph $K_{4 p}$ with vertex set  $[4 p]$. We will work in  $\mathbb{R}^{W}$. Let $0-1$ vectors correspond to subgraphs of  $K_{4 p}$. For each  $A \in[4 p]^{(2 p)}$, let $E_{A}=\{\{i, j\} \in W:|A \cap\{i, j\}|=1\}$. Since  $|A|=\left|A^{c}\right|=2 p$  and  $E_{A}=E_{A^{c}}$, we have</p>
+$$|\mathcal{F}|=\frac{1}{2}\left(\begin{array}{c}
+4 p \\
+2 p
+\end{array}\right).$$<p>We identify each element  $E_{A}$  of  $\mathcal{F}$  with the vector  $v_{A} \in \mathbb{R}^{W}$. Let  $K$ be the set of points in  $\mathbb{R}^{W}$  corresponding to  $\mathcal{F}$. For  $A, B \in[4 p]^{(2 p)}$,</p>
+$$\begin{aligned}
+\left\|v_{A}-v_{B}\right\|_{2} &amp; =\left(\sum_{e}\left(v_{A}(e)-v_{B}(e)\right)^{2}\right)^{1 / 2} \\
+&amp; =\left(\left|E_{A}\right|+\left|E_{B}\right|-2\left|E_{A} \cap E_{B}\right|\right)^{1 / 2}.
+\end{aligned}$$<p>So  $\left\|v_{A}-v_{B}\right\|_{2}$  increases as  $\left|E_{A} \cap E_{B}\right|$  decreases. It is easy to check that  $\left|E_{A} \cap E_{B}\right|$  is minimal iff  $|A \cap B|=p$. Now suppose  $L \subseteq K$  satisfies  $\operatorname{diam}(L)&lt;\operatorname{diam}(K)$. In the set  $\mathcal{A} \subseteq \mathcal{F}$  corresponding to  $L$  there can be no pair  $A, B$  with  $|A \cap B|=p$. So by the lemma,  $|\mathcal{A}| \leq 4 \left(\begin{array}{c}4 p \\ p-1\end{array}\right)$, and so</p>
+$$|\mathcal{F}| /|\mathcal{A}| \geq \frac{1}{8}\left(\begin{array}{c} 4 p \\ 2 p \end{array}\right) \bigg/\left(\begin{array}{c} 4 p \\ p-1 \end{array}\right) .$$<p>For large  $p$, Stirling's formula shows that this is at least  $c^{p}$, which is at least  $\tilde{c}^{\sqrt{d}}$ for some $c, \tilde{c}&gt;0$.</p>
+
 </div>
 </div>
 </div>
@@ -14665,53 +14682,61 @@ $$\left\langle\chi_{A}, \chi_{B}\right\rangle=|A \cap B|=\left\{\begin{array}{ll
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.-Flows,-Connectivity-and-Matchings">3. Flows, Connectivity and Matchings<a class="anchor-link" href="#3.-Flows,-Connectivity-and-Matchings">&#182;</a></h3><p>Consider a digraph $\vec{G}=(V, \vec{E})$, then</p>
-<blockquote><p>( <strong>Max-flow min-cut</strong> ). In any $(\vec{G}, s, t, c)$, $\sup \{ v(f):$ f  is a feasible flow  $\}=\min \{c(S, T):(S, T)$  is a cut  $\}$. Moreover, the supremum is attained.</p>
+<h3 id="3.-Flows-(-with-Application-to-Connectivity-and-Matchings-)">3. Flows ( with Application to Connectivity and Matchings )<a class="anchor-link" href="#3.-Flows-(-with-Application-to-Connectivity-and-Matchings-)">&#182;</a></h3><p>Consider a digraph $\vec{G}=(V, \vec{E})$, the key question is: what is the maximum value of a feasible flow in a given graph with given source $s$, sink $t$ and capacity function $c$?</p>
+<p>We say that $(S,T)$ or $\vec{E}(S, T)$ is a cut if $S$  and  $T$ are disjoint with  $s \in S$  and  $t \in T$. We have that for any feasible flow $ f \leq c $:</p>
+$$\begin{aligned}
+v(f) &amp; =I_{f}(s)=\sum_{x \in S} I_{f}(x)=\sum_{x \in S}\left(\sum_{y \in N^{+}(x)} f(x y)-\sum_{y \in N^{-}(x)} f(y x)\right) \\
+&amp; =\sum_{x y \in \vec{E}(S, T)} f(x y)+\sum_{x y \in \vec{E}(S, S)} f(x y)-\sum_{y x \in \vec{E}(T, S)} f(y x)-\sum_{y x \in \vec{E}(S, S)} f(y x) \\
+&amp; =\sum_{x y \in \vec{E}(S, T)} f(x y)-\sum_{y x \in \vec{E}(T, S)} f(y x) \leqslant c(S, T) .
+\end{aligned}$$<p>However we have</p>
+<blockquote><p>( <strong>Max-flow min-cut</strong> ). In any $(\vec{G}, s, t, c)$, $\sup \{ v(f):$ f  is a feasible flow  $\}=\min \{c(S, T):(S, T)$  is a cut  $\}$ = $\min \{c(\vec{X}): \vec{X} \text { separates } s \text { from } t\}$. Moreover, the supremum is attained.</p>
 </blockquote>
+<p><strong>Proof.</strong> The key ingredient is the augmenting ( slack ) path, by observing that:</p>
+<blockquote><p>If  $x_{0} x_{1} \cdots x_{r}$  is an  $\varepsilon$-slack path with  $x_{0}=s$  and  $x_{r}=t$  then $\exists$ a flow  $f^{\prime}$  with  value $v\left(f^{\prime}\right)=v(f)+\varepsilon$.</p>
+</blockquote>
+<p>Let  $f$  be a flow attaining the supremum, whose existence is proved by considering the convergent subsequence. Then it suffices to find a cut with capacity  $v(f)$. Let $S=\{x \in V: \text { there is a slack path from } s \text { to } x\}$ and let  $T=V \backslash S$. Clearly  $t \notin S$. Thus  $(S, T)$  is a cut. Suppose  $x \in S $ and  $y \in T$  with  (x, y)  slack. Then taking a slack path  $s=x_{0} \cdots x_{r}=x$  and appending  $x_{r+1}=y$  gives a slack path ending at  $y$, contradicting  $y \in T$. Hence, for every  $x y \in \vec{E}(S, T)$  we have  $f(x y)=c(x y)$, and for every  $y x \in \vec{E}(T, S)$  we have  $f(y x)=0$, so from a series of inequalities above, we have $c(S, T)=v(f)$.</p>
+<p>A maximal flow is one with maximum value. A function is integral if all its values are integers.</p>
+<blockquote><p>Let  $(\vec{G}, s, t, c)$  be a network s.t. $c$  is integral. Then $\exists$ a maximal flow  $f$  which is integral.</p>
+</blockquote>
+<p><strong>Proof.</strong> Observe that $c$ and $f$ are integral $\implies$ any slack path is $1$-slack.</p>
+<p>We may also impose capacity restrictions on the vertices rather than edges. A <strong>vertex-cut</strong> is a set  $S \subseteq V \backslash\{s, t\}$  of vertices s.t. in  $\vec{G}-S$  $\exists$ no directed path from  $s$  to  $t$. The capacity of  $S$  is  $\sum_{x \in S} c(x)$. Then any $\vec{G}$ with  capacity restrictions on the vertices can be transformed to $\vec{H}$ with  capacity restrictions on the edges by replacing each vertex  $x \neq s, t$  by $x^{-}$ and  $x^{+}$ joined by a $x^{-} x^{+}$ with capacity  $c(x)$ and all other invariant edges with very large integral capacity. Then <strong>the conclusions carry over to the version restricting on the vertices without any difference</strong>.</p>
+<blockquote><p>( <strong>vertex version of Max-flow min-cut</strong> ) $\sup \{ v(f):$ f  is a feasible flow  $\}=\min \{c(S):S$  is a vertex cut  $\}$.</p>
+<p><strong>Cor.</strong> $c$  is integral $\implies $ $\exists$ a maximal flow  $f$  which is integral.</p>
+</blockquote>
+<p>Using flows, we can derive many results.</p>
 <p>Let  $G$  be a graph and  $S \subseteq V(G)$. $S$ <strong>separates</strong>  $G$  if  $G-S$  is disconnected. For vertices  $x, y$, $S$  <strong>separates</strong>  $x$  and  $y$  if they are in different components of  $G-S$.</p>
 <blockquote><p>$G$  is  <strong>$k$-connected</strong> if  $|G| \geqslant k+1$  and no set of (at most)  $k-1$  vertices separates  $G$.</p>
 </blockquote>
-<p>For example, a graph  $G$  is $1$-connected iff it is connected and  $|G| \geqslant 2$. The only  $k$-connected graph with  $|G|=k+1$  is  $K_{k+1}$.</p>
-<p>The (vertex) connectivity of a graph  $G$  is defined as $\kappa(G)=\max \{k: G \text { is } k \text {-connected }\}$. We now define a ‘local’ version of connectivity: $\kappa(x, y)=\kappa_{G}(x, y)=\min \{|S|: S \text { separates } x \text { and } y\}$.</p>
+<p>For example, a graph  $G$  is $1$-connected iff it is connected and  $|G| \geqslant 2$. The only  $k$-connected graph with  $|G|=k+1$  is  $K_{k+1}$. It's clear that $\kappa(G-x) \geqslant \kappa(G)-1$ and $\kappa(G-e) \geqslant \kappa(G)-1$. The (vertex) connectivity of a graph  $G$  is defined as $\kappa(G)=\max \{k: G \text { is } k \text {-connected }\}$. We now define a ‘local’ version of connectivity: $\kappa(x, y)=\kappa_{G}(x, y)$ = $\min \{|S|: S \text { separates } x \text { and } y\}$.</p>
 <blockquote><p><strong>Prop.</strong> $\kappa(G)=\min _{x y \in E(\bar{G})} \kappa_{G}(x, y)$</p>
-<p>( <strong>Menger's Theorem</strong> ). Let  $x,y\in V(G)$  be distinct non-adjacent. Then the maximum size of an independent set of  $x-y$  paths is  $\kappa_{G}(x, y)$. Here two distinct  $x-y$  paths are <strong>independent</strong> if the only vertices they share are  $x$  and  $y$.</p>
+<p>( <strong>Menger's Theorem</strong> ) Let  $x,y\in V(G)$  be distinct non-adjacent. Then the maximum size of an independent set of  $x-y$  paths is  $\kappa_{G}(x, y)$. Here two distinct  $x-y$  paths are <strong>independent</strong> if the only vertices they share are  $x$  and  $y$.</p>
+<p>( <strong>Hall's Theorem</strong> ) Let  $G$  be bipartite with bipartition  $\left(V_{1}, V_{2}\right)$. Then  $G$  contains a complete matching from  $V_{1}$  to  $V_{2}$  iff  $|N(S)| \geqslant|S|$,  $\forall S \subseteq V_{1}$.</p>
 </blockquote>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Proof.</strong> For Menger's Theorem, turn  $G$  into a network with source $x$  and sink  $y$  by replacing each edge  $u v$  by two directed edges  $\overrightarrow{u v}$  and  $\overrightarrow{v u}$, and assigning each vertex other than  $x$  and  $y$  capacity $1$. Then a vertex-cut  $S$  is simply a set of vertices separating  $x$  and  $y$ , and its capacity is just  $|S|$, which follows the conclusion.</p>
+<p>For Hall's Theorem, simply form a directed graph by orienting every edge from  $V_{1}$  to  $V_{2}$, and adding vertices  $s,t$  with edges  $sx$,  $\forall  x \in V_{1}$  and $x t$, $\forall x \in V_{2}$. Assign all the new edges capacity $1$, and the edges from  $V_{1}$  to  $V_{2}$  some very large integral capacity. Then we observe that</p>
+<ul>
+<li>the capacity of any cut $\geq \left|V_{1}\right|$;</li>
+<li>$f \in \{0,1\}$, which corresponds to a complete matching in $G$.</li>
+</ul>
+<p>Although especially natural in bipartite graphs, it makes sense to consider matchings in general graphs. A  <strong>$k$ -factor</strong> in $G$  is a spanning  $k$-regular subgraph. Thus a $1$-factor is exactly the same as a matching covering all vertices. A component $\tilde{G}$ of $G$  is <strong>odd</strong> if $|V(\tilde{G})|$ is <strong>odd</strong>, and even otherwise. Let  $q(G)$  denote the number of odd components of  $G$. It's trivial that  $q(G) \equiv|G| \bmod 2$.</p>
+<blockquote><p>( <strong>Tutte's 1-factor Theorem</strong> ) $G$ has a 1-factor iff $\forall S \subseteq V(G)$, $q(G-S) \leqslant|S|$.</p>
+</blockquote>
+<p>Necessity is shown below: in any 1-factor $M$, every odd component  $C$  of  $G-S$  contains at least one vertex paired with some vertex outside  $C$. Since the only edges leaving  $C$  in  $G$  go to  $S$, a vertex of  $C$  must be paired with a vertex of  $S$, and so  $|S| \geqslant q(G-S)$. Sufficiency is proved by induction on  $|G|$.</p>
 
-     </div>
 </div>
 </div>
 </div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
