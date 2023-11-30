@@ -36,7 +36,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
-.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14465,6 +14464,10 @@ a.anchor-link {
   display: none;
 }
 
+.highlight  {
+  margin: 0.4em;
+}
+
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14474,26 +14477,9 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror.cm-s-jupyter .highlight pre {
-/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
-  padding: var(--jp-code-padding) 4px;
+.CodeMirror pre {
   margin: 0;
-
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-
-}
-
-.jp-OutputArea-output pre {
-  line-height: inherit;
-  font-family: inherit;
-}
-
-.jp-RenderedText pre {
-  color: var(--jp-content-font-color1);
-  font-size: var(--jp-code-font-size);
+  padding: 0;
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14593,9 +14579,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%5BOct-11%5D-Combinatorics-I">[Oct 11] Combinatorics I<a class="anchor-link" href="#%5BOct-11%5D-Combinatorics-I">&#182;</a></h2><p>Presenter: Yuchen Ge<br />
-Affiliation: University of Oxford<br />
-Contact Email: gycdwwd@gmail.com<br />
+<h2 id="%5BOct-11%5D-Combinatorics-I">[Oct 11] Combinatorics I<a class="anchor-link" href="#%5BOct-11%5D-Combinatorics-I">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
+Affiliation: University of Oxford<br>
+Contact Email: gycdwwd@gmail.com<br>
 Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</a></p>
 
 </div>
@@ -14608,7 +14594,7 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Combinatorics-is-not-a-science,-it's-an-attitude.">Combinatorics is not a science, it's an attitude.<a class="anchor-link" href="#Combinatorics-is-not-a-science,-it's-an-attitude.">&#182;</a></h3><hr />
+<h3 id="Combinatorics-is-not-a-science,-it's-an-attitude.">Combinatorics is not a science, it's an attitude.<a class="anchor-link" href="#Combinatorics-is-not-a-science,-it's-an-attitude.">&#182;</a></h3><hr>
 
 </div>
 </div>
@@ -14622,11 +14608,11 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Content</p>
 <ol>
-<li><a href="#Pr%C3%BCfer-Codes">Prüfer Codes</a></li>
+<li><a href="#Prüfer-Codes">Prüfer Codes</a></li>
 <li><a href="#Halls-Theorem-and-its-Application">Hall's Theorem and its application</a></li>
 <li><a href="#Eulerian-Circuit">Eulerian Circuit</a></li>
 </ol>
-<hr />
+<hr>
 
 </div>
 </div>
@@ -14638,16 +14624,13 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="1.-Pr%C3%BCfer-Codes-">1. Pr&#252;fer Codes <a id="Pr&#252;fer-Codes" /><a class="anchor-link" href="#1.-Pr%C3%BCfer-Codes-">&#182;</a></h3><blockquote>
-<p>What's the number of trees of $[n]$?</p>
+<h3 id="1.-Pr%C3%BCfer-Codes-">1. Pr&#252;fer Codes <a id="Pr&#252;fer-Codes" /><a class="anchor-link" href="#1.-Pr%C3%BCfer-Codes-">&#182;</a></h3><blockquote><p>What's the number of trees of $[n]$?</p>
 </blockquote>
 <p>To do this, We shall notice that</p>
-<blockquote>
-<p>There is a correspondence between each tree on  $[n]$  and its Prüfer code  $\mathbf{c}=\left(c_{1}, c_{2}, \ldots, c_{n-2}\right)$, where  $1 \leqslant c_{i} \leqslant n$.</p>
+<blockquote><p>There is a correspondence between each tree on  $[n]$  and its Prüfer code  $\mathbf{c}=\left(c_{1}, c_{2}, \ldots, c_{n-2}\right)$, where  $1 \leqslant c_{i} \leqslant n$.</p>
 </blockquote>
 <p>To generate the code from the tree, we repeatedly Find the leaf  $v_{i}$  with the smallest number, remove it, and write down the number  $c_{i}$  of the (unique) vertex  $v_{i}$ was adjacent to. Repeat until exactly two vertices remain.</p>
-<blockquote>
-<p><strong>Observation I</strong>: a vertex $w$ with degree $d$ in $T$ appears exactly $d − 1$ times in the code $\mathbf{c}$.</p>
+<blockquote><p><strong>Observation I</strong>: a vertex $w$ with degree $d$ in $T$ appears exactly $d − 1$ times in the code $\mathbf{c}$.</p>
 <p><strong>Observation II</strong>: More generally, if the degree of $w$ in $T − v_1 − v_2 − ··· − v_{i−1}$ is $d$, then $w$ occurs $d−1$ times in $c_i,...,c_{n−2}$.</p>
 </blockquote>
 <p>To generate the tree from the code, from the observation we know that</p>
@@ -14669,14 +14652,13 @@ $$E(T)=\left\{v_{1} c_{1}, \ldots, v_{n-2} c_{n-2}, v_{n-1} v_{n}\right\}.$$
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="2.-Hall's-Theorem-and-its-Application-">2. Hall's Theorem and its Application <a id="Halls-Theorem-and-its-Application" /><a class="anchor-link" href="#2.-Hall's-Theorem-and-its-Application-">&#182;</a></h3><p>We will refer to sets of size  $k$  as  $k$-sets. For  $k \geq 0$  we write  $X^{(k)}=   \{A \in \mathcal{P}(X):|A|=k\}$  for the set of all subsets of  $X$  of size  $k$. A family  $\mathcal{F} \subseteq \mathcal{P}(X)$  is  $k$-uniform if $\mathcal{F} \subseteq X^{(k)}$</p>
-<blockquote>
-<p>( <strong>Sperner's Lemma</strong> ) An antichain in  $\mathcal{P}(n)$  has size at most  $$\binom{n}{\lfloor n / 2\rfloor}.$$</p>
+<blockquote><p>( <strong>Sperner's Lemma</strong> ) An antichain in  $\mathcal{P}(n)$  has size at most  $$\binom{n}{\lfloor n / 2\rfloor}.$$</p>
 </blockquote>
 <p>To prove this, recall</p>
-<blockquote>
-<p>( <strong>Hall's Theorem</strong> ) Let  $G=(V, E)$  be a bipartite graph with vertex classes  $X$  and $Y$. Then $G$  has a complete matching from  $X$ to $Y$  if and only if, for all  $S \subseteq X$, we have</p>
+<blockquote><p>( <strong>Hall's Theorem</strong> ) Let  $G=(V, E)$  be a bipartite graph with vertex classes  $X$  and $Y$. Then $G$  has a complete matching from  $X$ to $Y$  if and only if, for all  $S \subseteq X$, we have
+$$|\Gamma(S)| \geq|S|.$$</p>
 </blockquote>
-$$|\Gamma(S)| \geq|S|.$$<p>From Hall's theorem, by considering a set $S \subseteq[n]^{(r)}$, and let $T=\Gamma(S)$ we can deduce from $ (n-r)|S| = e(S, T) \leq (r+1)|T|$ that</p>
+<p>From Hall's theorem, by considering a set $S \subseteq[n]^{(r)}$, and let $T=\Gamma(S)$ we can deduce from $ (n-r)|S| = e(S, T) \leq (r+1)|T|$ that</p>
 $$|T| \geq \frac{n-r}{r+1}|S| \geq|S|$$<p>for  $r&lt;n / 2$. Therefore,</p>
 <ol>
 <li>for  $r&lt;n / 2$, there is a complete matching from  $[n]^{(r)}$  to  $[n]^{(r+1)}$;</li>
@@ -14686,8 +14668,7 @@ $$|T| \geq \frac{n-r}{r+1}|S| \geq|S|$$<p>for  $r&lt;n / 2$. Therefore,</p>
 that partition $\mathcal{P}(n)$.</p>
 <p><strong>First proof of Sperner's Lemma.</strong> A chain and an antichain meet in at most one element. We have partitioned  $\mathcal{P}(n)$  into  $\binom{n}{\lfloor n / 2\rfloor}$  chains, so no antichain can have more than  $\binom{n}{\lfloor n / 2\rfloor}$  elements.</p>
 <p>Second proof of the Sperner's Lemma relies on</p>
-<blockquote>
-<p>( <strong>LYM Inequality</strong> ) Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. Then
+<blockquote><p>( <strong>LYM Inequality</strong> ) Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. Then
 $$\sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{n}{i}} \leq 1.$$</p>
 <p>Furthermore, we have equality iff $\mathcal{F}=[n]^{(i)}$ for some $i$.</p>
 </blockquote>
@@ -14695,8 +14676,7 @@ $$\sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{n}{i}} \le
 $$\mathbb{P}[A \in C]=\frac{k !(n-k) !}{n !}=\frac{1}{\binom{n}{k}}.$$<p>The events  $(A \in C)_{A \in \mathcal{F}}$  are pairwise disjoint, so by the union bound we have</p>
 $$1 \geq \sum_{A \in \mathcal{F}} \mathbb{P}[A \in C]=\sum_{A \in \mathcal{F}} \frac{1}{\binom{n}{
 |A|}}.$$<p>Here is a <strong>complete</strong> proof of the LYM inequality, using some local inequality.</p>
-<blockquote>
-<p><strong>Lemma.</strong> ( <strong>Local LYM Inequality</strong> ) Let  $\mathcal{A} \subseteq[n]^{(r)}$. Then
+<blockquote><p><strong>Lemma.</strong> ( <strong>Local LYM Inequality</strong> ) Let  $\mathcal{A} \subseteq[n]^{(r)}$. Then
 $$\frac{|\partial \mathcal{A}|}{\binom{n}{r-1}} \geq \frac{|\mathcal{A}|}{\binom{n}{r}}$$
 with equality if and only if $\mathcal{A}=\emptyset$ or $\mathcal{A}=[n]^{(r)}$.</p>
 <p>Once more, we use double counting to prove this. By succesively applying the <strong>Local LYM Inequality</strong> to $\mathcal{G}_{r}:=\mathcal{F}_{r} \cup \partial \mathcal{G}_{r+1}$, we can show that 
@@ -14704,9 +14684,9 @@ $$ 1\geq \frac{\left|\mathcal{G}_{r}\right|}{\binom{n}{r}} \geq \sum_{i=r}^{n} \
 <p>which forms a complete proof of the refined version.</p>
 </blockquote>
 <p>Then we are in a position to propose the refined version of the Sperner's Lemma.</p>
-<blockquote>
-<p>( <strong>Refined Version of Sperner's Lemma</strong> ) Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. Then</p>
-$$|\mathcal{F}| \leq \binom{n}{\lfloor n / 2\rfloor},$$<p>with equality if and only if if  $\mathcal{F}=[n]^{\lfloor n / 2\rfloor}$  or  $\mathcal{F}=[n]^{ \lceil n / 2 \rceil }$.</p>
+<blockquote><p>( <strong>Refined Version of Sperner's Lemma</strong> ) Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. Then</p>
+$$|\mathcal{F}| \leq \binom{n}{\lfloor n / 2\rfloor},$$<p>
+with equality if and only if if  $\mathcal{F}=[n]^{\lfloor n / 2\rfloor}$  or  $\mathcal{F}=[n]^{ \lceil n / 2 \rceil }$.</p>
 </blockquote>
 <p><strong>Proof.</strong> Let  $\mathcal{F} \subseteq \mathcal{P}(n)$  be an antichain. By the LYM Inequality, we have</p>
 $$ 1 \geq \sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{
@@ -14714,20 +14694,17 @@ n}{i}} \geq \sum_{i=0}^{n} \frac{\left|\mathcal{F} \cap[n]^{(i)}\right|}{\binom{
 n}{\lfloor n / 2\rfloor}} =\frac{|\mathcal{F}|}{\binom{
 n }{ \lceil n / 2\rfloor}}, $$<p>where if we have the first equality we must have $\mathcal{F}=[n]^{(i)}$  for some  $i$, and if the second equality we must have  $i=\lfloor n / 2\rfloor$  or  $i=\lceil n / 2\rceil$.</p>
 <p>The following is somehow the generalization of the Sperner's Lemma.</p>
-<blockquote>
-<p>( <strong>Dilworth's Theorem</strong> ) Let $(P, \leq)$  be a finite poset. The minimum number of chains needed to cover  $P$  is equal to the maximum size of an antichain.</p>
+<blockquote><p>( <strong>Dilworth's Theorem</strong> ) Let $(P, \leq)$  be a finite poset. The minimum number of chains needed to cover  $P$  is equal to the maximum size of an antichain.</p>
 </blockquote>
 <p><strong>Proof.</strong> We break down the proof into the following observations:</p>
-<blockquote>
-<p><strong>Observation I:</strong> a chain and an antichain meet in at most one element.</p>
+<blockquote><p><strong>Observation I:</strong> a chain and an antichain meet in at most one element.</p>
 </blockquote>
 <p>So we need only prove that there is a cover with this many chains. Let $m$ be the maximum size of an antichain and let $C$ be a maximal chain.</p>
 <p>If  $P \backslash C$  contains no antichain of size $m$  then we are done by induction: we can cover  $P \backslash C$  with  $m-1$  chains, and then add  $C$  to get a cover of  $P$  with  $m$  chains.
 Otherwise, there is an antichain of size  $m$  in  $P \backslash C$, say  $A=\left\{a_{1}, \ldots, a_{m}\right\}$.</p>
 <p>Let $S^{+}:=\left\{x \in P: x \geq a_{i} \text { for some } a_{i} \in A\right\}$ and $S^{-}:=\left\{x \in P: x \leq a_{i} \text { for some } a_{i} \in A\right\}$. Then we claim that</p>
-<blockquote>
-<p><strong>Observation II:</strong> $S^{+} \cap S^{-}=A$, as $A$  is an antichain.<br />
-<strong>Observation III:</strong> $S^{+} \cup S^{-}=P$  as  $A$  is maximal.<br />
+<blockquote><p><strong>Observation II:</strong> $S^{+} \cap S^{-}=A$, as $A$  is an antichain.<br>
+<strong>Observation III:</strong> $S^{+} \cup S^{-}=P$  as  $A$  is maximal.<br>
 <strong>Observation IV:</strong> $S^{+}$ and  $S^{-}$ are both proper subsets of  $P$.</p>
 </blockquote>
 <p>Therefore,  $S^{+}$ and  $S^{-}$ are proper subsets of $P$, and so by induction we can partition $S^{+}$ into $m$  chains  $C_{1}^{+}, \ldots, C_{m}^{+}$, and we can partition $S^{+}$ into $m$  chains  $C_{1}^{-}, \ldots, C_{m}^{-}$. <strong>Relabelling if necessary, we can glue $C_{i}^{+}$ and $C_{i}^{-}$ together through some element in $A$</strong>, which finishes the proof.</p>
@@ -14742,22 +14719,19 @@ Otherwise, there is an antichain of size  $m$  in  $P \backslash C$, say  $A=\le
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.-Eulerian-Circuit-">3. Eulerian Circuit <a id="Eulerian-Circuit" /><a class="anchor-link" href="#3.-Eulerian-Circuit-">&#182;</a></h3><blockquote>
-<p>A <strong>trail</strong> is a walk with distinct edges.</p>
+<h3 id="3.-Eulerian-Circuit-">3. Eulerian Circuit <a id="Eulerian-Circuit" /><a class="anchor-link" href="#3.-Eulerian-Circuit-">&#182;</a></h3><blockquote><p>A <strong>trail</strong> is a walk with distinct edges.</p>
 <p>A <strong>path</strong> is a walk with distinct vertices.</p>
 <p>A <strong>circuit</strong> is a closed trail. And an <strong>Eulerian circuit</strong> is a circuit that goes through every edges.</p>
 <p>A <strong>cycle</strong> is a closed path except for that the end points coincides. And a <strong>Hamilton cycle</strong> is a cycle that contains every vertex.</p>
 </blockquote>
 <p>Recall some famous results:</p>
-<blockquote>
-<p><strong>Prop.</strong> Every tree on $n \geqslant 2$ vertices has at least two leaves.</p>
+<blockquote><p><strong>Prop.</strong> Every tree on $n \geqslant 2$ vertices has at least two leaves.</p>
 <p><strong>Prop.</strong> Let $G$  be a finite graph in which every vertex has degree at least $2$. Then  G  contains a cycle.</p>
 <p><strong>Thm.</strong> Let $G$ be connected. Then $G$ is Eulerian iff all degrees are even.</p>
 </blockquote>
 <p><strong>Proof.</strong> The first is proved simply by considering a longest path $v_1 ... v_t$ in the tree. The second is proved by successively picking new elements. For the third, only one direction is interesting. For this, we proceed by <strong>induction on $e(G)$</strong> and the last proposition is used in the induction.</p>
 <p>Next, we are in a position to detect the existence of a Hamilton cycle.</p>
-<blockquote>
-<p><strong>Lemma.</strong>  If  $G $ is connected while not Hamiltonian, then the edge length of a longest path in  $G$  is <strong>at least</strong> the length of a longest cycle.</p>
+<blockquote><p><strong>Lemma.</strong>  If  $G $ is connected while not Hamiltonian, then the edge length of a longest path in  $G$  is <strong>at least</strong> the length of a longest cycle.</p>
 <p><strong>Thm.</strong> $G$ is connected with  $n \geqslant 3$  vertices in which every pair  v, w  of non-adjacent vertices satisfies  $d(v)+d(w) \geqslant k$. If  $k&lt;n$  then  $G$  contains a path of edge length  $k$; if  $k \geqslant n$  then  $G$  is Hamiltonian.</p>
 <p>( <strong>Dirac's Theorem</strong> ) Let  $G$  be a graph with  $n \geqslant 3$  vertices. If  $\delta(G) \geqslant \frac{n}{2}$, then $G$  contains a Hamilton cycle.</p>
 </blockquote>
@@ -14775,20 +14749,10 @@ $$\ell \geqslant|A|+|B|=d\left(v_{0}\right)+d\left(v_{\ell}\right) \geqslant k .
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr />
+<hr>
 <h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
-<li>Geoffrey Grimmett. Probability on Graphs.</li>
+<li>Béla Bollobás. Modern Graph Theory.</li>
+<li>Béla Bollobás. Combinatorics: set systems, hypergraphs, families of vectors, and combinatorial probability.</li>
 </ol>
 
 </div>
