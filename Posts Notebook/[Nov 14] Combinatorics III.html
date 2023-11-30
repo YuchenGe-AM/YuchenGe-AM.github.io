@@ -14639,7 +14639,10 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 <blockquote><p><strong>( Two Families Theorem )</strong> Let  $A_{1}, \ldots, A_{k}$  and  $B_{1}, \ldots, B_{k}$  be finite sets s.t. $\forall i$, $A_{i} \cap B_{i}=\emptyset$ and, $\forall i \neq j$, $A_{i} \cap B_{j} \neq \emptyset$. Then
 $$\sum_{i=1}^{k}\binom{\left|A_{i}\right|+\left|B_{i}\right|}{ \left|A_{i}\right|}^{-1} \leq 1.$$</p>
 </blockquote>
-<p>It follows that</p>
+<p><strong>Proof.</strong> WLOG, assume that all sets are subsets of  $[n]$. For a permutation  $\pi$  of  $[n]$, we write  $A&lt;_{\pi} B$  if $\max \pi(A)&lt;\min \pi(B)$ where $\pi(S):=\{\pi(x): x \in S\}$. Let  $\pi \in S_{n} $ be chosen uniformly at random from the set of permutations of  $[n]$. Then, $\forall  i$, we have</p>
+$$\mathbb{P}\left(A_{i}&lt;_{\pi} B_{i}\right)=\left(\begin{array}{c} \left|A_{i}\right|+\left|B_{i}\right| \\ \left|A_{i}\right| \end{array}\right)^{-1}.$$<p>Also since $\left(A_{i}&lt;_{\pi} B_{i}\right)_{i \in[k]}$ are disjoint, 
+$$1 \geq \sum_{i=1}^{k} \mathbb{P}\left(A_{i}&lt;_{\pi} B_{i}\right)=\sum_{i=1}^{k}\left(\begin{array}{c}\left|A_{i}\right|+\left|B_{i}\right| \\\left|A_{i}\right| \end{array}\right)^{-1}.$$</p>
+<p>It follows from Two Families Theorem that</p>
 <blockquote><p><strong>Thm</strong>. Let  $G$  be an  $r$-uniform hypergraph with vertex set $[n]$ s.t. adding any edge to $G$ creates a copy of  $K_{r+s}^{(r)}$. Then  $G $ has at least $\binom{n}{r} - \binom{n-s}{r}$ edges.</p>
 </blockquote>
 <p><strong>Proof.</strong> Let $\mathcal{A}=\left\{A_{1}, \ldots, A_{m}\right\} \subset [n]^{(r)}$ be the non-edges of $G$. For each  $i$, there is an  $(r+s)$-element set  $K_{i} \supset A_{i}$ such that adding  $A_{i}$ to  $\mathcal{G}$ creates a copy of  $K_{r+s}^{(r)}$  with vertex set  $K_{i}$. Let  $B_{i}=[n] \backslash K_{i}$. Then it satisfies the conditions in the <strong>Two Families Theorem</strong>, which follows that
@@ -14656,8 +14659,20 @@ $$ m \leq \binom{r+(n-r-s)}{r} = \binom{n-s}{r}. $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Also, we prove the <strong>sunflower lemma</strong>:</p>
-<blockquote><p>For each  $k&gt;0$, $r&gt;0$, there is an integer  $f(k, r) \leq k !(r-1)^{k}$  s.t. if a set system  $W$  of  $k$-sets is of cardinality greater than  $f(k, r)$, then  $W$  contains a sunflower of size  $r$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="2.-Sunflower-Lemma">2. Sunflower Lemma<a class="anchor-link" href="#2.-Sunflower-Lemma">&#182;</a></h3><p>Sunflower Lemma playes an important role in hypergraph theory.</p>
+<blockquote><p>( <strong>Sunflower Lemma</strong> ) For each  $k&gt;0$, $r&gt;0$, there is an integer  $f(k, r) \leq k !(r-1)^{k}$  s.t. if a set system  $W$  of  $k$-sets is of cardinality greater than  $f(k, r)$, then  $W$  contains a sunflower of size  $r$.</p>
 </blockquote>
 <p><strong>Proof.</strong> It's clear that $f(1, r) \leq r-1$. In the general case, suppose $W$  has no sunflower with  $r$  sets. Then consider  $A_{1}, A_{2}, \ldots, A_{t} \in W$  to be a maximal collection of pairwise disjoint sets, which follows that $t&lt;r$.</p>
 <p>Let  $A=A_{1} \cup A_{2} \cup \cdots \cup A_{t}$, and we know $|A| \leq k t \leq k(r-1)$. Define  $W_{a}$  for some  $a \in A$  to be $W_{a}=\{S \backslash\{a\} \mid a \in S, S \in W\}$.</p>
@@ -14687,7 +14702,7 @@ $$|W| \leq \sum_{a \in A}\left|W_{a}\right| \leq|A|(f(k-1, r)-1) \leq k(r-1) f(k
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-Multigraph">2. Multigraph<a class="anchor-link" href="#2.-Multigraph">&#182;</a></h3><blockquote><p>A multigraph is $(V, E, \phi)$ where  $V$  and  $E$  are finite sets, and  $\phi: E \rightarrow \binom{V}{2} \cup \binom{V}{1}$  encodes the ends ( or end for a loop ) of an edge  $e \in E$.</p>
+<h3 id="3.-Multigraph">3. Multigraph<a class="anchor-link" href="#3.-Multigraph">&#182;</a></h3><blockquote><p>A multigraph is $(V, E, \phi)$ where  $V$  and  $E$  are finite sets, and  $\phi: E \rightarrow \binom{V}{2} \cup \binom{V}{1}$  encodes the ends ( or end for a loop ) of an edge  $e \in E$.</p>
 </blockquote>
 <p>Then we know that</p>
 <blockquote><p>$G^{*}$  is always connected.</p>
@@ -14696,8 +14711,8 @@ $$|W| \leq \sum_{a \in A}\left|W_{a}\right| \leq|A|(f(k-1, r)-1) \leq k(r-1) f(k
 <p>Note that the dual of a connected simple graph may be a multigraph.</p>
 <blockquote><p>A map is a connected bridgeless plane (multi-)graph. ( therefore, its dual has no loops )</p>
 </blockquote>
-<p>One of the most famous problems in graph theory, posed in 1852, is: can the faces of every map be coloured with 4 colours so that faces sharing an edge get different colours?</p>
-<p>Taking duals, this is equivalent to asking whether every planar (simple) graph  G  has  $\chi(G) \leqslant 4$. The answer is <strong>yes</strong> which is known as <strong>the Four Colour Theorem</strong>.</p>
+<p>One of the most famous problems in graph theory posed in 1852 is: can the faces of every map be coloured with 4 colours so that faces sharing an edge get different colours?</p>
+<p>Taking duals, this is equivalent to asking whether every planar simple graph  G  has  $\chi(G) \leqslant 4$. The answer is <strong>yes</strong> which is known as <strong>the Four Colour Theorem</strong>.</p>
 
 </div>
 </div>
