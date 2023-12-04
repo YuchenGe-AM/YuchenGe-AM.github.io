@@ -14738,7 +14738,7 @@ $$\mathrm{E}\left[Y_{e}\right]=\operatorname{Pr}[i, j \in S]=p^{2} \implies \mat
 <blockquote><p><strong>Prop I.</strong> $\mathbf{E}[f]=\langle f, 1\rangle=\widehat{ f} (\varnothing)$. Moreover if $f\in\{-1,1\}$, then $\mathbf{E}[f]=\mathbb{P }(f=1)-\mathbb{P}(f=-1)$.</p>
 <p><strong>Prop II.</strong> $\operatorname{Var}[f] =\mathbf{E}\left[f^{2}\right]-\mathbf{E}[f]^{2}=\sum_{S \neq \varnothing} \widehat{f}(S)^{2}$</p>
 </blockquote>
-<p>The (Fourier) weight of  $f:\{-1,1\}^{n} \rightarrow \mathbb{R}$  on set  $S$  is the squared Fourier coefficient, $\widehat{f}(S)^{2}$. Then the <strong>spectral sample</strong> for  $f$, denoted  $S_{f}$, is the probability distribution on $\mathcal{P} [n]$  in which the set  $S$  has probability  $\widehat{f}(S)^{2}$. We write  $\boldsymbol{S} \sim \mathcal{S}_{f}$  for a draw from this distribution.</p>
+<p>The (Fourier) weight of  $f:\{-1,1\}^{n} \rightarrow \mathbb{R}$  on set  $S$  is the squared Fourier coefficient, $\widehat{f}(S)^{2}$. If $f\in\{-1,1\}$, then the <strong>spectral sample</strong> for  $f$, denoted  $S_{f}$, is the probability distribution on $\mathcal{P} [n]$  in which the set  $S$  has probability  $\widehat{f}(S)^{2}$. We write  $\boldsymbol{S} \sim \mathcal{S}_{f}$  for a draw from this distribution.</p>
 <p>Next we use $\mathbb{F}_2^{n}$ instead of $\{-1,1\}^{n}$. For  $S \subseteq[n]$  we define  $\chi_{S}: \mathbb{F}_{2}^{n} \rightarrow \mathbb{R}$  by</p>
 $$\chi_{S}(x)=\prod_{i \in S} \chi\left(x_{i}\right)=(-1)^{\sum_{i \in S} x_{i}},$$<p>which immediately follows that $\chi_{S}(x+y)=\chi_{S}(x) \chi_{S}(y)$ and for $f: \mathbb{F}_{2}^{n} \rightarrow \mathbb{R}$, it makes sense $f(x)=\sum_{S \subseteq[n]} \widehat{f}(S) \chi_{S}(x)$.</p>
 
@@ -14772,7 +14772,7 @@ $$\begin{aligned}
 \widehat{f * g}(\boldsymbol{S}) &amp; =\underset{\boldsymbol{x} \sim \mathbb{F}_{2}^{n}}{\mathbf{E}}\left[(f * g)(\boldsymbol{x}) \chi_{S}(\boldsymbol{x})\right] =\underset{\boldsymbol{x} \sim \mathbb{F}_{2}^{n}}{\mathbf{E}}\left[\underset{\boldsymbol{y} \sim \mathbb{F}_{2}^{n}}{\mathbf{E}}[f(\boldsymbol{y}) g(\boldsymbol{x}-\boldsymbol{y})] \chi_{S}(\boldsymbol{x})\right] \\
 &amp; =\underset{\boldsymbol{y}, \boldsymbol{z} \sim \mathbb{F}_{2}^{n}}{\mathbf{E}}\left[f(\boldsymbol{y}) g(\boldsymbol{z}) \chi_{S}(\boldsymbol{y}+\boldsymbol{z})\right] =\underset{\boldsymbol{y}, \boldsymbol{z} \sim \mathbb{F}_{2}^{n}}{\mathbf{E}}\left[f(\boldsymbol{y}) \chi_{S}(\boldsymbol{y}) g(\boldsymbol{z}) \chi_{S}(\boldsymbol{z})\right] = \widehat{f}(\boldsymbol{S}) \widehat{g}(\boldsymbol{S}).
 \end{aligned}$$</p>
-<p>A function  $f: \mathbb{F}_{2}^{n} \rightarrow \mathbb{F}_{2} $ is linear if $f(x+y)=f(x)+f(y)$, $\forall  x, y$, whcih follows that  $f(x)=a \cdot x$. If we can query $f$'s value on just a few random inputs, then we may verify that $f$ has a certain property. This is called <strong>property testing</strong>.</p>
+<p>A function  $f: \mathbb{F}_{2}^{n} \rightarrow \mathbb{F}_{2} $ is linear if $f(x+y)=f(x)+f(y)$, $\forall  x, y$, which follows that  $f(x)=a \cdot x$. If we can query $f$'s value on just a few random inputs, then we may verify that $f$ has a certain property. This is called <strong>property testing</strong>.</p>
 
 </div>
 </div>

@@ -36,7 +36,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
-.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14465,6 +14464,10 @@ a.anchor-link {
   display: none;
 }
 
+.highlight  {
+  margin: 0.4em;
+}
+
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14474,26 +14477,9 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror.cm-s-jupyter .highlight pre {
-/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
-  padding: var(--jp-code-padding) 4px;
+.CodeMirror pre {
   margin: 0;
-
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-
-}
-
-.jp-OutputArea-output pre {
-  line-height: inherit;
-  font-family: inherit;
-}
-
-.jp-RenderedText pre {
-  color: var(--jp-content-font-color1);
-  font-size: var(--jp-code-font-size);
+  padding: 0;
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14593,9 +14579,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%5BOct-11%5D-Mathematical-Logic-I">[Oct 11] Mathematical Logic I<a class="anchor-link" href="#%5BOct-11%5D-Mathematical-Logic-I">&#182;</a></h2><h3 id="%E2%80%9CThe-Axiom-of-Choice-is-obviously-true,-the-well-ordering-principle-obviously-false,-and-who-can-tell-about-Zorn%E2%80%99s-Lemma?%E2%80%9D">&#8220;The Axiom of Choice is obviously true, the well-ordering principle obviously false, and who can tell about Zorn&#8217;s Lemma?&#8221;<a class="anchor-link" href="#%E2%80%9CThe-Axiom-of-Choice-is-obviously-true,-the-well-ordering-principle-obviously-false,-and-who-can-tell-about-Zorn%E2%80%99s-Lemma?%E2%80%9D">&#182;</a></h3><p>Presenter: Yuchen Ge<br />
-Affiliation: University of Oxford<br />
-Contact Email: gycdwwd@gmail.com<br />
+<h2 id="%5BOct-11%5D-Mathematical-Logic-Cheetsheet-I">[Oct 11] Mathematical Logic Cheetsheet I<a class="anchor-link" href="#%5BOct-11%5D-Mathematical-Logic-Cheetsheet-I">&#182;</a></h2><h3 id="%E2%80%9CThe-Axiom-of-Choice-is-obviously-true,-the-well-ordering-principle-obviously-false,-and-who-can-tell-about-Zorn%E2%80%99s-Lemma?%E2%80%9D">&#8220;The Axiom of Choice is obviously true, the well-ordering principle obviously false, and who can tell about Zorn&#8217;s Lemma?&#8221;<a class="anchor-link" href="#%E2%80%9CThe-Axiom-of-Choice-is-obviously-true,-the-well-ordering-principle-obviously-false,-and-who-can-tell-about-Zorn%E2%80%99s-Lemma?%E2%80%9D">&#182;</a></h3><p>Presenter: Yuchen Ge<br>
+Affiliation: University of Oxford<br>
+Contact Email: gycdwwd@gmail.com<br>
 Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</a></p>
 
 </div>
@@ -14608,7 +14594,7 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr />
+<hr>
 
 </div>
 </div>
@@ -14620,22 +14606,19 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Fundamentals">Fundamentals<a class="anchor-link" href="#Fundamentals">&#182;</a></h3><blockquote>
-<ol>
+<h3 id="Fundamentals">Fundamentals<a class="anchor-link" href="#Fundamentals">&#182;</a></h3><blockquote><ol>
 <li>A <strong>Language</strong> $L=(\Gamma, \Delta, a)$ involves  $( \text{function symbols}, \text{relation symbols}, a)$.</li>
 <li>A <strong>structure (model)</strong> $\mathfrak{A}= (U, I) = (|\mathfrak{A}|, I)$ involves $( \text{universe},  \text{ function } I \text{ from symbols to k-ary funtions/relations })$.</li>
 </ol>
 </blockquote>
 <p>We typically write $f^{\mathfrak{A}}$  instead of $I(f)$ and $R^{\mathfrak{A}}$  instead of $I(R)$. Then start with a set $U$ of objects, a universe.</p>
-<blockquote>
-<ol start="3">
+<blockquote><ol>
 <li>A <strong>rule</strong> on $U$ is just a pair $(S,a)$, where $S$ is a subset of $U$ and $a$ is an element of $U$.</li>
 <li>Let  $\mathfrak{R}$  be a set of rules on  $U$. $B$  is inductive with respect to  $\mathfrak{R}$ if for each rule  $(S, a) \in \mathfrak{R}$, $S \subseteq B$ implies $a \in B$.</li>
 </ol>
 </blockquote>
 <p>Define $A=\bigcap\{B \subseteq U \mid B \text { is inductive}\}$, and we call that $A$ is the smallest set closed under the rules in $\mathfrak{R}$. However, this is an <strong>impredicative definition</strong>. We can often provide a more explicit description of the set we are after.</p>
-<blockquote>
-<ol start="5">
+<blockquote><ol>
 <li><p>a finite sequence $(a_0, . . . , a_{n−1})$ of elements of $U$ is a formation sequence if, for each $i$, there is a rule $(S, a_i)$ with $$S \subset \{a_0, . . . , a_{i−1}\}.$$</p>
 </li>
 <li><p>If each rule $(S, a) \in \mathfrak{R}$ has finite $S$, then $A$ is equal to the set of elements $a$ of $U$ s.t. there is a formation sequence containing $a$.</p>
@@ -14654,28 +14637,23 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>We will now apply the abstract machinery we have just developed to the relatively concrete tasks of defining syntactic objects like terms and formulas.</p>
-<blockquote>
-<ol start="7">
+<blockquote><ol>
 <li><p>The set of <strong>terms</strong> includes variables, constant symbol and is closed under taking $f \in \Gamma$.</p>
 </li>
 <li><p>( <strong>unique readability of terms</strong> ) On the set of terms, the generating functions are injective and their images are disjoint from one another.</p>
 </li>
-<li><p>The set of <strong>propositional formulas</strong> is the smallest set of strings over the alphabet s.t.</p>
-</li>
-</ol>
-</blockquote>
+<li><p>The set of <strong>propositional formulas</strong> is the smallest set of strings over the alphabet s.t. 
 $$ \begin{aligned} 
 &amp;- \text{If  $P$  is a propositional variable, then  $P$  is a propositional formula.} \\
 &amp;- \text{$\perp$  is a propositional formula.} \\
 &amp;- \text{If  $A$  and  $B$  are propositional formulas, then  $(A \wedge B)$, $(A \vee B)$, and $(A \rightarrow B)$  are also propositional formulas.} \qquad \qquad 
-\end{aligned} $$<blockquote>
-<ol start="10">
+\end{aligned} $$</p>
+</li>
 <li>We also have unique readability on the  set of <strong>propositional formulas</strong>.</li>
 </ol>
 </blockquote>
 <p>Next, we define trees:</p>
-<blockquote>
-<ol start="11">
+<blockquote><ol>
 <li><p>Let $\Sigma$  be any set. A tree on  $\Sigma $ is a set of finite sequences of elements of  $\Sigma$  that is closed under initial segments.</p>
 </li>
 <li><p>$T\upharpoonright_{\sigma}  = \left\{\tau \mid \sigma^{\frown} \tau \in T\right\}$ and $\sup _{a \in \Sigma} T_{a}   = \{()\} \cup\left\{a ^{\frown} \sigma \mid a \in \Sigma, \sigma \in T_{a}\right\}$.</p>
@@ -14687,30 +14665,28 @@ $$ \begin{aligned}
 </ol>
 </blockquote>
 <p>Then we give an example and definitionof <strong>freely generated</strong>.</p>
-<blockquote>
-<ol start="15">
-<li>Suppose $U$ is any set of objects and $\mathfrak{F}$ is a set of functions from $U$ to $U$ of various arities, including constants. Then we can define the set $A$ to be the smallest subset of $U$ closed under all the elements of $\mathfrak{F}$. Then $A$ is <strong>freely generated</strong> by $F$ if:</li>
-</ol>
-</blockquote>
+<blockquote><ol>
+<li><p>Suppose $U$ is any set of objects and $\mathfrak{F}$ is a set of functions from $U$ to $U$ of various arities, including constants. Then we can define the set $A$ to be the smallest subset of $U$ closed under all the elements of $\mathfrak{F}$. Then $A$ is <strong>freely generated</strong> by $F$ if: 
 $$ \begin{aligned} 
 &amp;- \text{Each function}  f \in \mathfrak{F}  \text{ is injective on  A}. \\
 &amp;- \text{The images of the functions in }  \mathfrak{F}  \text{ on }  A  \text{ are disjoint from one another.}
-\end{aligned} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad $$<blockquote>
-<ol start="16">
-<li>( <strong>recursion theorem</strong> ) Suppose  $A$  is inductively and freely generated by  $\mathfrak{F}$, and for every $f$  in  $\mathfrak{F}$  we associate a function  $g_{f}$  from  $B$  to  $B$  of the same arity. Then there is a unique function  $\varphi: A \rightarrow B$ s.t.</li>
+\end{aligned} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad $$</p>
+</li>
+<li><p>( <strong>recursion theorem</strong> ) Suppose  $A$  is inductively and freely generated by  $\mathfrak{F}$, and for every $f$  in  $\mathfrak{F}$  we associate a function  $g_{f}$  from  $B$  to  $B$  of the same arity. Then there is a unique function  $\varphi: A \rightarrow B$ s.t. 
+$$\varphi\left(f\left(a_{0}, \ldots, a_{k-1}\right)\right)=g_{f}\left(\varphi\left(a_{0}\right), \ldots, \varphi\left(a_{k-1}\right)\right).$$</p>
+</li>
 </ol>
 </blockquote>
-$$\varphi\left(f\left(a_{0}, \ldots, a_{k-1}\right)\right)=g_{f}\left(\varphi\left(a_{0}\right), \ldots, \varphi\left(a_{k-1}\right)\right).$$<p>With the recursion theorem, we may define <strong>complexity</strong>, <strong>depth</strong> and <strong>variables</strong> that takes any term. We mention that 8. shows that the set of terms is freely generated by the term forming operations from the variables and constant symbols, and so is 10.</p>
+<p>With the recursion theorem, we may define <strong>complexity</strong>, <strong>depth</strong> and <strong>variables</strong> that takes any term. We mention that 8. shows that the set of terms is freely generated by the term forming operations from the variables and constant symbols, and so is 10.</p>
 <h3 id="Ordinals-and-Cardinals">Ordinals and Cardinals<a class="anchor-link" href="#Ordinals-and-Cardinals">&#182;</a></h3><p>Recall that the <strong>well-ordering</strong> of a class $X$ is a linear ordering of $X$  such that any non-empty subclass of  $X$  contains a smallest element or, equivalently, such that  $X$  does not contain infinite properly descending chains.</p>
-<blockquote>
-<ol start="17">
+<blockquote><ol>
 <li>( <strong>principle of transfinite induction</strong> ) A class $X$ is well ordered, and let $\mathcal{E}$  be a subclass of  $X$. Assume that whenever all elements less than  $x$  are in  $\mathcal{E}$, then $x$  itself belongs to  $\mathcal{E}$. Then  $\mathcal{E}=X$.</li>
 <li>An <strong>ordinal</strong> is a well-ordered set in which every element equals its set of predecessors.</li>
 <li>Every well-ordered set  $(x,&lt;) $ is isomorphic to a unique ordinal  $\alpha$ by recursively defining $F(y)=\{F(z) \mid z&lt;y\}$.</li>
 <li>$\text {On}$ is a proper class, well-ordered by  $\in$. Therefore, $\alpha=\{\beta \in \text { On } \mid \beta&lt;\alpha\}$.</li>
-<li>( <strong>well-ordering theorem</strong> ) Every set has a well-ordering.</li>
+<li>( <strong>well-ordering theorem</strong> ) Every set has a well-ordering. </li>
 <li>The well-ordering theorem claims that any set $x$  has the same cardinality as some ordinal. We call the smallest such ordinal the cardinality  $|x|$  of  $x$.</li>
-<li>For any ordinal $\alpha$ its successor is defined as $\alpha \cup\{\alpha\}$. Ordinals greater than $0$ which are not successor ordinals are called limit ordinals.</li>
+<li>For any ordinal $\alpha$ its successor is defined as $\alpha \cup\{\alpha\}$. Ordinals greater than $0$ which are not successor ordinals are called limit ordinals. </li>
 </ol>
 </blockquote>
 <p>Every element of an ordinal is the set of its predecessors and is an ordinal itself. Thus every element of an ordinal is also a subset of this ordinal. Also, whenever  $\left\{\alpha_{i} \mid i \in I\right\}$  is a non-empty set of ordinals without biggest element,  $\sup _{i \in I} \alpha_{i}$  is a limit ordinal. Any ordinal can be uniquely written as $\lambda+n$, with  $\lambda=0$  or a limit ordinal.</p>
@@ -14728,8 +14704,7 @@ $$\aleph_{\alpha}=\left\{\begin{array}{ll}
 |x|^{|y|} &amp; =\left|{ }^{y} x\right|
 \end{aligned}$$</p>
 <p>We also have the following theorem:</p>
-<blockquote>
-<ol start="24">
+<blockquote><ol>
 <li><p>( <strong>Cantor's Theorem</strong> ) If $\kappa$ is infinite, then  $\kappa \cdot \kappa=\kappa$.</p>
 </li>
 <li><p>$2^{\kappa}&gt;\kappa$.</p>
@@ -14748,25 +14723,23 @@ $$\aleph_{\alpha}=\left\{\begin{array}{ll}
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Propositional-Logic">Propositional Logic<a class="anchor-link" href="#Propositional-Logic">&#182;</a></h3><p>Then we consider formal deductive systems for <strong>propositional logic</strong>, including both classical and intuitionistic versions.</p>
-<blockquote>
-<p><strong>Some axiom schemas:</strong><br />
-26.1.  $A \rightarrow(B \rightarrow A) $<br />
-26.2.  $(A \rightarrow(B \rightarrow C)) \rightarrow((A \rightarrow B) \rightarrow(A \rightarrow C))$<br />
-26.3.  $A \rightarrow(B \rightarrow A \wedge B) $<br />
-26.4.  $A \wedge B \rightarrow A $<br />
-26.5.  $A \wedge B \rightarrow B $<br />
-26.6.  $A \rightarrow A \vee B $<br />
-26.7.  $B \rightarrow A \vee B $<br />
+<blockquote><p><strong>Some axiom schemas:</strong><br>
+26.1.  $A \rightarrow(B \rightarrow A) $<br>
+26.2.  $(A \rightarrow(B \rightarrow C)) \rightarrow((A \rightarrow B) \rightarrow(A \rightarrow C))$<br>
+26.3.  $A \rightarrow(B \rightarrow A \wedge B) $<br>
+26.4.  $A \wedge B \rightarrow A $<br>
+26.5.  $A \wedge B \rightarrow B $<br>
+26.6.  $A \rightarrow A \vee B $<br>
+26.7.  $B \rightarrow A \vee B $<br>
 26.8.  $(A \rightarrow C) \rightarrow((B \rightarrow C) \rightarrow(A \vee B \rightarrow C)) .$
 For intuitionistic logic, add 9. $\perp \rightarrow A$. For classical logic, add $9^{\prime}. \neg \neg A \rightarrow A$.</p>
 </blockquote>
 <p>The only rule is <strong>modus ponens</strong>: From $A \rightarrow B$ and $A$, we are allowed to conclude $B$.</p>
-<blockquote>
-<ol start="27">
+<blockquote><ol>
 <li>Let  $\Gamma$  be any set of propositional formulas and let  $A$  be any propositional formula. Then  $A$  is provable from  $\Gamma$, written  $\Gamma \vdash A$, if there is a proof of  $A$  from $ \Gamma$.</li>
 </ol>
 </blockquote>
-<p>A proof is intuitively simply &quot;  $B_{k}$  follows from  $B_{i}$  and  $B_{j}$  by modus ponens&quot;, which means simply that  $B_{i}$  is the formula  $B_{j} \rightarrow B_{k}$. The formulas  $B_{i}$  are sometimes called the lines of the proof.</p>
+<p>A proof is intuitively simply "  $B_{k}$  follows from  $B_{i}$  and  $B_{j}$  by modus ponens", which means simply that  $B_{i}$  is the formula  $B_{j} \rightarrow B_{k}$. The formulas  $B_{i}$  are sometimes called the lines of the proof.</p>
 
 </div>
 </div>
@@ -14778,7 +14751,7 @@ For intuitionistic logic, add 9. $\perp \rightarrow A$. For classical logic, add
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr />
+<hr>
 <h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
 <li>Mathematical Logic and Computation. Jeremy Avigad.</li>
 <li>A Course in Model Theory. Katrin Ten.</li>
@@ -14787,22 +14760,6 @@ For intuitionistic logic, add 9. $\perp \rightarrow A$. For classical logic, add
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 
