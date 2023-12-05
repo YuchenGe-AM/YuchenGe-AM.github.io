@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>[Sep 14] Basis of Machine Learning I</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>[Dec 4] Probabilistic Combinatorics II</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14579,7 +14579,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%5BSep-14%5D-Basis-of-Machine-Learning-I">[Sep 14] Basis of Machine Learning I<a class="anchor-link" href="#%5BSep-14%5D-Basis-of-Machine-Learning-I">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
+<h2 id="%5BDec-4%5D-Probabilistic-Combinatorics-II">[Dec 4] Probabilistic Combinatorics II<a class="anchor-link" href="#%5BDec-4%5D-Probabilistic-Combinatorics-II">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
 Affiliation: University of Oxford<br>
 Contact Email: gycdwwd@gmail.com<br>
 Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</a></p>
@@ -14594,11 +14594,81 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Content">Content<a class="anchor-link" href="#Content">&#182;</a></h3><ol>
-<li><a href="#Basic-Definitions">Basic Definitions</a></li>
-<li><a href="#More-General-Definitions">More General Definitions</a></li>
-<li><a href="#Rademacher-Complexity-and-VC-Dimension">Rademacher Complexity and VC-Dimension</a></li>
-</ol>
+<h3 id="What-you-need-is-that-your-brain-is-open.">What you need is that your brain is open.<a class="anchor-link" href="#What-you-need-is-that-your-brain-is-open.">&#182;</a></h3><hr>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="1.-Derivatives">1. Derivatives<a class="anchor-link" href="#1.-Derivatives">&#182;</a></h3><p>We say that coordinate  $i \in[n]$  is pivotal for  $f:\{-1,1\}^{n} \rightarrow   \{-1,1\}$  on input  $x$  if  $f(x) \neq f\left(x^{\oplus i}\right)$. Here</p>
+$$x^{\oplus i} = \left(x_{1}, \ldots, x_{i-1},-x_{i}, x_{i+1}, \ldots, x_{n}\right).$$<blockquote><p>The <strong>influence</strong> $\operatorname{Inf}_{i}[f]$ of coordinate  $i$  on  $f:\{-1,1\}^{n} \rightarrow\{-1,1\}$ is</p>
+$$\underset{x \sim\{-1,1\}^{n}}{\mathbb{P}}\left[f(x) \neq f\left(x^{\oplus i}\right)\right]=\underset{x \sim\{-1,1\}^{n}}{\mathbf{E}}\left[\mathrm{D}_{i} f(x)^{2}\right]$$<p>where $D_i f$ is the ith (discrete) derivative operator, since</p>
+$$\mathrm{D}_{i} f(x)=\left\{\begin{array}{ll} 0 &amp; \text { if coordinate } i \text { is not pivotal for } x \\ \pm 1 &amp; \text { if coordinate } i \text { is pivotal for } x \end{array}\right. .$$<p>The <strong>total influence</strong> of  $f:\{-1,1\}^{n} \rightarrow \mathbb{R}$  is $\mathbf{I}[f]=\sum_{i=1}^{n} \operatorname{Inf}_{i}[f]=\underset{x}{\mathbf{E}}\left[\|\nabla f(x)\|_{2}^{2}\right]$ where $\nabla f(x)=\left(\mathrm{D}_{1} f(x), \mathrm{D}_{2} f(x), \ldots, \mathrm{D}_{n} f(x)\right)$.</p>
+</blockquote>
+<p>Explicitly, we can write</p>
+$$\mathrm{D}_{i} f(x)=\frac{f\left(x^{(i \mapsto 1)}\right)-f\left(x^{(i \mapsto-1)}\right)}{2} \implies \mathrm{D}_{i} x^{S}=\left\{\begin{array}{ll}
+x^{S \backslash\{i\}} &amp; \text { if } i \in S \\
+0 &amp; \text { if } i \notin S
+\end{array}\right. ,$$<p>which follows that</p>
+<blockquote><p><strong>Thm.</strong> If $\sum_{S \subseteq[n]} \widehat{f}(S) x^{S}$, then</p>
+$$\mathrm{D}_{i} f(x)=\sum_{\substack{S \subseteq[n] \\ S \ni i}} \widehat{f}(S) x^{S \backslash\{i\}}.$$<p></p>
+<p><strong>Cor.</strong> $\operatorname{Inf}_{i}[f]=\sum_{S \ni i} \widehat{f}(S)^{2}$.</p>
+</blockquote>
+<p><strong>Proof.</strong> $D_i$ is a linear operator.</p>
+<p>Some corollarys are as follows:</p>
+<blockquote><p><strong>Cor.</strong> If $f:\{-1,1\}^{n} \rightarrow\{-1,1\}$ is monotone, then $\operatorname{Inf}_{i}[f]=\widehat{f}(i)$.</p>
+</blockquote>
+<p><strong>Proof.</strong> Note that $D_i f = (D_i f)^2$ is the $0$-$1$ indicator that $i$ is pivotal for $x$ if $f$ is monotone.</p>
+<blockquote><p><strong>Lemma.</strong> If $f:\{-1,1\}^{n} \rightarrow \mathbb{R}$, then $\mathbf{I}[f]=\sum_{S \subseteq[n]}|S| \widehat{f}(S)^{2}=\sum_{k=0}^{n} k \cdot \mathbf{W}^{k}[f]$. Specially, for  $f:\{-1,1\}^{n} \rightarrow\{-1,1\}$, using the spectral sample, $\mathbf{I}[f]=\underset{\mathbf{S} \sim \mathcal{S}_{f}}{\mathbf{E}}[|\mathbf{S}|]$.</p>
+<p>( <strong>Poincaré Inequality</strong> ) $\forall f:\{-1,1\}^{n} \rightarrow \mathbb{R}$, $\operatorname{Var}[f] \leq \mathbf{I}[f]=\underset{x}{\mathbf{E}}\left[\|\nabla f(x)\|_{2}^{2}\right]$.</p>
+</blockquote>
+<p><strong>Proof.</strong> Recall that $\operatorname{Var}[f]=\sum_{k&gt;0} \mathbf{W}^{k}[f]$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>$(x, y)$  is a  $\rho$-correlated pair of random strings if independently $\forall i \in[n]$, the pair of random bits  $\left(x_{i}, y_{i}\right)$  satisfies $\mathbf{E}\left[x_{i}\right]=\mathbf{E}\left[\boldsymbol{y}_{i}\right]=0$ and  $\mathbf{E}\left[\boldsymbol{x}_{i} \boldsymbol{y}_{i}\right]=\rho$. Then we define</p>
+<blockquote><p><strong>Def.</strong> $\mathbf{S t a b}_{\rho}[f]=\underset{\substack{(\boldsymbol{x}, \boldsymbol{y}) \\ \boldsymbol{\mathbf { y }} \text {-correlated }}}{\mathbf{E}}[f(\boldsymbol{x}) f(\boldsymbol{y})]$.</p>
+<p><strong>Prop.</strong> If $f\in\{-1,1\}$, then we have $\mathbf{S t a b}_{\rho}[f]$ = $\underset{\substack{(\boldsymbol{x}, \boldsymbol{y}) \rho \text {-correlated }}}{\mathbb{P}}[f(\boldsymbol{x})$ = $f(\boldsymbol{y})]-\underset{\substack{(\boldsymbol{x}, \boldsymbol{y}) \rho \text {-correlated }}}{\mathbb{P}}[f(\boldsymbol{x}) \neq f(\boldsymbol{y})]$ = $2 \underset{\substack{(\boldsymbol{x}, \boldsymbol{y}) \rho \text {-correlated }}}{\mathbb{P}}[f(\boldsymbol{x})$ = $f(\boldsymbol{y})]-1$.</p>
+</blockquote>
+<p>When $\rho$ is close to 1, i.e. the “noise” is small, it’s natural to consider noise sensitivity $\mathbf{N S}_{\delta}[f]=\frac{1}{2}-\frac{1}{2} \mathbf{S t a b}_{1-2 \delta}[f]$.</p>
+<p>Then we would know that</p>
+<blockquote><p><strong>Thm.</strong> $$\lim _{\substack{n \rightarrow \infty \\ \text{n odd} }} \operatorname{Stab}_{\rho}\left[\mathrm{Maj}_{n}\right]=\frac{2}{\pi} \arcsin \rho=1-\frac{2}{\pi} \arccos \rho.$$</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Proof.</strong> Observe that $$\begin{aligned}
+\operatorname{Stab}_{\rho}\left[\operatorname{Maj}_{n}\right] 
+&amp;  = \underset{\substack{(\boldsymbol{x}, \boldsymbol{y}) \rho \text {-correlated }}}{\mathbf{E}}\left[\operatorname{Maj}_{n}(\boldsymbol{x}) \cdot \operatorname{Maj}_{n}(\boldsymbol{y})\right] = \underset{\substack{(\boldsymbol{x}, \boldsymbol{y}) \rho \text {-correlated }}}{\mathbf{E}}[\operatorname{sgn}(\sum_{i} \frac{1}{\sqrt{n}} \boldsymbol{x}_{i}) \cdot \operatorname{sgn}(\sum_{i} \frac{1}{\sqrt{n}} \boldsymbol{y}_{i})] \\
+&amp; =\mathbf{E}\left[\operatorname{sgn}\left(\overrightarrow{\boldsymbol{S}}_{1}\right) \cdot \operatorname{sgn}\left(\overrightarrow{\boldsymbol{S}}_{2}\right)\right] = \mathbb{P}\left[\operatorname{sgn}\left(\overrightarrow{\boldsymbol{S}}_{1}\right)=\operatorname{sgn}\left(\overrightarrow{\boldsymbol{S}}_{2}\right)\right]-\mathbb{P}\left[\operatorname{sgn}\left(\overrightarrow{\boldsymbol{S}}_{1}\right) \neq \operatorname{sgn}\left(\overrightarrow{\boldsymbol{S}}_{2}\right)\right] \\
+&amp; =2 \mathbb{P}\left[\operatorname{sgn}\left(\overrightarrow{\boldsymbol{S}}_{1}\right)=\operatorname{sgn}\left(\overrightarrow{\boldsymbol{S}}_{2}\right)\right]-1=4 \mathbb{P}\left[\overrightarrow{\boldsymbol{S}} \in Q_{--}\right]-1,
+\end{aligned} $$</p>
+<p>where $\boldsymbol{Q}_{--}$ denotes the lower-left quadrant of $\mathbb{R}^{2}$ and  set $\overrightarrow{\boldsymbol{S}}=\sum_{i=1}^{n}\left[\begin{array}{c} \frac{1}{\sqrt{n}} \boldsymbol{x}_{i} \\ \frac{1}{\sqrt{n}} \boldsymbol{y}_{i} \end{array}\right] \in \mathbb{R}^{2}$ and $\overrightarrow{\boldsymbol{Z}} \sim \mathrm{N}\left(\left[\begin{array}{l} 0 \\ 0 \end{array}\right],\left[\begin{array}{ll} 1 &amp; \rho \\ \rho &amp; 1 \end{array}\right]\right)$. Then using the multi-dimensional CLT ( one way is to use <strong>Invariance Principle</strong> ), we have</p>
+$$ \lim _{n \rightarrow \infty} \mathbb{P}\left[\vec{S} \in Q_{--}\right] = \mathbb{P}\left[\vec{Z} \in Q_{--}\right]= \frac{1}{2}-\frac{1}{2} \frac{\arccos \rho}{\pi}$$<p>which follows the conclusion. ( the last equality is the famous <strong>Sheppard's Formula</strong> )</p>
+<p><strong>Proof of Sheppard's Formula.</strong> Since  $\left(-\boldsymbol{z},-\boldsymbol{z}^{\prime}\right)$  has the same distribution as  $\left(\boldsymbol{z}, \boldsymbol{z}^{\prime}\right)$, <strong>Sheppard's Formula</strong> is equivalent to proving</p>
+$$\operatorname{Pr}\left[z \leq 0, z^{\prime} \leq 0 \text { or } z&gt;0, z^{\prime}&gt;0\right]=1-\frac{\arccos \rho}{\pi} \Leftrightarrow  \underset{\overrightarrow{\boldsymbol{g}} \sim \mathrm{N}(0,1)^{2}}{\mathbb{P}}[\langle\vec{u}, \overrightarrow{\boldsymbol{g}}\rangle \leq 0 \text{ &amp; } \langle\overrightarrow{\boldsymbol{v}}, \overrightarrow{\boldsymbol{g}}\rangle&gt;0 \text { or vice versa }]=\frac{\theta}{\pi} $$<p>for all  $\theta \in[0, \pi]$ where  $\vec{u}, \vec{v} \in \mathbb{R}^{2}$  is some fixed pair of unit vectors making an angle of  $\theta$, and  $\overrightarrow{\boldsymbol{g}} \sim \mathrm{N}(0,1)^{2}$, which is clear by rotational symmetry.</p>
 
 </div>
 </div>
@@ -14622,30 +14692,23 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="1.-Basic-Definitions-">1. Basic Definitions <a id="Basic-Definitions" /><a class="anchor-link" href="#1.-Basic-Definitions-">&#182;</a></h3><p>Some definitions is needed to understand the whole framework. $\mathcal{X}$ is the set of all possible examples (instances)， and $\mathcal{Y}$ is the set of all possible labels (target values). For simplicity, $\mathcal{Y}=\{ 0,1 \}$.</p>
-<blockquote><p><strong>Def 1.</strong>  A <strong>concept</strong> is a mapping $c: \mathcal{X} \rightarrow \mathcal{Y}$.</p>
+<h3 id="2.-Decision-Tree-and-DNF-Formula">2. Decision Tree and DNF Formula<a class="anchor-link" href="#2.-Decision-Tree-and-DNF-Formula">&#182;</a></h3><blockquote><p>A <strong>decision tree</strong>  $T$  is a representation of $f: \mathbb{F}_{2}^{n} \rightarrow \mathbb{R}$. It consists of a rooted binary tree in which the internal nodes are labeled by coordinates  $i \in[n]$, the outgoing edges of each internal node are labeled $0$ and $1$, and the leaves are labeled by real numbers.</p>
+<p><strong>We insist that no coordinate  $i \in[n]$  appears more than once on any root-to-leaf path.</strong></p>
 </blockquote>
-<p>A concept class is a set of concepts we may wish to learn, which is denoted by $\mathcal{C}$. All concepts that we consider form a hypothesis set, which is denoted by $\mathcal{H}$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>When we learn some $c \in \mathcal{C}$, we receive a sample $S=\left(x_{1}, \ldots, x_{m}\right)$ drawn i.i.d. according to $\mathcal{I}$.</p>
-<p>The ultimate goal is to minimize</p>
-<blockquote><p><strong>Def 2.</strong> (Generalization error) The generalization error (risk) of  $h\in\mathcal{H}$  is defined by</p>
-$$R(h)=\underset{x \sim \mathcal{D}}{\mathbb{P}}[h(x) \neq c(x)]=\underset{x \sim \mathcal{D}}{\mathbb{E}}\left[1_{h(x) \neq c(x)}\right].$$
+<p>The size  $s$  of $T$  is the total number of leaves. The depth  $k$  of  $T$  is the maximum length of any root-to-leaf path.</p>
+<blockquote><p>For decision trees over  $\mathbb{F}_{2}^{n}$, we have  $k \leq n$  and  $s \leq 2^{k}$.</p>
 </blockquote>
-<p>Also, we may have the emprical error</p>
-$$\widehat{R}_{S}(h)=\frac{1}{m} \sum_{i=1}^{m} 1_{h\left(x_{i}\right) \neq c\left(x_{i}\right)}.$$<p>We will see in the following a number of guarantees relating these two quantities with high probability, under some general assumptions.</p>
-<blockquote><p><strong>Remark:</strong> this reminds me of the definition of a sourcr code $C$ in information theory, which is a mapping from $\mathcal{X}$, the range of a random variable $X$, to $D^{∗}$, the set of finite-length strings of symbols from a $D$-ary alphabet.</p>
+<p>Let  $T$  be computing  $f: \mathbb{F}_{2}^{n} \rightarrow \mathbb{R}$  and let $P$  be one of its root-to-leaf paths. The set of inputs  $x$  that follow computation path  $P$  in  $T$  is precisely a subcube of  $\mathbb{F}_{2}^{n}$, call it  $C_{P}$, which follows that</p>
+<blockquote><p><strong>Prop.</strong> $$ f=\sum_{\text {paths } P \text { of } T} f(P) \cdot 1_{C_{P}} .$$</p>
 </blockquote>
+<p>One of the commonest ways of representing a Boolean function  $f:\{0,1\}^{n} \rightarrow   \{0,1\}$  is by a DNF formula:</p>
+<blockquote><p><strong>Def.</strong> A  <strong>DNF</strong>  ( disjunctive normal form ) formula is a logical OR of terms, each of which is a logical AND of literals, which is either $x_{i} $ or $\bar{x}_{i}$.</p>
+<p><strong>Def.</strong> A <strong>CNF</strong> ( conjunctive normal form ) formulas is a logical AND of clauses, each of which is a logical OR of literals.</p>
+</blockquote>
+<p>The <strong>size</strong> of a DNF ( CNF ) formula is its number of terms. The <strong>width</strong> is the maximum width of its terms. If we take a CNF computing $f$ and switch its ANDs and ORs, the result is a DNF computing the dual function $-f(-x)$. Since $f$ and $-f(-x)$ have essentially the same Fourier expansion, there isn’t much difference between CNFs and DNFs when it comes to Fourier analysis.</p>
+<blockquote><p><strong>Prop.</strong> Let $f: \mathbb{F}_{2}^{n} \rightarrow \{0,1\}$ be computable by a decision tree $\boldsymbol{T}$ of size  $s$  and depth  $k$. Then  $f$  is computable by a <strong>DNF</strong> ( <strong>CNF</strong> ) of size at most  $s$  and width at most  $k$.</p>
+</blockquote>
+<p>Proof. Take each path in  $T$  from the root to a leaf labeled $1$ and form the logical AND of the literals describing the path. These are the terms of the required DNF. ( For the CNF clauses, take paths to label $0$ and negate all literals describing the path )</p>
 
 </div>
 </div>
@@ -14669,33 +14732,25 @@ $$\widehat{R}_{S}(h)=\frac{1}{m} \sum_{i=1}^{m} 1_{h\left(x_{i}\right) \neq c\le
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The following introduces the Probably Approximately Correct (PAC) learning framework, where the concept $h_S$ is selected based on the algorithm $\mathcal{A}$ and the sample $S$.</p>
-<blockquote><p><strong>Def 3.</strong> (PAC-learning)  $\mathcal{C}$  is PAC-learnable if there exists an algorithm  $\mathcal{A}$  and a polynomial function poly  $(\cdot, \cdot, \cdot, \cdot)$  such that for any  $\epsilon&gt;0$  and  $\delta&gt;0$, the following holds for any distribution $\mathcal{D}$, the goal $c\in \mathcal{C}$, and the sample size  $m \geq \operatorname{poly}(1 / \epsilon, 1 / \delta, n , size  (c))$:</p>
-$$\underset{S \sim \mathcal{D}^{m}}{\mathbb{P}}\left[R\left(h_{S}\right) \leq \epsilon\right] \geq 1-\delta.$$
+<h3 id="3.-Learning-and-Crypotography">3. Learning and Crypotography<a class="anchor-link" href="#3.-Learning-and-Crypotography">&#182;</a></h3><p>A <strong>randomized algorithm</strong> is one that adds a degree of randomness to its logic to produce the final output. A learning algorithm  $A$  is a randomized algorithm which has limited access to an unknown target function  $f \in \mathscr{C}$. The two access models, in increasing order of strength, are:</p>
+<ul>
+<li>random examples, meaning  $A$  can draw pairs  $(x, f(x))$  where  $x \in\{-1,1\}^{n}$  is uniformly random;</li>
+<li>queries, meaning  $A $ can request the value  $f(x)$  for any  $x \in\{-1,1\}^{n}$  of its choice.</li>
+</ul>
+<blockquote><p>Let  $\mathscr{F} \subset \mathbf{P}([n])$, the Fourier spectrum of  $f:\{-1,1\}^{n} \rightarrow \mathbb{R}$  is  <strong>$\epsilon$-concentrated</strong> on  $\mathscr{F} $ if</p>
+$$\sum_{\substack{S \subseteq[n] \\ S \notin \mathscr{F}}} \widehat{f}(S)^{2} \leq \epsilon.$$<p><strong>Lemma I.</strong> Given access to random examples from  $f:\{-1,1\}^{n} \rightarrow\{-1,1\}$, $\exists$ randomized algorithm which takes as input  $S \subseteq[n]$, $0&lt;\delta, \epsilon \leq 1 / 2$, and outputs an estimate  $\widetilde{f}(S)$  for  $\widehat{f}(S)$  that satisfies</p>
+$$|\widetilde{f}(S)-\widehat{f}(S)| \leq \epsilon$$<p>except with probability at most  $\delta$. The running time is poly$(n, 1 / \epsilon) \cdot \log (1 / \delta)$.</p>
+<p><strong>Lemma II.</strong> Suppose $f:\{-1,1\}^{n} \rightarrow\{-1,1\}$  and  $g:\{-1,1\}^{n} \rightarrow \mathbb{R}$  satisfy  $\|f-g\|_{2}^{2} \leq \epsilon$. Then  $\operatorname{dist}(f, h) \leq \epsilon$ where $h(x)=\operatorname{sgn}(g(x))$.</p>
 </blockquote>
-<p>When $\# \mathcal{H}&lt;\infty$, we know that</p>
-<blockquote><p><strong>Thm 1.</strong> ( $\# \mathcal{H}&lt;\infty$, consistent )  When the algorithm  $\mathcal{A}$ is s.t. for any goal $c\in\mathcal{H}$, $\widehat{R}_{S}\left(h_{S}\right)=0$. Then  for any $\epsilon, \delta&gt;0$, the inequality</p>
-$$\underset{S \sim \mathcal{D}^{m}}{\mathbb{P}}\left[R\left(h_{S}\right) \leq \epsilon\right] \geq 1-\delta$$<p>holds if
-$$ m \geq \frac{1}{\epsilon}\left(\log \#\mathcal{H}+\log \frac{1}{\delta}\right).$$</p>
+<p>Proof. For the first, we have  $\widehat{f}(\boldsymbol{S})=\mathbf{E}_{\boldsymbol{x}}\left[f(\boldsymbol{x}) \chi_{S}(\boldsymbol{x})\right]$. Given random examples  $(\boldsymbol{x}, f(\boldsymbol{x}))$, the algorithm can compute  $f(x) \chi_{S}(x) \in\{-1,1\}$  and therefore empirically estimate  $\mathbf{E}_{x}\left[f(\boldsymbol{x}) \chi_{S}(\boldsymbol{x})\right]$. <strong>Hoeffding's inequality</strong> implies that  $O\left(\log (1 / \delta) / \epsilon^{2}\right)$  examples are sufficient to obtain an estimate within  $\pm \epsilon$  with probability at least  $1-\delta$. For the second, since  $|f(x)-g(x)|^{2} \geq 1$  whenever  $f(x) \neq \operatorname{sgn}(g(x))$, we conclude</p>
+$$\operatorname{dist}(f, h)=\underset{x}{\mathbf{P r}}[f(x) \neq h(x)]=\underset{x}{\mathbf{N}}\left[\mathbf{1}_{f(x) \neq \operatorname{sgn}(g(x))}\right] \leq \underset{x}{\mathbf{E}}\left[|f(x)-g(x)|^{2}\right]=\|f-g\|_{2}^{2}.$$<p></p>
+<p>Then we may prove</p>
+<blockquote><p>Assume learning algorithm $A$ has random example access to target  $f:\{-1,1\}^{n} \rightarrow\{-1,1\}$. Suppose that $A$ can identify a collection  $\mathscr{F}$  of subsets on which  $f $'s Fourier spectrum is  $\epsilon / 2$-concentrated. Then using poly$(|\mathscr{F}|, n, 1 / \epsilon)$  additional time, $A$ can with high probability output a hypothesis  $h$  that is  $\epsilon$-close to  $f$.</p>
 </blockquote>
-<p><strong>Proof.</strong> Define $\mathcal{H}_{\epsilon}=\{h \in \mathcal{H}: R(h)&gt;\epsilon\}$. Then $
-\mathbb{P}[\widehat{R}_{S}(h)=0] \leq(1-\epsilon)^{m}$ for $h\in\mathcal{H}_{\epsilon}$, since $R(h)=\underset{x \sim \mathcal{D}}{\mathbb{P}}[h(x) \neq c(x)]&gt;\epsilon$. Thus, by the union bound, the following holds:</p>
+<p><strong>Proof</strong>. For each  $S \in \mathscr{F}$,  $A$ can produce an estimate  $\widetilde{f}(S)$  for  $\widehat{f}(S)$  which satisfies  $|\widetilde{f}(S)-\widehat{f}(S)| \leq \sqrt{\epsilon} \big/ (2 \sqrt{|\mathscr{F}|})$  except with probability at most  $1 /(10|\mathscr{F}|)$. Overall this requires poly $(|\mathscr{F}|, n, 1 / \epsilon)$  time, and by the union bound, except with probability at most  $1 / 10$  all  $|\mathscr{F}|$  estimates have the desired accuracy. Finally,  $A$  forms the real-valued function  $g=\sum_{S \in \mathscr{F}} \widetilde{f}(S) \chi_{S}$  and outputs hypothesis  $h=\operatorname{sgn}(g)$. By Lemma II, it suffices to show that  $\|f-g\|_{2}^{2} \leq \epsilon$. And indeed,</p>
 $$\begin{aligned}
-\mathbb{P}\left[\exists h \in \mathcal{H}_{\epsilon}: \widehat{R}_{S}(h)=0\right] &amp; =\mathbb{P}\left[\widehat{R}_{S}\left(h_{1}\right)=0 \vee \cdots \vee \widehat{R}_{S}\left(h_{\#\mathcal{H}_{\epsilon}}\right)=0\right]\\
-&amp; \leq \sum_{h \in \mathcal{H}_{\epsilon}} \mathbb{P}\left[\widehat{R}_{S}(h)=0\right] \\
-&amp; \leq \sum_{h \in \mathcal{H}_{\epsilon}}(1-\epsilon)^{m} \leq|\mathcal{H}|(1-\epsilon)^{m} \leq|\mathcal{H}| e^{-m \epsilon} .
-\end{aligned}$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Equivalently, in the language of generalization bound, with probability at least $1-\delta$, $R(h_{S}) \leq \frac{1}{m}(\log \#\mathcal{H}+\log \frac{1}{\delta})$.</p>
+\|f-g\|_{2}^{2} &amp; =\sum_{S \subseteq[n]} \widehat{f-g}(S)^{2} = \sum_{S \in \mathscr{F}}(\widehat{f}(S)-\widetilde{f}(S))^{2}+\sum_{S \notin \mathscr{F}} \widehat{f}(S)^{2} \\
+&amp; \leq \sum_{S \in \mathscr{F}}\left(\frac{\sqrt{\epsilon}}{2 \sqrt{|\mathscr{F}|}}\right)^{2}+\epsilon / 2 = \epsilon / 4+\epsilon / 2 \quad \leq \epsilon, \end{aligned}$$<p>as desired.</p>
 
 </div>
 </div>
@@ -14708,148 +14763,9 @@ $$\begin{aligned}
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<blockquote><p><strong>Lemma 1.</strong> ( <strong>Hoeffding's inequality</strong> ) Let  $X_{1}, \ldots, X_{m}$  be independent random variables with  $X_{i}\in \left[a_{i}, b_{i}\right]$  for all  $i \in[m]$. Then, for any  $\epsilon&gt;0$,</p>
-$$\begin{aligned}
-&amp; \mathbb{P}\left[S_{m}-\mathbb{E}\left[S_{m}\right] \geq \epsilon\right] \leq e^{-2 \epsilon^{2} / \sum_{i=1}^{m}\left(b_{i}-a_{i}\right)^{2}}, \\
-&amp; \mathbb{P}\left[S_{m}-\mathbb{E}\left[S_{m}\right] \leq-\epsilon\right] \leq e^{-2 \epsilon^{2} / \sum_{i=1}^{m}\left(b_{i}-a_{i}\right)^{2}}. \end{aligned} $$
-</blockquote>
-<p>With <strong>lemma 1</strong>, we can derive</p>
-<blockquote><p><strong>Thm 1.</strong> ( $\# \mathcal{H}&lt;\infty$, inconsistent )  For any $h\in \mathcal{H}$, with probability at least $1-\delta$,</p>
-$$ R(h) \leq \widehat{R}_{S}(h)+\sqrt{\frac{\log \# \mathcal{H}+\log \frac{2}{\delta}}{2 m}}.$$
-</blockquote>
-<p>Actually this can be viewed as an instance of the so-called <strong>Occam’s Razor principle</strong>: all other things being equal, a simpler (smaller) hypothesis set is better.</p>
-<p><strong>Proof.</strong> Seeing that 
-$$\begin{aligned}
-&amp; \mathbb{P}\left[\exists h \in \mathcal{H}: \left|\widehat{R}_{S}(h)-R(h)\right|&gt;\epsilon\right] \\
-= \text{ } &amp; \mathbb{P}\left[\left(\left|\widehat{R}_{S}\left(h_{1}\right) R\left(h_{1}\right)\right|&gt;\epsilon\right) \vee \ldots \vee\left(\left|\widehat{R}_{S}\left(h_{\#\mathcal{H}}\right)-R\left(h_{\#\mathcal{H}}\right)\right|&gt;\epsilon\right)\right] \\
-\leq \text{ } &amp; \sum_{h \in \mathcal{H}} \mathbb{P}\left[\left|\widehat{R}_{S}(h)-R(h)\right|&gt;\epsilon\right] \\
-\leq \text{ } &amp; 2 \#\mathcal{H} \cdot \exp \left(-2 m \epsilon^{2}\right) .
-\end{aligned}$$</p>
-<p>where the last inequality applies <strong>lemma 1</strong>.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-More-General-Definitions-">2. More General Definitions <a id="More-General-Definitions" /><a class="anchor-link" href="#2.-More-General-Definitions-">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In the most general scenario of supervised learning, we consider a distribution $\mathcal{D}$ over $\mathcal{X} \times \mathcal{Y}$, i.e. the stochastic scenario. Then, we define</p>
-<blockquote>$$R(h)=\underset{(x, y) \sim \mathcal{D}}{\mathbb{P}}[h(x) \neq y]=\underset{(x, y) \sim \mathcal{D}}{\mathbb{E}}\left[1_{h(x) \neq y}\right]$$
-</blockquote>
-<p>and the Bayesian error</p>
-<blockquote>$$R^{\star}=\inf _{h \text { measurable }} R(h).$$
-</blockquote>
-<p>Immediately, we can write</p>
-$$R(h)-R^{*}=\left(R(h)-\inf _{h \in \mathcal{H}} R(h)\right)+\left(\inf _{h \in \mathcal{H}} R(h)-R^{*}\right),$$<p>where the first term is called the <strong>estimation error</strong>, the second term the <strong>approximation error</strong>. Model selection consists of choosing $\mathcal{H}$ with a favorable trade-off between the approximation and estimation errors.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.-Rademacher-Complexity-and-VC-Dimension-">3. Rademacher Complexity and VC-Dimension <a id="Rademacher-Complexity-and-VC-Dimension" /><a class="anchor-link" href="#3.-Rademacher-Complexity-and-VC-Dimension-">&#182;</a></h3><p>Let $\mathcal{G}=\{g:(x, y) \mapsto L(h(x), y): h \in \mathcal{H}\}$ be the family of loss functions associated to $\mathcal{H}$.</p>
-<blockquote><p>( Empirical Rademacher complexity ) Let $S = (z_1,...,z_m)$ be a fixed sample of size $m$ with elements in $\mathcal{Z} = \mathcal{X} \times \mathcal{Y}$.
-$$\widehat{\mathfrak{R}}_{S}(\mathcal{G})=\underset{\boldsymbol{\sigma}}{\mathbb{E}}\left[\sup _{g \in \mathcal{G}} \frac{\boldsymbol{\sigma} \cdot \mathbf{g}_{S}}{m}\right],$$
-where $\sigma = (\sigma_1, . . . , \sigma_m)^{T}$, with $\sigma$'s independent uniform random variables taking
-values in {−1,+1}.</p>
-</blockquote>
-<p>The empirical Rademacher complexity measures on average how well the function class $\mathcal{G}$ correlates with random noise $\sigma$ on $S$. Furthermore, the general Rademacher complexity is defined as $\mathfrak{R}_{m}(\mathcal{G})=\underset{S \sim \mathcal{D}^{m}}{\mathbb{E}}\left[\widehat{\Re}_{S}(\mathcal{G})\right]$.</p>
-<p>The Rademacher complexity can be bounded in terms of the growth function.</p>
-<blockquote><p>( Growth Function ) The growth function  $\Pi_{\mathcal{H}}: \mathbb{N} \rightarrow \mathbb{N}$  for a hypothesis set  $\mathcal{H}$  is defined by:</p>
-$$\forall m \in \mathbb{N}, \Pi_{\mathcal{H}}(m)=\max _{\left\{x_{1}, \ldots, x_{m}\right\} \subseteq X}\left|\left\{\left(h\left(x_{1}\right), \ldots, h\left(x_{m}\right)\right): h \in \mathcal{H}\right\}\right|.$$
-</blockquote>
-<p>In other words, $\Pi_{\mathcal{H}}$ counts the maximal number of distinct ways of classifying $m$ points with the hypothesis set $\mathcal{H}$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Employing the following lemma:</p>
-<blockquote><p>( Maximal Inequality ) Let  $X_{1} \ldots X_{n}$  be real-valued random variables such that for all  $j \in[n], X_{j}=\sum_{i=1}^{m} Y_{i j}$  where, for each fixed  $j \in[n]$, $Y_{i j}$  are independent zero mean random variables taking values in  $\left[-r_{ij},+r_{ij}\right]$, for some  $r_{ij} \geq 0$. Then, the following inequality holds:</p>
-$$\mathbb{E}\left[\max _{j \in[n]} X_{j}\right] \leq r \sqrt{2 \log n},$$<p>with $r= \max_{j} \sqrt{\sum_{i=1}^{m} r_{ij}^{2}}.$</p>
-</blockquote>
-<p>And we have</p>
-<blockquote><p>( <strong>Massart's Lemma</strong> ) Let  $\mathcal{A} \subseteq \mathbb{R}^{m}$  be a finite set, with  $r=\max _{\mathbf{x} \in \mathcal{A}}\|\mathbf{x}\|_{2}$, then the following holds:</p>
-$$\underset{\boldsymbol{\sigma}}{\mathbb{E}}\left[\frac{1}{m} \sup _{\mathbf{x} \in \mathcal{A}} \sum_{i=1}^{m} \sigma_{i} x_{i}\right] \leq \frac{r \sqrt{2 \log |\mathcal{A}|}}{m},$$<p>where  $\sigma_{i}$'s  are independent uniform random variables taking values in  $\{-1,+1\}$  and $ x_{1}, \ldots, x_{m}$  are the components of vector  $\mathbf{x}$.</p>
-</blockquote>
-<p>With the famous <strong>Massart's lemma</strong>, we can bound the Rademacher complexity with the growth function in an obvious way.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Finally, we define the VC-dimension:</p>
-<blockquote><p>( <strong>VC-dimension</strong> ) $\operatorname{VCdim}(\mathcal{H})=\max \left\{m: \Pi_{\mathcal{H}}(m)=2^{m}\right\}$.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
-<li>Mohri, M., Rostamizadeh, A., &amp; Talwalkar, A. (2018). Foundations of Machine Learning. The MIT Press. </li>
+<li>Noga Alon. The Probabilistic Method.</li>
+<li>Ryan O'Donnell. Analysis of Boolean Functions.</li>
 </ol>
 
 </div>
