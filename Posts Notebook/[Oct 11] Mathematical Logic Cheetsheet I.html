@@ -14606,24 +14606,16 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Fundamentals">Fundamentals<a class="anchor-link" href="#Fundamentals">&#182;</a></h3><blockquote><ol>
-<li>A <strong>Language</strong> $L=(\Gamma, \Delta, a)$ involves  $( \text{function symbols}, \text{relation symbols}, a)$.</li>
-<li>A <strong>structure (model)</strong> $\mathfrak{A}= (U, I) = (|\mathfrak{A}|, I)$ involves $( \text{universe},  \text{ function } I \text{ from symbols to k-ary funtions/relations })$.</li>
-</ol>
+<h3 id="Fundamentals">Fundamentals<a class="anchor-link" href="#Fundamentals">&#182;</a></h3><blockquote><p>(1) A <strong>Language</strong> $L=(\Gamma, \Delta, a)$ involves  $( \text{function symbols}, \text{relation symbols}, a)$.</p>
+<p>(2) A <strong>structure ( model )</strong> $\mathfrak{A}= (U, I) = (|\mathfrak{A}|, I)$ involves $( \text{universe},  \text{ function } I \text{ from symbols to k-ary funtions/relations })$.</p>
 </blockquote>
 <p>We typically write $f^{\mathfrak{A}}$  instead of $I(f)$ and $R^{\mathfrak{A}}$  instead of $I(R)$. Then start with a set $U$ of objects, a universe.</p>
-<blockquote><ol>
-<li>A <strong>rule</strong> on $U$ is just a pair $(S,a)$, where $S$ is a subset of $U$ and $a$ is an element of $U$.</li>
-<li>Let  $\mathfrak{R}$  be a set of rules on  $U$. $B$  is inductive with respect to  $\mathfrak{R}$ if for each rule  $(S, a) \in \mathfrak{R}$, $S \subseteq B$ implies $a \in B$.</li>
-</ol>
+<blockquote><p>(3) A <strong>rule</strong> on $U$ is just a pair $(S,a)$, where $S$ is a subset of $U$ and $a$ is an element of $U$.
+(4) Let  $\mathfrak{R}$  be a set of rules on  $U$. $B$  is inductive with respect to  $\mathfrak{R}$ if for each rule  $(S, a) \in \mathfrak{R}$, $S \subseteq B$ implies $a \in B$.</p>
 </blockquote>
 <p>Define $A=\bigcap\{B \subseteq U \mid B \text { is inductive}\}$, and we call that $A$ is the smallest set closed under the rules in $\mathfrak{R}$. However, this is an <strong>impredicative definition</strong>. We can often provide a more explicit description of the set we are after.</p>
-<blockquote><ol>
-<li><p>a finite sequence $(a_0, . . . , a_{n−1})$ of elements of $U$ is a formation sequence if, for each $i$, there is a rule $(S, a_i)$ with $$S \subset \{a_0, . . . , a_{i−1}\}.$$</p>
-</li>
-<li><p>If each rule $(S, a) \in \mathfrak{R}$ has finite $S$, then $A$ is equal to the set of elements $a$ of $U$ s.t. there is a formation sequence containing $a$.</p>
-</li>
-</ol>
+<blockquote><p>(5) a finite sequence $(a_0, . . . , a_{n−1})$ of elements of $U$ is a formation sequence if, for each $i$, there is a rule $(S, a_i)$ with $$S \subset \{a_0, . . . , a_{i−1}\}.$$</p>
+<p>(6) If each rule $(S, a) \in \mathfrak{R}$ has finite $S$, then $A$ is equal to the set of elements $a$ of $U$ s.t. there is a formation sequence containing $a$.</p>
 </blockquote>
 
 </div>
@@ -14637,62 +14629,44 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>We will now apply the abstract machinery we have just developed to the relatively concrete tasks of defining syntactic objects like terms and formulas.</p>
-<blockquote><ol>
-<li><p>The set of <strong>terms</strong> includes variables, constant symbol and is closed under taking $f \in \Gamma$.</p>
-</li>
-<li><p>( <strong>unique readability of terms</strong> ) On the set of terms, the generating functions are injective and their images are disjoint from one another.</p>
-</li>
-<li><p>The set of <strong>propositional formulas</strong> is the smallest set of strings over the alphabet s.t. 
+<blockquote><p>(7) The set of <strong>terms</strong> includes variables, constant symbol and is closed under taking $f \in \Gamma$.</p>
+<p>(8) ( <strong>Unique Readability of Terms</strong> ) On the set of terms, the generating functions are injective and their images are disjoint from one another.</p>
+<p>(9) The set of <strong>propositional formulas</strong> is the smallest set of strings over the alphabet s.t.</p>
 $$ \begin{aligned} 
 &amp;- \text{If  $P$  is a propositional variable, then  $P$  is a propositional formula.} \\
 &amp;- \text{$\perp$  is a propositional formula.} \\
 &amp;- \text{If  $A$  and  $B$  are propositional formulas, then  $(A \wedge B)$, $(A \vee B)$, and $(A \rightarrow B)$  are also propositional formulas.} \qquad \qquad 
-\end{aligned} $$</p>
-</li>
-<li>We also have unique readability on the  set of <strong>propositional formulas</strong>.</li>
-</ol>
+\end{aligned} $$<p>(10) We also have unique readability on the  set of <strong>propositional formulas</strong>.</p>
 </blockquote>
 <p>Next, we define trees:</p>
-<blockquote><ol>
-<li><p>Let $\Sigma$  be any set. A tree on  $\Sigma $ is a set of finite sequences of elements of  $\Sigma$  that is closed under initial segments.</p>
-</li>
-<li><p>$T\upharpoonright_{\sigma}  = \left\{\tau \mid \sigma^{\frown} \tau \in T\right\}$ and $\sup _{a \in \Sigma} T_{a}   = \{()\} \cup\left\{a ^{\frown} \sigma \mid a \in \Sigma, \sigma \in T_{a}\right\}$.</p>
-</li>
-<li><p>The set of <strong>well-founded trees</strong> on $\Sigma$ is defined inductively from The empty tree and closed under taking supreme.</p>
-</li>
-<li><p>A tree on $\Sigma$ is well founded if and only if it has no infinite path.</p>
-</li>
-</ol>
+<blockquote><p>(11) Let $\Sigma$  be any set. A tree on  $\Sigma $ is a set of finite sequences of elements of  $\Sigma$  that is closed under initial segments.</p>
+<p>(12) $T\upharpoonright_{\sigma}  = \left\{\tau \mid \sigma^{\frown} \tau \in T\right\}$ and $\sup _{a \in \Sigma} T_{a}   = \{()\} \cup\left\{a ^{\frown} \sigma \mid a \in \Sigma, \sigma \in T_{a}\right\}$.</p>
+<p>(13) The set of <strong>well-founded trees</strong> on $\Sigma$ is defined inductively from the empty tree and closed under taking supreme.</p>
+<p>(14) A tree on $\Sigma$ is well founded if and only if it has no infinite path.</p>
 </blockquote>
-<p>Then we give an example and definitionof <strong>freely generated</strong>.</p>
-<blockquote><ol>
-<li><p>Suppose $U$ is any set of objects and $\mathfrak{F}$ is a set of functions from $U$ to $U$ of various arities, including constants. Then we can define the set $A$ to be the smallest subset of $U$ closed under all the elements of $\mathfrak{F}$. Then $A$ is <strong>freely generated</strong> by $F$ if: 
+<p>Then we give the definition of <strong>freely generated</strong> and some examples.</p>
+<blockquote><p>(15) Suppose $U$ is any set of objects and $\mathfrak{F}$ is a set of functions from $U$ to $U$ of various arities, including constants. Then we can define the set $A$ to be the smallest subset of $U$ closed under all the elements of $\mathfrak{F}$. Then $A$ is <strong>freely generated</strong> by $F$ if: 
 $$ \begin{aligned} 
 &amp;- \text{Each function}  f \in \mathfrak{F}  \text{ is injective on  A}. \\
 &amp;- \text{The images of the functions in }  \mathfrak{F}  \text{ on }  A  \text{ are disjoint from one another.}
 \end{aligned} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad $$</p>
-</li>
-<li><p>( <strong>recursion theorem</strong> ) Suppose  $A$  is inductively and freely generated by  $\mathfrak{F}$, and for every $f$  in  $\mathfrak{F}$  we associate a function  $g_{f}$  from  $B$  to  $B$  of the same arity. Then there is a unique function  $\varphi: A \rightarrow B$ s.t. 
+<p>(16) ( <strong>Recursion Theorem</strong> ) Suppose  $A$  is inductively and freely generated by  $\mathfrak{F}$, and for every $f$  in  $\mathfrak{F}$  we associate a function  $g_{f}$  from  $B$  to  $B$  of the same arity. Then there is a unique function  $\varphi: A \rightarrow B$ s.t. 
 $$\varphi\left(f\left(a_{0}, \ldots, a_{k-1}\right)\right)=g_{f}\left(\varphi\left(a_{0}\right), \ldots, \varphi\left(a_{k-1}\right)\right).$$</p>
-</li>
-</ol>
 </blockquote>
-<p>With the recursion theorem, we may define <strong>complexity</strong>, <strong>depth</strong> and <strong>variables</strong> that takes any term. We mention that 8. shows that the set of terms is freely generated by the term forming operations from the variables and constant symbols, and so is 10.</p>
+<p>With the recursion theorem, we may define <strong>complexity</strong>, <strong>depth</strong> and <strong>variables</strong> that takes any term. We mention that (8) shows that the set of terms is freely generated by the term forming operations from the variables and constant symbols, and so is (10).</p>
 <h3 id="Ordinals-and-Cardinals">Ordinals and Cardinals<a class="anchor-link" href="#Ordinals-and-Cardinals">&#182;</a></h3><p>Recall that the <strong>well-ordering</strong> of a class $X$ is a linear ordering of $X$  such that any non-empty subclass of  $X$  contains a smallest element or, equivalently, such that  $X$  does not contain infinite properly descending chains.</p>
-<blockquote><ol>
-<li>( <strong>principle of transfinite induction</strong> ) A class $X$ is well ordered, and let $\mathcal{E}$  be a subclass of  $X$. Assume that whenever all elements less than  $x$  are in  $\mathcal{E}$, then $x$  itself belongs to  $\mathcal{E}$. Then  $\mathcal{E}=X$.</li>
-<li>An <strong>ordinal</strong> is a well-ordered set in which every element equals its set of predecessors.</li>
-<li>Every well-ordered set  $(x,&lt;) $ is isomorphic to a unique ordinal  $\alpha$ by recursively defining $F(y)=\{F(z) \mid z&lt;y\}$.</li>
-<li>$\text {On}$ is a proper class, well-ordered by  $\in$. Therefore, $\alpha=\{\beta \in \text { On } \mid \beta&lt;\alpha\}$.</li>
-<li>( <strong>well-ordering theorem</strong> ) Every set has a well-ordering. </li>
-<li>The well-ordering theorem claims that any set $x$  has the same cardinality as some ordinal. We call the smallest such ordinal the cardinality  $|x|$  of  $x$.</li>
-<li>For any ordinal $\alpha$ its successor is defined as $\alpha \cup\{\alpha\}$. Ordinals greater than $0$ which are not successor ordinals are called limit ordinals. </li>
-</ol>
+<blockquote><p>(17 ( <strong>Principle of Transfinite Induction</strong> ) A class $X$ is well ordered, and let $\mathcal{E}$  be a subclass of  $X$. Assume that whenever all elements less than  $x$  are in  $\mathcal{E}$, then $x$  itself belongs to  $\mathcal{E}$. Then  $\mathcal{E}=X$.</p>
+<p>(18) An <strong>ordinal</strong> is a well-ordered set in which every element equals its set of predecessors.</p>
+<p>(19) Every well-ordered set  $(x,&lt;) $ is isomorphic to a unique ordinal  $\alpha$ by recursively defining $F(y)=\{F(z) \mid z&lt;y\}$.</p>
+<p>(20) $\text {On}$ is a proper class, well-ordered by  $\in$. Therefore, $\alpha=\{\beta \in \text { On } \mid \beta&lt;\alpha\}$.</p>
+<p>(21) ( <strong>well-ordering theorem</strong> ) Every set has a well-ordering.</p>
+<p>(22) The well-ordering theorem claims that any set $x$  has the same cardinality as some ordinal. We call the smallest such ordinal the cardinality  $|x|$  of  $x$.</p>
+<p>(23) For any ordinal $\alpha$ its successor is defined as $\alpha \cup\{\alpha\}$. Ordinals greater than $0$ which are not successor ordinals are called limit ordinals.</p>
 </blockquote>
 <p>Every element of an ordinal is the set of its predecessors and is an ordinal itself. Thus every element of an ordinal is also a subset of this ordinal. Also, whenever  $\left\{\alpha_{i} \mid i \in I\right\}$  is a non-empty set of ordinals without biggest element,  $\sup _{i \in I} \alpha_{i}$  is a limit ordinal. Any ordinal can be uniquely written as $\lambda+n$, with  $\lambda=0$  or a limit ordinal.</p>
-<p><strong>Proof of 17.</strong> Suppose, otherwise, that $S$  is a nonempty subset of  $X$  which does not have a minimum. The predicate  $P(x):=x \notin S$  is therefore not true on the entire  $X$  ( as  $S$  is nonempty ), in other words  $(\forall x) P(x)$  is false. Yet,  $P$  satisfies the condition for transfinite induction:</p>
+<p><strong>Proof of (17).</strong> Suppose, otherwise, that $S$  is a nonempty subset of  $X$  which does not have a minimum. The predicate  $P(x):=x \notin S$  is therefore not true on the entire  $X$  ( as  $S$  is nonempty ), in other words  $(\forall x) P(x)$  is false. Yet,  $P$  satisfies the condition for transfinite induction:</p>
 $$(\forall y&lt;x) P(y) \Longrightarrow P(x)$$<p>This is true if  $x \notin S$  ( as the consequent is true ), but is also true if $ x \in S$. Namely, as  $x$  is not the minimum of $S$  and the ordering is total, there is a smaller  $y \in S$, $y&lt;x$, and then  $P(y)$  is false, and the entire implication is vacuously true. In other words, transfinite induction didn't work - it proved a false statement $(\forall x) P(x)$.</p>
-<p><strong>Proof of 21.</strong> Consider two different ordinals $\alpha$  and $\beta$, then either  $\alpha \in \beta$  or $\beta \in \alpha$. If not,  $x=\alpha \cap \beta$  would be a proper initial segment of  $\alpha$  and $\beta$, which is impossible by <strong>principle of transfinite induction</strong>. Furthermore, assume $\text{On}$ is a set. Then it is an ordinal. Hence  $\text{On} \in \text{On}$, a contradiction.</p>
+<p><strong>Proof of (21).</strong> Consider two different ordinals $\alpha$  and $\beta$, then either  $\alpha \in \beta$  or $\beta \in \alpha$. If not,  $x=\alpha \cap \beta$  would be a proper initial segment of  $\alpha$  and $\beta$, which is impossible by <strong>principle of transfinite induction</strong>. Furthermore, assume $\text{On}$ is a set. Then it is an ordinal. Hence  $\text{On} \in \text{On}$, a contradiction.</p>
 <p>The isomorphism between $\text{On}$ and the class of all infinite cardinals is denoted by  $\alpha \mapsto \aleph_{\alpha}$, which can be recursively defined by</p>
 $$\aleph_{\alpha}=\left\{\begin{array}{ll}
 \omega &amp; \text { if } \alpha=0 \\
@@ -14704,12 +14678,8 @@ $$\aleph_{\alpha}=\left\{\begin{array}{ll}
 |x|^{|y|} &amp; =\left|{ }^{y} x\right|
 \end{aligned}$$</p>
 <p>We also have the following theorem:</p>
-<blockquote><ol>
-<li><p>( <strong>Cantor's Theorem</strong> ) If $\kappa$ is infinite, then  $\kappa \cdot \kappa=\kappa$.</p>
-</li>
-<li><p>$2^{\kappa}&gt;\kappa$.</p>
-</li>
-</ol>
+<blockquote><p>(24) ( <strong>Cantor's Theorem</strong> ) If $\kappa$ is infinite, then  $\kappa \cdot \kappa=\kappa$.</p>
+<p>(25) $2^{\kappa}&gt;\kappa$.</p>
 </blockquote>
 
 </div>
@@ -14724,22 +14694,20 @@ $$\aleph_{\alpha}=\left\{\begin{array}{ll}
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Propositional-Logic">Propositional Logic<a class="anchor-link" href="#Propositional-Logic">&#182;</a></h3><p>Then we consider formal deductive systems for <strong>propositional logic</strong>, including both classical and intuitionistic versions.</p>
 <blockquote><p><strong>Some axiom schemas:</strong><br>
-26.1.  $A \rightarrow(B \rightarrow A) $<br>
-26.2.  $(A \rightarrow(B \rightarrow C)) \rightarrow((A \rightarrow B) \rightarrow(A \rightarrow C))$<br>
-26.3.  $A \rightarrow(B \rightarrow A \wedge B) $<br>
-26.4.  $A \wedge B \rightarrow A $<br>
-26.5.  $A \wedge B \rightarrow B $<br>
-26.6.  $A \rightarrow A \vee B $<br>
-26.7.  $B \rightarrow A \vee B $<br>
-26.8.  $(A \rightarrow C) \rightarrow((B \rightarrow C) \rightarrow(A \vee B \rightarrow C)) .$
-For intuitionistic logic, add 9. $\perp \rightarrow A$. For classical logic, add $9^{\prime}. \neg \neg A \rightarrow A$.</p>
+(26.1)  $A \rightarrow(B \rightarrow A) $<br>
+(26.2)  $(A \rightarrow(B \rightarrow C)) \rightarrow((A \rightarrow B) \rightarrow(A \rightarrow C))$<br>
+(26.3)  $A \rightarrow(B \rightarrow A \wedge B) $<br>
+(26.4)  $A \wedge B \rightarrow A $<br>
+(26.5)  $A \wedge B \rightarrow B $<br>
+(26.6)  $A \rightarrow A \vee B $<br>
+(26.7)  $B \rightarrow A \vee B $<br>
+(26.8)  $(A \rightarrow C) \rightarrow((B \rightarrow C) \rightarrow(A \vee B \rightarrow C)) .$
+For intuitionistic logic, add (26.9) $\perp \rightarrow A$. For classical logic, add (26.9') $\neg \neg A \rightarrow A$.</p>
 </blockquote>
 <p>The only rule is <strong>modus ponens</strong>: From $A \rightarrow B$ and $A$, we are allowed to conclude $B$.</p>
-<blockquote><ol>
-<li>Let  $\Gamma$  be any set of propositional formulas and let  $A$  be any propositional formula. Then  $A$  is provable from  $\Gamma$, written  $\Gamma \vdash A$, if there is a proof of  $A$  from $ \Gamma$.</li>
-</ol>
+<blockquote><p>(27) Let  $\Gamma$  be any set of propositional formulas and let  $A$  be any propositional formula. Then  $A$  is provable from  $\Gamma$, written  $\Gamma \vdash A$, if there is a proof of  $A$  from $ \Gamma$.</p>
 </blockquote>
-<p>A proof is intuitively simply "  $B_{k}$  follows from  $B_{i}$  and  $B_{j}$  by modus ponens", which means simply that  $B_{i}$  is the formula  $B_{j} \rightarrow B_{k}$. The formulas  $B_{i}$  are sometimes called the lines of the proof.</p>
+<p>A <strong>proof</strong> is intuitively simply "  $B_{k}$  follows from  $B_{i}$  and  $B_{j}$  by modus ponens", which means simply that  $B_{i}$  is the formula  $B_{j} \rightarrow B_{k}$. The formulas  $B_{i}$  are sometimes called the lines of the proof.</p>
 
 </div>
 </div>
