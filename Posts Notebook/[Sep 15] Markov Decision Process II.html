@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>[Sep 15] Markov Decision Process II¶</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>[Sep 15] Markov Decision Process II</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14700,8 +14700,8 @@ $$
 $$P\left(y_{i}, s_{i} \mid x^{i}, s^{i-1}, y^{i-1}, a_{e}^{i}, a_{d}^{i}, m\right)=P\left(y_{i}, s_{i} \mid x_{i}, s_{i-1}\right).$$<p>Recall basic properties of  <strong>Bayesian Network</strong> ( proved via $d$-separation ):</p>
 <blockquote><p><strong>Decomposition</strong>: $\big( \mathbf{X} \perp \mathbf{Y}, \mathbf{W} \mid \mathbf{Z} \big) \Longrightarrow \big(\mathbf{X} \perp \mathbf{Y} \mid \mathbf{Z} \big)$.</p>
 <p><strong>Weak union</strong>: $\big(\mathbf{X} \perp \mathbf{Y}, \mathbf{W} \mid \mathbf{Z}\big) \Longrightarrow \big(\mathbf{X} \perp \mathbf{Y} \mid \mathbf{Z}, \mathbf{W}\big)$.</p>
-<p><strong>Contraction</strong>: $\big(\mathbf{X} \perp \mathbf{W} \mid \mathbf{Z}, \mathbf{Y}\big)$ \&amp; $\big(\mathbf{X} \perp \mathbf{Y} \mid \mathbf{Z}\big) \Longrightarrow \big(\mathbf{X} \perp \mathbf{Y}, \mathbf{W} \mid \mathbf{Z}\big)$.</p>
-<p><strong>Intersection</strong>: $\big(\mathbf{X} \perp \mathbf{Y} \mid \mathbf{Z}, \mathbf{W}\big)$ \&amp; $\big(\mathbf{X} \perp \mathbf{W} \mid \mathbf{Z}, \mathbf{Y}\big) \Longrightarrow \big(\mathbf{X} \perp \mathbf{Y}, \mathbf{W} \mid \mathbf{Z}\big)$.</p>
+<p><strong>Contraction</strong>: $\big(\mathbf{X} \perp \mathbf{W} \mid \mathbf{Z}, \mathbf{Y}\big)$ &amp; $\big(\mathbf{X} \perp \mathbf{Y} \mid \mathbf{Z}\big) \Longrightarrow \big(\mathbf{X} \perp \mathbf{Y}, \mathbf{W} \mid \mathbf{Z}\big)$.</p>
+<p><strong>Intersection</strong>: $\big(\mathbf{X} \perp \mathbf{Y} \mid \mathbf{Z}, \mathbf{W}\big)$ &amp; $\big(\mathbf{X} \perp \mathbf{W} \mid \mathbf{Z}, \mathbf{Y}\big) \Longrightarrow \big(\mathbf{X} \perp \mathbf{Y}, \mathbf{W} \mid \mathbf{Z}\big)$.</p>
 </blockquote>
 <p>Then we give the following framework:</p>
 <blockquote><p>Generate encoder action using $f_{A_{e, i}}: \mathcal{M} \times \mathcal{Z}^{i-1} \rightarrow \mathcal{A}_{e}$ where  $Z_{i} \in \mathcal{Z}$  is the sampled feedback component, i.e. $A_{e, i}=f_{A_{e, i}}\left(M, Z^{i-1}\right)$.</p>
