@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>[Sep 15] Markov Decision Process II</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>[Dec 13] Markov Decision Process III</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14579,7 +14579,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%5BSep-15%5D-Markov-Decision-Process-II">[Sep 15] Markov Decision Process II<a class="anchor-link" href="#%5BSep-15%5D-Markov-Decision-Process-II">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
+<h2 id="%5BDec-13%5D-Markov-Decision-Process-III">[Dec 13] Markov Decision Process III<a class="anchor-link" href="#%5BDec-13%5D-Markov-Decision-Process-III">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
 Affiliation: University of Oxford<br>
 Contact Email: gycdwwd@gmail.com<br>
 Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</a></p>
@@ -14606,7 +14606,7 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="1.-Causal-Conditioning">1. Causal Conditioning<a class="anchor-link" href="#1.-Causal-Conditioning">&#182;</a></h3>
+<h3 id="1.-Unifilar-FSC">1. Unifilar FSC<a class="anchor-link" href="#1.-Unifilar-FSC">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14617,305 +14617,23 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Most basically, $H(X):=\mathbf{E} I(x)$ and $H(X|Y):=\mathbf{E} I(x|y)$  where $I(x):=-\log P(x)$ and $I(x|y):=-\log P(x|y)$. Here follows the most basic inequalities.</p>
-<blockquote><p>$H(X)-H(X \mid Y)=I(X ; Y) \geq 0$ and $H(X|Z) - H(X|YZ)= I(X ; Y Z)-I(X ; Z) = I(X ; Y \mid Z) = I(Y ; X \mid Z)\geq 0$.</p>
-</blockquote>
-<p>Generalizing from above, the probability mass of $X^{n}$ <strong>causally conditioned</strong> on $Y^{n-d}$ is defined as $P\left(x^{n}|| y^{n-d}\right):=\prod_{i=1}^{n} P\left(x_{i} \mid x^{i-1}, y^{i-d}\right)$.  We call them the causal conditioning distribution since $ \sum_{x^{N}} P\left(x^{N} \| y^{N-d}\right)=1$. The directed information Here the term causal reflects the conditioning on past and present values of the sequence $Y^{N}$. Correspondingly, the directed information is</p>
-$$I\left(X^{n} \rightarrow Y^{n}\right) := \sum_{i=1}^{n} I\left(X^{i} ; Y_{i} \mid Y^{i-1}\right)
-= \sum_{i=1}^{n} \big( H\left(Y^{i} | Y^{i-1} \right) - H\left(Y^{i} |X^i,  Y^{i-1} \right) \big) 
-=\mathbf{E}\left[\log \frac{P\left(Y^{N} \| X^{N}\right)}{P\left(Y^{N}\right)}\right] =: H\left(Y^{N}\right)-H\left(Y^{N} \| X^{N}\right) . $$<blockquote><p><strong>Prop I.</strong> $H\left(X^{N} \mid Y^{N}\right) \leq H\left(X^{N} \| Y^{N}\right) \leq H\left(X^{N}\right) \implies 0 \leq I\left(X^{N} \rightarrow Y^{N}\right) \leq I\left(X^{N} ; Y^{N}\right)$.</p>
-<p><strong>Prop II ( Chain Rule I )</strong>. $I\left(X^{N} Y^{N} \rightarrow Z^{N}\right) = I\left(X^{N} \rightarrow Z^{N}\right)+I\left(Y^{N} \rightarrow Z^{N} \| X^{N}\right) $</p>
-<p><strong>Prop III ( Chain Rule II )</strong>. $I\left(X^{N} \rightarrow Y^{N} Z^{N}\right) = I\left(X^{N} \rightarrow Y^{N} \| D Z^{N}\right) + I\left(X^{N} \rightarrow Z^{N} \| Y^{N}\right)$ where $D Z^{N}:= (0, Z_{1}, Z_{2}, \ldots, Z_{N-1})$.</p>
-<p>Here if removing $X^{N} \rightarrow$, <strong>Chain Rule II</strong> remains true, i.e. $H\left(Y^{N} Z^{N}\right) = H\left(Y^{N} \| D Z^{N}\right) + H\left(Z^{N} \| Y^{N}\right)$.</p>
-</blockquote>
-<p><strong>Proof.</strong> For the first:
-$$  H\left(X^{N} \mid Y^{N}\right)=\sum_{n=1}^{N} H\left(X_{n} \mid X^{n-1} Y^{N}\right) \leq  \sum_{n=1}^{N} H\left(X_{n} \mid X^{n-1} Y^{n}\right) = H\left(X^{N} \| Y^{N}\right). $$</p>
-<p>For the second:
-$$ I\left(X^{N} Y^{N} \rightarrow Z^{N}\right)= H\left(Z^{N}\right)-H\left(Z^{N} \| X^{N} Y^{N}\right)
-=  {\left[H\left(Z^{N}\right)-H\left(Z^{N} \| X^{N}\right)\right]+} {\left[H\left(Z^{N} \| X^{N}\right)-H\left(Z^{N} \| X^{N} Y^{N}\right)\right] . } $$</p>
-<p>For the third, simply observe that $ I\left(X^{n} ; Y_{n} Z_{n} \mid Y^{n-1} Z^{n-1}\right)=
-I\left(X^{n} ; Y_{n} \mid Y^{n-1} Z^{n-1}\right)+I\left(X^{n} ; Z_{n} \mid Y^{n} Z^{n-1}\right)$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>It's also natural to consider $I\left(X^{N} \rightarrow Y^{N}\right)+I\left(Y^{N} \rightarrow X^{N}\right)$.</p>
-<blockquote><p>$I\left(X^{N} ; Y^{N}\right) = I\left(X^{N} \rightarrow Y^{N}\right)+I\left( DY^N \rightarrow X^{N}\right) = I\left(X^{N} \rightarrow Y^{N}\right) + I\left(Y^{N} \rightarrow X^{N}\right)  - I\left( Y^N \rightarrow X^{N}|| DY^N \right)$.</p>
-</blockquote>
-<p>which can be seen via</p>
-$$ I\left(X^{N} ; Y^{N}\right) = \mathbf{E}\left[\log \frac{P\left(Y^{N}, X^{N}\right)}{P\left(Y^{N}\right) P\left(X^{N}\right)}\right] = \mathbf{E}\left[\log \frac{P\left(Y^{N} \| X^{N}\right) P\left(X^{N} \| Y^{N-1}\right)}{P\left(Y^{N}\right) P\left(X^{N}\right)}\right] = I\left(X^{N} \rightarrow Y^{N}\right)+I\left(\left\{0, Y^{N-1}\right\} \rightarrow X^{N}\right). $$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Analogue to  $|I(X ; Y)-I(X ; Y \mid S)| \leq H(S)$, we have $\left|I\left(X^{N} \rightarrow Y^{N}\right)-I\left(X^{N} \rightarrow Y^{N} \mid S\right)\right| \leq H(S) \leq \log |\mathcal{S}|$.</p>
-</blockquote>
-<p><strong>Proof.</strong> We have</p>
-$$\big|I\left(X^{N} \rightarrow Y^{N}\right)-I\left(X^{N} \rightarrow Y^{N}, S\right)\big| 
-= \big|\sum_{i=1}^{N} I\left(Y_{i} ; X^{i} \mid Y^{i-1}\right)-I\left(Y_{i} ; X^{i} \mid Y^{i-1}, S\right)\big| 
-= \big|\sum_{i=1}^{N} I\left(Y_{i} ; S \mid Y^{i-1}\right)-I\left(Y_{i} ; S \mid Y^{i-1}, X^{i}\right)\big|.
-$$<p>Then we have</p>
-$$ \big|\sum_{i=1}^{N} I\left(Y_{i} ; S \mid Y^{i-1}\right)-I\left(Y_{i} ; S \mid Y^{i-1}, X^{i}\right)\big| 
-\leq \max \left(I\left(Y^{N} ; S\right), I\left(Y^{N}, X_{2}^{N} ; S \mid X_{1}\right)\right) \leq  \max (H(S), H(S)) \leq \log |\mathcal{S}| .
-$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Observe that $P\left(x_{i} \mid x^{i-1}, z^{i-1}\right)= P\left(x^{i} \| z^{i-1}\right) \big/ P\left(x^{i-1} \| z^{i-2}\right)$, and we have</p>
-<blockquote><p>$P\left(x^{n-1} \| z^{n-2}\right)=\sum_{x_{n}} P\left(x^{n} \| z^{n-1}\right)$; and $P\left(x^{n} \| z^{n-1}\right)$ uniquely determines $P\left(x_{i} \mid x^{i-1}, z^{i-1}\right)$, $i \leq n$.</p>
-</blockquote>
-<p>Finally, we would like to add that if there is no feedback, namely $X_{i}-X^{i-1}-Y^{i-1}$, then $I\left(X^{n} \rightarrow Y^{n}\right)=I\left(X^{n} ; Y^{n}\right)$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-Finite-State-Channels">2. Finite State Channels<a class="anchor-link" href="#2.-Finite-State-Channels">&#182;</a></h3><p>Finite State Channels are described statistically by $P\left(y_{n}, s_{n} \mid x_{n}, s_{n-1}\right)$ s.t.</p>
-$$P\left(y_{i}, s_{i} \mid x^{i}, s^{i-1}, y^{i-1}, a_{e}^{i}, a_{d}^{i}, m\right)=P\left(y_{i}, s_{i} \mid x_{i}, s_{i-1}\right).$$<p>Recall basic properties of  <strong>Bayesian Network</strong> ( proved via $d$-separation ):</p>
-<blockquote><p><strong>Decomposition</strong>: $\big( \mathbf{X} \perp \mathbf{Y}, \mathbf{W} \mid \mathbf{Z} \big) \Longrightarrow \big(\mathbf{X} \perp \mathbf{Y} \mid \mathbf{Z} \big)$.</p>
-<p><strong>Weak union</strong>: $\big(\mathbf{X} \perp \mathbf{Y}, \mathbf{W} \mid \mathbf{Z}\big) \Longrightarrow \big(\mathbf{X} \perp \mathbf{Y} \mid \mathbf{Z}, \mathbf{W}\big)$.</p>
-<p><strong>Contraction</strong>: $\big(\mathbf{X} \perp \mathbf{W} \mid \mathbf{Z}, \mathbf{Y}\big)$ &amp; $\big(\mathbf{X} \perp \mathbf{Y} \mid \mathbf{Z}\big) \Longrightarrow \big(\mathbf{X} \perp \mathbf{Y}, \mathbf{W} \mid \mathbf{Z}\big)$.</p>
-<p><strong>Intersection</strong>: $\big(\mathbf{X} \perp \mathbf{Y} \mid \mathbf{Z}, \mathbf{W}\big)$ &amp; $\big(\mathbf{X} \perp \mathbf{W} \mid \mathbf{Z}, \mathbf{Y}\big) \Longrightarrow \big(\mathbf{X} \perp \mathbf{Y}, \mathbf{W} \mid \mathbf{Z}\big)$.</p>
-</blockquote>
-<p>Then we give the following framework:</p>
-<blockquote><p>Generate encoder action using $f_{A_{e, i}}: \mathcal{M} \times \mathcal{Z}^{i-1} \rightarrow \mathcal{A}_{e}$ where  $Z_{i} \in \mathcal{Z}$  is the sampled feedback component, i.e. $A_{e, i}=f_{A_{e, i}}\left(M, Z^{i-1}\right)$.</p>
-<p>Generate decoder action using $f_{A_{d, i}}: \mathcal{Y}^{i-1} \rightarrow \mathcal{A}_{d}$ where  $Y_{i} \in \mathcal{Y}$  is the channel output.</p>
-<p>Generates sampled feedback $Z_{i}=f\left(A_{e, i}, A_{d, i}, Y_{i}\right)$ where $f$ is determinstic.</p>
-<p>Construct channel input $X_{i}\left(M, Z^{i-1}\right)$ using the encoding function $f_{e, i}: \mathcal{M} \times \mathcal{Z}^{i-1} \rightarrow \mathcal{X}$; generate $\hat{M}\left(Y^{N}\right)$ using the decoding function $f_{d}: \mathcal{Y}^{N} \rightarrow \mathcal{M}$.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The joint probability distribution induced by a given scheme,</p>
-$$\begin{aligned}
-&amp; P_{M, A_{e}^{N}, A_{d}^{N}, Z^{N}, X^{N}, S_{0}^{N}, Y^{N}, \hat{M}}\big(m, a_{e}^{N}, a_{d}^{N}, z^{N}, x^{N}, s_{0}^{N}, y^{N}, \hat{m}\big) \\
-= &amp; \frac{1}{|\mathcal{M}|} P_{S}\big(s_{0}\big) \prod_{i=1}^{n} \mathbf{1}_{\big\{a_{d, i}=f_{A_{d, i}}(y^{i-1})\big\}\big.} \mathbf{1}_{\big\{a_{e, i}=f_{A_{e, i}}(m, z^{i-1})\big\}} \mathbf{1}_{\big\{x_{i}=f_{e, i}(m, z^{i-1})\big\}} P\big(y_{i}, s_{i} \mid x_{i}, s_{i-1}\big) \mathbf{1}_{\big\{z_{i}=f(a_{e, i}, a_{d, i}, y_{i})\big\}} \times \mathbf{1}_{\big\{\hat{m}=f_{d}(y^{n})\big\}}
-\end{aligned}$$<blockquote><p>A rate $R$  is <strong>achievable</strong> if $\exists$ a sequence of block codes  $\left(N,\left\lceil 2^{N R}\right\rceil\right)$  s.t.</p>
-$$\max _{m \in\left\{1, \cdots,\left\lceil 2^{N R}\right\rceil\right\}} P(\hat{m} \neq m \mid \text { message } m \text { was sent })$$<p></p>
-<p>vanishes as  $N \rightarrow \infty$. The capacity $C$ is the supremum of all achievable rates.</p>
-</blockquote>
-<p>Equivalently a rate $R$ is achieveable if $P_{e}^{N}\left(s_{0}\right) \rightarrow 0, \forall s_{0} \in \mathcal{S}$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>First we give proof of some Markov chains.</p>
-<p>Summing over  $\left(\hat{M}, X_{i+1}^{N}, Z_{i}^{N}, S_{i+1}^{N}, Y_{i+1}^{N}, A_{e, i+1}^{N}, A_{d, i+1}^{N}\right)$  in the given distribution scheme,</p>
-$$\begin{aligned}
-&amp; P_{M, A_{e}^{i}, A_{d}^{i}, Z^{i-1}, X^{i}, S_{0}^{i}, Y^{i}}\left(m, a_{e}^{i}, a_{d}^{i}, z^{i-1}, x^{i}, s_{0}^{i}, y^{i}\right) \\
-= &amp; \frac{1}{|\mathcal{M}|} \prod_{j=1}^{i} \mathbf{1}_{\big\{a_{d, j}=f_{A_{d, j}}(y^{j-1})\big\}} \mathbf{1}_{\big\{a_{e, j}=f_{A_{e, j}}(m, z^{j-1})\big\}} \mathbf{1}_{\big\{x_{j}=f_{e, j}(m, z^{j-1})\big\}} \times \prod_{j=1}^{i-1} 1_{\big\{z_{i}=f(a_{e, i}, a_{d, i}, y_{i})\big\}} \times \prod_{j=1}^{i} P\left(y_{j}, s_{j} \mid x_{j}, s_{j-1}\right) \times P_{S}\left(s_{0}\right) \\
-= &amp;  \Phi_{1}\left(M, A_{e}^{i}, A_{d}^{i}, Z^{i-1}, Y^{i-1}, X^{i}\right) \Phi_{2}\left(Y^{i}, S_{0}^{i}, X^{i}\right).\end{aligned}$$<p>It follows that</p>
-<blockquote><p>$\left(M, A_{e}^{i}, A_{d}^{i}, Z^{i-1}\right)-\left(Y^{i-1}, X^{i}, S_{0}\right)-\left(Y_{i}, S^{i}\right)$ is a Markov chain $\implies$ $Y_{i}-\left(X^{i}, Y^{i-1}, S_{0}\right)-\left(M, A_{e}^{i}, A_{d}^{i}\right)$ is a Markov chain.</p>
-</blockquote>
-<p>Similarly, sum over $\left(\hat{M}, X_{i+1}^{N}, Z_{i}^{N}, S_{i}^{N}, Y_{i}^{N}, A_{e, i+1}^{N}, A_{d, i}^{N}\right)$ and we have</p>
-<blockquote><p>$\left(M, X_{i}, A_{e, i}\right)-\left(X^{i-1}, A_{e}^{i-1}, Z^{i-1}\right)-\left(Y^{i-1}, S_{0}^{i-1}, A_{d}^{i-1}\right)$  $\implies$ $\left(X_{i}, A_{e, i}\right)-\left(X^{i-1}, A_{e}^{i-1}, Z^{i-1}\right)-\left(Y^{i-1}, A_{d}^{i-1}, S_{0}\right)$.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Sum over $\left(\hat{M}, X_{i+1}^{N}, Z_{i}^{N}, S_{i}^{N}, Y_{i}^{N}, A_{e, i+1}^{N}, A_{d, i+1}^{N}\right)$ and we have</p>
-<blockquote><p>$A_{d, i}-\left(Y^{i-1}, A_{d}^{i-1}\right)-\left(X^{i}, A_{e}^{i}, Z^{i-1}, S_{0}^{i-1}, M\right) \implies A_{d, i}-\left(Y^{i-1}, A_{d}^{i-1}\right)-\left(X^{i}, A_{e}^{i}, Z^{i-1}, S_{0}\right)$.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.-Capacity">3. Capacity<a class="anchor-link" href="#3.-Capacity">&#182;</a></h3><p>Given a constraint $\mathrm{E}\left[\Lambda\left(A_{e}^{N}, A_{d}^{N}\right)\right]=\mathrm{E}\left[\frac{1}{N} \sum_{i=1}^{N} \Lambda\left(A_{e, i}, A_{d, i}\right)\right] \leq \Gamma$ where  $\Lambda(\cdot, \cdot)$  is a given cost function, we define</p>
-<blockquote><p><strong>Def.</strong> Set $\underline{C}_{N}(\Gamma) := \frac{1}{N} \max \min _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)$ and $\bar{C}_{N}(\Gamma) := \frac{1}{N} \max \max _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right) $.</p>
-</blockquote>
-<p>Then we define $Q\left(x^{i}, a_{e}^{i} \mid x^{i-1}, a_{e}^{i-1}, z^{i-1}\right)$ and $Q\left(a_{d, i} \mid a_{d}^{i-1}, y^{i-1}\right)$ generating <strong>encoder code-trees</strong> and <strong>decoder action code-trees</strong> correspondingly where the Markov chains properties are used to see that these conditional probabilities are only dependent on these inputs.</p>
-<p>Specifically, 
-$$ P\left(x_{i}, a_{e, i} \mid x^{i-1}, a_{e}^{i-1}, a_{d}^{i-1}, y^{i-1}, s_{0}^{i}\right) = P\left(x_{i}, a_{e, i} \mid x^{i-1}, a_{e}^{i-1}, a_{d}^{i-1}, y^{i-1}, z^{i-1}, s_{0}^{i}\right) = Q\left(x_{i}, a_{e, i} \mid x^{i-1}, a_{e}^{i-1}, z^{i-1}\right) \quad  (1) $$</p>
-$$ P\left(a_{d, i} \mid a_{d}^{i-1}, y^{i-1}, x^{i}, a_{e}^{i}, s_{0}^{i}\right)=Q\left(a_{d, i} \mid a_{d}^{i-1}, y^{i-1}\right) \quad (2) $$<p>where we used $z_{i}=f\left(a_{e, i}, a_{d, i}, y_{i}\right)$ and some existing markov chains.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Note that</p>
-<blockquote><p>$P\left(s_{0}, x^{N}, a_{e}^{N}, a_{d}^{N}, y^{N}\right)=P\left(s_{0}\right) Q\left(x^{N}, a_{e}^{N} \| z^{N-1}\right) Q\left(a_{d}^{N} \| y^{N-1}\right) P\left(y^{N} \| x^{N}, s_{0}\right)$.</p>
-</blockquote>
-<p>It can be seen via</p>
-$$ \begin{aligned} 
-P\left(s^N, x^{N}, a_{e}^{N}, a_{d}^{N}, y^{N}\right) &amp; = P\left(s_{0}\right) Q\left(x^{N}, a_{e}^{N}, a_{d}^{N} \| y^{N-1}, s_{0}\right) P\left(y^{N}, s^{N} \| x^{N}, a_{e}^{N}, a_{d}^{N}, s_{0}\right) \\
-&amp; = P\left(s_{0}\right) Q\left(x^{N}, a_{e}^{N} \| z^{N-1}\right) Q\left(a_{d}^{N} \| y^{N-1}\right) \prod_{i=1}^{N} P\left(y_{i}, s_{i} \mid x_{i}, s_{i-1}\right)
-\end{aligned} $$<p>It follows that</p>
-$$ P\left(s_{0}^{N}, x^{N}, a_{e}^{N}, a_{d}^{N}, y^{N}\right)=P\left(s_{0}\right) Q\left(x^{N}, a_{e}^{N} \| z^{N-1}\right) Q\left(a_{d}^{N} \| y^{N-1}\right) P\left(y^{N} \| x^{N}, s_{0}\right). $$<p>where (1), (2), and the following equations are used.</p>
-<blockquote><p>$P\left(y^{N}, s_1^N \| x^{N}, a_{e}^{N}, a_{d}^{N}, s_{0}\right)=P\left(y^{N}, s_1^N \| x^{N}, s_{0}\right)$ and $P\left(y^{N}, s_1^N \| x^{N}, a_{e}^{N}, a_{d}^{N}\right)=P\left(y^{N}, s_1^N \| x^{N}\right)$.</p>
-<p>$ P\left(y^{N}, s_{0}^{N}, x^{N}\right)=P\left(s_{0}\right) Q\left(x^{N}|| z^{N-1}\right) \prod_{i=1}^{N} P\left(y_{i}, s_{i} \mid x_{i}, s_{i-1}\right) \implies P\left(y^{N} \| x^{N}, s_{0}\right) = \sum_{s^{N}} \prod_{i=1}^{N} P\left(y_{i}, s_{i} \mid x_{i}, s_{i-1}\right). $</p>
-<p>$ P\left(y^{N}, s_{0}^{N}, x^{N}\right)=P\left(s_{0}\right) Q\left(x^{N}|| z^{N-1}\right) \prod_{i=1}^{N} P\left(y_{i}, s_{i} \mid x_{i}, s_{i-1}\right) \implies P\left(y^{N} \| x^{N}\right) = \sum_{s_{0}^{N}}\left(\prod_{i=1}^{N} P\left(y_{i}, s_{i} \mid x_{i}, s_{i-1}\right)\right) P\left(s_{0}\right) $.</p>
-</blockquote>
-<p>Specially, we have</p>
-<blockquote><p>$ P\left(y^{N} \| x^{N}\right)  = \sum_{s_{0}} P\left(y^{N} \| x^{N}, s_{0}\right) P\left(s_{0}\right) $.</p>
-<p>$  P\left(x^{N}, y^{N}\right)=Q\left(x^{N} \| z^{N-1}\right) P\left(y^{N} \| x^{N}\right) $.</p>
-</blockquote>
-<p>For decoding, we assume the message  $m$  The decoder performs ML decoding, i.e.  $P\left(y^{N} \mid m\right)$  is maximized.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Since</p>
-$$ P\left(y^{N} \mid m\right) = \prod_{i=1}^{N} P\left(y_{i} \mid y^{i-1}, m\right) = \prod_{i=1}^{N} P\left(y_{i} \mid y^{i-1}, a_{d}^{i}\left(y^{i-1}\right), m, x^{i}\left(m, z^{i-1}\right), a_{e}^{i}\left(m . z^{i-1}\right)\right) = P\left(y^{N} \| x^{N}, a_{e}^{N}, a_{d}^{N}\right) = P\left(y^{N} \| x^{N}\right),
-$$<p>where the second equality follows from the fact that knowing $m$ and $y^{i-1}$ would deduce that we know $\left(x^{i}, a_{e}^{i}, a_{d}^{i}\right)$,</p>
-<blockquote><p>$\hat{m}=\underset{m}{\operatorname{argmax}} P\left(y^{N} \mid m\right)$ = the $m$ corresponding to $\underset{x^{N}}{\operatorname{argmax}} P\left(y^{N} \| x^{N}\right)$.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>( <strong>Fano's Inequality</strong> )  $ H(X \mid Y) \leq 1 + P_e \log (|\mathcal{X}|-1) $.</p>
-<p><strong>Lemma I.</strong> $\forall  \epsilon_{N}&gt;0$, $\exists N_{0}$,  s.t. $\forall N&gt;N_{0}$  we have $R \leq \bar{C}_{N}(\Gamma)+\epsilon_{N}$.</p>
-</blockquote>
-<p>Proof: Let a message  $m $ is chosen uniformly with probability  $2^{-N R}$. Observe that</p>
-$$\begin{aligned}
-N R &amp; = H(M) = H\left(M \mid S_{0}\right) \leq I\left(M ; Y^{N} \mid S_{0}\right)+ H\left(M \mid Y^{N}\right) \leq  I\left(M ; Y^{N} \mid S_{0}\right)+1+P_{e}^{(N)} N R \\
-&amp; = \sum_{i=1}^{N} H\left(Y_{i} \mid Y^{i-1}, S_{0}\right)-H\left(Y_{i} \mid Y^{i-1}, X^{i}, A_{e}^{i}, A_{d}^{i}, M, S_{0}\right)+1+P_{e}^{(N)} N R \\
-&amp; = \sum_{i=1}^{N} H\left(Y_{i} \mid Y^{i-1}, S_{0}\right)-H\left(Y_{i} \mid Y^{i-1}, X^{i}, S_{0}\right)+1+P_{e}^{(N)} N R = \sum_{i=1}^{N} I\left(X^{i} ; Y_{i} \mid Y^{i-1}, S_{0}\right)+1+P_{e}^{(N)} N R \\
-&amp; =I\left(X^{N} \rightarrow Y^{N} \mid S_{0}\right)+1+P_{e}^{(N)} N R \leq \max _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)+1+P_{e}^{(N)} N R \leq \max \max _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)+1+P_{e}^{(N)} N R \\
-&amp; =N \bar{C}_{N}(\Gamma)+1+P_{e}^{(N)} N R. \end{aligned}$$<blockquote><p><strong>Lemma II.</strong> The capacity $ C = \underline{C}_{N}$.</p>
-</blockquote>
-<p><strong>Proof.</strong> Let a message  $m $ is chosen uniformly with probability  $2^{-N R}$. Observe that</p>
-$$\begin{aligned}
-N R &amp; = H(M) =  H\left(M \mid s_{0}\right) = I\left(M ; Y^{N} \mid s_{0}\right)+H\left(M \mid Y^{N}, s_{0}\right) \leq I\left(M ; Y^{N} \mid s_{0}\right)+1+P_{e}^{(N)}\left(s_{0}\right) N R \\
-&amp; = \sum_{i=1}^{N} H\left(Y_{i} \mid Y^{i-1}, s_{0}\right)-H\left(Y_{i} \mid Y^{i-1}, X^{i}, A_{e}^{i}, A_{d}^{i}, M, s_{0}\right)+1+P_{e}^{(N)}\left(s_{0}\right) N R \\
-&amp; = \sum_{i=1}^{N} H\left(Y_{i} \mid Y^{i-1}, s_{0}\right)-H\left(Y_{i} \mid Y^{i-1}, X^{i}, s_{0}\right)+1+P_{e}^{(N)}\left(s_{0}\right) N R \\
-&amp; =\sum_{i=1}^{N} I\left(X^{i} ; Y_{i} \mid Y^{i-1}, s_{0}\right)+1+P_{e}^{(N)}\left(s_{0}\right) N R = I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)+1+P_{e}^{(N)} N R \leq \min _{s_{0}}\left[I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)+1+P_{e}^{(N)}\left(s_{0}\right) N R\right].
-\end{aligned}$$<p>Since $P_{e}^{N}\left(s_{0}\right) \rightarrow 0, \forall s_{0} \in \mathcal{S}$, we arrive at the conclusion if we can show $\underline{C}_{N}$ can be achieved.</p>
-<blockquote><p>The distribution $Q\left(x^{N}, a_{e}^{N} \| z^{N-1}\right) Q\left(a_{d}^{N} \| y^{N-1}\right)$ can achieve $\underline{C}_{N}$.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>It then suffices to show that</p>
-<blockquote>$$\lim _{N \rightarrow \infty} \underline{C}_{N}(\Gamma)=\sup _{N}\left[\underline{C}_{N}(\Gamma)-\frac{\log |\mathcal{S}|}{N}\right] .$$
-</blockquote>
-<p>Let  $N=n+l, n, l \in \mathbf{Z}^{+}$ and assume that  $\underline{C}_{n}(\Gamma)$  and  $\underline{C}_{l}(\Gamma)$  are achieved by  $Q\left(x^{n}, a_{e}^{n} \| z^{n-1}\right) Q\left(a_{d}^{n} \| y^{n-1}\right)$  and  $Q\left(x^{l}, a_{e}^{l} \| z^{l-1}\right) Q\left(a_{d}^{l} \| y^{l-1}\right)$  respectively. FOr $N$, we consider the probability assignment</p>
-$$Q\left(x^{n}, a_{e}^{n} \| z^{n-1}\right) Q\left(a_{d}^{n} \| y^{n-1}\right) \cdot Q\left(x^{l}, a_{e}^{l} \| z^{l-1}\right) Q\left(a_{d}^{l} \| y^{l-1}\right).$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We already know that</p>
+$$\lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N}|| y^{N-1}\right)} \max _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right) \geq C_{F B} \geq \lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N}|| y^{N-1}\right)} \min _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right).$$<p>A unifilar  FSC  is one FSC with $p\left(y_{t}, s_{t} \mid x_{t}, s_{t-1}\right)$ s.t. $s_{t}=f\left(s_{t-1}, x_{t}, y_{t}\right)$. We also assume</p>
+$$ \text{ The initial state is known both to the decoder and to the encoder.} \implies \text{ The encoder knows the state of the channel at any time $t$. } $$<p>For this, simply set $Y_{0}=S_{0}$ and $X_0$ arbitrarily.</p>
 <p>Then we have</p>
+$$ I\left(X_{0}^{N} \rightarrow Y_{0}^{N} \mid s_{0}\right)=I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)\quad \text{ and } \quad p\left(x_{0}^{N} \|\left\{s_{0}, y^{N-1}\right\}\right)=p\left(x^{N} \| y^{N-1}, s_{0}\right), $$<p>which follows that the capacity of a channel with feedback for which $s_0$ is known both at the encoder and the decoder  satisfies</p>
+$$ \lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} \max _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right) \geq C_{F B} \geq \lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} \min _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right). $$<p>For strongly connected FSC, we surprisingly have</p>
+<blockquote><p><strong>Def.</strong> A FSC is <strong>strongly connected</strong> if for any state  $s$  there exists an integer  $T$  and an input distribution of the form  $\left\{p\left(x_{t} \mid s_{t-1}\right)\right\}_{t=1}^{T}$  s.t.</p>
+$$\sum_{t=1}^{T} P\left(S_{t}=s \mid S_{0}=s^{\prime}\right)&gt;0, \quad \forall s \in \mathcal{S}, \forall s^{\prime} \in \mathcal{S}.$$<p><strong>Thm I.</strong> If the FSC is strongly connected, then $\forall p_{1}\left(x^{N} \| y^{N-1}, s_{0}\right)$  and  $s_{0}^{\prime}$, $\exists$  $p_{2}\left(x^{N} \| y^{N-1}, s_{0}^{\prime}\right)$ s.t.</p>
+$$ \frac{1}{N}\left|I_{p_{1}}\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)-I_{p_{2}}\left(X^{N} \rightarrow Y^{N} \mid s_{0}^{\prime}\right)\right| \leq \frac{c}{N} $$
+</blockquote>
+<p><strong>Proof.</strong> Construct  $p_{2}\left(x^{N} \| y^{N}, s_{0}^{\prime}\right)$  as follows. Use an input distribution, which has a positive probability of reaching  $s_{0}$  within  $T$  time epochs. Denote the first time that the state of the channel equals  $s_{0}$  by  $L$. For $t&gt;L$, let $p_{2}\left(x_{t} \mid x^{t-1}, y^{t-1}, s_{0}\right)=   p_{1}\left(x_{t-L} \mid x^{t-L-1}, y^{t-L-1}, s_{0}\right)$. Then</p>
 $$\begin{aligned}
-N \underline{C}_{N}  &amp; \geq \min _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right) \geq \min _{s_{0}} \sum_{i=1}^{n} I\left(Y_{i} ; X^{i} \mid Y^{i-1}, s_{0}\right)+\min _{s_{0}} \sum_{j=n+1}^{n+l} I\left(Y_{j} ; X^{j} \mid Y^{j-1}, s_{0}\right) \\
-&amp; \geq n \underline{C}_{n}+\min _{s_{0}} \sum_{j=n+1}^{n+l} I\left(Y_{j} ; X_{n+1}^{j} \mid Y^{j-1}, s_{0}\right) \\
-&amp; \geq n \underline{C}_{n}+\min _{s_{0}} \sum_{j=n+1}^{n+l} I\left(Y_{j} ; X_{n+1}^{j} \mid Y^{j-1}, S_{n}, s_{0}\right)-\log |\mathcal{S}| \\
-&amp; \geq n \underline{C}_{n}+\min _{s_{0}} \min _{s_{n}} \sum_{j=n+1}^{n+l} I\left(Y_{j} ; X_{n+1}^{j} \mid Y^{j-1}, s_{n}, s_{0}\right)-\log |\mathcal{S}| \\
-&amp; = n \underline{C}_{n}+\min _{s_{n}} \sum_{j=n+1}^{n+l} I\left(Y_{j} ; X_{n+1}^{j} \mid Y_{n+1}^{j-1}, s_{n}\right)-\log |\mathcal{S}| = n \underline{C}_{n}+l \underline{C}_{l}-\log |\mathcal{S}| .
+&amp; \frac{1}{N}\left|I_{p_{1}}\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)-I_{p_{2}}\left(X^{N} \rightarrow Y^{N} \mid s_{0}^{\prime}\right)\right| \\
+\leq &amp;  \frac{1}{N}\left|I_{p_{1}}\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)-I_{p_{2}}\left(X^{N} \rightarrow Y^{N} \mid L, s_{0}^{\prime}\right)\right|+\frac{1}{N} H(L) \\
+= &amp; \frac{1}{N}\left|\sum_{l=1}^{\infty} p(L=l) I_{p_{1}}\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)-\sum_{l=1}^{\infty} p(L=l)\left(I_{p_{2}}\left(X_{l}^{N} \rightarrow Y_{l}^{N} \mid s_{l}\right)+I_{p_{2}}\left(X^{l} \rightarrow Y^{l} \mid s_{l}, s_{0}^{\prime}\right)\right)\right|+\frac{1}{N} H(L) \\
+\leq &amp; \frac{1}{N}\left|\sum_{l=1}^{\infty} p(L=l) I_{p_{1}}\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)-\sum_{l=1}^{\infty} p(L=l) I_{p_{2}}\left(X_{l}^{N} \rightarrow Y_{l}^{N} \mid s_{l}\right)\right| +\frac{1}{N}\left|\sum_{l=1}^{\infty} p(L=l) I_{p_{2}}\left(X^{l} \rightarrow Y^{l} \mid s_{l}, s_{0}^{\prime}\right)\right|+\frac{1}{N} H(L) \\
+\leq &amp; \frac{2}{N} \sum_{l=1}^{\infty} p(L=l) \log |\mathcal{Y}|^l +\frac{1}{N} H(L) = \frac{1}{N}(\log |\mathcal{Y}| \mathbb{E}[L]+H(L)).
 \end{aligned}$$
 </div>
 </div>
@@ -14927,7 +14645,129 @@ N \underline{C}_{N}  &amp; \geq \min _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mi
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>By using the convergence of a super additive sequence, the theorem is proved.</p>
+<p>We already have</p>
+$$ \lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} I\left(X^{N} \rightarrow Y^{N} \mid S_{0}\right) = \lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} \sum_{s_{0}} p\left(s_{0}\right) I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right) = \lim _{N \rightarrow \infty} \frac{1}{N} \sum_{s_{0}} p\left(s_{0}\right) \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right).$$<p>Then use <strong>Thm I</strong> to get</p>
+$$\begin{aligned}
+\lim _{N \rightarrow \infty} \frac{1}{N} \sum_{s_{0}} p\left(s_{0}\right) \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right) = &amp; \lim _{N \rightarrow \infty} \frac{1}{N} \min _{s_{0}} \bigg/ \max_{s_{0}}  \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right) \\
+= &amp; \lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} \min _{s_{0}} \bigg/ \max_{s_{0}}I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right) .
+\end{aligned}$$<p>The last equality follows from the observation that $p^{*}\left(x^{N} \| y^{N-1}, s_{0}\right)$ which achieves $\max _{p\left(x^{N}|| y^{N-1}, s_{0}\right)} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)$ equals $\arg \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)$. Therefore,</p>
+<blockquote><p>For <strong>strongly connected unifilar FSC</strong>,</p>
+$$ \lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} I\left(X^{N} \rightarrow Y^{N} \mid S_{0}\right) = \lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} \min _{s_{0}} \bigg/ \max_{s_{0}}I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right) .$$
+</blockquote>
+<p>From we have obtained, for <strong>strongly connected unifilar FSC</strong></p>
+$$ \begin{aligned}
+C_{F B} &amp; = \lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} \min _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right) = \lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} I\left(X^{N} \rightarrow Y^{N} \mid S_{0}\right) \\
+&amp; =\lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N} \| y^{N-1}, s_{0}\right)} \sum_{t=1}^{N} I\left(X_{t}, S_{t-1} ; Y_{t} \mid Y^{t-1}\right)  = \lim _{N \rightarrow \infty} \frac{1}{N} \max _{\left\{p\left(x_{t} \mid s_{t-1}, y^{t-1}\right)\right\}_{t=1}^{N}} \sum_{t=1}^{N} I\left(X_{t}, S_{t-1} ; Y_{t} \mid Y^{t-1}\right) .
+\end{aligned} $$<p>Finally, we have proved</p>
+<blockquote><p>For <strong>strongly connected unifilar FSC</strong>,</p>
+$$C_{F B}=\lim _{N \rightarrow \infty} \frac{1}{N} \max _{\left\{p\left(x_{t} \mid s_{t-1}, y^{t-1}\right)\right\}_{t=1}^{N}} \sum_{t=1}^{N} I\left(X_{t}, S_{t-1} ; Y_{t} \mid Y^{t-1}\right).$$
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In the proof we have used some facts below.</p>
+<blockquote><p><strong>Prop I.</strong> $$ I\left(X^{N} \rightarrow Y^{N} \mid S_{0}\right) = \sum_{t=1}^{N} I\left(S_{t-1}, X_{t} ; Y_{t} \mid Y^{t-1}, S_{0}\right). $$</p>
+<p><strong>Prop II.</strong>  $p_{1}\left(x_{t} \mid x^{t-1}, y^{t-1}, s_{0}\right)$  and  $p_{2}\left(x_{t} \mid x^{t-1}, y^{t-1}, s_{0}\right)$ induces the same $p\left(x_{t} \mid s_{t-1}, y^{t-1}\right)$ $\implies$  $p\left(s_{t-1}, x_{t}, y^{t}\right)$  are equal under both inputs.</p>
+</blockquote>
+<p><strong>Proof.</strong> For the first observe that</p>
+$$ I\left(X^{N} \rightarrow Y^{N} \mid S_{0}\right) = \sum_{t=1}^{N} H\left(Y_{t} \mid Y^{t-1}, S_{0}\right)-H\left(Y_{t} \mid X^{t}, Y^{t-1}, S_{0}, S^{t-1}\left(X^{t}, Y^{t-1}, S_{0}\right)\right) = \sum_{t=1}^{N} I\left(S_{t-1}, X_{t} ; Y_{t} \mid Y^{t-1}, S_{0}\right).
+$$<p>For the second, use induction and observe that</p>
+$$p\left(s_{t}, x_{t+1}, y^{t+1}\right)=p\left(s_{t}, y^{t}\right) p\left(x_{t+1} \mid s_{t}, y^{t}\right) p\left(y_{t+1} \mid x_{t+1}, s_{t}\right).$$<hr>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="2.-DP-Formulation">2. DP Formulation<a class="anchor-link" href="#2.-DP-Formulation">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We shall use the observation below</p>
+<blockquote><p><strong>Observation I.</strong> For any FSC the following equality holds:</p>
+$$\lim _{N \rightarrow \infty} \frac{1}{N} \max _{p\left(x^{N}|| y^{N-1}, s_{0}\right)} \min _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right)=\sup _{\left\{P\left(x_{t} \mid y^{t-1}, x^{t-1}, s_{0}\right)\right\}_{t \geq 1}} \liminf _{N \rightarrow \infty} \frac{1}{N} \min _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mid s_{0}\right) .$$<p>In particular, for a strongly connected unifilar FSC</p>
+$$\lim _{N \rightarrow \infty} \frac{1}{N} \max _{\left\{p\left(x_{t} \mid s_{t-1}, y^{t-1}\right)\right\}_{t=1}^{N}} \sum_{t=1}^{N} I\left(X_{t}, S_{t-1} ; Y_{t} \mid Y^{t-1}\right)=\sup _{\left\{p\left(x_{t} \mid s_{t-1}, y^{t-1}\right)\right\}_{t \geq 1}} \liminf _{N \rightarrow \infty} \frac{1}{N} \sum_{t=1}^{N} I\left(X_{t}, S_{t-1} ; Y_{t} \mid Y^{t-1}\right).$$
+</blockquote>
+<p>A discrete-time dynamic system evolving according to</p>
+<blockquote><p>$z_{t}=F\left(z_{t-1}, u_{t}, w_{t}\right)$ where each state  $z_{t}$  takes values in a Borel space  $\mathcal{Z}$, each action  $u_{t}$  takes values in a compact subset  $\mathcal{U}$  of a Borel space, and each disturbance  $w_{t}$ is drawn from $P_{w}\left(\cdot \mid z_{t-1}, u_{t}\right)$.</p>
+</blockquote>
+<p>The history $h_{t}=\left(z_{0}, w_{0}, \ldots, w_{t-1}\right)$ summarizes information available prior to $u_t$.</p>
+<blockquote><p>A policy is $\pi=\left\{\mu_{1}, \mu_{2}, \ldots\right\}$ where $u_{t}=\mu_{t}\left(h_{t}\right)$. A policy  $\pi$  is stationary if $\mu_{t}\left(h_{t}\right)=\mu\left(z_{t-1}\right)$, $\forall  t$  and  $h_{t}$.</p>
+<p>Correspondingly, the average reward and the optimal award is defined as</p>
+$$\rho_{\pi}=\liminf _{N \rightarrow \infty} \frac{1}{N} \mathbb{E}_{\pi}\left\{\sum_{t=0}^{N-1} g\left(Z_{t}, \mu_{t+1}\left(h_{t+1}\right)\right)\right\} \quad \text{ and } \quad \rho^{*}=\sup _{\pi} \rho_{\pi} .$$
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Define the state $z_t = \beta_{t}$ where $ \beta_{t}\left(s_{t}\right) := p\left(s_{t} \mid y^{t}\right)$ is the $|\mathcal{S}|$-dimensional vector at time $t$, the distubance $w_t=y_t$, and the action $u_{t}\left(s_{t-1}, x_{t}\right) = p\left(x_{t} \mid s_{t-1}, y^{t-1}\right)$.</p>
+<p>Then the policy satisfies $\mu_t( z_0, y_1, y_2, ..., y_{t-1}) = u_{t}\left(s_{t-1}, x_{t}\right)$. One finds that</p>
+$$\begin{aligned}
+\beta_{t}\left(s_{t}\right) = p\left(s_{t} \mid y^{t}\right) = \sum_{x_{t}, s_{t-1}} \frac{p\left(s_{t}, s_{t-1}, x_{t}, y_{t} \mid y^{t-1}\right)}{p\left(y_{t} \mid y^{t-1}\right)} &amp; = \sum_{x_{t}, s_{t-1}} \frac{p\left(s_{t-1} \mid y^{t-1}\right) p\left(x_{t} \mid s_{t-1}, y^{t-1}\right) p\left(y_{t} \mid s_{t-1}, x_{t}\right) p\left(s_{t} \mid s_{t-1}, x_{t}, y_{t}\right)}{p\left(y_{t} \mid y^{t-1}\right)} \\
+&amp; =\frac{\sum_{x_{t}, s_{t-1}} \beta_{t-1}\left(s_{t-1}\right) p\left(x_{t} \mid s_{t-1}, y^{t-1}\right) p\left(y_{t} \mid s_{t-1}, x_{t}\right) p\left(s_{t} \mid s_{t-1}, x_{t}, y_{t}\right)}{\sum_{x_{t}, s_{t}, s_{t-1}} \beta_{t-1}\left(s_{t-1}\right) p\left(x_{t} \mid s_{t-1}, y^{t-1}\right) p\left(y_{t} \mid s_{t-1}, x_{t}\right) p\left(s_{t} \mid s_{t-1}, x_{t}, y_{t}\right)} \\
+&amp; =\frac{\sum_{x_{t}, s_{t-1}} \beta_{t-1}\left(s_{t-1}\right) u_{t}\left(s_{t-1}, x_{t}\right) p\left(y_{t} \mid s_{t-1}, x_{t}\right) \mathbf{1}\left(s_{t}=f\left(s_{t-1}, x_{t}, y_{t}\right)\right)}{\sum_{x_{t}, s_{t}, s_{t-1}} \beta_{t-1}\left(s_{t-1}\right) u_{t}\left(s_{t-1}, x_{t}\right) p\left(y_{t} \mid s_{t-1}, x_{t}\right) \mathbf{1}\left(s_{t}=f\left(s_{t-1}, x_{t}, y_{t}\right)\right)}
+\end{aligned}$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p><strong>Thm I.</strong> $\exists$ a function $F$ s.t. $z_{t}=F\left(z_{t-1}, u_{t}, w_{t}\right)$.</p>
+<p><strong>Thm II.</strong> $C_{FB}$ can be expressed as the optimal average reward.</p>
+</blockquote>
+<p><strong>Proof.</strong> For the first, $\beta_{t} $ is determined by  $\beta_{t-1}$, $u_{t}$, and  $y_{t}$ as is seen above. For the second, consider</p>
+$$\begin{aligned}
+g\left(z_{t-1}, u_{t}\right) = p\left(x_{t}, y_{t}, s_{t-1} \mid y^{t-1}\right) &amp; =p\left(s_{t-1} \mid y^{t-1}\right) p\left(x_{t} \mid s_{t-1}, y^{t-1}\right) p\left(y_{t} \mid x_{t}, s_{t-1}\right) \\
+&amp; =\beta_{t-1}\left(s_{t-1}\right) u_{t}\left(s_{t-1}, x_{t}\right) p\left(y_{t} \mid x_{t}, s_{t-1}\right)
+\end{aligned}$$<p>which depends only on $\beta_{t-1}$ and $u_{t}$. Hence, $$ \rho^{*}=\sup _{\pi} \liminf _{N \rightarrow \infty} \frac{1}{N} \mathbb{E}_{\pi}\left[\sum_{t=1}^{N} I\left(X_{t}, S_{t-1} ; Y_{t} \mid Y^{t-1}\right)\right]=C_{F B}
+$$</p>
+<p>where <strong>observation I</strong> is used.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Remark that here we allow the state to be determined by the previous outputs and inputs.</p>
+<blockquote><p><strong>Cor I.</strong> when $Y_i = S_i$ and some capacity-achieving policy $\pi^*$ is s.t. $\mu^*_t(z_0, y^{t}_{1}) = \mu^*_t(z_0, \hat{y}_1^t)$ for any $y_1^t$, $\hat{y}_1^t$, then feedback doesn't increase the capacity.</p>
+</blockquote>
 
 </div>
 </div>
@@ -14946,6 +14786,11 @@ N \underline{C}_{N}  &amp; \geq \min _{s_{0}} I\left(X^{N} \rightarrow Y^{N} \mi
 <li>Gerhard Kramer. Directed Information for Channels with Feedback.</li>
 <li>Haim Henry Permuter. Finite State Channels With Time-Invariant Deterministic Feedback.</li>
 <li>Haim Henry Permuter. To Feed or Not to Feed Back.</li>
+<li>Bashar Huleihel. Computable Upper Bounds on the Capacity of Finite-State Channels.</li>
+<li>Bashar Huleihel. Capacity of Finite-State Channels with Delayed Feedback.</li>
+<li>Eli Shemuel. Finite-State Channels with Feedback and State Known at the Encoder.</li>
+<li>Andrea Grigorescu. Capacity of Finite State Channels with Feedback: Algorithmic and Optimization Theoretic Properties.</li>
+<li>Capacity of the Trapdoor Channel with Feedback.</li>
 </ol>
 
 </div>
