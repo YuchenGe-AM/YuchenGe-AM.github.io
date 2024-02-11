@@ -14665,7 +14665,55 @@ n \\
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-Lov%C3%A1sz-local-lemma">2. Lov&#225;sz local lemma<a class="anchor-link" href="#2.-Lov%C3%A1sz-local-lemma">&#182;</a></h3>
+<h3 id="2.-Application:-Arithmetic-progressions">2. Application: Arithmetic progressions<a class="anchor-link" href="#2.-Application:-Arithmetic-progressions">&#182;</a></h3><p>We consider a second example. Let $\Phi(n, k)$ be the number of $k$-term arithmetic progressions contained in $\{1,2, \ldots, n\}$. Note that</p>
+$$\Phi(n, k)=\sum_{b=1}^{\left\lfloor\frac{n-1}{k-1}\right\rfloor} n-(k-1) b \leq \sum_{b=1}^{\left\lfloor\frac{n-1}{k-1}\right\rfloor} n \leq \sum_{b=1}^{n} n=n^{2}.$$<p>This gives  $\Phi(n, k)=O\left(n^{2}\right)$. We also have</p>
+$$\Phi(n, k)=\sum_{b=1}^{\left\lfloor\frac{n-1}{k-1}\right\rfloor} n-(k-1) b \geq \sum_{b=1}^{\left\lfloor\frac{1}{2} \cdot \frac{n-1}{k-1}\right\rfloor} n-\left\lfloor\frac{1}{2} \cdot(n-1)\right\rfloor \geq \sum_{b=1}^{\left\lfloor\frac{1}{2} \cdot \frac{n-1}{k-1}\right\rfloor} \frac{n}{2} \geq c(k) n^{2}.$$<p>Therefore, we have the following estimation.</p>
+<blockquote><p>$\Phi(n, k)=\Theta\left(n^{2}\right)$ for fixed $k$.</p>
+</blockquote>
+<p>Then we select a random subset $S \text { from }\{1,2, \ldots, n\}$ by including each element with probability
+$p$. For an arithmetic progression $A$, $\mathbb{P}(A \subseteq S)=p^{k}$  where $|A|=k$. Let  $Y_{i}$  be the corresponding indicator, and then $X=\sum_{i} Y_{i}$ is the number of  $k$-term arithmetic progressions in $S$. Then we have $\mathbb{E}(X)=\Phi(n, k) \cdot p^{k}=\Theta\left(n^{2} p^{k}\right)$.</p>
+<p>If  $p \ll n^{-2 / k}$  then  $\mathbb{E}(X) \rightarrow 0$, which by the first moment method implies that  $\mathbb{P}(X=0) \rightarrow 1$. If  $p \gg n^{-2 / k}$, to show $\mathbb{E}(X) \rightarrow 0$ we need that  $\operatorname{var}(X) \ll \mathbb{E}(X)^{2}$. We have</p>
+$$\operatorname{var}(X)=\sum_{i=1}^{\Phi(n, k)} \operatorname{var}\left(Y_{i}\right)+\sum_{i \neq j, i, j \in\{1, \ldots, \Phi(n, k)\}} \operatorname{cov}\left(Y_{i} Y_{j}\right)$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>and $\operatorname{var}\left(Y_{i}\right)=p^{k}\left(1-p^{k}\right) \leq p^{k}$, which gives $\sum_{i=1}^{\Phi(n, k)} \operatorname{var}\left(Y_{i}\right)=O\left(n^{2} p^{k}\right)$.</p>
+<p>For the covariances, note that</p>
+<blockquote><p>Two arithmetic progressions  $A_{i}$  and  $A_{j}$  have no elements in common, we have $\operatorname{cov}\left(Y_{i}, Y_{j}\right)=0$.</p>
+<p>If  $A_{i}$  and  $A_{j}$  overlap in exactly one element, we have  $\operatorname{cov}\left(Y_{i}, Y_{j}\right)=   O\left(p^{2 k-1}\right)$, the number of which  is $O\left(n^{3}\right)$.</p>
+<p>If  $A_{i}$  and  $A_{j}$  overlap in more than one element, we have  $\operatorname{cov}\left(Y_{i}, Y_{j}\right)=O\left(p^{2k-2}\right)$, the number of which  is $O\left(n^{2}\right)$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let $p=\omega(n) n^{-2 / k} $ for some $\omega(n) \rightarrow \infty$. Then $\operatorname{var}(X)=O\left(\omega(n)^{2 k-1}\right) \ll \Theta\left(\omega(n)^{2k}\right) = \mathbb{E}(X)^{2} $.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="3.-Lov%C3%A1sz-local-lemma">3. Lov&#225;sz local lemma<a class="anchor-link" href="#3.-Lov%C3%A1sz-local-lemma">&#182;</a></h3>
 </div>
 </div>
 </div>
