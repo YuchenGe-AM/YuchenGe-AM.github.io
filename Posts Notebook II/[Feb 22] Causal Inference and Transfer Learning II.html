@@ -14766,7 +14766,7 @@ $$X_{t}^{n}=n \int_{t-1 / n}^{t} I \left\{\left|X_{s \vee 0}\right| \leq n\right
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><strong>Proof.</strong> Only 3 requires non-trivial approximation argument. It's known that from [Limit Theorems for Stochastic Processes, P16] that</p>
-<blockquote><p>If $h$ is predictable, $h_{t}$ is $\mathscr{F}_{t-}$-measurable.</p>
+<blockquote><p>If $h$ is predictable, $h_{t}$ is $\mathcal{F}_{t-}$-measurable.</p>
 </blockquote>
 <p>It suffices $E\left[d X_{t} \mid \mathcal{F}_{t-}\right]=0$. From $d X_{t}=h_{t} d M_{t}$, so</p>
 $$E\left[d X_{t} \mid \mathcal{F}_{t-}\right]=E\left[h_{t} d M_{t} \mid \mathcal{F}_{t-}\right]=h_{t} E\left[d M_{t} \mid \mathcal{F}_{t-}\right]=0.
@@ -15173,7 +15173,7 @@ $$\lambda^{*}(t)=\mathrm{e}^{-\beta t}\left(\lambda_{0}-\lambda\right)+\lambda+\
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Note that $N_{s}(t)=N(s+t)-N(s)$. From above, $$g(t)=\mathbb{E}\left[\lambda^{*}(t)\right]=\mathbb{E}\left[\lambda+\int_{0}^{t} \mu(t-s) \mathrm{d} N(s)\right]=\lambda+\int_{0}^{t} \mu(t-s) \mathbb{E}[\mathrm{d} N(s)] = \lambda+\int_{0}^{t} \mu(t-s) N_s(ds),$$</p>
+<p>Note that $N_{s}(t)=N(s+t)-N(s)$. From above, $$g(t)=\mathbb{E}\left[\lambda^{*}(t)\right]=\mathbb{E}\left[\lambda+\int_{0}^{t} \mu(t-s) \mathrm{d} N(s)\right] = \lambda+\int_{0}^{t} \mu(t-s) N_s(ds),$$</p>
 <p>which follows that $g(t)=\lambda+\int_{0}^{t} \mu(t-s) g(s) \mathrm{d} s=\lambda+\int_{0}^{t} g(t-s) \mu(s) \mathrm{d} s$, i.e. we obtained the renewal–type equation $g=\lambda+g \star \mu$.</p>
 
 </div>
