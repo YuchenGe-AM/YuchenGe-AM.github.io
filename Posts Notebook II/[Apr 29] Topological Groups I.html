@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>[Feb 22] Causal Inference and Transfer Learning II</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>[Apr 29] Topological Groups I</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14580,7 +14580,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Causal-Inference-IV">Causal Inference IV<a class="anchor-link" href="#Causal-Inference-IV">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
+<h2 id="%5BApr-29%5D-Topological-Groups-I">[Apr 29] Topological Groups I<a class="anchor-link" href="#%5BApr-29%5D-Topological-Groups-I">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
 Affiliation: University of Oxford<br>
 Contact Email: gycdwwd@gmail.com<br>
 Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</a></p>
@@ -14596,9 +14596,6 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h3 id="1.-Examples-of-Counting-Process">1. Examples of Counting Process<a class="anchor-link" href="#1.-Examples-of-Counting-Process">&#182;</a></h3><blockquote><p>A <strong>counting process</strong> is an a.s. finite $\big($ i.e. $\mathbb{P}(\bigcup_t N(t)&lt;\infty )=1$ $\big)$ stochastic process  $(N(t): t \geqslant 0)$  taking values in  $\mathbb{N}_{0}$  s.t.  $N(0)=0$, and is a right-continuous step function with increments of size +1.</p>
-</blockquote>
-<p>It can be written as a <strong>point process</strong>: $N(t)=\sum_{i \geq 1} I\left\{T_{i} \leq t\right\}$ where $ \mathbb{P}\left(0 \leqslant T_{1} \leqslant T_{2} \leqslant \ldots &lt; \infty \right)=1$.</p>
 
 </div>
 </div>
@@ -14610,7 +14607,21 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>For all choices of  $0\leq t_{1}&lt;t_{2}&lt;\cdots&lt;t_{n}$, a process has <strong>independent</strong> increments if $N\left(t_{i}\right)-N\left(t_{i-1}\right)$, $i \leq n$, are independent; a process has <strong>stationary</strong> increments if $N\left(t+h\right)-N\left(t\right)$ depends only on $h$, $\forall t \geq 0$.</p>
+<h3 id="1.-Between-topologized-and-topological">1. Between topologized and topological<a class="anchor-link" href="#1.-Between-topologized-and-topological">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Here are some basic definitions. A topologized group $G$ is a group &amp; a topological space. For a topologized group,</p>
+<blockquote><p>semitopological = left-topological ($y \mapsto x y$ is continuous) &amp; right-topological.</p>
+<p>quasitopological = semitopological &amp; $x \mapsto x^{-1}$ is continuous = left-topological &amp; $x \mapsto x^{-1}$ is continuous. (the last = is from the fact that left multiplication can be a composition of right multiplication and inversion)</p>
+<p>paratopological = $(x,y) \mapsto xy$ is continuous.</p>
 </blockquote>
 
 </div>
@@ -14623,116 +14634,95 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Now we consider</p>
-<blockquote><p>( <strong>Poisson Process</strong> ) A counting process  $(N(t): t \geqslant 0)$  is a homogeneous Poisson process with rate  $\lambda&gt;0$  if</p>
+<p>For example, for a group  $G$  and  $H \leqslant G$, equipping  $G$  with topology $G \setminus \{ \text{unions of left cosets of  $H$}\}$  makes it left-topological. Right multiplication is continuous iff $H$ is normal, which follows that left-topological $\;\;\not\!\!\!\!\implies$ semitopological. Also,</p>
+<blockquote><p>quasitopological $\;\;\not\!\!\!\!\implies$ paratopological from $\mathbb{R}_{\mathrm{CF}}$ (seeing that $U, V \neq \emptyset$ open $\implies U+V=\mathbb{R}$)</p>
+<p>paratopological $\;\;\not\!\!\!\!\implies$ quasitopological from $\mathbb{R}_{\mathrm{RO}}$. (seeing that $(-\infty,-a)$ is not open)</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Topology of pointwise converge has basis $U\left(x_{1}, \ldots, x_{n} ; U_{1}, \ldots, U_{n}\right):=\left\{g \in G: g \cdot x_{1} \in U_{1}, \ldots, g \cdot x_{n} \in U_{n}\right\}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>Suppose $G$  is a group of homeomorphisms of topological space $X$. Then  $G$  with the topology of pointwise convergence w.r.t. the evaluation action is a semitopological group.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Proof.</strong> This can be seen directly via</p>
+<blockquote><p>$U\left(x_{1}, \ldots, x_{n} ; U_{1}, \ldots, U_{n}\right) g^{-1}=U\left(g \cdot x_{1}, \ldots, g \cdot x_{n} ; U_{1}, \ldots, U_{n}\right)$</p>
+<p>$g^{-1} U\left(x_{1}, \ldots, x_{n} ; U_{1}, \ldots, U_{n}\right)=U\left(x_{1}, \ldots, x_{n} ; g^{-1} . U_{1}, \ldots, g^{-1} . U_{n}\right)$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h3 id="2.-Technical-Lemmas">2. Technical Lemmas<a class="anchor-link" href="#2.-Technical-Lemmas">&#182;</a></h3><p>In the following we present some technial lemmas.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p><strong>Lemma I.</strong> For topologized  $G$  with continuous inversion,</p>
 <ol>
-<li><p>$N(I) \sim \operatorname{Poi}(\lambda|I|)$</p>
+<li><p>if  $1_G \in U$  is open, then $\exists$ symmetric open $W$ s.t. $1_G \in W \subset U$;</p>
 </li>
-<li><p>$N\left(I_{1}\right)$, $ N\left(I_{2}\right), \ldots, N\left(I_{n}\right)$  are independent, $\forall$ disjoint intervals  $I_{1}, I_{2}, \ldots, I_{n}$.</p>
-</li>
-</ol>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>It follows that</p>
-$$ \mathbb{P}(N(t)=n)=\frac{(\lambda t)^{n}}{n !} \mathrm{e}^{-\lambda t}, \quad n=0,1,2, \ldots
-$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>$\exists$ a connection between Bernoulli and Poisson processes. Fixing some $h&gt;0$, partition time into disjoint intervals  $J_{1}^{(h)}=(0, h], J_{2}^{(h)}=(h, 2 h], \ldots$</p>
-<p>Set $X_{n}$ = # arrivals in  $J_{n}^{(h)} \sim \operatorname{Ber}(p) = \operatorname{Ber}(\lambda h)$. Defining  $Y_{n}=   X_{1}+\cdots+X_{n}, Y_{n}$ = # arrivals in the interval  $(0, n h]$.</p>
-<blockquote><p><strong>Prop.</strong> $ N(t)$  and  $Y_{n}$  have <strong>approximately</strong> the same distribution.</p>
-</blockquote>
-<p><strong>Proof.</strong> Now consider a fixed time  $t&gt;0$, which falls in the interval  $n=\lfloor t / h\rfloor$. Then,  $Y_{n} \sim \operatorname{Bin}(n, p)$  and</p>
-$$\begin{aligned}
-\mathbb{P}\left(Y_{n}=m\right) &amp; =\left(\begin{array}{l}
-n \\
-m
-\end{array}\right)(\lambda h)^{m}(1-\lambda h)^{n-m} \approx\left(\begin{array}{l}
-n \\
-m
-\end{array}\right)(\lambda t / n)^{m}(1-\lambda t / n)^{n-m} \\
-&amp; =\frac{n !}{(n-m) ! n^{m}} \frac{(\lambda t)^{m}}{m !}\left(1-\frac{\lambda t}{n}\right)^{n-m}.
-\end{aligned}$$<p>As $ n \rightarrow \infty$, $\lim _{n \rightarrow \infty} \mathbb{P}\left(Y_{n}=m\right)=\frac{(\lambda t)^{m}}{m !} \mathrm{e}^{-\lambda t}$.</p>
-<blockquote><p><strong>Thm I.</strong> The interarrival times of the Bernoulli (Poisson) process are independent and geometric (exponential).</p>
-<p><strong>Thm II.</strong> Bernoulli (Poisson) processes have superposition and thinning property.</p>
-</blockquote>
-<p><strong>Proof.</strong> We only prove thm I for Poisson process. Define $\mathbb{P}(N(t_2 - t_1) = k) = P(k; t_2 - t_1)$. Computation shows that for $\Delta T_k = T_k - T_{k-1}$ where $T_k$'s are the stopping times,</p>
-$$\begin{aligned}
-\mathbb{P}\left(t_{1} \leq \Delta T_{1} \leq t_{1}+\delta,\right. &amp; \left.t_{2} \leq \Delta T_{2} \leq t_{2}+\delta\right) \\
-\approx &amp; P\left(0 ; t_{1}\right) \cdot P(1 ; \delta) \cdot P\left(0 ; t_{2}-t_{1}-\delta\right) \cdot P(1 ; \delta) \\
-= &amp; e^{-\lambda t_{1}} \lambda \delta e^{-\lambda\left(t_{2}-\delta\right)} \lambda \delta.
-\end{aligned}$$<p>We divide both sides by  $\delta^{2}$, and take the limit as  $\delta \downarrow 0$, to obtain</p>
-$$f_{\Delta T_{1}, \Delta T_{2}}\left(t_{1}, t_{2}\right)=\lambda e^{-\lambda t_{1}} \lambda e^{-\lambda t_{2}} . \quad t_{1}, t_{2}&gt;0.$$<p>This shows that  $\Delta T_{2}$  is independent of  $\Delta T_{1}$ and has the same exponential distribution, which can easily generalize.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-Stochastic-Intensity-from-a-Martingale-Viewpoint">2. Stochastic Intensity from a Martingale Viewpoint<a class="anchor-link" href="#2.-Stochastic-Intensity-from-a-Martingale-Viewpoint">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>$A \in \mathcal{V}_{T}$ (of finite variation) if the process is cadlag adapted and $\int_{0}^{T}\left|d A_{t}\right|&lt;\infty$.</p>
-<p>$A \in \mathcal{A}_{T}$ (of integrable variation) if $A \in  \mathcal{V}_{T}$ s.t. $E\left[\int_{0}^{T}\left|d A_{t}\right|\right]&lt;\infty$.</p>
-<p>We set $\mathcal{V} =  \bigcup_T \mathcal{V}_{T}$ and $\mathcal{A} =  \bigcup_T \mathcal{A}_{T}$.</p>
-</blockquote>
-<p>The optional  $\sigma$-algebra on $ R_{+} \times \Omega$  is generated by all $Y_{t}(\omega)=Z(\omega) I\{r \leq t&lt;s\}$ where $Z$ is $\mathcal{F}_{r}$-measurable. The predictable  $\sigma$-algebra $\Sigma_{P}$ on $ R_{+} \times \Omega$  is generated by all $Y_{t}(\omega)=Z(\omega) I\{r &lt; t \leq s\}$ where $Z$ is $\mathcal{F}_{r}$-measurable. Then in particular every $A \in \mathcal{V}_{T}$ is optional. And for adapted cadlag $X$,  $Y_{t}=X_{t-}\in\mathcal{F}_{t-}$ is adapted left-continuous, and thus certainly predictable.</p>
-<blockquote><ol>
-<li><p>The optional $\sigma$-algebra is generated by cadlag adapted processes.</p>
-</li>
-<li><p>The predictable $\sigma$-algebra is generated by adapted left continuous processes.</p>
-</li>
-<li><p>Predictable $\implies$ Optional.</p>
+<li><p>if  $S$  is symmetric, then  $\overline{S}$  is symmetric.</p>
 </li>
 </ol>
 </blockquote>
-<p>Those can be proved with some $X^{n} \rightarrow X$ pointwise. For example, we set $X^{n}=\sum_{k \in \mathbb{N}} X_{k / 2^{n}} I\{ k / 2^{n} \leq t &lt; (k+1) / 2^{n}\}$. Also based on 2, for adapted left-continuous $X$,</p>
-$$X_{t}^{n}=n \int_{t-1 / n}^{t} I \left\{\left|X_{s \vee 0}\right| \leq n\right\} X_{s \vee 0} d s \to X_t $$<p>pointwise implies that predictable $\sigma$-algebra is also generated by adapted continuous processes.</p>
-<blockquote><p>Practically, <strong>one may without great risk interpret “optional” as “adapted” and  "predictable" as either "adapted and left continuous" or as "$\mathcal{F}_{t-}$  adapted"</strong>.</p>
-</blockquote>
+<p>Actually, every conclusion may fail for paratopological group (by considering $\mathbb{R}_{\mathrm{RO}}$).</p>
 
 </div>
 </div>
@@ -14744,232 +14734,41 @@ $$X_{t}^{n}=n \int_{t-1 / n}^{t} I \left\{\left|X_{s \vee 0}\right| \leq n\right
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Then by a (possibily non-trivial) approximation argument</p>
-<blockquote><ol>
-<li><p>$A\in \mathcal{V}_{T}$  &amp; $h$  is optional s.t. $E\left[\int_{0}^{t}\left|h_{s}\right|\left|d A_{s}\right|\right]&lt;\infty \implies X_{t}=\int_{0}^{t} h_{s} d A_{s}$ is cadlag adapted.</p>
-</li>
-<li><p>$M\in \mathcal{V}_{T}$  is predictable &amp; $h$  is predictable s.t. $E\left[\int_{0}^{t}\left|h_{s}\right|\left|d M_{s}\right|\right]&lt;\infty \implies X_{t}=\int_{0}^{t} h_{s} d M_{s}$ is predictable.</p>
-</li>
-<li><p>$M\in \mathcal{V}_{T}$  is a martingale &amp; $h$  is predictable s.t. $E\left[\int_{0}^{t}\left|h_{s}\right|\left|d M_{s}\right|\right]&lt;\infty \implies X_{t}=\int_{0}^{t} h_{s} d M_{s}$ is a martingale.</p>
-</li>
-</ol>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Proof.</strong> Only 3 requires non-trivial approximation argument. It's known that from [Limit Theorems for Stochastic Processes, P16] that</p>
-<blockquote><p>If $h$ is predictable, $h_{t}$ is $\mathcal{F}_{t-}$-measurable.</p>
-</blockquote>
-<p>It suffices $E\left[d X_{t} \mid \mathcal{F}_{t-}\right]=0$. From $d X_{t}=h_{t} d M_{t}$, so</p>
-$$E\left[d X_{t} \mid \mathcal{F}_{t-}\right]=E\left[h_{t} d M_{t} \mid \mathcal{F}_{t-}\right]=h_{t} E\left[d M_{t} \mid \mathcal{F}_{t-}\right]=0.
-$$<p>where we use $h_{t} \in \mathcal{F}_{t-}$ to pull this term outside the expectation. (The argument can be made rigorous by considering $P$-null sets)</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Assume that  $X$  is optional and cadlag, and set $Y_{t}=X_{t-}$. Then  Y  is predictable and then</p>
-$$\int_{0}^{t} h_{s} X_{s} d s=\int_{0}^{t} h_{s} Y_{s} d s. $$
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Consider  $d X_{t}=\mu_{t} d t+\sigma_{t} d W_{t}+h_{t} d N_{t}$ where  $\mu$  and $\sigma$ are predictable and  $N$  is a counting process.</p>
-<p>Between the jumps of  $N$,  the process  $X$ enjoys $d X_{t}=\mu_{t} d t+\sigma_{t} d W_{t}$. From standard Itô formula ($(\mathrm{d} z)^{2} = \mathrm{d}t, \mathrm{~d}z\mathrm{~d}t = 0, (\mathrm{~d}t)^{2} = 0$ where $z$ denote Wiener-Brownian motion),</p>
-$$ d F\left(t, X_{t}\right)=\left\{\frac{\partial F}{\partial t}\left(t, X_{t}\right)+\mu_{t} \frac{\partial F}{\partial x}\left(t, X_{t}\right)+\frac{1}{2} \sigma_{t}^{2} \frac{\partial^{2} F}{\partial x^{2}}\left(t, X_{t}\right)\right\} d t+\sigma_{t} \frac{\partial F}{\partial x}\left(t, X_{t}\right) d W_{t}
-$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Otherwise at jump time $t$, $\Delta X_{t}=h_{t} \Delta N_{t}=h_{t}$ implies that</p>
-$$ \Delta Z_{t}=F\left(t, X_{t}\right)-F\left(t-, X_{t-}\right) = \Delta Z_{t}=F\left(t, X_{t-}+h_{t}\right)-F\left(t-, X_{t-}\right). $$<p>Therefore, we can generalize above to the following.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p><strong>Thm.</strong> (<strong>Itô formula</strong>) Assume $X$  has dynamics $d X_{t}=\mu_{t} d t+\sigma_{t} d W_{t}+h_{t} d N_{t}$, then</p>
-$$ \begin{aligned}
-d F\left(t, X_{t}\right) &amp; =\left\{\frac{\partial F}{\partial t}\left(t, X_{t}\right)+\mu_{t} \frac{\partial F}{\partial x}\left(t, X_{t}\right)+\frac{1}{2} \sigma_{t}^{2} \frac{\partial^{2} F}{\partial x^{2}}\left(t, X_{t}\right)\right\} d t +\sigma_{t} \frac{\partial F}{\partial x}\left(t, X_{t}\right) d W_{t} \\
-&amp; +\left\{F\left(t, X_{t-}+h_{t}\right)-F\left(t, X_{t-}\right)\right\} d N_{t}.
-\end{aligned} $$
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>After that we consider SDE of counting process, where non-causal dynamic is avoided.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Assume that $\forall x_{0}$, the ODE $$\left\{\begin{aligned}
-\frac{d X_{t}}{d t} &amp; =\mu\left(X_{t}\right), \\
-X_{0} &amp; =x_{0},
-\end{aligned}\right.$$</p>
-<p>has a unique global solution.  Then $\forall \beta: R \rightarrow R$, the SDE</p>
-$$\left\{\begin{aligned}
-d X_{t} &amp; =\mu\left(X_{t-}\right) d t+\beta\left(X_{t-}\right) d N_{t}, \\
-X_{0} &amp; =x_{0},
-\end{aligned}\right.$$<p>has a unique global solution.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Proof.</strong> We have the following concrete algorithm.</p>
+<blockquote><p><strong>Lemma II.</strong> For left-topological $G$ where  $U$  is open, and  $V \subset G$, we know that</p>
 <ol>
-<li>Denote the jump times of  $N$  by  $T_{1}, T_{2}, \ldots $</li>
-<li>$\forall \omega $, solve the ODE</li>
+<li><p>$V U$  is open;</p>
+</li>
+<li><p>$V$ is open iff $xV$ is ;</p>
+</li>
+<li><p>$\overline{x V}=x \bar{V}$.</p>
+</li>
 </ol>
-$$\left\{\begin{aligned}
-\frac{d X_{t}}{d t} &amp; =\mu\left(X_{t}\right), \\
-X_{0} &amp; =x_{0}
-\end{aligned}\right.$$<p>on $\left[0, T_{1}\right)$ to determined $X_{T_{1}-}$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>It's clear that <strong>Lemma II</strong> admits a right-topological version. Here are some applications.</p>
+<blockquote><p><strong>Prop I.</strong> For semitopological $G$,</p>
 <ol>
-<li><p>Calculate $X_{T_{1}}$  by $X_{T_{1}}=X_{T_{1}-}+\beta\left(X_{T_{1}-}\right)$.</p>
+<li><p>$S \subset G$ is normal $\implies \overline{S}$ is normal;</p>
 </li>
-<li><p>Given  $X_{T_{1}}$  from 3, solve the ODE $\frac{d X_{t}}{d t}=\mu\left(X_{t}\right)$ on  $\left[T_{1}, T_{2}\right)$, which gives us  $X_{T_{2}-}$.</p>
+<li><p>$S \subset G$  is closed under multiplication $\implies \overline{S}$ is closed under multiplication;</p>
 </li>
-<li><p>Compute  $X_{T_{2}}$  by $X_{T_{2}}=X_{T_{2}-}+\beta\left(X_{T_{2}-}\right)$.</p>
+<li><p>$G$ has continuous inversion &amp; $S \leq G$ $\implies \overline{S} \leq G$ (use 2 of <strong>lemma I</strong>)</p>
 </li>
-<li><p>Continue by induction.</p>
+<li><p>$G$ is compact $\implies \overline{1_G} \leq G$ (only nontrivial thing is to show it's closed under inverse)</p>
 </li>
 </ol>
-<p>Finally, we discuss <strong>stochastic intensity</strong>.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Given an optional counting process  $N$. Let  $\lambda \geq 0$  be optional s.t. $\int_{0}^{t} \lambda_{s} d s&lt;\infty$. If</p>
-$$E\left[\int_{0}^{\infty} h_{t} \lambda_{t} d t\right]=E\left[\int_{0}^{\infty} h_{t} d N_{t}\right]$$<p>$\forall$ predictable $h$, then we say $N$  has (stochastic) intensity  $\lambda$.</p>
 </blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Then we know if $E\left[N_{t}\right]&lt;\infty$, then $M_{t}=N_{t}-\int_{0}^{t} \lambda_{s} d s$ is a martingale, which can be seen from</p>
-$$ \text{ set } h_{u}(\omega)=I_{A}(\omega) I\{s&lt;u \leq t\} \implies E\left[I_{A} \int_{s}^{t} \lambda_{u} d u\right]=E\left[I_{A}\left(N_{t}-N_{s}\right)\right] .
-$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>$A_{t}=\int_{0}^{t} \lambda_{s} d s$ is the compensator process.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Assume that  $N$  has intensity  $\lambda^{*}$. Then it assumes  predictable intensity  $\lambda$ and is <strong>unique</strong>.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This can be seen directly from</p>
-$$ \mu_{t}=\lambda_{t-} \implies E\left[\int_{0}^{\infty} h_{t} \lambda_{t} d t\right]=E\left[\int_{0}^{\infty} h_{t} \mu_{t} d t\right]. $$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Assume that  $N$  has the predictable intensity process  $\lambda$. Modulo integrability, this implies that $d N_{t}-\lambda d t$ is a martingale increment, and heuristically</p>
-$$E\left[d N_{t}-\lambda d t \mid \mathcal{F}_{t-}\right]=0 \implies E\left[d N_{t} \mid \mathcal{F}_{t-}\right]=\lambda_{t} d t .$$<p>Thus, $\lambda$  has the interpretation that  <strong>$\lambda_{t}$  is the conditionally expected number of jumps per unit of time</strong>.</p>
+<p><strong>Proof.</strong> In the following we use <strong>lemma II</strong>. For 1 it suffices that $x \overline{S}=\overline{x S}=\overline{S x}=\overline{S} x$. For 2 we first show $S \overline{S} \subset \overline{S}$ since $S$ is closed under multiplication, then $\overline{S} \overline{S}=\overline{S \overline{S}} \subset \overline{\overline{S}}=\overline{S}$.</p>
 
 </div>
 </div>
@@ -14982,44 +14781,7 @@ $$E\left[d N_{t}-\lambda d t \mid \mathcal{F}_{t-}\right]=0 \implies E\left[d N_
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We shall give a connection of stochastic intensity function and conditional intensity function as is defined below.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Set $\mathcal{H}_{t}$ = the list of time events  $\left\{t_{1}, \ldots, t_{n}\right\}$  up to time  $t$.</p>
-<p>For counting process $N(t)$,  the <strong>conditional intensity function</strong> is</p>
-$$ \lambda^{*}(t) = \lambda^{*}(t, \omega) = \lim _{h \searrow 0} \frac{\mathbb{E}[N(t+h)-N(t) \mid \mathcal{H}(t)]}{h}.$$
-</blockquote>
-<p>An alternative way of definition is to use CDF. Set distribution function of $T_{k+1}$ given the history up to $\mathcal{H}_{u}$ where last jump  $k$  taken at time  $u$ as</p>
-$$F^{*}\left(t \mid \mathcal{H}_{u}\right)=\int_{u}^{t} \mathbb{P}\left[s \leq T_{k+1} \leq s+d s \mid \mathcal{H}_{u}\right] d s=\int_{u}^{t} f^{*}\left(s \mid \mathcal{H}_{u}\right) d s.$$<blockquote><p>We have the decomposition $f\left(t_{1}, t_{2}, \ldots, t_{k}\right)=\prod_{i=1}^{k} f^{*}\left(t_{i} \mid \mathcal{H}_{u}\right)$.</p>
-</blockquote>
-<p>Then we know</p>
-$$ \begin{aligned}
-\lambda^{*}(t) = &amp; E\left[N(d t) \mid \mathcal{H}_{t}\right] = \mathbb{P}\left(\text { point in } \mathrm{dt} \mid \mathcal{H}_{t}\right) = \mathbb{P}\left(\text { point in } \mathrm{dt} \mid \text { point not before } \mathrm{t}, \mathcal{H}_{t}\right) \\
-= &amp; \frac{\mathbb{P}\left(\text { point in } \mathrm{dt} \text {, point not before } \mathrm{t} \mid \mathcal{H}_{t}\right)}{\mathbb{P}\left(\text { point not before } \mathrm{t} \mid \mathcal{H}_{t}\right)} = \frac{\mathbb{P}\left(\text { point in } \mathrm{dt} \mid \mathcal{H}_{t}\right)}{\mathbb{P}\left(\text { point not before } \mathrm{t} \mid \mathcal{H}_{t}\right)} = \frac{f^{*}\left(t \mid \mathcal{H}_{t}\right)}{1-F^{*}\left(t \mid \mathcal{H}_{t}\right)}.
-\end{aligned} 
-$$<blockquote><p>Therefore, we have the second definition:</p>
-$$\lambda^{*}\left(t \mid \mathcal{H}_{t}\right)=\frac{f^{*}\left(t \mid \mathcal{H}_{t}\right)}{1-F^{*}\left(t \mid \mathcal{H}_{t}\right)} = -\frac{\dot{S}^{*}\left(t \mid \mathcal{H}_{t}\right)}{S^{*}\left(t \mid \mathcal{H}_{t}\right)}=-\frac{d}{d t} \ln \left(S^{*}\left(t \mid \mathcal{H}_{t}\right)\right)$$<p></p>
-<p>where we give it an interpretation from <strong>survial analysis</strong>.</p>
+<blockquote><p><strong>Lemma III.</strong> For left-topological $G$ with  $S \subseteq G$  and $1_G \in V$  open, we know  $\overline{S V} \subset S V V^{-1}$.</p>
 </blockquote>
 
 </div>
@@ -15032,20 +14794,7 @@ $$\lambda^{*}\left(t \mid \mathcal{H}_{t}\right)=\frac{f^{*}\left(t \mid \mathca
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Usually we interpret it as its left-continuous modification $\lambda^{*}\left(t^{-}\right)$, which equals the <strong>stochastic Intensity</strong>:</p>
-$$ \lambda^{*}\left(t^{-}\right) = \lim _{h \searrow 0} \frac{\mathbb{E}[N(t)-N(t-h) \mid \mathcal{H}(t-h)]}{h} = \frac{E\left[d N_{t} \mid \mathcal{F}_{t-}\right]}{d t}.
-$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
+<p><strong>Proof.</strong> Let $A:=G \backslash\left(S V V^{-1}\right)$ and $B:=G \backslash(A V)$. It suffices $S V \subset B$ and since $B$ is closed $\overline{S V} \subset B$. Now if $x \in B$  then  $x \notin A$ and hence  $x \in S V V^{-1}$  as claimed.</p>
 
 </div>
 </div>
@@ -15057,150 +14806,9 @@ $$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.-Hawkes-Process">3. Hawkes Process<a class="anchor-link" href="#3.-Hawkes-Process">&#182;</a></h3><p>A <strong>Hawkes Process</strong> is a generalization of Poission process.</p>
-<blockquote><p>A <strong>Hawkes Process</strong> is   a counting process $(N(t): t \geqslant 0)$, with associated history  $(\mathcal{H}(t): t \geqslant 0)$, s.t.</p>
-$$
-\mathbb{P}(N(t+h)-N(t)=m \mid \mathcal{H}(t))=\left\{\begin{array}{ll}
-1-\lambda^{*}(t) h+\mathrm{o}(h), &amp; m=0 \\
-\lambda^{*}(t) h+\mathrm{o}(h), &amp; m=1 \\
-\mathrm{o}(h), &amp; m&gt;1.
-\end{array}\right. $$
+<p>As a corollary,</p>
+<blockquote><p>For left-topological $G$ where $H \leq G$, we know $H$ is open $\implies$ $H$ is closed. (observing $\overline{H} \subset H H^{-1}=H$)</p>
 </blockquote>
-<p>Here we supppose $\lambda^{*}(t)=\lambda+\int_{0}^{t} \mu(t-u) \mathrm{d} N(u)$ where  $\lambda&gt;0$  and  $\mu:(0, \infty) \rightarrow[0, \infty)$ are <strong>background intensity</strong> and <strong>excitation function</strong> respectively.  $\mu(\cdot) = 0 $ refers to a homogeneous Poisson process, which is the case we shall not study.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p><strong>Thm.</strong> The likelihood $L$ of regular $N(\cdot)$ is expressible in the form $L=\left[\prod_{i=1}^{k} \lambda^{*}\left(t_{i}\right)\right] \exp \left(-\int_{0}^{T} \lambda^{*}(u) \mathrm{d} u\right)$.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Proof.</strong> From definition,</p>
-$$ \lambda^{*}(t) = -\frac{\mathrm{d} \log \left(1-F^{*}(t)\right)}{\mathrm{d} t} \implies -\int_{t_{k}}^{t} \lambda^{*}(u) \mathrm{d} u=\log \left(1-F^{*}(t)\right)-\log \left(1-F^{*}\left(t_{k}\right)\right) .
-$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Since we know $F^{*}\left(t_{k}\right)=0$  as  $T_{k+1}&gt;t_{k}$, then $-\int_{t_{k}}^{t} \lambda^{*}(u) \mathrm{d} u=\log \left(1-F^{*}(t)\right)$. Further rearranging yields</p>
-$$F^{*}(t)=1-\exp \left(-\int_{t_{k}}^{t} \lambda^{*}(u) \mathrm{d} u\right), \quad f^{*}(t)=\lambda^{*}(t) \exp \left(-\int_{t_{k}}^{t} \lambda^{*}(u) \mathrm{d} u\right) .$$<p>Then we know</p>
-$$ \begin{aligned}
-L &amp; = \left[\prod_{i=1}^{k} f^{*}\left(t_{i}\right)\right]\left(1-F^{*}(T)\right) = \prod_{i=1}^{k} \lambda^{*}\left(t_{i}\right) \exp \left(-\int_{t_{i-1}}^{t_{i}} \lambda^{*}(u) \mathrm{d} u\right) \exp \left(-\int_{t_{k}}^{T} \lambda^{*}(u) \mathrm{d} u\right) \\
-&amp; = \left[\prod_{i=1}^{k} \lambda^{*}\left(t_{i}\right)\right] \exp \left(-\int_{0}^{T} \lambda^{*}(u) \mathrm{d} u\right).
-\end{aligned} $$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We consider <strong>exponentially decaying intensity</strong> subsequently where $\lambda^{*}(t)=\lambda+\int_{0}^{t} \alpha \mathrm{e}^{-\beta(t-s)} \mathrm{d} N(s)=\lambda+\sum_{t_{i}&lt;t} \alpha \mathrm{e}^{-\beta\left(t-t_{i}\right)}$.</p>
-<p>A generalization is to consider $\mathrm{d} \lambda^{*}(t)=\beta\left(\lambda-\lambda^{*}(t)\right) \mathrm{d} t+\alpha \mathrm{d} N(t)$, calculation yields</p>
-$$\lambda^{*}(t)=\mathrm{e}^{-\beta t}\left(\lambda_{0}-\lambda\right)+\lambda+\int_{0}^{t} \alpha \mathrm{e}^{\beta(t-s)} \mathrm{d} N(s), \quad t \geq 0.$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>$\lambda^{*}(t) = \lambda+\sum_{t_{i}&lt;t} \alpha \mathrm{e}^{-\beta\left(t-t_{i}\right)}$ admits a <strong>immigration–birth representation (branching process)</strong>.</p>
-<blockquote><p>Let  $Z_{i}$  = # offspring in the  $i$-th generation with  $Z_{0}=1$.</p>
-</blockquote>
-<p>Set  $Z_{1} \sim \operatorname{Poi}(n)$  where the mean  $n=\int_{0}^{\infty} \alpha \mathrm{e}^{-\beta s} \mathrm{~d} s=\frac{\alpha}{\beta}$  is known as the <strong>branching ratio</strong>. The value of $n$ determines whether or not the Hawkes process explodes.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>$$g(s)=\mathbb{E}\left[\lambda^{*}(s)\right]=\frac{\mathbb{E}[\mathbb{E}[N_s(ds) \mid \mathcal{H}(s)]]}{\mathrm{d} s}=\frac{\mathbb{E}[N_s(ds)]}{\mathrm{d} s} \implies \mathbb{E}[N_s(ds)]=g(s) \mathrm{d} s.$$
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Note that $N_{s}(t)=N(s+t)-N(s)$. From above, $$g(t)=\mathbb{E}\left[\lambda^{*}(t)\right]=\mathbb{E}\left[\lambda+\int_{0}^{t} \mu(t-s) \mathrm{d} N(s)\right] = \lambda+\int_{0}^{t} \mu(t-s) N_s(ds),$$</p>
-<p>which follows that $g(t)=\lambda+\int_{0}^{t} \mu(t-s) g(s) \mathrm{d} s=\lambda+\int_{0}^{t} g(t-s) \mu(s) \mathrm{d} s$, i.e. we obtained the renewal–type equation $g=\lambda+g \star \mu$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>For the defective case $n&lt;1$, $g(t)=\mathbb{E}\left[\lambda^{*}(t)\right] \rightarrow \frac{\lambda}{1-n}$.</p>
-<p>For the excessive case $n&gt;1$, $\lambda^{*}(t) \rightarrow \infty$ exponentially.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Viewed as a branching process, this can be seen clearly. (using $\mathbb{E}\left[Z_{i}\right]=n^{i}$)</p>
 
 </div>
 </div>
@@ -15213,21 +14821,20 @@ $$\lambda^{*}(t)=\mathrm{e}^{-\beta t}\left(\lambda_{0}-\lambda\right)+\lambda+\
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h3 id="4.-Simulation-Method">4. Simulation Method<a class="anchor-link" href="#4.-Simulation-Method">&#182;</a></h3><p>We focus on the typical simulation method below.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>For general point processes, a simulation algorithm is suggested by <strong>the converse of the random time
-change theorem</strong>.</p>
+<blockquote><p>Use the fact that $(x, y) \mapsto x y \text { is continuous }$ for paratopological $G$,</p>
+<p><strong>Lemma IV.</strong> Suppose that  $G$  is paratopological and $\exists$ open $X \ni z$. Then $\exists$ open $V\ni 1_G$  s.t. $z V^{2} \subset   X$.</p>
+<p>Seeing $z V \subseteq z V^{2}$ directly, we have</p>
+<p><strong>lemma V</strong>: Suppose that  $G$  is paratopological, $K \subset G$  is compact, and  $\mathcal{U}$  is an open cover of  $K$. Then $\exists$ open $U$ s.t. $1_G \in U \subset G$  s.t. $\{x U: x \in K\}$  is a refinement of  $\mathcal{U}$.</p>
 </blockquote>
+<p>Note that if  G  is a topological group then  $V$ in <strong>lemma IV</strong> and $U$ in <strong>lemma V</strong> may be taken symmetrically. Also, this has a higher dimensional analogue:</p>
+<blockquote><p>Suppose that  $X$  is a topological space,  $K \subset X$  is compact, and  $\mathcal{U}$  is an open cover of  $K \times K$. Then $\exists$ open cover  $\mathcal{W}$  of  $K$  s.t.  $\left\{W \times W^{\prime}: W, W^{\prime} \in \mathcal{W}\right\}$  refines  $\mathcal{U}$.</p>
+</blockquote>
+<p>Finally, we come to</p>
+<blockquote><p><strong>Thm I.</strong> Suppose that  $G$  is compact paratopological. Then  $G$  is a topological group.</p>
+<p><strong>Thm II.</strong> Suppose that  $G$  is topological. Then  $G$  is regular.</p>
+</blockquote>
+<p><strong>Proof.</strong> We first consider <strong>thm I.</strong> Suppose that  $K \subset G$  is closed and  $x \notin K^{-1}$. For  $y \in K$, by <strong>lemma II</strong> $\exists$ open $U_{y} \ni y$ s.t. $U_{y} x \cap \overline{\left\{1_{G}\right\}}=\varnothing$  and in particular  $1_{G} \notin U_{y} $ .</p>
+<p>Apply <strong>lemma V</strong> to the cover  $\left\{U_{y}: y \in K\right\}$  of  $K$  to get an open   $U \ni 1_G$  s.t. $\forall y \in K$, $y U \subset U_{z}$  for some $z=z(y) \in K$. It follows that  $1_{G} \notin y U x$  for all  $y \in K$, so  $K^{-1} \cap U x=\varnothing$. Thus  $K^{-1}$  is closed and the result is proved.</p>
 
 </div>
 </div>
@@ -15239,42 +14846,7 @@ change theorem</strong>.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Specifically for HPs, <strong>the inverse compensator method</strong> iteratively solves</p>
-$$t_{1}^{*}=\int_{0}^{t_{1}} \lambda^{*}(s) \mathrm{d} s, \quad t_{k+1}^{*}-t_{k}^{*}=\int_{t_{k}}^{t_{k+1}} \lambda^{*}(s) \mathrm{d} s.$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Since 
-$$\int_{t_{k}}^{t} \lambda^{*}(u) \mathrm{d} u=-\log \left(1-F^{*}(t)\right) \implies \int_{t_{k}}^{t_{k+1}} \lambda^{*}(u) \mathrm{d} u=-\log (U),$$
-where $U \sim \operatorname{Unif}[0,1]$. For an exponentially decaying intensity the equation becomes</p>
-$$\log (U)+\lambda\left(t_{k+1}-t_{k}\right)-\frac{\alpha}{\beta}\left(\sum_{i=1}^{k} \mathrm{e}^{\beta\left(t_{k-1}-t_{i}\right)}-\sum_{i=1}^{k} \mathrm{e}^{-\beta\left(t_{k}-t_{i}\right)}\right)=0 .$$<p>Solving for $t_{k+1}$ can be achieved in linear time using the recursion.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-<h3 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h3><ol>
-<li>Shuxiao Chen. Minimax Rates and Adaptivity in Combining Experimental and Observational Data.</li>
-<li>Qingyuan Zhao. Lecture Notes on Causal Inference. </li>
-<li>Joaquin Quiñonero-Candela. Dataset Shift In Machine Learning.</li>
-<li>Geoff K. Nicholls. Bayes Methods.</li>
-<li>Patrick J. Laub. Hawkes Processes.</li>
-<li>Tomas Björk. An Introduction to Point Processes from a Martingale Point of View.</li>
-</ol>
+<p>Then we consider <strong>thm II</strong>. Let  $V$  be open s.t.  $x \in V$. By <strong>lemma IV</strong> $\exists$ a symmetric open $U \ni 1_G$  s.t.  $x U^{2} \subset V$. Therefore, by <strong>lemma III</strong>, $x \overline{U} \subset   x U U^{-1} = x U^{2} \subset V$  as required.</p>
 
 </div>
 </div>
