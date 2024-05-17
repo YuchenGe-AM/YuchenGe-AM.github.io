@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>[Feb 22] Causal Inference and Transfer Learning II</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>[Feb 21] Causal Inference and Transfer Learning</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -36,7 +36,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
-.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14580,7 +14579,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Causal-Inference-IV">Causal Inference IV<a class="anchor-link" href="#Causal-Inference-IV">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
+<h2 id="%5BFeb-21%5D-Causal-Inference-and-Transfer-Learning">[Feb 21] Causal Inference and Transfer Learning<a class="anchor-link" href="#%5BFeb-21%5D-Causal-Inference-and-Transfer-Learning">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
 Affiliation: University of Oxford<br>
 Contact Email: gycdwwd@gmail.com<br>
 Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</a></p>
@@ -14596,10 +14595,7 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h3 id="1.-Examples-of-Counting-Process">1. Examples of Counting Process<a class="anchor-link" href="#1.-Examples-of-Counting-Process">&#182;</a></h3><blockquote><p>A <strong>counting process</strong> is an a.s. finite $\big($ i.e. $\mathbb{P}(\bigcup_t N(t)&lt;\infty )=1$ $\big)$ stochastic process  $(N(t): t \geqslant 0)$  taking values in  $\mathbb{N}_{0}$  s.t.  $N(0)=0$, and is a right-continuous step function with increments of size +1.</p>
-</blockquote>
-<p>It can be written as a <strong>point process</strong>: $N(t)=\sum_{i \geq 1} I\left\{T_{i} \leq t\right\}$ where $ \mathbb{P}\left(0 \leqslant T_{1} \leqslant T_{2} \leqslant \ldots &lt; \infty \right)=1$.</p>
-
+<h3 id="1.--Causal-Inference-Basis">1.  Causal Inference Basis<a class="anchor-link" href="#1.--Causal-Inference-Basis">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14610,78 +14606,172 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>For all choices of  $0\leq t_{1}&lt;t_{2}&lt;\cdots&lt;t_{n}$, a process has <strong>independent</strong> increments if $N\left(t_{i}\right)-N\left(t_{i-1}\right)$, $i \leq n$, are independent; a process has <strong>stationary</strong> increments if $N\left(t+h\right)-N\left(t\right)$ depends only on $h$, $\forall t \geq 0$.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Now we consider</p>
-<blockquote><p>( <strong>Poisson Process</strong> ) A counting process  $(N(t): t \geqslant 0)$  is a homogeneous Poisson process with rate  $\lambda&gt;0$  if</p>
-<ol>
-<li><p>$N(I) \sim \operatorname{Poi}(\lambda|I|)$</p>
-</li>
-<li><p>$N\left(I_{1}\right)$, $ N\left(I_{2}\right), \ldots, N\left(I_{n}\right)$  are independent, $\forall$ disjoint intervals  $I_{1}, I_{2}, \ldots, I_{n}$.</p>
-</li>
-</ol>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>It follows that</p>
-$$ \mathbb{P}(N(t)=n)=\frac{(\lambda t)^{n}}{n !} \mathrm{e}^{-\lambda t}, \quad n=0,1,2, \ldots
-$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>$\exists$ a connection between Bernoulli and Poisson processes. Fixing some $h&gt;0$, partition time into disjoint intervals  $J_{1}^{(h)}=(0, h], J_{2}^{(h)}=(h, 2 h], \ldots$</p>
-<p>Set $X_{n}$ = # arrivals in  $J_{n}^{(h)} \sim \operatorname{Ber}(p) = \operatorname{Ber}(\lambda h)$. Defining  $Y_{n}=   X_{1}+\cdots+X_{n}, Y_{n}$ = # arrivals in the interval  $(0, n h]$.</p>
-<blockquote><p><strong>Prop.</strong> $ N(t)$  and  $Y_{n}$  have <strong>approximately</strong> the same distribution.</p>
-</blockquote>
-<p><strong>Proof.</strong> Now consider a fixed time  $t&gt;0$, which falls in the interval  $n=\lfloor t / h\rfloor$. Then,  $Y_{n} \sim \operatorname{Bin}(n, p)$  and</p>
-$$\begin{aligned}
-\mathbb{P}\left(Y_{n}=m\right) &amp; =\left(\begin{array}{l}
+<p>For randomised experiments, the basic postulates follow.</p>
+<blockquote><p>The assignment mechanism for $n$ units is $\mathbb{P}\left(\boldsymbol{A}_{[n]}=\boldsymbol{a}_{[n]} \mid \boldsymbol{X}_{[n]}=\boldsymbol{x}_{[n]}\right)=\pi\left(\boldsymbol{a}_{[n]} \mid \boldsymbol{x}_{[n]}\right)$ with treatments conditional on covariates. Here follows some examples.</p>
+<p>( <strong>Bernoulli trial with covariate</strong> ) $\pi\left(\boldsymbol{a}_{[n]} \mid \boldsymbol{x}_{[n]}\right)=\prod_{i=1}^{n} \pi\left(\boldsymbol{x}_{i}\right)^{a_{i}}\left\{1-\pi\left(\boldsymbol{x}_{i}\right)\right\}^{1-a_{i}}$</p>
+<p>( <strong>Sample without replacement</strong> ) $\pi\left(\boldsymbol{a}_{[n]} \mid \boldsymbol{x}_{[n]}\right)=\left\{\begin{array}{ll}
+\left(\begin{array}{c}
 n \\
-m
-\end{array}\right)(\lambda h)^{m}(1-\lambda h)^{n-m} \approx\left(\begin{array}{l}
-n \\
-m
-\end{array}\right)(\lambda t / n)^{m}(1-\lambda t / n)^{n-m} \\
-&amp; =\frac{n !}{(n-m) ! n^{m}} \frac{(\lambda t)^{m}}{m !}\left(1-\frac{\lambda t}{n}\right)^{n-m}.
-\end{aligned}$$<p>As $ n \rightarrow \infty$, $\lim _{n \rightarrow \infty} \mathbb{P}\left(Y_{n}=m\right)=\frac{(\lambda t)^{m}}{m !} \mathrm{e}^{-\lambda t}$.</p>
-<blockquote><p><strong>Thm I.</strong> The interarrival times of the Bernoulli (Poisson) process are independent and geometric (exponential).</p>
-<p><strong>Thm II.</strong> Bernoulli (Poisson) processes have superposition and thinning property.</p>
+n_{1}
+\end{array}\right)^{-1}, &amp; \text { if } \sum_{i=1}^{n} a_{i}=n_{1} \\
+0, &amp; \text { otherwise. }
+\end{array}\right.$</p>
+<p>The <strong>PO</strong> model introduces: an observed factual (outcome) is linked with <strong>counterfactuals (potential outcomes)</strong> via $Y_{i}=Y_{i}\left(\boldsymbol{A}_{[n]}\right) = \sum \mathbb{1}(A_n=a_n) Y_i(a_n)$, together with <strong>assumption of no interference</strong>,  i.e. $Y_{i}\left(\boldsymbol{a}_{[n]}\right)=Y_{i}\left(a_{i}\right) \text { for all } i \in[n] \text { and } \boldsymbol{a}_{[n]} \in \mathcal{A}^{n}$. ( note the abuse of notation and therefore, $Y_{i} \neq Y_i(A_i) $ generally )</p>
 </blockquote>
-<p><strong>Proof.</strong> We only prove thm I for Poisson process. Define $\mathbb{P}(N(t_2 - t_1) = k) = P(k; t_2 - t_1)$. Computation shows that for $\Delta T_k = T_k - T_{k-1}$ where $T_k$'s are the stopping times,</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The potential outcome framework allows as to view causal inference as a missing data
+problem, which consider two populations: $\mathrm{SATE}=\frac{1}{n} \sum_{i=1}^{n} Y_{i}(1)-Y_{i}(0)$ and $\mathrm{PATE}=\mathbb{E}\left[Y_{i}(1)-Y_{i}(0)\right]$. ( The latter implicitly assumes that the $n$ units are sampled from a superpopulation )</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p><strong>Assumption of randomisation.</strong> $\boldsymbol{A}_{[n]} \perp \boldsymbol{Y}_{[n]}\left(\boldsymbol{a}_{[n]}\right) \mid \boldsymbol{X}_{[n]} \text { for } \boldsymbol{a}_{[n]} \in \mathcal{A}^{n}$.</p>
+</blockquote>
+<p>Note that <strong>assumption of randomisation</strong> is different from  $\boldsymbol{A}_{[n]} \perp \boldsymbol{Y}_{[n]} \mid \boldsymbol{X}_{[n]}$, as  $Y_{i}=Y_{i}\left(A_{i}\right)$  generally depends on  $A_{i}$.</p>
+<blockquote><p>We are using  $\boldsymbol{X}$, $A$, $Y$, and $Y(a)$  to refer to a generic  $\boldsymbol{X}_{i}$, $A_{i}$, $Y_{i}$, and $Y_{i}(a)$ when they are iid.</p>
+<p><strong>Thm.</strong> ( <strong>Causal identification in randomised experiments</strong> ) Consider any assignment mechanism where  $\left\{\boldsymbol{X}_{i}, A_{i}, Y_{i}(a), a \in \mathcal{A}\right\}$  are iid. Suppose the above assumptions are given, then</p>
+$$\begin{aligned} \mathbb{P}(A=a \mid \boldsymbol{X}=\boldsymbol{x})&gt;0 &amp; \implies  (Y(a) \mid \boldsymbol{X}=\boldsymbol{x}) \stackrel{d}{=}(Y \mid A=a, \boldsymbol{X}=\boldsymbol{x}) \\
+&amp; \implies  A T E=\mathbb{E}[Y(1)-Y(0)]=\mathbb{E}\{\mathbb{E}[Y \mid A=1, \boldsymbol{X}]-\mathbb{E}[Y \mid A=0, \boldsymbol{X}]\}. \end{aligned} $$
+</blockquote>
+<p><strong>Proof.</strong> For the first implication, computation shows that</p>
 $$\begin{aligned}
-\mathbb{P}\left(t_{1} \leq \Delta T_{1} \leq t_{1}+\delta,\right. &amp; \left.t_{2} \leq \Delta T_{2} \leq t_{2}+\delta\right) \\
-\approx &amp; P\left(0 ; t_{1}\right) \cdot P(1 ; \delta) \cdot P\left(0 ; t_{2}-t_{1}-\delta\right) \cdot P(1 ; \delta) \\
-= &amp; e^{-\lambda t_{1}} \lambda \delta e^{-\lambda\left(t_{2}-\delta\right)} \lambda \delta.
-\end{aligned}$$<p>We divide both sides by  $\delta^{2}$, and take the limit as  $\delta \downarrow 0$, to obtain</p>
-$$f_{\Delta T_{1}, \Delta T_{2}}\left(t_{1}, t_{2}\right)=\lambda e^{-\lambda t_{1}} \lambda e^{-\lambda t_{2}} . \quad t_{1}, t_{2}&gt;0.$$<p>This shows that  $\Delta T_{2}$  is independent of  $\Delta T_{1}$ and has the same exponential distribution, which can easily generalize.</p>
+\mathbb{P}(Y(a) \leq y \mid \boldsymbol{X}=\boldsymbol{x}) &amp; =\mathbb{P}\left(Y_{i}(a) \leq y \mid \boldsymbol{X}=\boldsymbol{x}, A=a\right), \\
+&amp; =\mathbb{P}(Y_i(A) \leq y \mid \boldsymbol{X}=\boldsymbol{x}, A=a), \\
+&amp; =\mathbb{P}(Y \leq y \mid \boldsymbol{X}=\boldsymbol{x}, A=a),
+\end{aligned}$$<p>where the first equality uses assumption of randomisation.</p>
+<blockquote><p>As a special case, if $\mathbb{P}(A=1 \mid \boldsymbol{X})$  does not depend on  $\boldsymbol{X}$  ( i.e. $A \perp \boldsymbol{X}$ ), then $PATE=\mathbb{E}[Y \mid A=1]-\mathbb{E}[Y \mid A=0]$.</p>
+</blockquote>
 
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<p>Neyman considered the following difference-in-means estimator:</p>
+$$\hat{\beta}=\bar{Y}_{1}-\bar{Y}_{0}, \text { where } \bar{Y}_{1}=\frac{\sum_{i=1}^{n} A_{i} Y_{i}}{\sum_{i=1}^{n} A_{i}}, \bar{Y}_{0}=\frac{\sum_{i=1}^{n}\left(1-A_{i}\right) Y_{i}}{\sum_{i=1}^{n} 1-A_{i}} \text {. }$$<p>Denote  $\boldsymbol{Y}(a)=\left(Y_{1}(a), Y_{2}(a), \ldots, Y_{n}(a)\right)^{T}$.</p>
+<blockquote><p>Neyman studied the conditional distribution of  $\hat{\beta}$  given the potential outcomes  $\boldsymbol{Y}(0), \boldsymbol{Y}(1)$. We may refer to this as the <strong>randomization distribution</strong>, because the only randomness left in  $\hat{\beta}$  comes from the randomization of $\boldsymbol{A}_{[n]}$.</p>
+</blockquote>
+<p>Set $\bar{Y}(a)=\sum_{i=1}^{n} Y_{i}(a) / n$. Suppose the treatment assignments $A_i$ are sampled without replacement, by using  $\mathbb{E}\left[A_{i}\right]=n_{1} / n$, ( For simplicity of exposition, we omit the conditioning on  $\boldsymbol{Y}(a)$ )</p>
+$$\begin{aligned}
+\mathbb{E}[\hat{\beta}] &amp; =\mathbb{E}\left[\frac{1}{n_{1}} \sum_{i=1}^{n} A_{i} Y_{i}-\frac{1}{n_{0}} \sum_{i=1}^{n}\left(1-A_{i}\right) Y_{i}\right] =\mathbb{E}\left[\frac{1}{n_{1}} \sum_{i=1}^{n} A_{i} Y_{i}(1)-\frac{1}{n_{0}} \sum_{i=1}^{n}\left(1-A_{i}\right) Y_{i}(0)\right] \\
+&amp; =\frac{1}{n_{1}} \sum_{i=1}^{n} \frac{n_{1}}{n} Y_{i}(1)-\frac{1}{n_{0}} \sum_{i=1}^{n} \frac{n_{0}}{n} Y_{i}(0) =\bar{Y}(1)-\bar{Y}(0) .
+\end{aligned}$$<blockquote><p>Suppose the treatment assignments $A_i$ are sampled without replacement, $\mathbb{E}[\hat{\beta} \mid \boldsymbol{Y}(0), \boldsymbol{Y}(1)]=S A T E$ and 
+$$\operatorname{Var}(\hat{\beta} \mid \boldsymbol{Y}(0), \boldsymbol{Y}(1))=\frac{1}{n_{0}} S_{0}^{2}+\frac{1}{n_{1}} S_{1}^{2}-\frac{S_{01}^{2}}{n},$$</p>
+<p>where  $n_{0}=n-n_{1}$, $S_{a}^{2}=\sum_{i=1}^{n}\left(Y_{i}(a)-\bar{Y}(a)\right)^{2} /(n-1)$, and  $S_{01}^{2}=\sum_{i=1}^{n}\left(Y_{i}(1)-Y_{i}(0)-S A T E\right)^{2} /(n-1)$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>For the variance, we can show that $$\operatorname{Var}(\hat{\beta} \mid \boldsymbol{Y}(0), \boldsymbol{Y}(1))=\mathbb{E}\left[\left(\sum_{i=1}^{n} \frac{A_{i}}{n_{1}} Y_{i}^{*}(1)-\frac{1-A_{i}}{n_{0}} Y_{i}^{*}(0)\right)^{2}\right].$$</p>
+<p>where $Y_{i}^{*}(a)=Y_{i}(a)-\bar{Y}(a)$. Expand the sum of squares and use</p>
+$$\mathbb{E}\left[A_{i} A_{i^{\prime}}\right]=\frac{n_{1}}{n} \frac{n_{1}-1}{n-1}, \mathbb{E}\left[A_{i} (1-A_{i^{\prime}})\right]=\frac{n_{1}}{n} \frac{n_{0}}{n-1}, i \neq i^{\prime} \text { and } \sum_{i=1}^{n} Y_{i}^{*}(a)=0,$$<p>then we arrives at the conclusion. One drawback of Neyman’s randomisation inference is that it is difficult to extend it to settings with covariates unless the covariates are discrete. The main obstacle is that the randomisation distribution necessarily depends on unobserved potential outcomes.</p>
+<blockquote><p>It is common to estimate the variance  by  $\hat{S}_{0}^{2} / n_{0}+\hat{S}_{1}^{2} / n_{1}$, where</p>
+$$\hat{S}_{1}^{2}=\frac{1}{n_{1}-1} \sum_{i=1}^{n} A_{i}\left(Y_{i}-\bar{Y}_{1}\right)^{2}, \hat{S}_{0}^{2}=\frac{1}{n_{0}-1} \sum_{i=1}^{n}\left(1-A_{i}\right)\left(Y_{i}-\bar{Y}_{0}\right)^{2}.$$<p>This is an unbiased estimator of $S_{0}^{2} / n_{0}+S_{1}^{2} / n_{1}$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<p>Fisher is the first to grasp fully the importance of randomisation. Consider $H_{0}: Y_{i}(1)-Y_{i}(0)=\beta, \forall i \in[n]$. Using the consistency assumption, the hypothesis allow us to impute the potential outcomes as</p>
+$$Y_{i}(a)=\left\{\begin{array}{ll}
+Y_{i}, &amp; \text { if } a=A_{i} \\
+Y_{i}+\beta, &amp; \text { if } a&gt;A_{i} \\
+Y_{i}-\beta, &amp; \text { if } a&lt;A_{i}
+\end{array}\right.$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>A more compact form is $\boldsymbol{Y}_{[n]}\left(\boldsymbol{a}_{[n]}\right)=\boldsymbol{Y}_{[n]}+\beta\left(\boldsymbol{a}_{[n]}-\boldsymbol{A}_{[n]}\right)$. The key step is to derive the <strong>randomisation distribution</strong> of $T = T\left(\boldsymbol{A}_{[n]}, \boldsymbol{X}_{[n]}, \boldsymbol{Y}_{[n]}\right)$. There are two ways to do this, which is shown below. $\big($<strong>In both cases, the randomness comes from the randomisation of $\boldsymbol{A}_{[n]}$</strong>$\big)$</p>
+<blockquote><p>Consider the distribution of  $T_{1}\left(\boldsymbol{A}_{[n]}, \boldsymbol{X}_{[n]}, \boldsymbol{Y}_{[n]}(0)\right)$  given  $\boldsymbol{X}_{[n]}$  and  $\boldsymbol{Y}_{[n]}(0)$;</p>
+<p>Consider the distribution of  $T_{2}\left(\boldsymbol{A}_{[n]}, \boldsymbol{X}_{[n]}, \boldsymbol{Y}_{[n]}\left(\boldsymbol{A}_{[n]}\right)\right)$  given  $\boldsymbol{X}_{[n]}, \boldsymbol{Y}_{[n]}(0)$, and  $\boldsymbol{Y}_{[n]}(1)$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let  $\mathcal{F}=\left(\boldsymbol{X}_{[n]}, \boldsymbol{Y}_{[n]}(0), \boldsymbol{Y}_{[n]}(1)\right)$. The randomisation distributions in the two approaches above are given by</p>
+$$F_{1}(t)=\mathbb{P}\left(T_{1}\left(\boldsymbol{A}_{[n]}, \boldsymbol{X}_{[n]}, \boldsymbol{Y}_{[n]}(0)\right) \leq t \mid \mathcal{F}\right) \quad \text{and} \quad F_{2}(t)=\mathbb{P}\left(T_{2}\left(\boldsymbol{A}_{[n]}, \boldsymbol{X}_{[n]}, \boldsymbol{Y}_{[n]}\left(\boldsymbol{A}_{[n]}\right)\right) \leq t \mid \mathcal{F}\right). $$<p>The observed test statistics are</p>
+$$T_{1}=T_{1}\left(\boldsymbol{A}_{[n]}, \boldsymbol{X}_{[n]}, \boldsymbol{Y}_{[n]}-\beta \boldsymbol{A}_{[n]}\right), T_{2}=T_{2}\left(\boldsymbol{A}_{[n]}, \boldsymbol{X}_{[n]}, \boldsymbol{Y}_{[n]}\right) .$$<p>The one-sided  $p$-value is the probability of observing the same or a more extreme test statistic than the observed statistic $T$, which is denoted by $P_{m}=F_{m}\left(T_{m}\right)$. An equivalent and perhaps more informative representation is</p>
+$$P_{1}=\mathbb{P}^{*}\left(T_{1}\left(\boldsymbol{A}_{[n]}^{*}, \boldsymbol{X}_{[n]}, \boldsymbol{Y}_{[n]}(0)\right) \leq T_{1} \mid \mathcal{F}\right),$$<p>where  $\boldsymbol{A}_{[n]}^{*}$  is an independent copy of  $\boldsymbol{A}$, so  $\boldsymbol{A}_{[n]}^{*} \mid \boldsymbol{X}_{[n]} \sim \pi$  but  $\boldsymbol{A}^{*} \perp \boldsymbol{A}$, and  $\mathbb{P}^{*}$ is w.r.t.  $\boldsymbol{A}^{*}$. The other  $p$-value  $P_{2}$  can be similarly defined.</p>
+<blockquote><p>A level- $\alpha$  randomisation test then rejects  $H_{0}$  if  $P_{m} \leq \alpha$ .</p>
+</blockquote>
+<p><strong>Proof.</strong> We know that</p>
+<blockquote><p>If $F(t)$ is the distribution function of a random variable $T$, then $\mathbb{P}(F(T) \leq \alpha)=\mathbb{P}\left(T&lt;F^{-1}(\alpha)\right)=\lim _{t \uparrow F^{-1}(\alpha)} \mathbb{P}(T \leq t) \leq \alpha$. Here $F^{-1}(\alpha)=\sup \{t \mid F(t) \leq \alpha\}$.</p>
+</blockquote>
+<p>This shows that under assumption of randomness and $ H_{0}$,</p>
+<blockquote>$$\mathbb{P}\left(P_{m} \leq \alpha\right) \leq   \alpha, \forall 0&lt;\alpha&lt;1, m=1,2.$$
+</blockquote>
+<p>which enables us to do the level-$\alpha$  randomisation test.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The randomisation assumption make the $p$-values possible to compute. To see this, by definition we have</p>
+$$\begin{aligned}
+F_{1}(t) &amp; =\mathbb{P}\left(T_{1}\left(\boldsymbol{A}_{[n]}, \boldsymbol{X}_{[n]}, \boldsymbol{Y}_{[n]}(0)\right) \leq t \mid \mathcal{F}\right) \\
+&amp; =\sum_{\boldsymbol{a}_{[n]} \in \mathcal{A}^{n}} \mathbb{P}\left(\boldsymbol{A}_{[n]}=\boldsymbol{a}_{[n]} \mid \mathcal{F}\right) \cdot I\left(T\left(\boldsymbol{a}_{[n]}, \boldsymbol{X}_{[n]}, \boldsymbol{Y}_{[n]}(0)\right) \leq t\right)
+\end{aligned}$$<p>Assumption of randomness and  $H_{0}$  allow us to replace the first term by</p>
+$$\mathbb{P}\left(\boldsymbol{A}_{[n]}=\boldsymbol{a}_{[n]} \mid \mathcal{F}\right)=\mathbb{P}\left(\boldsymbol{A}_{[n]}=\boldsymbol{a}_{[n]} \mid \boldsymbol{X}_{[n]}\right)=\pi\left(\boldsymbol{a}_{[n]} \mid \boldsymbol{X}_{[n]}\right).$$
 </div>
 </div>
 </div>
@@ -14704,7 +14794,25 @@ $$f_{\Delta T_{1}, \Delta T_{2}}\left(t_{1}, t_{2}\right)=\lambda e^{-\lambda t_
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-Stochastic-Intensity-from-a-Martingale-Viewpoint">2. Stochastic Intensity from a Martingale Viewpoint<a class="anchor-link" href="#2.-Stochastic-Intensity-from-a-Martingale-Viewpoint">&#182;</a></h3>
+<p>Next we consider a different inference paradigm where the potential outcomes are drawn
+from a “super-population”.</p>
+<blockquote><p>Asymptotic super-population inference will be discusses by considering the <strong>simple</strong> Bernoulli trial (Example 2.1), so  $A_{i} \perp \boldsymbol{X}_{i}$.</p>
+<p>Further, suppose  $\left(A_{i}, \boldsymbol{X}_{i}, Y_{i}(0), Y_{i}(1)\right)$  are i.i.d. and $\mathbb{E}[\boldsymbol{X}]=\mathbf{0}$.</p>
+</blockquote>
+<p>Denote  $\pi=\mathbb{P}(A=1)$, $\boldsymbol{\Sigma}=\mathbb{E}\left[\boldsymbol{X} \boldsymbol{X}^{T}\right]$, and  $\beta=\mathbb{E}[Y \mid A=1]-\mathbb{E}[Y \mid A=0]$.</p>
+<blockquote><p>In a randomised experiment, $\beta =$ PATE.</p>
+</blockquote>
+<p>We shall consider three regression estimators of  $\beta$:</p>
+$$\begin{aligned}
+\left(\hat{\alpha}_{1}, \hat{\beta}_{1}\right) &amp; =\underset{\alpha, \beta}{\arg \min } \frac{1}{n} \sum_{i=1}^{n}\left(Y_{i}-\alpha-\beta A_{i}\right)^{2}, \\
+\left(\hat{\alpha}_{2}, \hat{\beta}_{2}, \hat{\gamma}_{2}\right) &amp; =\underset{(\alpha, \beta, \boldsymbol{\gamma})}{\arg \min } \frac{1}{n} \sum_{i=1}^{n}\left(Y_{i}-\alpha-\beta A_{i}-\boldsymbol{\gamma}^{T} \boldsymbol{X}_{i}\right)^{2}, \\
+\left(\hat{\alpha}_{3}, \hat{\beta}_{3}, \hat{\gamma}_{3}, \hat{\boldsymbol{\delta}}_{3}\right) &amp; =\underset{(\alpha, \beta, \boldsymbol{\gamma}, \boldsymbol{\delta})}{\arg \min } \frac{1}{n} \sum_{i=1}^{n}\left(Y_{i}-\alpha-\beta A_{i}-\boldsymbol{\gamma}^{T} \boldsymbol{X}_{i}-A_{i}\left(\boldsymbol{\delta}^{T} \boldsymbol{X}_{i}\right)\right)^{2} .
+\end{aligned}$$<p>Then write down the population version of the least squares problems:</p>
+$$\begin{aligned}
+\left(\alpha_{1}, \beta_{1}\right) &amp; =\underset{\alpha, \beta}{\arg \min } \mathbb{E}\left[(Y-\alpha-\beta A)^{2}\right], \\
+\left(\alpha_{2}, \beta_{2}, \gamma_{2}\right) &amp; =\underset{(\alpha, \beta, \boldsymbol{\gamma})}{\arg \min } \mathbb{E}\left[\left(Y-\alpha-\beta A-\boldsymbol{\gamma}^{T} \boldsymbol{X}\right)^{2}\right], \\
+\left(\alpha_{3}, \beta_{3}, \boldsymbol{\gamma}_{3}, \boldsymbol{\delta}_{3}\right) &amp; =\underset{(\alpha \beta, \boldsymbol{\gamma}, \boldsymbol{\delta})}{\arg \min } \mathbb{E}\left[\left(Y-\alpha-\beta A-\boldsymbol{\gamma}^{T} \boldsymbol{X}-A \cdot\left(\boldsymbol{\delta}^{T} \boldsymbol{X}\right)\right)^{2}\right] .
+\end{aligned}$$
 </div>
 </div>
 </div>
@@ -14715,24 +14823,17 @@ $$f_{\Delta T_{1}, \Delta T_{2}}\left(t_{1}, t_{2}\right)=\lambda e^{-\lambda t_
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>$A \in \mathcal{V}_{T}$ (of finite variation) if the process is cadlag adapted and $\int_{0}^{T}\left|d A_{t}\right|&lt;\infty$.</p>
-<p>$A \in \mathcal{A}_{T}$ (of integrable variation) if $A \in  \mathcal{V}_{T}$ s.t. $E\left[\int_{0}^{T}\left|d A_{t}\right|\right]&lt;\infty$.</p>
-<p>We set $\mathcal{V} =  \bigcup_T \mathcal{V}_{T}$ and $\mathcal{A} =  \bigcup_T \mathcal{A}_{T}$.</p>
+<blockquote><p>Lemma. Suppose  $\left(\boldsymbol{X}_{i}, A_{i}, Y_{i}\right)$  are iid,  $A \perp X$, $\mathbb{E}[\boldsymbol{X}]=0$. Then  $\alpha_{1}=\alpha_{2}=\alpha_{3}$  and  $\beta_{1}=\beta_{2}=\beta_{3}=\beta$ .</p>
 </blockquote>
-<p>The optional  $\sigma$-algebra on $ R_{+} \times \Omega$  is generated by all $Y_{t}(\omega)=Z(\omega) I\{r \leq t&lt;s\}$ where $Z$ is $\mathcal{F}_{r}$-measurable. The predictable  $\sigma$-algebra $\Sigma_{P}$ on $ R_{+} \times \Omega$  is generated by all $Y_{t}(\omega)=Z(\omega) I\{r &lt; t \leq s\}$ where $Z$ is $\mathcal{F}_{r}$-measurable. Then in particular every $A \in \mathcal{V}_{T}$ is optional. And for adapted cadlag $X$,  $Y_{t}=X_{t-}\in\mathcal{F}_{t-}$ is adapted left-continuous, and thus certainly predictable.</p>
-<blockquote><ol>
-<li><p>The optional $\sigma$-algebra is generated by cadlag adapted processes.</p>
-</li>
-<li><p>The predictable $\sigma$-algebra is generated by adapted left continuous processes.</p>
-</li>
-<li><p>Predictable $\implies$ Optional.</p>
-</li>
-</ol>
-</blockquote>
-<p>Those can be proved with some $X^{n} \rightarrow X$ pointwise. For example, we set $X^{n}=\sum_{k \in \mathbb{N}} X_{k / 2^{n}} I\{ k / 2^{n} \leq t &lt; (k+1) / 2^{n}\}$. Also based on 2, for adapted left-continuous $X$,</p>
-$$X_{t}^{n}=n \int_{t-1 / n}^{t} I \left\{\left|X_{s \vee 0}\right| \leq n\right\} X_{s \vee 0} d s \to X_t $$<p>pointwise implies that predictable $\sigma$-algebra is also generated by adapted continuous processes.</p>
-<blockquote><p>Practically, <strong>one may without great risk interpret “optional” as “adapted” and  "predictable" as either "adapted and left continuous" or as "$\mathcal{F}_{t-}$  adapted"</strong>.</p>
-</blockquote>
+<p>Proof. By taking partial derivatives, we obtain</p>
+$$\begin{aligned}
+\mathbb{E}\left[Y-\alpha_{3}-\beta_{3} A-\gamma_{3}^{T} \boldsymbol{X}-A\left(\boldsymbol{\delta}_{3}^{T} \boldsymbol{X}\right)\right] &amp; =0 \\
+\mathbb{E}\left[A\left(Y-\alpha_{3}-\beta_{3} A-\gamma_{3}^{T} \boldsymbol{X}-A\left(\boldsymbol{\delta}_3^{T} \boldsymbol{X}\right)\right)\right] &amp; =0 .
+\end{aligned}$$<p>Using  $\mathbb{E}[\boldsymbol{X}]=0$  and  $A \perp \boldsymbol{X}$ , they can be simplified to</p>
+$$\begin{aligned}
+\mathbb{E}\left[Y-\alpha_{3}-\beta_{3} A\right] &amp; =0, \\
+\mathbb{E}\left[A\left(Y-\alpha_{3}-\beta_{3} A\right)\right] &amp; =0 .
+\end{aligned}$$<p>Following the same derivation, these two equations also hold for the other estimators. By cancelling  $\alpha_{3}$  in the equations, we get  $\beta_{3}=\beta$.</p>
 
 </div>
 </div>
@@ -14744,17 +14845,11 @@ $$X_{t}^{n}=n \int_{t-1 / n}^{t} I \left\{\left|X_{s \vee 0}\right| \leq n\right
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Then by a (possibily non-trivial) approximation argument</p>
-<blockquote><ol>
-<li><p>$A\in \mathcal{V}_{T}$  &amp; $h$  is optional s.t. $E\left[\int_{0}^{t}\left|h_{s}\right|\left|d A_{s}\right|\right]&lt;\infty \implies X_{t}=\int_{0}^{t} h_{s} d A_{s}$ is cadlag adapted.</p>
-</li>
-<li><p>$M\in \mathcal{V}_{T}$  is predictable &amp; $h$  is predictable s.t. $E\left[\int_{0}^{t}\left|h_{s}\right|\left|d M_{s}\right|\right]&lt;\infty \implies X_{t}=\int_{0}^{t} h_{s} d M_{s}$ is predictable.</p>
-</li>
-<li><p>$M\in \mathcal{V}_{T}$  is a martingale &amp; $h$  is predictable s.t. $E\left[\int_{0}^{t}\left|h_{s}\right|\left|d M_{s}\right|\right]&lt;\infty \implies X_{t}=\int_{0}^{t} h_{s} d M_{s}$ is a martingale.</p>
-</li>
-</ol>
-</blockquote>
-
+<p>Suppose $\hat{\boldsymbol{\theta}}$  is an empirical solution to the equation</p>
+$$\mathbb{E}[\boldsymbol{\psi}(\boldsymbol{\theta} ; \boldsymbol{Z}, Y)]=\mathbf{0},$$<p>where $\boldsymbol{\psi}(\boldsymbol{\theta} ; \boldsymbol{Z}, Y)=\boldsymbol{Z} \cdot\left(Y-\boldsymbol{Z}^{T} \boldsymbol{\theta}\right)=\boldsymbol{Z} \epsilon$. Suppose $Y$ and $Z$
+have bounded fourth moments, the $Z$-estimation theory shows that</p>
+$$\begin{aligned} &amp; \sqrt{n}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta}) \xrightarrow{d} \mathrm{~N}\left(\mathbf{0},\left\{\mathbb{E}\left[\frac{\partial \boldsymbol{\psi}(\boldsymbol{\theta})}{\partial \boldsymbol{\theta}}\right]\right\}^{-1} \mathbb{E}\left[\boldsymbol{\psi}(\boldsymbol{\theta}) \boldsymbol{\psi}(\boldsymbol{\theta})^{T}\right]\left\{\mathbb{E}\left[\frac{\partial \boldsymbol{\psi}(\boldsymbol{\theta})}{\partial \boldsymbol{\theta}}\right]\right\}^{-1}\right) \\
+\implies  &amp; \sqrt{n}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta}) \xrightarrow{d} \mathrm{~N}\left(0,\left\{\mathbb{E}\left[\boldsymbol{Z} \boldsymbol{Z}^{T}\right]\right\}^{-1} \mathbb{E}\left[\boldsymbol{Z} \boldsymbol{Z}^{T} \epsilon^{2}\right]\left\{\mathbb{E}\left[\boldsymbol{Z} \boldsymbol{Z}^{T}\right]\right\}^{-1}\right). \end{aligned}$$
 </div>
 </div>
 </div>
@@ -14765,69 +14860,27 @@ $$X_{t}^{n}=n \int_{t-1 / n}^{t} I \left\{\left|X_{s \vee 0}\right| \leq n\right
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Proof.</strong> Only 3 requires non-trivial approximation argument. It's known that from [Limit Theorems for Stochastic Processes, P16] that</p>
-<blockquote><p>If $h$ is predictable, $h_{t}$ is $\mathcal{F}_{t-}$-measurable.</p>
-</blockquote>
-<p>It suffices $E\left[d X_{t} \mid \mathcal{F}_{t-}\right]=0$. From $d X_{t}=h_{t} d M_{t}$, so</p>
-$$E\left[d X_{t} \mid \mathcal{F}_{t-}\right]=E\left[h_{t} d M_{t} \mid \mathcal{F}_{t-}\right]=h_{t} E\left[d M_{t} \mid \mathcal{F}_{t-}\right]=0.
-$$<p>where we use $h_{t} \in \mathcal{F}_{t-}$ to pull this term outside the expectation. (The argument can be made rigorous by considering $P$-null sets)</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Assume that  $X$  is optional and cadlag, and set $Y_{t}=X_{t-}$. Then  Y  is predictable and then</p>
-$$\int_{0}^{t} h_{s} X_{s} d s=\int_{0}^{t} h_{s} Y_{s} d s. $$
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Consider  $d X_{t}=\mu_{t} d t+\sigma_{t} d W_{t}+h_{t} d N_{t}$ where  $\mu$  and $\sigma$ are predictable and  $N$  is a counting process.</p>
-<p>Between the jumps of  $N$,  the process  $X$ enjoys $d X_{t}=\mu_{t} d t+\sigma_{t} d W_{t}$. From standard Itô formula ($(\mathrm{d} z)^{2} = \mathrm{d}t, \mathrm{~d}z\mathrm{~d}t = 0, (\mathrm{~d}t)^{2} = 0$ where $z$ denote Wiener-Brownian motion),</p>
-$$ d F\left(t, X_{t}\right)=\left\{\frac{\partial F}{\partial t}\left(t, X_{t}\right)+\mu_{t} \frac{\partial F}{\partial x}\left(t, X_{t}\right)+\frac{1}{2} \sigma_{t}^{2} \frac{\partial^{2} F}{\partial x^{2}}\left(t, X_{t}\right)\right\} d t+\sigma_{t} \frac{\partial F}{\partial x}\left(t, X_{t}\right) d W_{t}
-$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Otherwise at jump time $t$, $\Delta X_{t}=h_{t} \Delta N_{t}=h_{t}$ implies that</p>
-$$ \Delta Z_{t}=F\left(t, X_{t}\right)-F\left(t-, X_{t-}\right) = \Delta Z_{t}=F\left(t, X_{t-}+h_{t}\right)-F\left(t-, X_{t-}\right). $$<p>Therefore, we can generalize above to the following.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p><strong>Thm.</strong> (<strong>Itô formula</strong>) Assume $X$  has dynamics $d X_{t}=\mu_{t} d t+\sigma_{t} d W_{t}+h_{t} d N_{t}$, then</p>
+<p>The asymptotic normality follows from the argument below. Using Taylor’s expansion,
 $$ \begin{aligned}
-d F\left(t, X_{t}\right) &amp; =\left\{\frac{\partial F}{\partial t}\left(t, X_{t}\right)+\mu_{t} \frac{\partial F}{\partial x}\left(t, X_{t}\right)+\frac{1}{2} \sigma_{t}^{2} \frac{\partial^{2} F}{\partial x^{2}}\left(t, X_{t}\right)\right\} d t +\sigma_{t} \frac{\partial F}{\partial x}\left(t, X_{t}\right) d W_{t} \\
-&amp; +\left\{F\left(t, X_{t-}+h_{t}\right)-F\left(t, X_{t-}\right)\right\} d N_{t}.
-\end{aligned} $$
+0 &amp; =\frac{1}{n} \sum_{i=1}^{n} \boldsymbol{\psi}\left(\hat{\boldsymbol{\theta}} ; \boldsymbol{Z}_{i}, Y_{i}\right) \\
+&amp; =\frac{1}{n} \sum_{i=1}^{n} \boldsymbol{\psi}\left(\boldsymbol{\theta} ; \boldsymbol{Z}_{i}, Y_{i}\right)+(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})^{T}\left[\frac{\partial}{\partial \boldsymbol{\theta}} \boldsymbol{\psi}\left(\boldsymbol{\theta} ; \boldsymbol{Z}_{i}, Y_{i}\right)\right]+R_{n}
+\end{aligned} $$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>By using $\hat{\boldsymbol{\theta}} \xrightarrow{p} \boldsymbol{\theta}$, it can be shown that $R_{n}$  is asymptotically smaller than the other two terms and can be ignored. Thus</p>
+$$\sqrt{n}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta}) \approx \left[\frac{\partial}{\partial \boldsymbol{\theta}} \boldsymbol{\psi}(\boldsymbol{\theta} ; \boldsymbol{Z}, Y)\right]^{-1}\left[\frac{1}{\sqrt{n}} \sum_{i=1}^{n} \boldsymbol{\psi}\left(\boldsymbol{\theta} ; \boldsymbol{Z}_{i}, Y_{i}\right)\right].$$<p>The first term on the right hand side converges in probability to  $\mathbb{E}[\partial \boldsymbol{\psi}(\boldsymbol{\theta}) / \partial \boldsymbol{\theta}]^{-1}$. The second term converges in distribution to a normal random variable with variance  $\mathbb{E}\left[\boldsymbol{\psi}(\boldsymbol{\theta}) \boldsymbol{\psi}(\boldsymbol{\theta})^{T}\right]$. Using Slutsky's theorem, we arrive at the conclusion.</p>
+<blockquote><p>Let  $\epsilon_{i 1}, \epsilon_{i 2}, \epsilon_{i 3}$  be the error terms in the three regression estimators:</p>
+$$\epsilon_{i m}=Y_{i}-\alpha_{m}-\beta_{m} A_{i}-\boldsymbol{\gamma}_{m}^{T} \boldsymbol{X}_{i}-A_{i}\left(\boldsymbol{\delta}_{m}^{T} \boldsymbol{X}_{i}\right), m=1,2,3 .$$<p>Conventionally  $\gamma_{1}=0$  and  $\boldsymbol{\delta}_{1}=\boldsymbol{\delta}_{2}=\mathbf{0}$. Then</p>
+$$\sqrt{n}\left(\hat{\beta}_{m}-\beta\right) \xrightarrow{d} \mathrm{~N}\left(0, V_{m}\right).$$
 </blockquote>
 
 </div>
@@ -14840,27 +14893,12 @@ d F\left(t, X_{t}\right) &amp; =\left\{\frac{\partial F}{\partial t}\left(t, X_{
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>After that we consider SDE of counting process, where non-causal dynamic is avoided.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Assume that $\forall x_{0}$, the ODE $$\left\{\begin{aligned}
-\frac{d X_{t}}{d t} &amp; =\mu\left(X_{t}\right), \\
-X_{0} &amp; =x_{0},
-\end{aligned}\right.$$</p>
-<p>has a unique global solution.  Then $\forall \beta: R \rightarrow R$, the SDE</p>
-$$\left\{\begin{aligned}
-d X_{t} &amp; =\mu\left(X_{t-}\right) d t+\beta\left(X_{t-}\right) d N_{t}, \\
-X_{0} &amp; =x_{0},
-\end{aligned}\right.$$<p>has a unique global solution.</p>
+<blockquote><p>(<strong>Decomposition</strong>) Causal estimator - True causal effect  =  Design bias + Modelling bias + Statistical noise.</p>
+</blockquote>
+<p>Concrete, let  $\boldsymbol{O}$  be all the observed variables with distribution $\mathcal{O}$; $\boldsymbol{F}$  (full data) denote the relevant factuals and counterfactuals with  $\mathcal{F}$  be its distribution.
+Then the decomposition really is</p>
+$$\beta\left(\boldsymbol{O}_{[n]} ; \hat{\theta}\right)-\beta(\mathcal{F})=\{\beta(\mathcal{O})-\beta(\mathcal{F})\}+\{\beta(\mathcal{O} ; \theta)-\beta(\mathcal{O})\}+\left\{\beta\left(\boldsymbol{O}_{[n]} ; \hat{\theta}\right)-\beta(\mathcal{O} ; \theta)\right\}$$<p>where  $\beta$  is a generic symbol for causal effect functional (estimator),  $\boldsymbol{O}_{[n]}$  is the observed data of size  $n$, $\theta$  is the parameter in a statistical model and  $\hat{\theta}=\hat{\theta}\left(\boldsymbol{O}_{[n]}\right)$  is an estimator of  $\theta$.</p>
+<blockquote><p><strong>Example.</strong> In regression adjustment for randomised experiments,  $\boldsymbol{O}=(\boldsymbol{X}, A, Y)$ ,  $\boldsymbol{F}=(Y(0), Y(1))$, $\beta(\mathcal{F})=\mathbb{E}[Y(1)-Y(0)]$, $\beta(\mathcal{O})=\mathbb{E}[Y \mid A=1]-\mathbb{E}[Y \mid A=0]$, $\beta(\mathcal{O}, \theta)$  be the any of (population version) regression estimators,  $\beta\left(\boldsymbol{O}_{[n]}; \hat{\theta}\right)$  be the corresponding regression estimators.</p>
 </blockquote>
 
 </div>
@@ -14873,27 +14911,8 @@ X_{0} &amp; =x_{0},
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Proof.</strong> We have the following concrete algorithm.</p>
-<ol>
-<li>Denote the jump times of  $N$  by  $T_{1}, T_{2}, \ldots $</li>
-<li>$\forall \omega $, solve the ODE</li>
-</ol>
-$$\left\{\begin{aligned}
-\frac{d X_{t}}{d t} &amp; =\mu\left(X_{t}\right), \\
-X_{0} &amp; =x_{0}
-\end{aligned}\right.$$<p>on $\left[0, T_{1}\right)$ to determined $X_{T_{1}-}$.</p>
-<ol>
-<li><p>Calculate $X_{T_{1}}$  by $X_{T_{1}}=X_{T_{1}-}+\beta\left(X_{T_{1}-}\right)$.</p>
-</li>
-<li><p>Given  $X_{T_{1}}$  from 3, solve the ODE $\frac{d X_{t}}{d t}=\mu\left(X_{t}\right)$ on  $\left[T_{1}, T_{2}\right)$, which gives us  $X_{T_{2}-}$.</p>
-</li>
-<li><p>Compute  $X_{T_{2}}$  by $X_{T_{2}}=X_{T_{2}-}+\beta\left(X_{T_{2}-}\right)$.</p>
-</li>
-<li><p>Continue by induction.</p>
-</li>
-</ol>
-<p>Finally, we discuss <strong>stochastic intensity</strong>.</p>
-
+<hr>
+<h3 id="2.-Graphic-Models">2. Graphic Models<a class="anchor-link" href="#2.-Graphic-Models">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14904,8 +14923,8 @@ X_{0} &amp; =x_{0}
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Given an optional counting process  $N$. Let  $\lambda \geq 0$  be optional s.t. $\int_{0}^{t} \lambda_{s} d s&lt;\infty$. If</p>
-$$E\left[\int_{0}^{\infty} h_{t} \lambda_{t} d t\right]=E\left[\int_{0}^{\infty} h_{t} d N_{t}\right]$$<p>$\forall$ predictable $h$, then we say $N$  has (stochastic) intensity  $\lambda$.</p>
+<blockquote><p>Given a DAG  $\mathcal{G}=(V=[p], E)$ (<strong>DAG implies a topological ordering</strong>), the random variables  $\boldsymbol{X}=\boldsymbol{X}_{[p]}$  satisfy a NPSEM if the observed and interventional distributions of  $\boldsymbol{X}_{[p]}$  satisfy</p>
+$$X_{i}=f_{i}\left(\boldsymbol{X}_{p a_{\mathcal{G}}(i)}, \epsilon_{i}\right), i=1, \ldots, p,$$<p>for some functions  $f_{1}, \ldots, f_{p}$  and random variables  $\boldsymbol{\epsilon}_{[p]}$.</p>
 </blockquote>
 
 </div>
@@ -14918,9 +14937,8 @@ $$E\left[\int_{0}^{\infty} h_{t} \lambda_{t} d t\right]=E\left[\int_{0}^{\infty}
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Then we know if $E\left[N_{t}\right]&lt;\infty$, then $M_{t}=N_{t}-\int_{0}^{t} \lambda_{s} d s$ is a martingale, which can be seen from</p>
-$$ \text{ set } h_{u}(\omega)=I_{A}(\omega) I\{s&lt;u \leq t\} \implies E\left[I_{A} \int_{s}^{t} \lambda_{u} d u\right]=E\left[I_{A}\left(N_{t}-N_{s}\right)\right] .
-$$
+<p>Given the above NPSEM, the counterfactual variables  $X_{i}(\boldsymbol{X}_{J}=\boldsymbol{x}_{J})$  can be obtained via recursive substitution: For any  $i \in[p]$, $J \subseteq[p]$  and  $J \neq p a(i)$ , we recursively set</p>
+$$ X_{i}\left(\boldsymbol{x}_{J}\right) = X_{i}\left(\boldsymbol{X}_{J}=\boldsymbol{x}_{J}\right)=X_{i}\left(\boldsymbol{X}_{p a(i) \cap J}=\boldsymbol{x}_{p a(i) \cap J}, \boldsymbol{X}_{p a(i) \backslash J}=\boldsymbol{X}_{p a(i) \backslash J}\left(\boldsymbol{x}_{J}\right)\right).$$
 </div>
 </div>
 </div>
@@ -14931,19 +14949,15 @@ $$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>$A_{t}=\int_{0}^{t} \lambda_{s} d s$ is the compensator process.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Assume that  $N$  has intensity  $\lambda^{*}$. Then it assumes  predictable intensity  $\lambda$ and is <strong>unique</strong>.</p>
+<p>Recall that</p>
+<blockquote><p>Given a DAG  $\mathcal{G}$, a path is blocked by  $K \subseteq V$  if $\exists k$  on the path such that either $k$  is not a collider on this path and  $k \in K$; or $k$  is a collider on this path and  $k$  and all its descendants are not in  $K$.</p>
+<p>For $\mathbb{P}$ on $\mathcal{G}$,  $f(\boldsymbol{x})=\prod_{i \in V} f_{i \mid p a(i)}\left(x_{i} \mid \boldsymbol{x}_{p a(i)}\right)$ iff $I \perp J\left|K[\mathcal{G}] \Longrightarrow \boldsymbol{X}_{I} \perp \boldsymbol{X}_{J}\right| \boldsymbol{X}_{K}$ for disjoint $I,J,K$.</p>
+</blockquote>
+<p>We provide further that</p>
+<blockquote><p>Given any disjoint  $J, K \subseteq V$  and any  $i \in V$.</p>
+<p><strong>Prop I.</strong> If  $K$  blocks all directed paths from  $J$  to  $i$, then $\boldsymbol{X}_{i}\left(\boldsymbol{x}_{J}, \boldsymbol{x}_{K}\right)=\boldsymbol{X}_{i}\left(\boldsymbol{x}_{K}\right)$.</p>
+<p><strong>Cor I.</strong> $X_{i}\left(\boldsymbol{x}_{J}\right)=X_{i}\left(\boldsymbol{x}_{J \cap a n(i)} \right)$.</p>
+<p><strong>Prop II.</strong> $\boldsymbol{X}_{J}\left(\boldsymbol{x}_{K}\right)=\boldsymbol{x}_{J} \Longrightarrow X_{i}\left(\boldsymbol{x}_{J}, \boldsymbol{x}_{K}\right)=X_{i}\left(\boldsymbol{x}_{K}\right)$.</p>
 </blockquote>
 
 </div>
@@ -14956,8 +14970,11 @@ $$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This can be seen directly from</p>
-$$ \mu_{t}=\lambda_{t-} \implies E\left[\int_{0}^{\infty} h_{t} \lambda_{t} d t\right]=E\left[\int_{0}^{\infty} h_{t} \mu_{t} d t\right]. $$
+<p><strong>Proof.</strong> The first follows from the observation: if  $K$  blocks all directed paths from  $J$  to  $i$, then  $K$  also blocks directed paths from  $J$  to  $p a(i) \backslash K$. The second follows from the following equations and induction</p>
+$$\begin{aligned}
+X_{i}\left(\boldsymbol{x}_{J}, \boldsymbol{x}_{K}\right)=X_{i}\left(\boldsymbol{x}_{p a(i) \cap J}, \boldsymbol{x}_{p a(i) \cap K}, \boldsymbol{X}_{p a(i) \backslash J \backslash K}\left(\boldsymbol{x}_{J}, \boldsymbol{x}_{K}\right)\right), \\
+X_{i}\left(\boldsymbol{x}_{K}\right)=X_{i}\left(\boldsymbol{X}_{p a(i) \cap J}\left(\boldsymbol{x}_{K}\right), \boldsymbol{x}_{p a(i) \cap K}, \boldsymbol{X}_{p a(i) \backslash J \backslash K}\left(\boldsymbol{x}_{K}\right)\right) .
+\end{aligned}$$
 </div>
 </div>
 </div>
@@ -14968,8 +14985,222 @@ $$ \mu_{t}=\lambda_{t-} \implies E\left[\int_{0}^{\infty} h_{t} \lambda_{t} d t\
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Assume that  $N$  has the predictable intensity process  $\lambda$. Modulo integrability, this implies that $d N_{t}-\lambda d t$ is a martingale increment, and heuristically</p>
-$$E\left[d N_{t}-\lambda d t \mid \mathcal{F}_{t-}\right]=0 \implies E\left[d N_{t} \mid \mathcal{F}_{t-}\right]=\lambda_{t} d t .$$<p>Thus, $\lambda$  has the interpretation that  <strong>$\lambda_{t}$  is the conditionally expected number of jumps per unit of time</strong>.</p>
+<blockquote><p>A NPSEM satisfies the single(multiple)-world independence assumptions, if $X_{i}\left(\boldsymbol{x}_{p a(i)}\right)$ $\big(\epsilon_{i}\big)$ are mutually independent.</p>
+<p>A <strong>causal model</strong> is a NPSEM together with the single-world independence assumption.</p>
+</blockquote>
+<p>Note that in addition to the single-world independence assumptions, the multiple-world independence assumptions also make the following cross-world independence assumption:
+$$X_{2}\left(x_{1}\right) \perp X_{3}\left(\tilde{x}_{1}, x_{2}\right) \text { for any } x_{1} \neq \tilde{x}_{1}, x_{2} .$$</p>
+<blockquote><p>The single-world intervention graph (SWIG) $\mathcal{G}\left[\boldsymbol{x}_{J}\right]$ for the intervention  $\boldsymbol{X}_{J}=\boldsymbol{x}_{J}$  is constructed from  $\mathcal{G}$  via the following two steps:</p>
+<p>(i) Node splitting: For every  $j \in J$, split the vertex  $X_{j}$  into a random and a fixed component, labelled $X_{j}$ and $x_{j}$  respectively. The random half inherited all edges into  $X_{j} $ and the fixed half inherited all edges out of  $X_{j}$.</p>
+<p>(ii) Labelling: For every random node  $X_{i}$  in the new graph, label it with  $X_{i}\left(\boldsymbol{x}_{J}\right)=   X_{i}\left(\boldsymbol{x}_{J \cap a n(i)}\right)$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>( <strong>Factorisation of counterfactual distributions</strong> ). Suppose  $\boldsymbol{X}$  satisfies the causal model defined by a DAG  $\mathcal{G}$, then  $\boldsymbol{X}\left(\boldsymbol{x}_{J}\right)$  factorises according to  the random part $\mathcal{G}^{*}\left[\boldsymbol{X}\left(\boldsymbol{x}_{J}\right)\right]$ (by removing $x_J$ from $\mathcal{G}\left[\boldsymbol{X}\left(\boldsymbol{x}_{J}\right)\right]$), $\forall  J \subseteq[p]$.</p>
+</blockquote>
+<p><strong>Proof.</strong> It's clear that</p>
+<blockquote><p>For any  $k \notin J$ s.t. $\operatorname{de}(k) \subseteq J$,</p>
+$$\mathbb{P}\left(X_{i}\left(\boldsymbol{x}_{J}, \tilde{x}_{k}\right)=\tilde{x}_{i} \mid \boldsymbol{X}_{p a(i) \backslash J \backslash\{k\}}\left(\boldsymbol{x}_{J}, \tilde{x}_{k}\right)=\tilde{\boldsymbol{x}}_{p a(i) \backslash J \backslash\{k\}}\right) = \mathbb{P}\left(X_{i}\left(\boldsymbol{x}_{J}\right)=\tilde{x}_{i} \mid \boldsymbol{X}_{p a(i) \backslash J}\left(\boldsymbol{x}_{J}\right)=\tilde{\boldsymbol{x}}_{p a(i) \backslash J}\right) .$$
+</blockquote>
+<p>Then we simply prove by reverse induction using $J \cup\{k\} \subseteq[p] \text { to } J \text { where } k \notin J \text { and } d e(k) \subseteq J$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Suppose $\boldsymbol{X}$ satisfies the causal model, then</p>
+$$ \mathbb{P}\left(X_{i}\left(\boldsymbol{x}_{J}\right)=\tilde{x}_{i} \mid \boldsymbol{X}_{p a(i) \backslash J}\left(\boldsymbol{x}_{J}\right)=\tilde{\boldsymbol{x}}_{p a(i) \backslash J}\right) = \mathbb{P}\left(X_{i}=\tilde{x}_{i} \mid \boldsymbol{X}_{p a(i) \backslash J}=\tilde{\boldsymbol{x}}_{p a(i) \backslash J}, \boldsymbol{X}_{p a(i) \cap J}=\boldsymbol{x}_{p a(i) \cap J}\right).$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>This shows that</p>
+<blockquote><p>$\mathbb{P}\left(\boldsymbol{X}\left(\boldsymbol{x}_{J}\right)=\tilde{\boldsymbol{x}}\right)=\prod_{i=1}^{p} \mathbb{P}\left(X_{i}=\tilde{x}_{i} \mid \boldsymbol{X}_{p a(i) \cap J}=\boldsymbol{x}_{p a(i) \cap J}, \boldsymbol{X}_{p a(i) \backslash J}=\tilde{\boldsymbol{x}}_{p a(i) \backslash J}\right)$.</p>
+<p>$\mathbb{P}\left(\boldsymbol{X}_{I}\left(\boldsymbol{x}_{J}\right)=\tilde{\boldsymbol{x}}_{I}\right)=\sum_{\tilde{\boldsymbol{x}}_{K}} \prod_{i \in I \cup K} \mathbb{P}\left(X_{i}=\tilde{x}_{i} \mid \boldsymbol{X}_{p a(i) \cap J}=\boldsymbol{x}_{p a(i) \cap J}, \boldsymbol{X}_{p a(i) \backslash J}=\tilde{\boldsymbol{x}}_{p a(i) \backslash J}\right)$ where $I,J,K$ form a partition.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Proof.</strong> The second is a corollary of the first equation by seeing that</p>
+$$\mathbb{P}\left(\boldsymbol{X}_{I}\left(\boldsymbol{x}_{J}\right)=\tilde{\boldsymbol{x}}_{I}\right)=\sum_{\tilde{\boldsymbol{x}}_{K}, \tilde{\boldsymbol{x}}_{J}} \prod_{i=1}^{p} \mathbb{P}\left(X_{i}=\tilde{x}_{i} \mid \boldsymbol{X}_{p a(i) \cap J}=\boldsymbol{x}_{p a(i) \cap J}, \boldsymbol{X}_{p a(i) \backslash J}=\tilde{\boldsymbol{x}}_{p a(i) \backslash J}\right) .$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In the graphical framework, we can check  $Y(a) \perp A \mid X$  by d-separation in the SWIG. Because there is no out-going arrow from  $A$  in  $\mathcal{G}^{*}[a]$, this essentially says that every back-door path from  $A$  to  $Y$  (i.e. the path has an edge going into  $A$) must be blocked by  $X$.</p>
+<blockquote><p>( <strong>Back-door adjustment</strong> ). Suppose $(\boldsymbol{X}, A, Y)$  in a causal model  $\mathcal{G}$  that may contain other unobserved variables. Suppose  $\boldsymbol{X}$  contains no descendant of  $A$  and blocks every back-door path from  $A$  to  $Y$  in  $\mathcal{G}$. Then  $Y(a) \perp A \mid \boldsymbol{X}$   and</p>
+$$\mathbb{P}(Y(a) \leq y)=\sum_{\boldsymbol{x}} \mathbb{P}(\boldsymbol{X}=\boldsymbol{x}) \cdot \mathbb{P}(Y \leq y \mid A=a, \boldsymbol{X}=\boldsymbol{x}), \forall a, \boldsymbol{x}, y.$$
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h3 id="3.-No-Unmeasured-Confounders">3. No Unmeasured Confounders<a class="anchor-link" href="#3.-No-Unmeasured-Confounders">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>An observational study is an empirical investigation that utilises observation data (without
+manipulation or intervention), which envolves two stages: <strong>design</strong> and <strong>analysis</strong>.</p>
+<blockquote><p>( <strong>Randomised Experiment</strong> ) Randomisation allows us to choose between statistical
+error and causality. This reasoning is inductive.</p>
+<p>( <strong>Observational Study</strong> ) Randomisation is replaced by pair matching. As a consequence, apart
+from statistical error and causality, a third possible <strong>explanation</strong> is that the treated patients
+and the control patients are systematically different in some other way.</p>
+<p>Assume  $\left(\boldsymbol{X}_{i}, A_{i}, Y_{i}(0), Y_{i}(1)\right)$,  $i=1, \ldots, n$, are i.i.d.</p>
+<p><strong>Assumption of no unmeasured confounders.</strong> $ A \perp Y(a) \mid \boldsymbol{X}$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>For matching usually we apply <strong>propensity score matching</strong>. We say $b(\boldsymbol{X})$  is a <strong>balancing score</strong> if  $A \perp \boldsymbol{X} \mid b(\boldsymbol{X})$, which follows that</p>
+$$ A \perp Y(a) \mid b(\boldsymbol{X}).$$<p>Among all the balancing scores, of particular interest is the propensity score $\pi(\boldsymbol{x})=\mathbb{P}(A=1 \mid \boldsymbol{X}=\boldsymbol{x})$, which can be written as  a function of any balancing score $b(\boldsymbol{X})$. And a popular distance measure is the squared distance between the estimated propensity scores in the logit scale:
+$$d_{\mathrm{PS}}\left(\boldsymbol{X}_{i}, \boldsymbol{X}_{j}\right)=\left[\log \left(\frac{\hat{\pi}\left(\boldsymbol{X}_{i}\right)}{1-\hat{\pi}\left(\boldsymbol{X}_{i}\right)}\right)-\log \left(\frac{\hat{\pi}\left(\boldsymbol{X}_{j}\right)}{1-\hat{\pi}\left(\boldsymbol{X}_{j}\right)}\right)\right].$$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Next we consider the statistical inference after matching.</p>
+<blockquote><p>Assume treated observation  $i$  is matched to control observation  $i+n_{1}$, $i\in [n_{1}]$ .</p>
+</blockquote>
+<p>Let $D_{i}=\left(A_{i}-A_{i+n_{1}}\right)\left(Y_{i}-Y_{i+n_{1}}\right)$ be the treated-minus-control difference in pair  $i$. Let</p>
+$$M=\left\{\boldsymbol{a}_{\left[2 n_{1}\right]} \in\{0,1\}^{2 n_{1}} \mid a_{i}+a_{i+n_{1}}=1, \forall i \in\left[n_{1}\right]\right\}$$<p>be all the reasonable treatment assignments. Let  $\boldsymbol{C}_{i}=\left(\boldsymbol{X}_{i}, Y_{i}(0), Y_{i}(1)\right)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>$$\pi\left(\boldsymbol{X}_{i}\right)=\pi\left(\boldsymbol{X}_{i+n_{1}}\right) \implies \mathbb{P}\left(\boldsymbol{A}_{\left[2 n_{1}\right]}=\boldsymbol{a} \mid \boldsymbol{C}_{\left[2 n_{1}\right]}, \boldsymbol{A}_{\left[2 n_{1}\right]} \in M\right)=\left\{\begin{array}{ll}
+2^{-n_{1}}, &amp; \text { if } \boldsymbol{a} \in M \\
+0, &amp; \text { otherwise }
+\end{array}\right.$$
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>This means that $\pi\left(\boldsymbol{X}_{i}\right)=\pi\left(\boldsymbol{X}_{i+n_{1}}\right)$ implies the <strong>assumption that matching reconstructs a pairwise randomised experiment</strong>.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Consider $H_{\beta}: Y_{i}(1)-Y_{i}(0)=\beta, \forall i$. Under  $H_{0}$, the counterfactual values of  $\boldsymbol{D}_{\left[n_{1}\right]}$  can be imputed as</p>
+$$D_{i}\left(\boldsymbol{a}_{\left[2 n_{1}\right]}\right)=\left(a_{i}-a_{i+n_{1}}\right) \cdot\left(Y_{i}\left(a_{i}\right)-Y_{i+n_{1}}\left(a_{i+n_{1}}\right)\right)=\left\{\begin{array}{ll}
+D_{i}, &amp; \text { if } a_{i}=1, a_{i+n_{1}}=0 \\
+2 \beta-D_{i}, &amp; \text { if } a_{i}=0, a_{i+n_{1}}=1
+\end{array}\right.$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Consider any test statistic  $T=T\left(\boldsymbol{D}_{\left[n_{1}\right]}\right)$. Next we construct a randomisation test based on the randomisation distribution of  $T\left(\boldsymbol{D}_{\left[n_{1}\right]}\left(\boldsymbol{A}_{\left[2 n_{1}\right]}\right)\right)$. Let  $F(t)$  denote its cumulative distribution function given  $\boldsymbol{C}_{\left[2 n_{1}\right]}$  and  $\boldsymbol{A}_{\left[2 n_{1}\right]} \in M$  under  $H_{0}$,</p>
+$$\begin{aligned}
+F\left(t ; \boldsymbol{D}_{\left[n_{1}\right]}, \beta\right) &amp; =\mathbb{P}\left(T \leq t \mid \boldsymbol{C}_{\left[n_{1}\right]}, \boldsymbol{A}_{\left[2 n_{1}\right]} \in M, H_{\beta}\right), \\
+&amp; =\sum_{\boldsymbol{a}_{\left[2 n_{1}\right]} \in M}\left(\frac{1}{2}\right)^{n_{1}} \cdot I\left(T\left(\boldsymbol{D}_{\left[n_{1}\right]}\left(\boldsymbol{a}_{\left[2 n_{1}\right]}\right)\right) \leq t\right) .
+\end{aligned}$$<blockquote><p>Under the assumption that matching reconstructs a pairwise randomised experiment,  $\mathbb{P}\left(P_{2} \leq \alpha\right) \leq \alpha$  under  $H_{0}$.</p>
+</blockquote>
 
 </div>
 </div>
@@ -14993,33 +15224,9 @@ $$E\left[d N_{t}-\lambda d t \mid \mathcal{F}_{t-}\right]=0 \implies E\left[d N_
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We shall give a connection of stochastic intensity function and conditional intensity function as is defined below.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Set $\mathcal{H}_{t}$ = the list of time events  $\left\{t_{1}, \ldots, t_{n}\right\}$  up to time  $t$.</p>
-<p>For counting process $N(t)$,  the <strong>conditional intensity function</strong> is</p>
-$$ \lambda^{*}(t) = \lambda^{*}(t, \omega) = \lim _{h \searrow 0} \frac{\mathbb{E}[N(t+h)-N(t) \mid \mathcal{H}(t)]}{h}.$$
-</blockquote>
-<p>An alternative way of definition is to use CDF. Set distribution function of $T_{k+1}$ given the history up to $\mathcal{H}_{u}$ where last jump  $k$  taken at time  $u$ as</p>
-$$F^{*}\left(t \mid \mathcal{H}_{u}\right)=\int_{u}^{t} \mathbb{P}\left[s \leq T_{k+1} \leq s+d s \mid \mathcal{H}_{u}\right] d s=\int_{u}^{t} f^{*}\left(s \mid \mathcal{H}_{u}\right) d s.$$<blockquote><p>We have the decomposition $f\left(t_{1}, t_{2}, \ldots, t_{k}\right)=\prod_{i=1}^{k} f^{*}\left(t_{i} \mid \mathcal{H}_{u}\right)$.</p>
-</blockquote>
-<p>Then we know</p>
-$$ \begin{aligned}
-\lambda^{*}(t) = &amp; E\left[N(d t) \mid \mathcal{H}_{t}\right] = \mathbb{P}\left(\text { point in } \mathrm{dt} \mid \mathcal{H}_{t}\right) = \mathbb{P}\left(\text { point in } \mathrm{dt} \mid \text { point not before } \mathrm{t}, \mathcal{H}_{t}\right) \\
-= &amp; \frac{\mathbb{P}\left(\text { point in } \mathrm{dt} \text {, point not before } \mathrm{t} \mid \mathcal{H}_{t}\right)}{\mathbb{P}\left(\text { point not before } \mathrm{t} \mid \mathcal{H}_{t}\right)} = \frac{\mathbb{P}\left(\text { point in } \mathrm{dt} \mid \mathcal{H}_{t}\right)}{\mathbb{P}\left(\text { point not before } \mathrm{t} \mid \mathcal{H}_{t}\right)} = \frac{f^{*}\left(t \mid \mathcal{H}_{t}\right)}{1-F^{*}\left(t \mid \mathcal{H}_{t}\right)}.
-\end{aligned} 
-$$<blockquote><p>Therefore, we have the second definition:</p>
-$$\lambda^{*}\left(t \mid \mathcal{H}_{t}\right)=\frac{f^{*}\left(t \mid \mathcal{H}_{t}\right)}{1-F^{*}\left(t \mid \mathcal{H}_{t}\right)} = -\frac{\dot{S}^{*}\left(t \mid \mathcal{H}_{t}\right)}{S^{*}\left(t \mid \mathcal{H}_{t}\right)}=-\frac{d}{d t} \ln \left(S^{*}\left(t \mid \mathcal{H}_{t}\right)\right)$$<p></p>
-<p>where we give it an interpretation from <strong>survial analysis</strong>.</p>
+<p>Next we apply some semiparametric inference.</p>
+<blockquote><p><strong>Assumption of Positivity.</strong> $\pi_{a}(\boldsymbol{x})=\mathbb{P}(A=a \mid \boldsymbol{X}=\boldsymbol{x})&gt;0$, $\forall a, \boldsymbol{x}$.</p>
+<p>This is also called the overlap assumption, because by the Bayes rule, it is equivalent to assuming that the distribution  $\boldsymbol{X}$  has the same support given  $A=a$  for all  $a$.</p>
 </blockquote>
 
 </div>
@@ -15032,9 +15239,267 @@ $$\lambda^{*}\left(t \mid \mathcal{H}_{t}\right)=\frac{f^{*}\left(t \mid \mathca
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Usually we interpret it as its left-continuous modification $\lambda^{*}\left(t^{-}\right)$, which equals the <strong>stochastic Intensity</strong>:</p>
-$$ \lambda^{*}\left(t^{-}\right) = \lim _{h \searrow 0} \frac{\mathbb{E}[N(t)-N(t-h) \mid \mathcal{H}(t-h)]}{h} = \frac{E\left[d N_{t} \mid \mathcal{F}_{t-}\right]}{d t}.
-$$
+<p>We have $\mathrm{ATE}=\mathbb{E}[Y(1)-Y(0)]=\mathbb{E}\{\mathbb{E}[Y \mid A=1, \boldsymbol{X}]-\mathbb{E}[Y \mid A=0, \boldsymbol{X}]\}$. Then it suffices to estimate</p>
+$$\beta_{a}=\mathbb{E}\{\mathbb{E}[Y \mid A=a, \boldsymbol{X}]\}=\sum_{\boldsymbol{x}} \mu_{a}(\boldsymbol{x}) \mathbb{P}(\boldsymbol{X}=\boldsymbol{x}).$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Given an iid sample from the population, we can empirically estimate by</p>
+$$\begin{aligned}
+\hat{\mu}_{a}(\boldsymbol{x}) &amp; = \frac{\sum_{i=1}^{n} I\left(A_{i}=a, \boldsymbol{X}_{i}=\boldsymbol{x}\right) Y_{i}}{\sum_{i=1}^{n} I\left(A_{i}=a, \boldsymbol{X}_{i}=\boldsymbol{x}\right)}, \\
+\hat{\mathbb{P}}(\boldsymbol{X}=\boldsymbol{x}) &amp; = \frac{1}{n} \sum_{i=1}^{n} I\left(\boldsymbol{X}_{i}=\boldsymbol{x}\right)
+\end{aligned}$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Therefore, we obtain the OR estimator $$\hat{\beta}_{a, \mathrm{OR}}=\sum_{\boldsymbol{x}} \hat{\mu}_{a}(\boldsymbol{x}) \hat{\mathbb{P}}\left(\boldsymbol{X}_{i}=\boldsymbol{x}\right)=\frac{1}{n} \sum_{i=1}^{n} \sum_{\boldsymbol{x}} \hat{\mu}_{a}(\boldsymbol{x}) I\left(\boldsymbol{X}_{i}=\boldsymbol{x}\right)=\frac{1}{n} \sum_{i=1}^{n} \hat{\mu}_{a}\left(\boldsymbol{X}_{i}\right) .$$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>The ATE can be estimated by $\hat{\beta}_{\mathrm{OR}}=\hat{\beta}_{1, \mathrm{OR}}-\hat{\beta}_{0, \mathrm{OR}}=\frac{1}{n} \left(\sum_{i=1}^{n} \hat{\mu}_{1}(\boldsymbol{X}_{i}\right)-\hat{\mu}_{0}\left(\boldsymbol{X}_{i})\right)$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Recall  $\pi_{a}(\boldsymbol{x})=\mathbb{P}(A=a \mid \boldsymbol{X}=\boldsymbol{x})$, which can be estimated by</p>
+$$\hat{\pi}_{a}(\boldsymbol{x})=\frac{\sum_{i=1}^{n} I\left(A_{i}=a, \boldsymbol{X}_{i}=\boldsymbol{x}\right)}{\sum_{i=1}^{n} I\left(\boldsymbol{X}_{i}=\boldsymbol{x}\right)} .$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>The IPW estimator  is 
+$$\hat{\beta}_{a, \mathrm{IPW}}=\frac{1}{n} \sum_{i=1}^{n} \frac{I\left(A_{i}=a\right)}{\hat{\pi}_{a}\left(\boldsymbol{X}_{i}\right)} Y_{i} = \hat{\beta}_{a, O R},$$ 
+where we suppose $\hat{\pi}_{a}(\boldsymbol{x})&gt;0$, which follows that $\hat{\beta}_{O R}=\hat{\beta}_{I P W}$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We have, by adding and subtracting $\mu_{a}(\boldsymbol{X})$,</p>
+$$\begin{aligned}
+&amp; \sqrt{n}\left(\hat{\beta}_{a, \mathrm{IPW}}-\beta_{a}\right) \\
+= &amp; \frac{1}{\sqrt{n}} \sum_{i=1}^{n} \frac{I\left(A_{i}=a\right)}{\hat{\pi}_{a}\left(\boldsymbol{X}_{i}\right)}\left[Y_{i}-\mu_{a}\left(\boldsymbol{X}_{i}\right)\right]+\mu_{a}\left(\boldsymbol{X}_{i}\right)-\beta_{a} \\
+= &amp; \frac{1}{\sqrt{n}} \sum_{i=1}^{n}\left\{\frac{I\left(A_{i}=a\right)}{\pi_{a}\left(\boldsymbol{X}_{i}\right)}\left[Y_{i}-\mu_{a}\left(\boldsymbol{X}_{i}\right)\right]+\mu_{a}\left(\boldsymbol{X}_{i}\right)-\beta_{a}\right\}+R_{n} .
+\end{aligned}$$<p>The residual term</p>
+$$R_{n}=\frac{1}{\sqrt{n}} \sum_{i=1}^{n} I\left(A_{i}=a\right)\left[\frac{1}{\hat{\pi}_{a}\left(\boldsymbol{X}_{i}\right)}-\frac{1}{\pi_{a}\left(\boldsymbol{X}_{i}\right)}\right]\left[Y_{i}-\mu_{a}\left(\boldsymbol{X}_{i}\right)\right] \xrightarrow{p} 0$$<p>as  $n \rightarrow \infty$. This is because  $\hat{\pi}_{a}(\boldsymbol{x})$  generally converges to  $\pi_{a}(\boldsymbol{x})$  at  $1 / \sqrt{n}$  rate and the other term  $I\left(A_{i}=a\right)\left[Y_{i}-\mu_{a}\left(\boldsymbol{X}_{i}\right)\right]$  is iid with mean $0$. This shows that  $\hat{\beta}_{a, \text { IPW }}$  admits asymptotic linear expansion with the influence function</p>
+$$\psi_{\beta_{a}}(\boldsymbol{D})=\frac{I(A=a)}{\pi_{a}(\boldsymbol{X})}\left[Y-\mu_{a}(\boldsymbol{X})\right]+\mu_{a}(\boldsymbol{X})-\beta_{a} =: m_{a}\left(\boldsymbol{D} ; \mu_{a}, \pi_{a}\right)-\beta_{a}.$$<blockquote><p>Therefore, $\sqrt{n}\left(\hat{\beta}_{a, O R}-\beta_{a}\right) \xrightarrow{d} \mathrm{~N}\left(0, \operatorname{Var}\left(\psi_{\beta_{a}}\left(\boldsymbol{D}_{i}\right)\right)\right)$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Combining the OR estimator and the IPW estimator, we obtain a more efficient
+and robust estimator $\hat{\beta}_{a, \mathrm{DR}}=\frac{1}{n} \sum_{i=1}^{n} m_{a}\left(\boldsymbol{D}_{i}, \hat{\mu}_{a}, \hat{\pi}_{a}\right)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h3 id="4.-Unmeasured-Confounders">4. Unmeasured Confounders<a class="anchor-link" href="#4.-Unmeasured-Confounders">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let $\pi_{i}=\mathbb{P}\left(A_{i}=1 \mid \boldsymbol{C}_{i}\right), i \in\left[2 n_{1}\right]$ where $\boldsymbol{C}_{i}=\left(\boldsymbol{X}_{i}, Y_{i}(0), Y_{i}(1)\right)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>For a given value  $\Gamma \geq 1$, we have
+$$\frac{1}{\Gamma} \leq \frac{\pi_{i} \big/\left(1-\pi_{i}\right)}{\pi_{n_{1}+i} \big/\left(1-\pi_{n_{1}+i}\right)} \leq \Gamma, \forall i \in\left[n_{1}\right].$$</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Then we have 
+$$ \frac{1}{1+\Gamma} \leq \mathbb{P}\left(A_{i}=1, A_{n_{1}+i}=0 \mid \boldsymbol{C}_{\left[2 n_{1}\right]}, A_{i}+A_{n_{1}+i}=1\right)=\frac{\pi_{i}\left(1-\pi_{n_{1}+i}\right)}{\pi_{i}\left(1-\pi_{n_{1}+i}\right)+\pi_{n_{1}+i}\left(1-\pi_{i}\right)} \leq \frac{\Gamma}{1+\Gamma}, $$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>which follows that $\Gamma=1$ recovers no unmeasured confounders.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Next we consider the randomisation distribution of the signed score statistic $T_{\psi}\left(\boldsymbol{D}_{\left[n_{1}\right]}\right)=\sum_{i=1}^{n_{1}} \operatorname{sgn}\left(D_{i}\right) \psi\left(\frac{\operatorname{rank}\left(\left|D_{i}\right|\right)}{n_{1}+1}\right)$ under Rosenbaum's sensitivity model. Given  $H_{0}$  and conditioning on  $\boldsymbol{C}_{\left[2 n_{1}\right]} $,</p>
+$$T\left.\bigg(\boldsymbol{A}_{\left[2 n_{1}\right]}, \boldsymbol{Y}_{\left[2 n_{1}\right]}(0)\right) \left\lvert\, \boldsymbol{A}_{\left[2 n_{1}\right]} \in M \bigg)\stackrel{d}{=} \sum_{i=1}^{n_{1}} S_{i} \psi\left(\frac{\operatorname{rank}\left(\left|Y_{i}(0)-Y_{n_{1}+i}(0)\right|\right)}{n_{1}+1}\right)\right.,$$<p>where  $S_{i}=\left(A_{i}-A_{n_{1}+i}\right) \cdot \operatorname{sgn}\left(Y_{i}(0)-Y_{n_{1}+i}(0)\right)$. $X$  stochastically dominates $Y$, written as  $X \succeq Y$, if  $\mathbb{P}(X&gt;t) \geq \mathbb{P}(Y&gt;t)$. Notice that $S_{i}$  stochastically dominates the following random variable</p>
+$$S_{i}^{-}=\left\{\begin{array}{ll}
+-1, &amp; \text { with probability } \Gamma /(1+\Gamma) \\
+1, &amp; \text { with probability } 1 /(1+\Gamma)
+\end{array}\right.$$<p>This can be used to obtain a (sharp) bound on the $p$-value:</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>Using the signed score statistic and given  $H_{0}$, $T\left(\boldsymbol{A}_{\left[2 n_{1}\right]}, \boldsymbol{Y}_{\left[2 n_{1}\right]}(0)\right) \succeq \sum_{i=1}^{n_{1}} S_{i}^{-} \psi\left(\frac{\operatorname{rank}\left(\left|D_{i}-\beta\right|\right)}{n_{1}+1}\right)$.</p>
+</blockquote>
+<p><strong>Proof.</strong> This follows from noticing  $\left|D_{i}-\beta\right|=\left|Y_{i}(0)-Y_{n_{1}+i}(0)\right|$  and the following property of stochastic ordering: If  $X_{i} \succeq Y_{i}$ and  $X_{i} \perp X_{j}, Y_{i} \perp Y_{j}$  for all  $i \neq j$, then  $$\sum_{i=1}^{n} X_{i} \succeq \sum_{i=1}^{n} Y_{i}.$$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<p>In the rest, we consider structural specificity. First consider the unobserved confonders. Given iid observations of treatment  $A_{i}$, outcome  $Y_{i}$, instrumental variables  $\boldsymbol{Z}_{i}$, observed confounders  $\boldsymbol{X}_{i}$, and unobserved confounders  $\boldsymbol{U}_{i}$, we assume the structural equations for  $A$  and outcome  $Y$  are given by</p>
+$$\begin{array}{l}
+A=\beta_{0 A}+\boldsymbol{\beta}_{Z A}^{T} \boldsymbol{Z}+\boldsymbol{\beta}_{X A}^{T} \boldsymbol{X}+\boldsymbol{\beta}_{U A}^{T} \boldsymbol{U}+\epsilon_{A}, \\
+Y=\beta_{0 Y}+\beta_{A Y} A+\boldsymbol{\beta}_{X Y}^{T} \boldsymbol{X}+\boldsymbol{\beta}_{U Y}^{T} \boldsymbol{U}+\epsilon_{Y} .
+\end{array}$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>By using  $\boldsymbol{Z} \perp \boldsymbol{U}, \epsilon_{A}, \epsilon_{Y}$, we obtain</p>
+$$\begin{array}{l}
+\mathbb{E}[A \mid \boldsymbol{Z}, \boldsymbol{X}]=\tilde{\beta}_{0 A}+\boldsymbol{\beta}_{Z A}^{T} \boldsymbol{Z}+\tilde{\boldsymbol{\beta}}_{X A}^{T} \boldsymbol{X}, \\
+\mathbb{E}[Y \mid \boldsymbol{Z}, \boldsymbol{X}]=\tilde{\beta}_{0 Y}+\beta_{A Y} \mathbb{E}[A \mid \boldsymbol{Z}, \boldsymbol{X}]+\tilde{\boldsymbol{\beta}}_{X Y}^{T} \boldsymbol{X}.
+\end{array}$$<p>This motivates the <strong>two-stage least squares estimator</strong> of  $\beta_{A Y}$  :</p>
+<p>(1) Estimate  $\mathbb{E}[A \mid \boldsymbol{Z}, \boldsymbol{X}]$  by a least squares regression of $A$  on $ \boldsymbol{Z}$  and  $\boldsymbol{X}$ . Let the fitted model be  $\hat{\mathbb{E}}[A \mid \boldsymbol{Z}, \boldsymbol{X}]$.</p>
+<p>(2) Fit another regression of  $Y$  on  $\hat{\mathbb{E}}[A \mid \boldsymbol{Z}, \boldsymbol{X}]$  and  $\boldsymbol{X}$  by least squares, and let  $\hat{\beta}_{A Y}$  be the coefficient of  $\hat{\mathbb{E}}[A \mid \boldsymbol{Z}, \boldsymbol{X}]$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Rigorously, we make the following assumptions about $Z$.</p>
+<blockquote><p>Relevance:  $\boldsymbol{Z} \not \perp A $.</p>
+<p>Exogeneity: $ \boldsymbol{Z} \perp\{A(\boldsymbol{z}), Y(\boldsymbol{z}, a)\}$.</p>
+<p>Exclusion restriction:  $Y(\boldsymbol{z}, a)=Y(a)$.</p>
+</blockquote>
+<p>Assume the causal effect of  $A$  on $Y$  is a constant  $\beta$, $Y(a)-Y(\tilde{a})=(a-\tilde{a}) \beta$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let  $\tilde{a}=0$, this gives $Y(0)=Y-\beta A$. Let  $\alpha=\mathbb{E}[Y(0)]$. The exogeneity and exclusion restriction imply that, for any function  $g(\boldsymbol{z})$,</p>
+$$\mathbb{E}[(Y-\alpha-\beta A) g(\boldsymbol{Z})]=\mathbb{E}[(Y(0)-\alpha) g(\boldsymbol{Z})]=0.$$<p>Let  $\hat{\alpha}=\bar{Y}-\beta \bar{A}$, where  $\bar{A}=\sum_{i=1}^{n} A_{i} / n$  and  $\bar{Y}=\sum_{i=1}^{n} Y_{i} / n$. The method of moments estimator of  $\beta$  is given by solving the empirical version of above (and with $ \alpha$  replaced by  $\hat{\alpha} $ ). After some algebra, we obtain</p>
+$$\hat{\beta}_{g}=\frac{\frac{1}{n} \sum_{i=1}^{n}\left(Y_{i}-\bar{Y}\right) g\left(\boldsymbol{Z}_{i}\right)}{\frac{1}{n} \sum_{i=1}^{n}\left(A_{i}-\bar{A}\right) g\left(\boldsymbol{Z}_{i}\right)} .$$<p>This as an empirical estimator of  $\operatorname{Cov}(Y, g(\boldsymbol{Z})) / \operatorname{Cov}(A, g(\boldsymbol{Z}))$, the Wald ratio with  $Z$  replaced by  $g(\boldsymbol{Z})$  in. In view of this,  $g(\boldsymbol{Z})$  is a one-dimensional summary statistic of all the instrumental variables.</p>
+
 </div>
 </div>
 </div>
@@ -15057,17 +15522,11 @@ $$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.-Hawkes-Process">3. Hawkes Process<a class="anchor-link" href="#3.-Hawkes-Process">&#182;</a></h3><p>A <strong>Hawkes Process</strong> is a generalization of Poission process.</p>
-<blockquote><p>A <strong>Hawkes Process</strong> is   a counting process $(N(t): t \geqslant 0)$, with associated history  $(\mathcal{H}(t): t \geqslant 0)$, s.t.</p>
-$$
-\mathbb{P}(N(t+h)-N(t)=m \mid \mathcal{H}(t))=\left\{\begin{array}{ll}
-1-\lambda^{*}(t) h+\mathrm{o}(h), &amp; m=0 \\
-\lambda^{*}(t) h+\mathrm{o}(h), &amp; m=1 \\
-\mathrm{o}(h), &amp; m&gt;1.
-\end{array}\right. $$
-</blockquote>
-<p>Here we supppose $\lambda^{*}(t)=\lambda+\int_{0}^{t} \mu(t-u) \mathrm{d} N(u)$ where  $\lambda&gt;0$  and  $\mu:(0, \infty) \rightarrow[0, \infty)$ are <strong>background intensity</strong> and <strong>excitation function</strong> respectively.  $\mu(\cdot) = 0 $ refers to a homogeneous Poisson process, which is the case we shall not study.</p>
-
+<p>Then consider the  mediation analysis problem. In this case, the linear  $\mathrm{SEM}$  is</p>
+$$\begin{aligned}
+M &amp; =\beta_{A M} A+\boldsymbol{\beta}_{X M}^{T} \boldsymbol{X}+\epsilon_{M}, \\
+Y &amp; =\beta_{A Y} A+\beta_{M Y} M+\boldsymbol{\beta}_{X Y}^{T} \boldsymbol{X}+\epsilon_{Y} .
+\end{aligned}$$
 </div>
 </div>
 </div>
@@ -15078,9 +15537,12 @@ $$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p><strong>Thm.</strong> The likelihood $L$ of regular $N(\cdot)$ is expressible in the form $L=\left[\prod_{i=1}^{k} \lambda^{*}\left(t_{i}\right)\right] \exp \left(-\int_{0}^{T} \lambda^{*}(u) \mathrm{d} u\right)$.</p>
-</blockquote>
-
+<p>This shows that $Y(a, m) \perp A \mid \boldsymbol{X}$  and  $Y(m) \perp M \mid A, \boldsymbol{X}$, which follows that</p>
+$$\begin{aligned}
+\mathbb{E}[Y(a, m)] &amp; =\mathbb{E}\{\mathbb{E}[Y(a, m) \mid \boldsymbol{X}]\} =\mathbb{E}\{\mathbb{E}[Y(a, m) \mid A=a, \boldsymbol{X}]\} \\
+&amp; =\mathbb{E}\{\mathbb{E}[Y(m) \mid A=a, \boldsymbol{X}]\} =\mathbb{E}\{\mathbb{E}[Y(m) \mid A=a, M=m, \boldsymbol{X}]\} \\
+&amp; =\mathbb{E}\{\mathbb{E}[Y \mid A=a, M=m, \boldsymbol{X}]\}.
+\end{aligned}$$
 </div>
 </div>
 </div>
@@ -15091,76 +15553,8 @@ $$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Proof.</strong> From definition,</p>
-$$ \lambda^{*}(t) = -\frac{\mathrm{d} \log \left(1-F^{*}(t)\right)}{\mathrm{d} t} \implies -\int_{t_{k}}^{t} \lambda^{*}(u) \mathrm{d} u=\log \left(1-F^{*}(t)\right)-\log \left(1-F^{*}\left(t_{k}\right)\right) .
-$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Since we know $F^{*}\left(t_{k}\right)=0$  as  $T_{k+1}&gt;t_{k}$, then $-\int_{t_{k}}^{t} \lambda^{*}(u) \mathrm{d} u=\log \left(1-F^{*}(t)\right)$. Further rearranging yields</p>
-$$F^{*}(t)=1-\exp \left(-\int_{t_{k}}^{t} \lambda^{*}(u) \mathrm{d} u\right), \quad f^{*}(t)=\lambda^{*}(t) \exp \left(-\int_{t_{k}}^{t} \lambda^{*}(u) \mathrm{d} u\right) .$$<p>Then we know</p>
-$$ \begin{aligned}
-L &amp; = \left[\prod_{i=1}^{k} f^{*}\left(t_{i}\right)\right]\left(1-F^{*}(T)\right) = \prod_{i=1}^{k} \lambda^{*}\left(t_{i}\right) \exp \left(-\int_{t_{i-1}}^{t_{i}} \lambda^{*}(u) \mathrm{d} u\right) \exp \left(-\int_{t_{k}}^{T} \lambda^{*}(u) \mathrm{d} u\right) \\
-&amp; = \left[\prod_{i=1}^{k} \lambda^{*}\left(t_{i}\right)\right] \exp \left(-\int_{0}^{T} \lambda^{*}(u) \mathrm{d} u\right).
-\end{aligned} $$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We consider <strong>exponentially decaying intensity</strong> subsequently where $\lambda^{*}(t)=\lambda+\int_{0}^{t} \alpha \mathrm{e}^{-\beta(t-s)} \mathrm{d} N(s)=\lambda+\sum_{t_{i}&lt;t} \alpha \mathrm{e}^{-\beta\left(t-t_{i}\right)}$.</p>
-<p>A generalization is to consider $\mathrm{d} \lambda^{*}(t)=\beta\left(\lambda-\lambda^{*}(t)\right) \mathrm{d} t+\alpha \mathrm{d} N(t)$, calculation yields</p>
-$$\lambda^{*}(t)=\mathrm{e}^{-\beta t}\left(\lambda_{0}-\lambda\right)+\lambda+\int_{0}^{t} \alpha \mathrm{e}^{\beta(t-s)} \mathrm{d} N(s), \quad t \geq 0.$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>$\lambda^{*}(t) = \lambda+\sum_{t_{i}&lt;t} \alpha \mathrm{e}^{-\beta\left(t-t_{i}\right)}$ admits a <strong>immigration–birth representation (branching process)</strong>.</p>
-<blockquote><p>Let  $Z_{i}$  = # offspring in the  $i$-th generation with  $Z_{0}=1$.</p>
-</blockquote>
-<p>Set  $Z_{1} \sim \operatorname{Poi}(n)$  where the mean  $n=\int_{0}^{\infty} \alpha \mathrm{e}^{-\beta s} \mathrm{~d} s=\frac{\alpha}{\beta}$  is known as the <strong>branching ratio</strong>. The value of $n$ determines whether or not the Hawkes process explodes.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>$$g(s)=\mathbb{E}\left[\lambda^{*}(s)\right]=\frac{\mathbb{E}[\mathbb{E}[N_s(ds) \mid \mathcal{H}(s)]]}{\mathrm{d} s}=\frac{\mathbb{E}[N_s(ds)]}{\mathrm{d} s} \implies \mathbb{E}[N_s(ds)]=g(s) \mathrm{d} s.$$
+<p>Therefore, we have</p>
+<blockquote><p>$C D E(m) = \mathbb{E}[Y(1, m)-Y(0, m)] = \mathbb{E}[\mathbb{E}[Y \mid A=1, M=m, \boldsymbol{X}]]-\mathbb{E}[\mathbb{E}[Y \mid A=0, M=m, \boldsymbol{X}]]$.</p>
 </blockquote>
 
 </div>
@@ -15173,21 +15567,11 @@ $$\lambda^{*}(t)=\mathrm{e}^{-\beta t}\left(\lambda_{0}-\lambda\right)+\lambda+\
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Note that $N_{s}(t)=N(s+t)-N(s)$. From above, $$g(t)=\mathbb{E}\left[\lambda^{*}(t)\right]=\mathbb{E}\left[\lambda+\int_{0}^{t} \mu(t-s) \mathrm{d} N(s)\right] = \lambda+\int_{0}^{t} \mu(t-s) N_s(ds),$$</p>
-<p>which follows that $g(t)=\lambda+\int_{0}^{t} \mu(t-s) g(s) \mathrm{d} s=\lambda+\int_{0}^{t} g(t-s) \mu(s) \mathrm{d} s$, i.e. we obtained the renewal–type equation $g=\lambda+g \star \mu$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>For the defective case $n&lt;1$, $g(t)=\mathbb{E}\left[\lambda^{*}(t)\right] \rightarrow \frac{\lambda}{1-n}$.</p>
-<p>For the excessive case $n&gt;1$, $\lambda^{*}(t) \rightarrow \infty$ exponentially.</p>
+<p>Formally,</p>
+<blockquote><p><strong>Assumption of no unmeasured confounders</strong>.</p>
+<p>(1) No unmeasured treatment-outcome confounders:  $Y(a, m) \perp A \mid \boldsymbol{X}$.</p>
+<p>(2) No unmeasured mediator-outcome confounders:  $Y(m) \perp M \mid A, \boldsymbol{X}$.</p>
+<p>(3) No unmeasured treatment-mediator confounders:  $M(a) \perp A \mid \boldsymbol{X}$.</p>
 </blockquote>
 
 </div>
@@ -15200,61 +15584,9 @@ $$\lambda^{*}(t)=\mathrm{e}^{-\beta t}\left(\lambda_{0}-\lambda\right)+\lambda+\
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Viewed as a branching process, this can be seen clearly. (using $\mathbb{E}\left[Z_{i}\right]=n^{i}$)</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-<h3 id="4.-Simulation-Method">4. Simulation Method<a class="anchor-link" href="#4.-Simulation-Method">&#182;</a></h3><p>We focus on the typical simulation method below.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>For general point processes, a simulation algorithm is suggested by <strong>the converse of the random time
-change theorem</strong>.</p>
+<p>Together with <strong>assumption of no treatment-induced mediator-outcome confounding</strong>, $\boldsymbol{X} \cap   d e(A)=\emptyset$, we can show that $Y(a, m) \perp M\left(a^{\prime}\right) \mid \boldsymbol{X}$, which follows that</p>
+<blockquote>$$\mathbb{E}[Y(1, M(0))] =  \sum_{m, \boldsymbol{x}} \mathbb{E}[Y \mid A=1, M=m, \boldsymbol{X}=\boldsymbol{x}] \cdot \mathbb{P}(M=m \mid A=0, \boldsymbol{X}=\boldsymbol{x}) \cdot \mathbb{P}(\boldsymbol{X}=\boldsymbol{x}).$$
 </blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Specifically for HPs, <strong>the inverse compensator method</strong> iteratively solves</p>
-$$t_{1}^{*}=\int_{0}^{t_{1}} \lambda^{*}(s) \mathrm{d} s, \quad t_{k+1}^{*}-t_{k}^{*}=\int_{t_{k}}^{t_{k+1}} \lambda^{*}(s) \mathrm{d} s.$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Since 
-$$\int_{t_{k}}^{t} \lambda^{*}(u) \mathrm{d} u=-\log \left(1-F^{*}(t)\right) \implies \int_{t_{k}}^{t_{k+1}} \lambda^{*}(u) \mathrm{d} u=-\log (U),$$
-where $U \sim \operatorname{Unif}[0,1]$. For an exponentially decaying intensity the equation becomes</p>
-$$\log (U)+\lambda\left(t_{k+1}-t_{k}\right)-\frac{\alpha}{\beta}\left(\sum_{i=1}^{k} \mathrm{e}^{\beta\left(t_{k-1}-t_{i}\right)}-\sum_{i=1}^{k} \mathrm{e}^{-\beta\left(t_{k}-t_{i}\right)}\right)=0 .$$<p>Solving for $t_{k+1}$ can be achieved in linear time using the recursion.</p>
 
 </div>
 </div>

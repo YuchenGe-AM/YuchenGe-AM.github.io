@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Causal Inference II</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>[May 10] Causal Inference and Transfer Learning VIIII</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14580,7 +14580,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Causal-Inference-II">Causal Inference II<a class="anchor-link" href="#Causal-Inference-II">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
+<h2 id="%5BMay-10%5D-Causal-Inference-and-Transfer-Learning-VIII">[May 10] Causal Inference and Transfer Learning VIII<a class="anchor-link" href="#%5BMay-10%5D-Causal-Inference-and-Transfer-Learning-VIII">&#182;</a></h2><p>Presenter: Yuchen Ge<br>
 Affiliation: University of Oxford<br>
 Contact Email: gycdwwd@gmail.com<br>
 Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</a></p>
@@ -14595,38 +14595,7 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-<h3 id="1.--Basic-Aspects-of-Bayesian-Method">1.  Basic Aspects of Bayesian Method<a class="anchor-link" href="#1.--Basic-Aspects-of-Bayesian-Method">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In a Bayesian setting, we have some unknown real-world quantity  $\Theta$  takes values in a parameter space  $\Omega$. Typically  $\Omega \subset R^{p}$.</p>
-<blockquote><p>Let  $S \subseteq \Omega$, is  $\Theta$  in  $S$  ?</p>
-</blockquote>
-<p>If knowledge of the world is coherent (as is shown below), then $\exists$ a unique <strong>prior distribution</strong> with density  $\pi(\theta)$  on  $\Omega$ and</p>
-<blockquote>$$\int_{S} \pi(\theta) d \theta=\operatorname{Pr}(\Theta \in S). $$
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Observations  $Y=\left(Y_{1}, \ldots, Y_{n}\right)$, $Y \in \mathcal{Y}$  are distributed according to an observation model with probability density  $p(y \mid \theta)$  for realisation  $Y=y$  with  $y=\left(y_{1}, \ldots, y_{n}\right)$  given  $\Theta=\theta$. If the observations are iid then we have an <strong>observation model</strong> with probability density</p>
-$$p(y \mid \theta)=\prod_{i=1}^{n} p\left(y_{i} \mid \theta\right).$$<p>Therefore, our beliefs about $\Theta \in S$ change with the <strong>posterior density</strong> of the posterior distribution being</p>
-$$\pi(S \mid y)=\operatorname{Pr}(\Theta \in S \mid Y=y) = \int_S \pi(\theta \mid y) = \int_S \frac{p(y \mid \theta) \pi(\theta)}{p(y)}$$<p>where $p(y)=\int_{\Omega} p(y \mid \theta) \pi(\theta) d \theta$ is the normalising marginal likelihood (also, <strong>the prior predictive distribution</strong>). Answers to questions about  $\Theta$  can be given in terms of  $\pi(\theta \mid y)$ via $\operatorname{Pr}(\Theta \in S \mid Y=y)=\int_{S} \pi(\theta \mid y) d \theta$.</p>
+<p>The following is a recap of stochastic calculus based on $\textit{Stochastic Differential Equations and Diffusion Processes}$ by Nobuyuki Ikeda.</p>
 
 </div>
 </div>
@@ -14650,18 +14619,7 @@ $$\pi(S \mid y)=\operatorname{Pr}(\Theta \in S \mid Y=y) = \int_S \pi(\theta \mi
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Given observation model  $Y \sim p(\cdot \mid \theta)$, the  $\Theta$-estimator $\delta: \mathcal{Y} \rightarrow \mathbb{R}^{p}$, has risk  $\mathcal{R}(\theta, \delta)$  at $\Theta=\theta$  given by</p>
-$$\begin{aligned}
-\mathcal{R}(\theta, \delta) &amp; =E_{Y \mid \Theta=\theta}(L(\theta, \delta(Y))) \\
-&amp; =\int_{\mathcal{Y}} L(\theta, \delta(y)) p(y \mid \theta) d y .
-\end{aligned}$$<blockquote><p>The Bayes risk $\rho(\pi, \delta)$ is the risk averaged over the prior,</p>
-$$\begin{aligned}
-\rho(\pi, \delta) &amp; =E_{\Theta}(\mathcal{R}(\theta, \delta)) =E_{\Theta, Y}(L(\Theta, \delta(Y))) \\
-&amp; =\int_{\Omega} \int_{\mathcal{Y}} L(\theta, \delta(y)) p(y \mid \theta) \pi(\theta) d y d \theta .
-\end{aligned}$$<p>where we have a prior  $\pi(\theta)$, posterior  $\pi(\theta \mid y)$  and marginal likelihood  $p(y)$.</p>
-</blockquote>
-<p>A Bayes estimator  $\delta^{\pi}$  for  $\theta$  minimises the Bayes risk $\delta^{\pi}=\arg \min _{\delta} \rho(\pi, \delta)$.</p>
-
+<h3 id="1.-Topological-Preliminary">1. Topological Preliminary<a class="anchor-link" href="#1.-Topological-Preliminary">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14672,21 +14630,8 @@ $$\begin{aligned}
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This is not straightforward as $\delta$ is a function, then we consider the <strong>expected posterior
-loss</strong>
-$$\rho(\pi, \delta \mid y) = E_{\Theta \mid Y=y}(L(\Theta, \delta(y))) =\int_{\Omega} L(\theta, \delta(y)) \pi(\theta \mid y) d \theta \implies \rho(\pi, \delta)=\int_{\mathcal{Y}} \rho(\pi, \delta \mid y) p(y) d y.$$</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>$\delta^{\pi}(y)=\arg \min _{\delta} \rho(\pi, \delta \mid y)$ minimizes the Bayes risk.</p>
+<p>Recall that every locally compact $T_2$ space is regular and</p>
+<blockquote><p><strong>Urysohn's metrization theorem</strong>: Every second-countable regular $T_2$ space is metrisable, and hence separable.</p>
 </blockquote>
 
 </div>
@@ -14699,8 +14644,8 @@ $$\rho(\pi, \delta \mid y) = E_{\Theta \mid Y=y}(L(\Theta, \delta(y))) =\int_{\O
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>For example, let $L(\Theta, \delta(Y))=(\Theta-\delta(Y))^{2}$, in this case $ E_{\Theta \mid y}(L(\Theta, \delta)) $ is minimised over actions by the posterior mean  $\delta^{*}=E_{\Theta \mid y}(\Theta)$  (just differentiate wrt  $\delta(y)$  at fixed  $y$  ).</p>
-
+<p>Therefore, a locally compact $T_2$ space with a countable base is a separable metric space. Let $S$  be a separable metric space with the metric  $\rho$. Recall that $P_{n} \xrightarrow{w} P $.  on  $(S, \mathscr{B}(S))$  if $\forall  f \in C_{b}(S)$,</p>
+$$\lim _{n \rightarrow \infty} \int_{s} f(x) P_{n}(d x)=\int_{s} f(x) P(d x) .$$
 </div>
 </div>
 </div>
@@ -14711,27 +14656,18 @@ $$\rho(\pi, \delta \mid y) = E_{\Theta \mid Y=y}(L(\Theta, \delta(y))) =\int_{\O
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-<p>Suppose we wish to estimate the expectation w.r.t. $f(\theta)$. If the loss is the square error then we estimate  $f(\Theta)$  with the posterior mean $ E_{\Theta \mid Y=y}(f(\Theta))$. Simulate  $\theta^{(t)} \sim \pi(\cdot \mid y)$, $t=1, \ldots, T$  and compute
-$$\hat{f}=\frac{1}{T} \sum_{t=1}^{T} f\left(\theta^{(t)}\right) .$$</p>
-<blockquote><p>For example, if  $S \in \mathcal{B}_{\Omega}$  and  $f(\theta)=\mathbb{I}_{\theta \in S}$  then  $\hat{f}$  estimates  $\pi(S \mid y)$.</p>
+<p>This is a metric concept. Actually, from the well known fact</p>
+<blockquote><p>A separable metric space is homeomorphic to a subset of $[0, 1]^N$</p>
 </blockquote>
-<p>We also commonly report posterior credible sets in order to quantify uncertainty. A level-$\alpha$  Highest Posterior Density (HPD) credible set  $C_{\alpha}$  satisfies</p>
-$$\int_{\Omega \cap C_{\alpha}} \pi(\theta \mid y) d \theta=1-\alpha, \text { and } \theta \in C_{\alpha}, \theta^{\prime} \in \Omega \backslash C_{\alpha} \Rightarrow \pi(\theta \mid y) \geq \pi\left(\theta^{\prime} \mid y\right) .$$<p>An HPD set (or general credible set with fixed posterior probability mass) is qualitatively
-different in meaning from a frequentist confidence interval since it involves the <strong>the probability of parameters</strong>.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>The HPD set can be estimated from Monte Carlo samples  $\theta^{(t)} \sim \pi(\cdot \mid y)$. Specifically, the HPD set is a Bayes estimator by supposing the action space is  $\delta \in \Delta = \left\{A \in \mathcal{B}_{\Omega}: \pi(A \mid y)=1-\alpha\right\}$ and the loss  $L(\Theta, \delta)=\mathbb{I}_{\Theta \notin \delta}+|\delta|$  where  $|\delta|=\int_{\delta} d \theta$.</p>
-<p>The expected posterior loss is minimised over the action space by  $\delta^{*}=C_{\alpha}$,  an HPD set.</p>
+<p>we can choose an equivalent metric so that  $S$  is totally bounded under this metric. Then, the set of all uniformly continuous functions has a countable dense subset $\left\{f_{n}\right\}$ w.r.t. $\|\cdot\|_{\infty}$ and we set</p>
+$$d(P, Q)=\sum_{j=1}^{\infty} 2^{-j}\left\{1 \wedge\left(\left|\int_{s} f_{j}(x) P(d x)-\int_{s} f_{j}(x) Q(d x)\right|\right)\right\} .$$<p>which is a compatible metric using the fact that $P_{n} \xrightarrow{w} P $ iff $\lim _{n \rightarrow \infty} \int_{S} f(x) P_{n}(d x)=\int_{S} f(x) P(d x)$, $\forall$ uniformly continuous  $f \in C_{b}(S)$.
+Then we discuss the <strong>Prokhorov’s theorem</strong>.</p>
+<blockquote><p>A family  $\Lambda \subset \mathscr{P}(S) $ is <strong>tight</strong> if $\forall \varepsilon&gt;0$  $\exists K \subset S$  s.t.  $\inf _{p \in \Lambda} P(K) \geq 1-\varepsilon$.</p>
+<p><strong>Thm. (Prokhorov’s Theorem)</strong> $\Lambda \subset \mathscr{P}(S)$ is tight $\implies$  $\Lambda$  is relatively compact in  $\mathscr{P}(S)$.</p>
+</blockquote>
+<p>Note that when $S$  is complete, the converse of Prokhorov’s Theorem is true.</p>
+<p>We prove a special case. If  $S$  is a compact metric space then  $\mathscr{P}(S)$  is compact and hence every  $\Lambda \subset \mathscr{P}(S)$  is relatively compact. Indeed, by Riesz's theorem,  $\mathscr{P}(S)=\left\{\mu \in C^{*}(S) ; \mu(f) \geq 0\right.$  for  $f \geq 0$  and  $\mu(\boldsymbol{1})=1\}$  and, since  $C(S)=C_{b}(S)$, weak convergence is equivalent to convergence in the weak <em>-topology on  $C^{</em>}(S)$. Thus  $\mathscr{P}(S)$  is compact since it is a weak *-closed subset of the unit ball in  $C^{*}(S)$  and</p>
+<blockquote><p><strong>Banach Alaoglu Thm.</strong> the unit ball is weak *-compact.</p>
 </blockquote>
 
 </div>
@@ -14744,133 +14680,359 @@ different in meaning from a frequentist confidence interval since it involves th
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>After that, we obtain the <strong>posterior predictive distribution</strong> of the data $p\left(y^{\prime} \mid y\right)=\int_{\Omega} p\left(y^{\prime} \mid \theta\right) \pi(\theta \mid y) d \theta$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>For model  $m$, we have a parameter prior  $\Theta \sim   \pi(\theta \mid m)$ and an observation model  $Y \sim p(y \mid \theta, m)$. The parameter space may vary from model to model.</p>
-<blockquote><p>The "model" is the joint model for the "generative process" for  $\Theta, Y$, with joint density  $\pi(\theta \mid m) p(y \mid \theta, m)$  and state space  $\Omega_{m} \times \mathcal{Y}$.</p>
-</blockquote>
-<p>Conditioning on  $Y=y$  we get the posterior under model  $M=m$,</p>
-$$\pi(\theta \mid y, m)=\frac{p(y \mid \theta, m) \pi(\theta \mid m)}{p(y \mid m)}$$<p>with $p(y \mid m)=\int_{\Omega_{m}} p(y \mid \theta, m) \pi(\theta \mid m) d \theta$. Similarly, the posterior model probability is $\pi(m \mid y)= p(y \mid m) \pi_{M}(m) /p(y)$ where  $\pi_{M}(m)$  is our prior probability and $p(y)=\sum_{m \in \mathcal{M}} p(y \mid m) \pi_{M}(m)$.</p>
-<blockquote><p>Under the  $0-1$  loss function with truth  $M$  and action  $\delta \in \mathcal{M}$  the loss is  $L(M, \delta)=\mathbb{I}_{M \neq \delta}$.  The Bayes estimator is the
-maximum a posteriori (MAP) model.</p>
-</blockquote>
-<p>This can be seen that the expected posterior loss  $E_{M \mid y}(L(M, \delta))=1-\pi(\delta \mid y)$  and this is minimised by the choice  $\delta=m^{*}$  the most probable model a posteriori.</p>
-<blockquote><p>The model averaged posterior which allows for uncertainty is $\pi(\theta \mid y)=\sum_{m \in \mathcal{M}} \pi(\theta \mid y, m) \pi_{M}(m \mid y)$.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.-MCMC">2. MCMC<a class="anchor-link" href="#2.-MCMC">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>MCMC is a family of algorithms for simulating $X_{t} \xrightarrow{D} p$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Write $P_{i, j}=\mathbb{P}\left(X_{t+1}=j \mid X_{t}=i\right)$ for a homogeneous Markov chain on $\Omega$.</p>
-<blockquote><p>$p_i$ is <strong>detailed balance</strong> if $p_{i} P_{i, j}=p_{j} P_{j, i} \text { holds for all } i, j \in \Omega$.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>As a consequence, $p$ is stationary for $P$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Suppose $\left\{X_{t}\right\}_{t=0}^{\infty}$ is irreducible and aperiodic on $\Omega$ satisfying detailed balance w.r.t. $p$. Then</p>
-$$ \hat{f}_{T} = T^{-1} \sum_{t} f\left(X_{t}\right) \xrightarrow{\text { a.s. }} E_{X \sim p}(f(X)) $$
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Then we propose MCMC.</p>
-<blockquote><p>Given a proposal $Q$ s.t. $q(j \mid i)&gt;0 \Leftrightarrow q(i \mid j)&gt;0$.</p>
-<p>Let  $X_{t}=i$. The next state  $X_{t+1}$  is realised below</p>
+<p>Finally, via constructions of intervals on $[0,1)$ we have</p>
+<blockquote><p><strong>Thm.</strong> Let  $(S, \rho)$  be a complete separable metric space, and  $P_{n}$ and  $P$  be probabilities on  $(S, \mathscr{B}(S))$ s.t. $P_{n} \xrightarrow{w}   P$  as  $n \rightarrow \infty$. Then, on another $(\tilde{\Omega}, \tilde{\mathscr{B}}, \tilde{P})$, we can construct  $S$-valued random variables  $X_{n}$, and  $X$ s.t.</p>
 <ol>
-<li>Draw  $j \sim q(\cdot \mid i)$  and  $u \sim U[0,1]$.</li>
-<li>If  $u \leq \alpha(j \mid i)$  where $\alpha(j \mid i)=\min \left\{1, \frac{p_{j} q(i \mid j)}{p_{i} q(j \mid i)}\right\}$, then set  $X_{t+1}=j$ , otherwise set  $X_{t+1}=i$.</li>
+<li>$P_{n}=\tilde{P}^{X_{n}}$  and  $P=\tilde{P}^{X}$.</li>
+<li>$X_{n}$  converges to  $X$  almost everywhere.</li>
+</ol>
+</blockquote>
+<p>In particular, convergence in law can be realized by an a.s. convergence without changing the law of any  $X_{n}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h3 id="2.-Martingale-Theory">2. Martingale Theory<a class="anchor-link" href="#2.-Martingale-Theory">&#182;</a></h3><p>Let  $(\Omega, \mathscr{F}, P)$  be <strong>complete</strong> with right-continuous $\left(\mathscr{F}_{t}\right)_{t \geq 0}$  of sub  $\sigma$-fields of  $\mathscr{F}$. Set  $\boldsymbol{T}=\{0,1,2, \ldots\}$ or $[0, \infty)$ and $\overline{\boldsymbol{T}}=\boldsymbol{T} \cup\{\infty\} $ be the one-point compactification.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>A real $\left(\mathscr{F}_{t}\right)$-adapted stochastic process  $X=\left(X_{t}\right)_{t \in T}$  is a <strong>submartingale</strong> w.r.t. $\left(\mathscr{F}_{t}\right)$ if  $X_{t}$  is integrable for each  $t \in T$, and  $E\left(X_{\tau} \mid \mathscr{F}_{\sigma}\right) \geq X_{\tau \wedge \sigma}$ for any bounded stopping times $\sigma$ and $\tau$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let $X=\left(X_{n}\right)$ be a submartingale w.r.t. some reference family $\big($equivalently, $X$  is a martingale w.r.t. the proper reference family  $\mathscr{F}_{n}^{X} = \sigma\left[X_{t}, t \leq n\right]$$\big)$. Recall some basic inequalities</p>
+<blockquote><ol>
+<li><p>$ \lambda P\left(\max _{0 \leq n \leq N} X_{n} \geq \lambda\right) \leq E\left(X_{N}: \max _{0 \leq n \leq N} X_{n} \geq \lambda\right) \leq E\left(X_{N}^{+}\right) \leq E\left(\left|X_{N}\right|\right)$ for $N\in T$.</p>
+</li>
+<li><p>$E\left(U_{N}^{X}(a, b)\right) \leq \frac{1}{b-a}\left(E\left\{\left(X_{N}-a\right)^{+}-\left(X_{0}-a\right)^{+}\right\}\right)$ for $a&lt;b$.</p>
+</li>
+</ol>
+</blockquote>
+<p>Here $U_{N}^{X}(a, b)$ = $\lim_{N \rightarrow \infty}\#$ upcrossings of $\left(X_{n}\right)_{n=0}^{N}$ for $[a,b]$. Next we show</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>If  $X=\left(X_{n}\right)_{n \in T}$  is a submartingale s.t. $\sup _{n} E\left(X_{n}^{+}\right)&lt;\infty$, then</p>
+$$X_{\infty}=\lim _{n \rightarrow \infty} X_{n}$$<p></p>
+<p>exists almost surely and  $X_{\infty}$  is integrable.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Proof.</strong> Since $E\left(\left|X_{n}\right|\right)=2 E\left(X_{n}^{+}\right)-E\left(X_{n}\right) \leq 2 E\left(X_{n}^{+}\right)-E\left(X_{0}\right)$, we have  $\sup E\left(\left|X_{n}\right|\right)&lt;\infty$. Thus, if $X_{\infty}=\lim _{n \rightarrow \infty} X_{n}$ exists, then  $X_{\infty}$  is integrable by Fatou's lemma. Set  $U_{\infty}^{x}(a, b) = \lim _{N \rightarrow \infty} U_{N}^{X}(a, b)$, then</p>
+$$\left\{\omega ; \underline{\lim}_{n \rightarrow \infty} X_{n}(\omega)&lt;\overline{\lim}_{n \rightarrow \infty} X_{n}(\omega)\right\}=\underset{r, r^{\prime} \in Q, r&lt;r^{\prime}}{\bigcup}\left\{\omega ; U_{\infty}^{X}\left(r, r^{\prime}\right)=\infty\right\}$$<p>But we know that</p>
+$$ E\left(U_{\infty}^{X}\left(r, r^{\prime}\right)\right) = \lim _{N \rightarrow \infty} E\left(U_{N}^{X}\left(r, r^{\prime}\right)\right) \leq \frac{1}{r^{\prime}-r} \lim _{N \rightarrow \infty} E\left\{\left(X_{N}-r\right)^{+}-\left(X_{0}-r\right)^{+}\right\} $$<p>and this is finite. Consequently  $P\left[\underline{\lim}_{n \rightarrow \infty} X_{n}&lt;\overline{\lim}_{n \rightarrow \infty} X_{n}\right]=0$, which proves that  $\lim _{n \rightarrow \infty} X_{n}$  exists a.s.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>$\Lambda \subset \mathscr{L}_{1}(\Omega, \mathscr{F}, P)$ is <strong>equi-integrable</strong> if $\lim _{\lambda \rightarrow \infty} \sup _{x \in \Lambda} E(|X|:|X|&gt;\lambda)=0$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Suppose $X_{n} \leq E\left(X_{\infty} \mid \mathscr{F}_{n}\right)$, then by Jensen's inequality,</p>
+$$ X_{n}^{+} \leq E\left(X_{\infty}^{+} \mid \mathscr{F}_{n}\right)  \implies  E\left(X_{n}^{+}: X_{n}^{+}&gt;\lambda\right) \leq E\left(X_{\infty}^{+}: X_{n}^{+}&gt;\lambda\right) .$$<p></p>
+<p>Also,  $P\left(X_{n}^{+}&gt;\lambda\right) \leq E\left(X_{n}^{+}\right) / \lambda \leq E\left(X_{\infty}^{+}\right) / \lambda$  and thus it is clear that  $\left\{X_{n}^{+}\right\}_{n \in \boldsymbol{x}}$  is equi-integrable. Conversely, $\left\{X_{n}^{+}\right\}_{n \in T}$ is equi-integrable implies that $X_{n} \leq E\left(X_{\infty} \mid \mathscr{F}_{n}\right)$ since <strong>equi-integrable and in-probability convergence implies a convergence in $\mathscr{L}_{1}(\Omega)$</strong>.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>For  $Y \in \mathscr{L}_{1}(\Omega, \mathscr{F}, P)$, $X_{n}=E\left(Y \mid \mathscr{F}_{n}\right), n \in T$  is an equi-integrable martingale and  $\lim _{n \rightarrow \infty} X_{n}=X_{\infty}$  exists almost surely and in $ \mathscr{L}_{1}(\Omega)$. Furthermore, $X_{\infty}=E\left(Y \mid \mathscr{F}_{\infty}\right)$ where $\mathscr{F}_{\infty}=\bigvee_{n} \mathscr{F}_{n}$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Only the last part is nontrivial, Consider the totality  $\mathscr{B}$  of sets  $B \in \mathscr{F}$  s.t. $E\left(X_{\infty}: B\right)=E(Y: B)$. If  $B \in \mathscr{F}_{n}$, then  $E(Y: B)=E\left(X_{n}: B\right)=E\left(X_{\infty}: B\right)$  and hence  $\mathscr{B} \supset \cup_{n} \mathscr{F}_{n}$. Clearly  $\mathscr{C}$  is a  d-system and hence, by applying the fact</p>
+<blockquote><p>$\forall$  $\pi$-system  $\mathscr{C}$, $d[\mathscr{C}]=   \sigma[\mathscr{C}]$. $\big($ $d[\mathscr{C}]$ =  the smallest $d$-system containing $\mathscr{C}$ $\big)$</p>
+</blockquote>
+<p>we see $\mathscr{C} \supset \mathscr{F}_{\infty}=   \sigma\left[\bigcup_{n} \mathscr{F}_{n}\right]$, which proves the last part. Finally, using the inequalities 1 and 2, we know that when $\boldsymbol{T}=[0, \infty)$</p>
+<blockquote><p>with probability one,  $t \in \boldsymbol{T} \cap \boldsymbol{Q} \longmapsto X_{t}$  is bounded and  $\lim _{\boldsymbol{Q}\cap \boldsymbol{T} \ni s \downarrow t } X_{s}$ exists.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>It follows that the càdlàg process $\hat{X}_{t}=\lim _{r \downarrow t, r \in Q} X_{r}, t \in \boldsymbol{T}$ exists  and simple computation shows that it's a submartingale with respect to $\left(\mathscr{F}_{\mathrm{t}}\right)$. Finally, we discuss <strong>Doob-Meyer's decomposition</strong>.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>An integrable increasing process is <strong>natural</strong> if $E\left[M_t A_t\right] = E\left[\int_{0}^{t} M_{s} d A_{s}\right]=E\left[\int_{0}^{t} M_{s-} d A_{s}\right]$ for all bounded martingale $M=\left(M_{t}\right)$.</p>
+<p><strong>Remark.</strong> An integrable increasing process is natural iff it is predictable.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let  $S_{a}, a&gt;0,$ be the set of all stopping times  $\sigma$  s.t.  $\sigma \leq a$  a.s. and recall that we set $X=\left(X_{t}\right)$ as a submartingale.</p>
+<blockquote><p>$ X=\left(X_{t}\right)$  is of class  ($DL$)  if $\forall a&gt;0$, $\{X_{\sigma} ; \sigma \in S_{a}\}$  is equi-integrable.</p>
+<p><strong>Thm. (Doob-Meyer's Decomposition)</strong> If  $X=\left(X_{t}\right)$  is of class (DL), then it is <strong>uniquely</strong> expressible as the sum of a martingale  $M=\left(M_{t}\right)$  and a natural integrable increasing process  $A=\left(A_{t}\right)$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Proof.</strong> The uniqueness result is clear. Set $Y_{t}=X_{t}-E\left[X_{a} \mid \mathscr{F}_{t}\right], t \in[0, a]$. Let $\Delta_{n}$  be the partition  $0=t_{0}^{(n)}&lt;t_{1}^{(n)}&lt;\cdots&lt;   t_{2^{n}}^{(n)}=a$  of  $[0, a]$  given by  $t_{j}^{(n)}=j a / 2^{n}$ . Define a discrete time increasing process</p>
+$$ A_{{t}^{(n)}_k}^{(n)}=\sum_{j=0}^{k-1}\left\{E\left(Y_{t_{j+1}^{(n)}} \mid \mathscr{F}_{t_{j}^{(n)}}\right)-Y_{t_{j}^{(n)}}\right\}, \quad t_{k}^{(n)} \in \Delta_{n}
+$$<p>where $Y_{t}=-E\left[A_{a}^{(n)} \mid \mathscr{F}_{t}\right]+A_{t}^{(n)}, t \in \Delta_{n},$ and $\left\{A_{a}^{(n)}, n=1,2, \ldots\right\}$ is equi-integrable. Recall</p>
+<blockquote><p><strong>Dunford-Pettis Thm.</strong> In $\sigma\left(\mathscr{L}_{1}, \mathscr{L}_{\infty}\right)$ (weak topology on $\mathscr{L}_{1}$; note that $\mathscr{L}_{\infty} = (\mathscr{L}_{1})^*$ and $\mathscr{L}_{\infty} \subseteq (\mathscr{L}_{1})^*$ if the measure is <strong>semifinite</strong> in general), a subset is  relatively compactness iff it's uniformly integrable.</p>
+</blockquote>
+<p>This implies $\exists$ a subsequence  $n_{l}$, and  $A_{a} \in \mathscr{L}_{1}(\Omega)$  s.t.  $A_{a}^{\left(n_{l}\right)} \longrightarrow A_{a}$  in  $\sigma\left(\mathscr{L}_{1}, \mathscr{L}_{\infty}\right)$. Define $ A_{t} $ by $ A_{t}=Y_{t}+E\left[A_{a} \mid \mathscr{F}_t\right], t \in[0, a]$, where $E\left[A_{a} \mid \mathscr{F}_{\imath}\right]$ is taken to be right-continuous.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Since also  $A_{t}^{\left(n_{l}\right)} \longrightarrow A_{t}$ in  $\sigma\left(\mathscr{L}_{1}, \mathscr{L}_{\infty}\right)$  for each  $t \in \cup_{n} \Delta_{n}$, $t \longmapsto A_{t}$  is increasing.  Since  $X_{t}=E\left[X_{a}-A_{a} \mid \mathscr{F}_{t}\right]+A_{t}$, it suffices  $A=   \left(A_{t}\right)$  is natural. If  $m_{t}$  is a bounded martingale, then</p>
+$$\begin{aligned}
+E\left[m_{a} A_{a}^{(n)}\right] &amp; =\sum_{k=0}^{2^{n}-1} E\left[m_{a}\left(A_{t_{k+1}^{(n)}}^{(n)}-A_{t_{k}^{(n)}}^{(n)}\right)\right] =\sum_{k=0}^{2^{n}-1} E\left[m_{t_{k}^{(n)}}\left(A_{t_{k+1}^{(n)}}^{(n)}-A_{t_{k}^{(n)}}^{(n)}\right)\right] \\
+&amp; = \sum_{k=0}^{2^{n}-1} E\left[m_{t_{k}^{(n)}}\left(Y_{t_{k+1}^{(n)}}-Y_{t_{k}^{(n)}}\right)\right] =\sum_{k=0}^{2^{n}-1} E\left[m_{t_{k}^{(n)}}\left(A_{t_{k+1}^{(n)}}-A_{t_{k}^{(n)}}\right)\right].
+\end{aligned}$$<p>Letting  $n \longrightarrow \infty$, we have $E\left[m_{a} A_{a}\right]=E\left[\int_{0}^{a} m_{s-} d A_{s}\right]$. Replacing  $m=\left(m_{s}\right)$  by  $m=\left(m_{t \wedge s}\right)$  we conclude that $E\left[m_{t} A_{t}\right]=E\left[\int_{0}^{t} m_{s-} d A_{s}\right]$. Thus  $A=\left(A_{t}\right)$  is natural.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h3 id="3.-Stochastic-Integrals">3. Stochastic Integrals<a class="anchor-link" href="#3.-Stochastic-Integrals">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let  $M$, $N \in \mathscr{M}_{2}$. Then $\exists ! A=  (  A_{t}  )$ = difference of two natural integrable increasing processes s.t.  $M_{t} N_{t}-A_{t}$  is an  $\left(\mathscr{F}_{t}\right)$-martingale from Doob-Meyer's decomposition.</p>
+<p>$A=\left(A_{t}\right) = \langle M, N\rangle $ is called the <strong>quadratic variational process</strong>.</p>
+<blockquote><p>$\mathscr{L}_{2}$ = the space of $\Phi=\{\Phi(t, \omega)\}_{t \geq 0}$  on  $\Omega$  adapted to  $\left(\mathscr{F}_{t}\right)$  s.t.  $\|\Phi\|_{2, T}^{2}=E\left[\int_{0}^{T} \Phi^{2}(s, \omega) d s\right]&lt;\infty$.</p>
+<p>$\mathscr{L}_{2}(M)$ = the space of $\Phi=\{\Phi(t, \omega)\}_{t \geq 0}$  on  $\Omega$  adapted to  $\left(\mathscr{F}_{t}\right)$  s.t.  $(\|\Phi\|^M_{2, T})^{2}=E\left[\int_{0}^{T} \Phi^{2}(s, \omega) d\langle M\rangle(s)\right]&lt;\infty$.</p>
+<p>$\mathscr{L}_{0}$ = subcollection of $\mathscr{L}_{2}$ in the form $\Phi(t, \omega)=f_{0}(\omega) I_{(t=0)}(t)+\sum_{i=0}^{\infty} f_{i}(\omega) I_{\left(t, t_{t+1}\right]}(t)$.</p>
+</blockquote>
+<p>We write $\Phi = \Phi^{\prime}$  in $ \mathscr{L}_{2}$  if  $\left\|\Phi-\Phi^{\prime}\right\|_{2, T}=0$. For $\Phi \in \mathscr{L}_{2}$, we set
+$$\|\Phi\|_{2}=\sum_{n=1}^{\infty} 2^{-n}\left(\|\Phi\|_{2, n} \wedge 1\right) $$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>which defines a complete metric space. If we set $\Phi^{\prime}(t, \omega)=\varlimsup_{h \downarrow 0} \frac{1}{h} \int_{t-h}^{t} \Phi(s, \omega) d s$, then $\Phi^{\prime}$ is predictable and $\Phi=\Phi^{\prime}$. We claim that $\mathscr{L}_{0}$ is dense in $\mathscr{L}_{2}$ w.r.t. $\|\cdot\|_{2}$. Similar settings hold for $\|\cdot\|^M_{2}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>$\mathscr{M}_{2}=\left\{X=\left(X_{t}\right)_{t \geq 0} ; X\right.$  is a square integrable martingale on  $\left(\Omega, \mathscr{F}, P\right)$  w.r.t.  $\left(\mathscr{F}_{t}\right)_{t \geq 0}$  and $X_{0}=0$  a.s. $\}.$</p>
+<p>$\mathscr{M}_{2}^{c} =   \left\{X \in \mathscr{M}_{2} ; t \longmapsto X_{t}\right.$  is continuous a.s.  } .</p>
+</blockquote>
+<p>We identify two  $X, X^{\prime} \in \mathscr{M}_{2}$  if  $t \longmapsto X_{t}$  and  $t \longmapsto X_{t}^{\prime}$ coincide a.s. For $X \in $, we define</p>
+$$ \mathbf{|} X \mathbf{|}_{T}=E\left[X_{T}^{2}\right]^{1 / 2} \text{ and } \mathbf{|} X \mathbf{|}=\sum_{n=1}^{\infty} 2^{-n}\left(\mathbf{|} X \mathbf{|}_{n} \wedge 1\right). $$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Then $\mathscr{M}_{2}^{c}$ is a closed subspace of $\mathscr{M}_{2}$ w.r.t. $ \mathbf{|} X-Y  \mathbf{|} $. Now we have defined a map $\Phi \in \mathscr{L}_{2} \longmapsto I(\Phi) \in \mathscr{M}_{2}^{c}$ where</p>
+$$ \Phi(t, \omega)=f_{0}(\omega) I_{(z=0)}(t)+\sum_{i=0}^{\infty} f_{i}(\omega) I_{\left(s_{i}, r_{i}+1\right)}(t) \quad \mapsto \quad I(\Phi)(t)=\sum_{i=0}^{\infty} f_{i}\left(B\left(t \wedge t_{i+1}\right)-B\left(t \wedge t_{i}\right)\right).
+$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Then we know $\mathbf{|} I(\Phi) \mathbf{|}_{T}= \| \Phi \|_{2, T}$, $\mathbf{|} I(\Phi) \mathbf{|}= \| \Phi \|_{2}$, and write $I(\Phi)(t) = \int_{0}^{t} \Phi(s) d B(s) .$ Next we consider stochastic integrals w.r.t. martingales. Similarly, we define $I^{M}(\cdot): \mathscr{L}_{2}(M) \to \mathscr{M}_{2}$ which enjoys parallel properties. We write $I^{M}(\Phi)(t) = \int_{0}^{t} \Phi(s) d M(s)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The above definition of stochastic integrals carries over to the case of <strong>local martingales</strong>. Finally, we discuss stochastic integrals w.r.t. point processes. Let  $\left(\boldsymbol{X}, \mathscr{B}_{\boldsymbol{X}}\right)$  be a measurable space.</p>
+<blockquote><p>A point function $p$  on  $\boldsymbol{X}$  is a mapping  $p: \boldsymbol{D}_{p} \subset(0, \infty) \longrightarrow \boldsymbol{X}$, where $\boldsymbol{D}_{p}$  is a countable subset of  $(0, \infty)$.</p>
+</blockquote>
+<p>Then $p$  defines a counting measure  $N_{p}(d t d x) $ on  $(0, \infty) \times   X$  by</p>
+$$N_{p}((0, t] \times U)=\#\left\{s \in \boldsymbol{D}_{p} ; s \leq t, p(s) \in U\right\}, \quad t&gt;0, U \in \mathscr{B}_{\boldsymbol{X}} .$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>A point process  $p$  on  $X$  is a  $\left(\Pi_{X}, \mathscr{P}\left(\Pi_{X}\right)\right)$-valued random variable where $\Pi_{X}$ = space of point functions on $\boldsymbol{X}$ and $\mathscr{B}\left(\Pi_{X}\right)$ is the smallest $\sigma$-field s.t.</p>
+$$ p \longmapsto N_{p}((0, t] \times U) = N_{p}(t, U)=\sum_{s \in D_{p}, s \leq t} I_{U}(p(s))
+$$<p>is measurable. Suppose $p$ is adapted. Let  $\Gamma_{p}=   \left\{U \in \mathscr{B}(\boldsymbol{X}) ; E\left[N_{p}(t, U)\right]&lt;\infty\right.$  for all  $\left.t&gt;0\right\}$. If  $U \in \Gamma_{p}$, then  $N_{p}(t, U)$  is an integrable increasing process and hence $\exists$ a natural integrable increasing process $\hat{N}_{p}(t, U)$  s.t. $\tilde{N}_{p}: t \to \tilde{N}_{p}(t, U)=N_{p}(t, U)-\hat{N}_{p}(t, U)$  is a martingale.</p>
+<blockquote><p>An  $\left(\mathscr{F}_{t}\right)$-adapted point process  $p$  on  $(\Omega, \mathscr{F}, P)$  is of $(\mathrm{QL})$ if it is  $\sigma$-finite and $\exists \hat{N}_{p}=(\hat{N}_{p}(t, U))$ s.t.</p>
+<ol>
+<li>$t \longmapsto \hat{N}_{p}(t, U)$  is a continuous  $\left(\mathscr{F}_{t}\right)$-adapted increasing process,</li>
+<li>$U \longmapsto \hat{N}_{p}(t, U)$  is a  $\sigma$-finite measure on  $(\boldsymbol{X}, \mathscr{B}(\boldsymbol{X}))$,</li>
+<li>$t \longmapsto \tilde{N}_{p}(t, U)=N_{p}(t, U)-\hat{N}_{p}(t, U)$  is an $\left(\mathscr{F}_{t}\right)$-martingale.</li>
+</ol>
+</blockquote>
+<p>$\{\hat{N}_{p}(t, U)\}$ is called the <strong>compensator</strong>. We have the following satisfactory properties.</p>
+<blockquote><ol>
+<li><p>For bounded predictable $f(s, \omega)$ and $U \in \Gamma_{p}$, 
+$$X(t)=\int_{0}^{t} f(s) d \tilde{N}_{p}(s, U)^{*}\left(=\sum_{\substack{s \in t \\ s \in \boldsymbol{D}_{p}}} f(s) I_{U}(p(s))-\int_{0}^{t} f(s) d \hat{N}_{p}(s, U)\right)$$
+is an $\left(\mathscr{F}_{t}\right)$-martingale.</p>
+</li>
+<li><p>For $p$ of the class (QL) and $U \in \Gamma_{p}$, $\left\langle\tilde{N}_{p}\left(\cdot, U_{1}\right), \bar{N}_{p}\left(\cdot, U_{2}\right)\right\rangle(t)=\hat{N}_{p}\left(t, U_{1} \cap U_{2}\right)$.</p>
+</li>
 </ol>
 </blockquote>
 
@@ -14884,25 +15046,9 @@ $$ \hat{f}_{T} = T^{-1} \sum_{t} f\left(X_{t}\right) \xrightarrow{\text { a.s. }
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Seeing that $P_{i, j}=P\left(X_{t+1}=j \mid X_{t}=i\right)=q(j \mid i) \alpha(j \mid i)$. Then</p>
-$$\begin{aligned}
-p_{i} P_{i, j} &amp; =p_{i} q(j \mid i) \alpha(j \mid i) = p_{i} q(j \mid i) \min \left\{1, \frac{p_{j} q(i \mid j)}{p_{i} q(j \mid i)}\right\} = \min \left\{p_{i} q(j \mid i), p_{j} q(i \mid j)\right\} \\
-&amp; \left.=p_{j} q(i \mid j) \min \left\{\frac{p_{i} q(j \mid i)}{p_{j} q(i \mid j)}, 1\right)\right\} =p_{j} q(i \mid j) \alpha(i \mid j) =p_{j} P_{j, i}
-\end{aligned}$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>and we are done. In continuous case,</p>
-<blockquote><p>The transition kernel for Metropolis-Hasting MCMC is</p>
-$$K\left(\theta, d \theta^{\prime}\right)=\alpha\left(\theta^{\prime} \mid \theta\right) q\left(d \theta^{\prime} \mid \theta\right)+c(\theta) \delta_{\theta}\left(d \theta^{\prime}\right),$$<p>where $\alpha\left(\theta^{\prime} \mid \theta\right)=\min \left\{1, \frac{p\left(\theta^{\prime}\right) q\left(\theta \mid \theta^{\prime}\right)}{p\left(\theta^{\prime}\right) q\left(\theta^{\prime} \mid \theta\right)}\right\}$, $c(\theta)=1-\int_{\Omega} \alpha\left(\theta^{\prime} \mid \theta\right) q\left(d \theta^{\prime} \mid \theta\right)$, and $\int_{A} \delta_{\theta}\left(d \theta^{\prime}\right)=\mathbb{I}_{\theta^{\prime} \in A}$.</p>
-<p>The detailed balance is satisfied when $p\left(d \theta^{\prime}\right) K\left(\theta^{\prime}, d \theta\right)=p(d \theta) K\left(\theta, d \theta^{\prime}\right)$.</p>
+<p>we shall generalize predictable processes, with which we introduce stochastic integrals w.r.t.
+point process of the class (QL).</p>
+<blockquote><p>A real function  $f(t, x, \omega)$  defined on  $[0, \infty) \times \boldsymbol{X} \times \Omega$  is <strong>$\left(\mathscr{F}_{t}\right)$-predictable</strong> if $(t, x, \omega) \longmapsto f(t, x, \omega)$  is $\mathscr{S} / \mathscr{P}\left(\boldsymbol{R}^{1}\right)$ -measurable where  $\mathscr{S}$  is the smallest  $\sigma$-field s.t. all $g$ satisfying $(x, \omega) \longmapsto g(t, x, \omega)$ is  $\mathscr{B}(\boldsymbol{X}) \times \mathscr{F}_{t}$-measurable and $t \longmapsto g(t, x, \omega)$  is left continuous are measurable.</p>
 </blockquote>
 
 </div>
@@ -14915,20 +15061,10 @@ $$K\left(\theta, d \theta^{\prime}\right)=\alpha\left(\theta^{\prime} \mid \thet
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>For $\theta=\left(\theta_{1}, \ldots, \theta_{p}\right)$ with $\geq$ one dimension, choose a kernel at random from  $K_{1}, \ldots, K_{N}$ where</p>
-$$K_{k}\left(\theta, d \theta^{\prime}\right)=\alpha_{k}\left(\theta^{\prime} \mid \theta\right) q_{k}\left(d \theta^{\prime} \mid \theta\right)+c_{k}(\theta) \delta_{\theta}\left(d \theta^{\prime}\right)$$<p>The overall kernel is $K\left(\theta, d \theta^{\prime}\right)=\sum_{k=1}^{N} \xi_{k} K_{k}\left(\theta, d \theta^{\prime}\right)$.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>The Gibbs sampler is a special case of the multi-dim case where $\theta_{i}^{\prime} \sim \pi\left(\cdot \mid \theta_{-i}\right)$ and $\theta_{-i}^{\prime}=\theta_{-i}$.</p>
+<p>We introduce the following classes:</p>
+<blockquote><p>$\boldsymbol{F}_{p}=\left\{f(t, x, \omega) ; f \text { is }\left(\mathscr{F}_{t}\right) \text {-predictable and for each } t&gt;0\right. \text {, } \int_{0}^{t+} \int_{x}|f(s, x, \omega)| N_{p}(d s d x)&lt;\infty \},$</p>
+<p>$\boldsymbol{F}_{p}^{1}=\left\{f(t, x, \omega) ; f \text { is }\left(\mathscr{F}_{t}\right) \text {-predictable and for every } t&gt;0,\right. E\left[\int_{0}^{t} \int_{X}|f(s, x, \cdot)| \hat{N}_{p}(d s d x)\right]&lt;\infty \}, $</p>
+<p>$\boldsymbol{F}_{p}^{2}=\left\{f(t, x, \omega) ; f \text { is }\left(\mathscr{F}_{t}\right) \text {-predictable and for every } t&gt;0,\right. E\left[\int_{0}^{t} \int_{X}|f(s, x, \cdot)|^{2} \hat{N}_{p}(d s d x)\right]&lt;\infty \},$</p>
 </blockquote>
 
 </div>
@@ -14941,11 +15077,22 @@ $$K_{k}\left(\theta, d \theta^{\prime}\right)=\alpha_{k}\left(\theta^{\prime} \m
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Important applications of the Gibbs sampler arise for missing data. Suppose the observation process is</p>
-$$z \sim p(z \mid \theta), \quad y \sim p(y \mid z, \theta)$$<p>The posterior  $\pi(\theta \mid y)$  is awkward as $\pi(\theta \mid y) \propto \pi(\theta) \int p(y \mid z, \theta) p(z \mid \theta) d z$.</p>
-<blockquote><p>In data augmentation we work with $p(\theta, z \mid y)$, thinking of missing data as another parameter: the posterior is simply</p>
-$$p(\theta, z \mid y) \propto p(y \mid z, \theta) p(z \mid \theta) p(\theta) .$$
-</blockquote>
+<p>Note that for  $f \in \boldsymbol{F}_{p}$, we set</p>
+$$\int_{0}^{t+} \int_{X} f(s, x, \cdot) N_{p}(d s d x) = \sum_{\substack{s \leq t \\ s \in \boldsymbol{D}_p}} f(s, p(s), \cdot) \quad (\text{absolutely convergent sum})
+$$<p>and as in the proof of 1 and 2, we know $\boldsymbol{F}_{p}^{1} \subset \boldsymbol{F}_{p}$. We can also consider the <strong>compensated sum</strong></p>
+$$\int_{0}^{t+} \int_{X} f(s, x, \cdot) \tilde{N}_{p}(d s d x) 
+\quad=\int_{0}^{t+} \int_{X} f(s, x, \cdot) N_{p}(d s d x)-\int_{0}^{t} \int_{X} f(s, x, \cdot) \hat{N}_{p}(d s d x)$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>which is an $\left(\mathscr{F}_{t}\right)$-martingale. However, life is not easy for $f \in \boldsymbol{F}_{p}^{2, l o c}$, where we study $\int_{X} f(s, x, \cdot) \tilde{N}_{p}(d s d x)$, the well-defined definition can be derived essentially the same as the martingale case.</p>
 
 </div>
 </div>
@@ -14958,6 +15105,19 @@ $$p(\theta, z \mid y) \propto p(y \mid z, \theta) p(z \mid \theta) p(\theta) .$$
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
+<h3 id="4.-Stochastic-Differentials">4. Stochastic Differentials<a class="anchor-link" href="#4.-Stochastic-Differentials">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let  $X=\left(X_{t}\right)$  be a continuous semimartingale (i.e. <strong>quasimartingale</strong>, the family of which is denoted $\mathscr{Q}$), which assumes the <strong>canonical decomposition</strong></p>
+$$X_{t}=X_{0}+M_{t}+A_{t}$$<p>where  $X_{0}$  is an  $\mathscr{F}_{0}$-measurable random variable,  $M=\left(M_{t}\right) \in \mathscr{M}$  and  $A \in \mathscr{A}$. Here $\mathscr{M}$ = family of continuous locally square integrable martingales and $\mathscr{A}$ = family of continuous processes of bounded variation. We also consider $\mathscr{B}$ = predictable processes bounded on bounded intervals.</p>
 
 </div>
 </div>
@@ -14969,7 +15129,10 @@ $$p(\theta, z \mid y) \propto p(y \mid z, \theta) p(z \mid \theta) p(\theta) .$$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.-Exchangibility">3. Exchangibility<a class="anchor-link" href="#3.-Exchangibility">&#182;</a></h3>
+<blockquote><p>The <strong>canonical decomposition</strong> of quasimartingales is unique.</p>
+</blockquote>
+<p>The proof requires the <strong>observation</strong> that $\langle M\rangle_{t}$  = limit in probability of  $\sum_{i=1}^{n}\left(M_{t_{i}}-M_{t_{t-1}}\right)^{2}$.</p>
+
 </div>
 </div>
 </div>
@@ -14980,7 +15143,13 @@ $$p(\theta, z \mid y) \propto p(y \mid z, \theta) p(z \mid \theta) p(\theta) .$$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>An infinite exchangeable sequence of $\left\{X_{i}\right\}_{i=1}^{\infty}$  is an infinite sequence s.t. $X_{1}, X_{2}, \ldots, X_{n}$  are exchangeable for every  $n \geq 1$.</p>
+<p>For  $X, Y \in \mathscr{Q}$, we write $X \sim Y$  if, with probability one, $X(t)-X(s)=Y(t)-Y(s)$ for every  $0 \leq s \leq t$. The equivalence class containing  $X$  is denoted by  $d X$  and is called the <strong>stochastic differential</strong> of  $X$. Let $d \mathscr{Q}=\{d X ; X \in   \mathscr{Q}\}$ and simiarly for other classes. We shall introduce the following operations gathering together the conlusions above.</p>
+<blockquote><ol>
+<li><strong>Intuitive understanding</strong>: $\int_{s}^{t} d X(u) = X(t)-X(s)$. </li>
+<li><strong>Addition</strong>: $d X+d Y=d(X+Y)$</li>
+<li><strong>Product</strong>: $d X \cdot d Y=d\left\langle M_{X}, M_{Y}\right\rangle$ where $M_{X} (M_{Y})$ is the martingale part of $X(Y)$.</li>
+<li><strong>Multiplication</strong>: For  $\Phi \in \mathscr{B}$  and  $X \in \mathscr{Q}$, $(\Phi \cdot X)=X(0)+\int_{0}^{t} \Phi(s, \omega) d M_{X}(s)+\int_{0}^{t} \Phi(s, \omega) d A_{X}(s)$.</li>
+</ol>
 </blockquote>
 
 </div>
@@ -14993,98 +15162,9 @@ $$p(\theta, z \mid y) \propto p(y \mid z, \theta) p(z \mid \theta) p(\theta) .$$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Suppose the data forms an exchangeable sequence, then $\exists$ a generative model</p>
-$$\begin{aligned}
-\Theta &amp; \sim F \\
-X_{i} \mid \Theta=\theta &amp; \sim p(\cdot \mid \theta), \quad \text { iid for } i=1, \ldots, n
-\end{aligned}$$<p>for the data. These distributions all exist by <strong>de Finetti</strong>. If  $x=\left(x_{1}, \ldots, x_{n}\right)$, the likelihood is</p>
-$$p(x \mid \theta)=\prod_{i} p\left(x_{i} \mid \theta\right) .$$<p>Here  F  is "nature's prior", which may not coincide with our own prior  $\pi$. However, de Finetti gives the form for the prior predictive distribution of the data</p>
-$$p_{1: n}\left(x_{1}, \ldots, x_{n}\right)=\int p\left(x_{1}, \ldots, x_{n} \mid \theta\right) d F(\theta) .$$<p>This is of course the marginal likelihood. Suppose we have some priors  $\pi(\theta \mid m), m \in \mathcal{M}$  and we carry out model selection using the marginal likelihood</p>
-$$p(x \mid M=m)=\int p(x \mid \theta) \pi(\theta \mid M=m) d \theta .$$<p>When we choose a model  $M=m$, we are forming an estimate  $\pi(\theta \mid M=m)$  for  $F$ the prior.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We also get an expression for the posterior in terms of  $F$. Given $x_{1: m}=\left(x_{1}, \ldots, x_{m}\right)$  and we wish to predict  $x_{m+1: n}=\left(x_{m+1}, \ldots, x_{n}\right)$. The posterior predictive distribution is</p>
-$$\begin{aligned}
-p\left(x_{m+1: n} \mid x_{1: m}\right) &amp; =p\left(x_{1: n}\right) / p\left(x_{1: m}\right) \\
-&amp; =\int p\left(x_{m+1: n} \mid \theta\right) \frac{p\left(x_{1: m} \mid \theta\right) d F(\theta)}{p\left(x_{1: m}\right)} \\
-&amp; =\int p\left(x_{m+1: n} \mid \theta\right) d \tilde{F}(\theta) .
-\end{aligned}$$<p>After $X_{1}=x_{1}, \ldots X_{m}=x_{m}$, $\exists$ a generative model</p>
-$$\begin{aligned}
-\Theta \mid X_{1: m} &amp; \sim \tilde{F}(\theta) \\
-X_{i} \mid \Theta=\theta &amp; \sim p(\cdot \mid \theta), \quad \text { iid for } i=m+1, \ldots, n .
-\end{aligned}$$<p>Here $d \tilde{F}(\theta) \propto p\left(x_{1}, \ldots, x_{m} \mid \theta\right) d F(\theta)$ is the updated true generative model for the parameter  $\Theta \mid X_{1: m}$, or in other words, the posterior. <strong>de Finetti</strong> tells us that Bayesian inference is possible in this exchangeable setting.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-<h3 id="4.-Model-Averaging">4. Model Averaging<a class="anchor-link" href="#4.-Model-Averaging">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>The model-averaged posterior  is $\pi(\theta \mid y)=\sum_{m \in \mathcal{M}} \pi(\theta, m \mid y), \theta \in \Omega$ where $\Omega=\bigcup_{m \in \mathcal{M}} \Omega_{m}$.</p>
+<p>Write $\Phi \cdot d X=d(\Phi \cdot X)$ and we conclude that</p>
+<blockquote><p>The space  $d \mathscr{Q}$  with the operations addition, multiplication, and product  is a commutative algebra over  $\mathscr{B}$.</p>
 </blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Then we claim that model averaging is preferred to inference after model selection. Consider estimating $h(\theta)$. Then we have the posterior mean and the single-model posterior mean</p>
-$$E_{\theta, m \mid y}(h(\theta))=\sum_{m \in \mathcal{M}} \int_{\Omega_{m}} h(\theta) \pi(\theta, m \mid y) d \theta, \quad E_{\theta \mid y, m^{*}}(h(\theta))=\int_{\Omega_{m^{*}}} h(\theta) \pi\left(\theta \mid y, m^{*}\right) d \theta.$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>If the loss for estimating $\delta$  when the truth is  $h$  is  $(h-\delta)^{2}$,  then the Bayes risk  $\rho(\pi, \delta(y))$  allowing for model and parameter uncertainty is minimised by  $E_{\theta, m \mid y}(h(\theta))$  and  $\rho\left(\pi, E_{\theta \mid y, m}(h)\right) \geq \rho\left(\pi, E_{\theta, m \mid y}(h)\right)$  for every  $m \in \mathcal{M}$.</p>
-<p><strong>Proof.</strong> Recall that the Bayes risk is minimised by the estimator minimising the expected posterior loss  $\rho(\pi, \delta \mid y)$  at every $ y \in \mathcal{Y}$. This is</p>
-$$\rho(\pi, \delta \mid y)=\sum_{m \in \mathcal{M}} \int_{\Omega_{m}}(\delta-h(\theta))^{2} \pi(\theta, m \mid y) d \theta$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Differentiation gives</p>
-$$\frac{\partial \rho}{\partial \delta}=\sum_{m \in \mathcal{M}} \int_{\Omega_{m}}(2 \delta-2 h(\theta)) \pi(\theta, m \mid y) d \theta$$<p>and this is $0$ when $\delta(y)=E_{\theta, m \mid y}(h(\theta))$.</p>
 
 </div>
 </div>
@@ -15104,6 +15184,15 @@ $$\frac{\partial \rho}{\partial \delta}=\sum_{m \in \mathcal{M}} \int_{\Omega_{m
 <li>Geoff K. Nicholls. Bayes Methods.</li>
 <li>Patrick J. Laub. Hawkes Processes.</li>
 <li>Tomas Björk. An Introduction to Point Processes from a Martingale Point of View.</li>
+<li>Jonas Peters. Elements of Causal Inference.</li>
+<li>Alessio Zanga. A Survey on Causal Discovery.</li>
+<li>Qing Zhou. Directed Mixed Graphs for Latent Variables.</li>
+<li>Peter Spirtes. Causation, Prediction, and Search. </li>
+<li>Thomas Richardson. Ancestral Graph Markov Models.</li>
+<li>Jonas Peters. Causal Inference Using Invariant Prediction.</li>
+<li>Jonathan Baxter. A Bayesian/Information Theoretic Model of Learning to Learn via Multiple Task Sampling.</li>
+<li>Nobuyuki Ikeda. Stochastic Differential Equations and Diffusion Processes.</li>
+<li>Alan F. Karr. Point Processes and Their Statistical Inference.</li>
 </ol>
 
 </div>
