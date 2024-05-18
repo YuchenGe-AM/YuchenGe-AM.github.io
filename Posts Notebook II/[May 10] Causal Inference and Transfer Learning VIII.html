@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>[May 10] Causal Inference and Transfer Learning VIIII</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>[May 10] Causal Inference and Transfer Learning VIII</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14630,8 +14630,17 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Recall that every locally compact $T_2$ space is regular and</p>
-<blockquote><p><strong>Urysohn's metrization theorem</strong>: Every second-countable regular $T_2$ space is metrisable, and hence separable.</p>
+<p>Recall some basic topological properpties.</p>
+<blockquote><ol>
+<li><p>Every locally compact hausdorff space is regular. (consider one-point compactification)</p>
+</li>
+<li><p><strong>Urysohn's metrization theorem</strong>: Every second-countable $T_3$ space is metrisable.</p>
+</li>
+<li><p>Every second-countable metric space is separable.</p>
+</li>
+<li><p>Every locally compact metric space is completely metrizable. (consider completion)</p>
+</li>
+</ol>
 </blockquote>
 
 </div>
@@ -14644,7 +14653,18 @@ Website: <a href="https://yuchenge-am.github.io">https://yuchenge-am.github.io</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Therefore, a locally compact $T_2$ space with a countable base is a separable metric space. Let $S$  be a separable metric space with the metric  $\rho$. Recall that $P_{n} \xrightarrow{w} P $.  on  $(S, \mathscr{B}(S))$  if $\forall  f \in C_{b}(S)$,</p>
+<p>Therefore, a locally compact $T_2$ space with a countable base is a <strong>Polish space</strong> (i.e. a separable and completely metrizable space).</p>
+<p>We know that</p>
+<blockquote><ol>
+<li><p>Any Polish space is homeomorphic to a Borel set in  $[0,1]^{\mathbb{N}}$ and is Borel isomorphic to a Borel set in $[0,1]$. (see thm 1.1 in $\textit{Random Measures, Theory and Applications}$)</p>
+</li>
+<li><p>Any Polish space is a <strong>standard measurable space</strong> and thus admits a unique regular
+conditional probability.</p>
+</li>
+</ol>
+</blockquote>
+<hr>
+<p>Let $S$  be a separable metric space with the metric  $\rho$. Recall that $P_{n} \xrightarrow{w} P $.  on  $(S, \mathscr{B}(S))$  if $\forall  f \in C_{b}(S)$,</p>
 $$\lim _{n \rightarrow \infty} \int_{s} f(x) P_{n}(d x)=\int_{s} f(x) P(d x) .$$
 </div>
 </div>
@@ -14667,7 +14687,7 @@ Then we discuss the <strong>Prokhorov’s theorem</strong>.</p>
 </blockquote>
 <p>Note that when $S$  is complete, the converse of Prokhorov’s Theorem is true.</p>
 <p>We prove a special case. If  $S$  is a compact metric space then  $\mathscr{P}(S)$  is compact and hence every  $\Lambda \subset \mathscr{P}(S)$  is relatively compact. Indeed, by Riesz's theorem,  $\mathscr{P}(S)=\left\{\mu \in C^{*}(S) ; \mu(f) \geq 0\right.$  for  $f \geq 0$  and  $\mu(\boldsymbol{1})=1\}$, and since  $C(S)=C_{b}(S)$ weak convergence is equivalent to convergence in the weak $*$-topology on $C^{*}(S)$. Thus  $\mathscr{P}(S)$  is compact since it is a weak $*$-closed subset of the unit ball in  $C^{*}(S)$  and we have</p>
-<blockquote><p><strong>Banach Alaoglu Thm.</strong> the unit ball is weak $*$-compact.</p>
+<blockquote><p><strong>Thm. (Banach Alaoglu Theorem)</strong> the unit ball is weak $*$-compact.</p>
 </blockquote>
 
 </div>
@@ -15193,6 +15213,8 @@ $$X_{t}=X_{0}+M_{t}+A_{t}$$<p>where  $X_{0}$  is an  $\mathscr{F}_{0}$-measurabl
 <li>Jonathan Baxter. A Bayesian/Information Theoretic Model of Learning to Learn via Multiple Task Sampling.</li>
 <li>Nobuyuki Ikeda. Stochastic Differential Equations and Diffusion Processes.</li>
 <li>Alan F. Karr. Point Processes and Their Statistical Inference.</li>
+<li>Olav Kallenberg. Random Measures, Theory and Applications.</li>
+<li>Gunter Last. Lectures on the Poisson Process.</li>
 </ol>
 
 </div>
